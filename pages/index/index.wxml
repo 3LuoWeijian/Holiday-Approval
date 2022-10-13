@@ -1,0 +1,19 @@
+<!--登录页面-->
+<view class="item">
+      <view class="login-item">
+           <view class="login-item-info">学号/工号</view>
+           <view><input bindinput="usernameInput"/></view>
+      </view>
+      <view class="login-item">
+           <view class="login-item-info">密码</view>
+           <view class="login-pwd">
+
+           <input style="flex-grow:1" password="true" bindtap="passwordInput"/> 
+           <text> 忘记密码 </text>
+
+           </view>
+      </view>
+      <view class="login-item bottom">
+           <button class="login-btn" bindtap="loginbtnInput">登录</button>
+      </view>
+</view>

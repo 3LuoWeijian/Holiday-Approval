@@ -1,0 +1,24 @@
+<block>
+  <view class="box1"></view> 
+      <view class="header">
+          <view class="root" wx:if="{{!userInfo}}">
+          <button class="login_btn" size="mini" bindtap="getUserProfile" > 获取头像昵称 </button>
+          </view>
+
+          <view wx:else class="root">
+          <image bindtap="bindViewTap" class="touxiang" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+          <text class="nicheng">{{userInfo.nickName}}</text>
+          <button class="tuichu" size="mini" bindtap="outLogin">退出登录</button>
+          </view>
+      </view> 
+</block>
+<button>我的信息</button>
+<button>审批进度（已审批和未审批）</button>
+<button>打卡记录</button>
+<button>意见反馈</button>
+
+<text>辅导员</text>
+<button>我的信息</button>
+<button>审批记录</button>
+<button>意见反馈</button>
+

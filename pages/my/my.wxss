@@ -1,0 +1,51 @@
+/* pages/my/my.wxss */
+.box1
+{
+  width: 100%;
+  height: 200rpx;
+  background-color:#32CCBC;
+  border-radius: 0 0 32rpx 32rpx;
+}
+
+.root{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.touxiang{
+  position: absolute;
+  left: 50rpx;
+  top: 70rpx;
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+}
+.header{
+  height:380rpx;
+}
+.login_btn{
+  position: absolute;
+  top: 100rpx;
+  display: flex;
+  align-items: center;
+  background-color: #efefef; 
+  font-weight: lighter;
+  border-radius: 16rpx;
+}
+.nicheng{
+  position: absolute;
+  left: 300rpx;
+  top: 130rpx;
+  font-size: 50rpx;
+}
+.tuichu
+{
+  position: absolute;
+  left: 450rpx;
+  top: 120rpx;
+  border-radius: 32rpx;
+  font-size: 50rpx;
+  font-weight: lighter;
+  background-color: #efefef;
+}

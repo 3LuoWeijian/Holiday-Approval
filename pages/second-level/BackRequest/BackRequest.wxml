@@ -1,0 +1,57 @@
+<text class="title">基本信息\n</text>
+  <view class="box1">
+    <text>姓名</text><input/>
+    <text>学号</text><input/>
+    <text>班级</text><input/>
+    <text>学院</text><input/>
+    <text>手机号码</text><input/>
+    <text>学生类别</text>
+    <view>
+      <radio-group class="box2">
+        <radio checked="true">本科生</radio>
+        <radio>研究生</radio>
+      </radio-group>
+    </view>
+    <text>校区</text>
+    <radio-group class="box2">
+        <radio checked="true">大学城</radio>
+        <radio>桂花岗</radio>
+        <radio>黄埔</radio>
+      </radio-group>
+  </view> 
+
+<text class="title">返校方式</text>
+  <view class="box1">
+    <text>交通工具</text><input/>
+    <text>交通工具班次</text><input/>
+  </view>
+
+<text class="title">时间与地点</text>
+  <view class="box1">
+    <text>从何地返校</text><input/>
+    <text>出发时间</text><input/>
+    <text>预计返校时间</text>
+    <picker mode="date" value="{{date}}" start="2010-09-01" end="2060-09-01" bindchange="bindDateChange" class="box2">
+      <view class="picker">
+        {{date}}
+      </view>
+    </picker>
+    <text>是否住校</text>
+    <radio-group class="box2">
+        <radio checked="true">是</radio>
+        <radio>否</radio>
+      </radio-group>
+  </view>
+
+<text class="title">证明上传</text>
+  <view class="box1">
+    <text>健康码</text><input/>
+    <text>行程码</text><input/>
+    <text>上传附件证明</text><input/>
+  </view>
+
+<text style="color: brown;">1.返校学生需完成相应健康管理，凭相关核酸检测阴性证明，满足返校条件后方可发起返校申请。
+2.返校前7天有发热、干咳、肌痛、乏力、咽痛、腹泻、流涕、嗅觉味觉减退、鼻塞、结膜炎等十大症状的，需上传就诊病历资料和核酸检测阴性结果。
+3.如有解除隔离、治愈、疑似转排除、通行证等相关证明，请上传附件。如需上传多个文件请自行打包后进行上传。</text>
+
+<button class="button1">提交</button>

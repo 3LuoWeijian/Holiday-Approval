@@ -1,0 +1,48 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/main/main",
+        "pages/check/check",
+        "pages/tol-view/tol-view",
+        "pages/my/my",
+        "pages/second-level/BackRequest/BackRequest"
+        
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "广州大学",
+        "navigationBarTextStyle":"black"
+    },
+    "tabBar": {
+      "selectedColor": "#99CCCC",
+    "list": [
+      {
+        "pagePath": "pages/main/main",
+        "text": "首页",
+        "iconPath": "/image/main.png",
+        "selectedIconPath": "/image/main-active.png"
+      },
+      {
+        "pagePath": "pages/check/check",
+        "text": "审批",
+        "iconPath": "/image/check.png",
+        "selectedIconPath": "/image/check-active.png"
+      },
+      {
+        "pagePath": "pages/tol-view/tol-view",
+        "text": "总览",
+        "iconPath": "/image/view.png",
+        "selectedIconPath": "/image/view-active.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "个人",
+        "iconPath": "/image/my.png",
+        "selectedIconPath": "/image/my-active.png"
+      }
+    ]
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,7 @@
+<!--pages/check/check.wxml-->
+<button>学生人数情况（可视化）</button>
+<button>学生健康打卡情况（可视化）</button>
+<button>离校审批</button>
+<button>课假审批</button>
+<button>返校审批</button>
+

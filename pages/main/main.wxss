@@ -1,0 +1,17 @@
+/* pages/main/main.wxss */
+.box1
+{
+  width: 100%;
+  height: 330rpx;
+  border-radius: 0rpx 0rpx 32rpx 32rpx;
+  box-shadow: 0 4rpx 3rpx 6rpx #efefef;
+  border: 2rpx solid #efefef;
+}
+
+.box2 button
+{
+  margin-top: 70rpx;
+  border-radius: 32rpx;
+  box-shadow:0 2rpx 4rpx 4rpx turquoise;
+  width: 400rpx;
+}

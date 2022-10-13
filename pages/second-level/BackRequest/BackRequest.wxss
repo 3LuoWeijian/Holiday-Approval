@@ -1,0 +1,43 @@
+/* pages/second-level/BackRequest/BackRequest.wxss */
+.title
+{
+  font-size: 60rpx;
+  font-weight: bolder;
+  margin-left: 30rpx;
+}
+.box1
+{
+  margin: 50rpx;
+}
+.box1 text
+{
+  padding: 10rpx;
+  margin-top: 10rpx;
+}
+.box1 input
+{
+  width: 90%;
+  border-bottom: 3rpx solid #efefef;
+  padding: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.box2
+{
+  width: 90%;
+  border-bottom: 1rpx solid #efefef;
+  padding-bottom: 20rpx;
+  margin: 20rpx;
+}
+.box2 radio
+{
+  padding-right: 40rpx;
+}
+
+.button1
+{
+  width: 80%;
+  margin-top: 40rpx;
+  background-color:#28C76F ;
+  color: white;
+}

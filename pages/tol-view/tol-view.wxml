@@ -1,0 +1,4 @@
+<!--pages/tol-view/tol-view.wxml-->
+<button>全校人数</button>
+<button>全校打卡情况</button>
+
