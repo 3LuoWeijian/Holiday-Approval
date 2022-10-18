@@ -12,14 +12,22 @@
           </view>
       </view> 
 </block>
-<button>我的信息</button>
-<button>审批进度（已审批和未审批）</button>
-<button>打卡记录</button>
-<button>意见反馈</button>
 
-<text>辅导员</text>
-<button>我的信息</button>
-<button>审批记录</button>
-<button>意见反馈</button>
-<button></button>
-
+<view class="box2">
+	<view class="box3">
+		<image src="/image/myinfo.png"></image>
+		<text>我的信息</text>
+	</view>
+	<view class="box3">
+		<image src="/image/shenpi.png"></image>
+		<text>审批进度</text>
+	</view>
+	<view class="box3">
+		<image src="/image/daka.png"></image>
+		<text>打卡记录</text>
+	</view>
+	<view class="box3" style="margin-top: 90rpx;">
+		<image src="/image/fankui.png"></image>
+		<text>意见反馈</text>
+	</view>
+</view>
