@@ -1,0 +1,316 @@
+page {
+  background-color: #ffffff;
+}
+
+.formBox {
+  width: 100%;
+  height: 100%
+}
+
+.topBox {
+  width: 750rpx;
+  height: 100rpx;
+  padding: 0 20rpx;
+  background-color: #ccccff;
+}
+
+.topBox image {
+  width: 50rpx;
+  height: 50rpx;
+  float: left;
+  margin-top: 25rpx
+}
+
+.topBox text {
+  width: 610rpx;
+  text-align: center;
+  line-height: 100rpx;
+  float: left;
+}
+
+.titleBox {
+  width: 710rpx;
+  height: 200rpx;
+  margin: 20rpx 20rpx 0;
+  background: white;
+  border-radius: 20rpx;
+}
+
+.titleTtile {
+  width: 200rpx;
+  height: 100rpx;
+  font-size: 28rpx;
+  float: left;
+  line-height: 100rpx;
+}
+
+.titleText {
+  width: 710rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 24rpx;
+  color: #808080;
+  margin: 0 20rpx;
+  clear: both
+}
+
+.leaveClassBox {
+  width: 400rpx;
+  height: 50rpx;
+  margin: 20rpx auto 0;
+}
+
+.leaveClassList {
+  width: 200rpx;
+  height: 50rpx;
+  float: left;
+}
+
+.classRadio {
+  float: left;
+}
+
+.leaveClassList text {
+  height: 100rpx;
+  line-height: 50rpx;
+  float: left;
+  margin-left: 20rpx;
+  font-size: 28rpx
+}
+
+.leaveTimeBox {
+  width: 710rpx;
+  height: 100rpx;
+  margin: 20rpx 20rpx 0;
+  background: white;
+  border-radius: 20rpx;
+}
+
+.signBox {
+  width: 6rpx;
+  height: 30rpx;
+  float: left;
+  background-color: #66ffff;
+  margin: 35rpx 20rpx;
+}
+
+.leaveTtile {
+  width: 200rpx;
+  height: 100rpx;
+  font-size: 28rpx;
+  float: left;
+  line-height: 100rpx;
+}
+
+.leaveTime {
+  height: 100rpx;
+  line-height: 100rpx;
+  float: right;
+  font-size: 24rpx;
+  color: #808080;
+  margin-right: 20rpx;
+}
+
+.returnTimeBox {
+  width: 710rpx;
+  height: 100rpx;
+  margin: 20rpx 20rpx 0;
+  background: white;
+  border-radius: 20rpx;
+}
+
+.returnTtile {
+  width: 200rpx;
+  height: 100rpx;
+  font-size: 28rpx;
+  float: left;
+  line-height: 100rpx;
+}
+
+.returnTime {
+  height: 100rpx;
+  line-height: 100rpx;
+  float: right;
+  font-size: 24rpx;
+  color: #808080;
+  margin-right: 20rpx;
+}
+
+.destinationTimeBox {
+  width: 710rpx;
+  height: 100rpx;
+  margin: 20rpx 20rpx 0;
+  background: white;
+  border-radius: 20rpx;
+}
+
+.destinationTtile {
+  width: 200rpx;
+  height: 100rpx;
+  font-size: 28rpx;
+  float: left;
+  line-height: 100rpx;
+}
+
+.destinationTimeBox input {
+  width: 172rpx;
+  height: 99rpx;
+  display: block;
+  box-sizing: border-box
+}
+
+.contactBox {
+  width: 710rpx;
+  height: 100rpx;
+  margin: 20rpx 20rpx 0;
+  background: white;
+  border-radius: 20rpx;
+}
+
+.contactTtile {
+  width: 200rpx;
+  height: 100rpx;
+  font-size: 28rpx;
+  float: left;
+  line-height: 100rpx;
+}
+
+.contactBox input {
+  width: 397rpx;
+  height: 99rpx;
+  display: block;
+  box-sizing: border-box;
+  font-size: small;
+}
+
+.ErgContactBox {
+  width: 710rpx;
+  height: 100rpx;
+  margin: 20rpx 20rpx 0;
+  background: white;
+  border-radius: 20rpx;
+}
+
+.ErgContactTtile {
+  width: 200rpx;
+  height: 100rpx;
+  font-size: 28rpx;
+  float: left;
+  line-height: 100rpx;
+}
+
+.ErgContactBox input {
+  width: 249rpx;
+  height: 99rpx;
+  display: block;
+  box-sizing: border-box
+}
+
+.reasonBox {
+  width: 710rpx;
+  height: 400rpx;
+  margin: 20rpx 20rpx 0;
+  background: white;
+  border-radius: 20rpx;
+}
+
+.reasonTtile {
+  width: 150rpx;
+  height: 100rpx;
+  font-size: 28rpx;
+  float: left;
+  line-height: 100rpx;
+  font-size: medium;
+}
+
+.errmsg {
+  width: 400rpx;
+  height: 100rpx;
+  font-size: 24rpx;
+  float: left;
+  line-height: 100rpx;
+  color: red
+}
+
+.reasonText {
+  width: 710rpx;
+  height: 200rpx;
+  margin: 0 20rpx;
+  clear: both
+}
+
+.reasonText textarea {
+  width: 670rpx;
+  line-height: 50rpx;
+  font-size: 24rpx;
+  color: #808080;
+  height: 200rpx
+}
+
+.textCount {
+  width: 200rpx;
+  height: 100rpx;
+  float: right;
+  margin-right: 20rpx;
+}
+
+.textCount text {
+  float: right;
+  line-height: 100rpx;
+  font-size: 32rpx;
+}
+
+.submitBtn {
+  width: 710rpx;
+  height: 80rpx;
+  margin: 40rpx auto;
+  background-color: #66ccff;
+  border-radius: 20rpx;
+  line-height: 40rpx;
+  color: white;
+  font-size: 28rpx;
+}
+
+.title {
+  font-size: 60rpx;
+  font-weight: bolder;
+  margin-left: 30rpx;
+}
+
+.box1 {
+  margin: 50rpx;
+}
+
+.box1 text {
+  padding: 10rpx;
+  margin-top: 10rpx;
+}
+
+.box1 input {
+  width: 90%;
+  border-bottom: 3rpx solid #efefef;
+  padding: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.box2 {
+  width: 90%;
+  border-bottom: 1rpx solid #efefef;
+  padding-bottom: 20rpx;
+  margin: 20rpx;
+}
+
+.box2 radio {
+  padding-right: 40rpx;
+}
+
+.button1 {
+  width: 80%;
+  margin-top: 40rpx;
+  background-color: #28C76F;
+  color: white;
+}
+
+.leaveReason {
+  width: 652rpx; height: 256rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx
+}

@@ -15,6 +15,11 @@ Page({
 
   },
 
+  Leave(){
+    wx.navigateTo({
+      url: '/pages/leave/leave',
+    })
+  },
   //返校申请
   BackRequest(){
     wx.navigateTo({
