@@ -23,7 +23,7 @@ Page({
   //返校申请
   BackRequest(){
     wx.navigateTo({
-      url: '/pages/second-level/BackRequest/BackRequest',
+      url: '/pages/BackRequest/BackRequest',
     })
   },
 

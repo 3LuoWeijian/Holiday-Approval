@@ -5,7 +5,7 @@
         "pages/check/check",
         "pages/tol-view/tol-view",
         "pages/my/my",
-        "pages/second-level/BackRequest/BackRequest",
+        "pages/BackRequest/BackRequest",
         "pages/leave/leave"
     ],
     "window": {
