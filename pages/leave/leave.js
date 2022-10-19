@@ -167,69 +167,7 @@ Page({
     }
   },
 
-  submit: function (e) {
-    var reasonLen = e.detail.value.leaveReason.length
-    if (reasonLen > 10) {
-      // console.log('form submit 事件',e.detail.value)
-      wx.showLoading({
-        title: '申请提交中...',
-        mask: true
-      })
-      var data = {
-        sno: app.globalData.regInfo.sno,
-        leaveClass: e.detail.value.leaveClass,
-        leaveDate: this.data.leaveDate,
-        returnDate: this.data.returnDate,
-        leaveReason: e.detail.value.leaveReason,
-        subDate: this.data.nowDate
-      }
-      console.log('data = ', data)
-      wx.cloud.callFunction({
-          name: "upleave",
-          data: data
-        })
-        .then(res => {
-          // console.log(res)
-          wx.hideLoading()
-          wx.showToast({
-            title: '提交成功',
-            icon: 'success',
-            duration: 2000,
-            mask: true,
-            success: (res) => {
-              setTimeout(() => {
-                wx.navigateBack({
-                  delta: 1,
-                })
-              }, 2000);
-            }
-          })
-        })
-        .catch(err => {
-          wx.showToast({
-            title: '提交失败',
-            icon: 'none',
-            duration: 2000,
-            mask: true
-          })
-          console.log(err)
-        })
-    } else {
-      if (reasonLen == 0) {
-        this.setData({
-          errmsg: "*啥都不写，感觉辅导员不会批准哦"
-        })
-      } else if (reasonLen < 10) {
-        this.setData({
-          errmsg: "*这么一丢丢，你再多写一点嘛"
-        })
-      } else {
-        this.setData({
-          errmsg: ""
-        })
-      }
-    }
-  },
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
