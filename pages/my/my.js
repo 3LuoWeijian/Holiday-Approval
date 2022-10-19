@@ -18,7 +18,7 @@ Page({
     }
   },
   //授权登录
-  getUserProfile(e){
+   getUserProfile(e){
     wx.getUserProfile({
       desc: '完善用户信息',
       success:res=>{

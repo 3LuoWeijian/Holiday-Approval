@@ -1,6 +1,8 @@
 // app.js
 App({
   appData:{
-    userinfo:null,
-  }
+	userinfo:null,
+	people:"student",
+  },
+  
 })
