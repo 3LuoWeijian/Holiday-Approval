@@ -60,3 +60,14 @@
   color:#efefef;
   border-radius: 32rpx;
 }
+
+.radio1
+{
+	border: 1rpx solid #efefefef;
+	height: 70rpx;
+	border-radius: 32rpx;
+	display: flex;
+	flex-direction:row;
+	margin-top: 20rpx;
+}
+

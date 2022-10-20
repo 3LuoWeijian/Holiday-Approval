@@ -1,20 +1,29 @@
 // pages/index/index.js
-const app = getApp()
+var app=getApp().appData;
 Page({
 
   /**
    * 页面的初始数据
    */
-  data: {
+  data:{
     username:null,
-    password:null,
+	password:null,
+	item:[
+		{value:"student", name:"我是学生", checked:"true"},
+		{value:"teacher", name:"我是老师"}		
+	]
   },
 
+  radioChange:function(e){
+	  console.log(e.detail.value)
+	app.people = e.detail.value
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+	    	  
   },
   usernameInput: function (event) {
     this.setData({
@@ -27,21 +36,22 @@ Page({
     })
   },
   loginbtnInput:function(){
-    app.appData.userinfo = { username: this.data.username, password: this.data.password };
+    app.userinfo = { username: this.data.username, password: this.data.password };
     wx.redirectTo({url:"/pages/main/main"})
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
+  
   onReady() {
-
+	  
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+	  
   },
 
   /**

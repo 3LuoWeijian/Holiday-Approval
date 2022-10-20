@@ -2,9 +2,10 @@
     <image class="box1" src='/image/gzhu.png' mode="widthFix"></image>
 </block>
 <view class="box2">
-  <button bindtap="Leave">离校申请1</button>
+  <button bindtap="Leave">离校申请</button>
   <button bindtap="BackRequest">返校申请</button>
   <button>课程请假</button>
   <button>健康打卡</button>
 </view>
+
 
