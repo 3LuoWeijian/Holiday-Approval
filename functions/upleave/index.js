@@ -10,12 +10,12 @@ exports.main = async (event, context) => {
   return await db.collection("leave")
     .add({
       data: {
-        sno: event.sno,
-        leaveClass: event.leaveClass,
+        //sno: event.sno,
+        //leaveClass: event.leaveClass,
         leaveDate: event.leaveDate,
         leaveReason: event.leaveReason,
         returnDate: event.returnDate,
-        approveState: 0,
+        //approveState: 0,
         subDate:event.subDate
       }
     })
