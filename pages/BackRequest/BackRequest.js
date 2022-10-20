@@ -1,5 +1,7 @@
 // pages/second-level/BackRequest/BackRequest.js
 var myDate = new Date();
+const db = wx.cloud.database;
+
 Page({
 
   /**
@@ -7,8 +9,12 @@ Page({
    */
   data: {
     date:myDate.toLocaleDateString(),
+    name:null,
+    id:null,
+    class:null,
   },
 
+  
   /**
    * 生命周期函数--监听页面加载
    */

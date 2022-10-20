@@ -1,8 +1,8 @@
 <text class="title">基本信息\n</text>
   <view class="box1">
-    <text>姓名</text><input/>
-    <text>学号</text><input/>
-    <text>班级</text><input/>
+    <text>姓名</text><view>{{name}}</view>
+    <text>学号</text><view>{{id}}</view>
+    <text>班级</text><view>{{class}}</view>
     <text>学院</text><input/>
     <text>手机号码</text><input/>
     <text>学生类别</text>

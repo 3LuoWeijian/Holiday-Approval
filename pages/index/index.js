@@ -1,5 +1,6 @@
 // pages/index/index.js
 var app=getApp().appData;
+const db = wx.cloud.database
 Page({
 
   /**
@@ -7,11 +8,11 @@ Page({
    */
   data:{
     username:null,
-	password:null,
-	item:[
-		{value:"student", name:"我是学生", checked:"true"},
-		{value:"teacher", name:"我是老师"}		
-	]
+    password:null,
+    item:[
+      {value:"student", name:"我是学生", checked:"true"},
+      {value:"teacher", name:"我是老师"}		
+    ]
   },
 
   radioChange:function(e){
