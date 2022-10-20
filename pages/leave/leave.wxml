@@ -1,5 +1,6 @@
 <!--leave.wxml-->
-<text class="title">基本信息\n</text>
+<form class="formBox" bindsubmit="submit" >
+<!-- <text class="title">基本信息\n</text>
 <view class="box1">
   <text>姓名</text><input />
   <text>学号</text><input />
@@ -20,11 +21,11 @@
       <radio>黄埔</radio>
     </radio-group>
   </view>
-</view>
+</view> -->
 
 <text class="title">请假信息\n</text>
 <view class="box1">
-  <view>
+  <!-- <view>
     <text>请假类别</text>
     <radio-group class="box2">
       <radio checked="true">病假</radio>
@@ -33,7 +34,7 @@
       <radio>实习</radio>
       <radio>休学</radio>
     </radio-group>
-  </view>
+  </view> -->
 
   
     <view class="box2">离校时间<picker mode="date" value="{{leaveDate}}" start="2022-10-01" end="2030-09-01" bindchange="bindLeaveDateChange">
@@ -50,31 +51,31 @@
   
 
   
-    <text>紧急联系人姓名</text><input />
-    <text>紧急联系人电话</text><input />
+    <!-- <text>紧急联系人姓名</text><input />
+    <text>紧急联系人电话</text><input /> -->
   
 
-  <view ><text>外出地点</text>
+  <!-- <view ><text>外出地点</text>
     <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
       <view class="box2" >
      {{region[0]}}-{{region[1]}}-{{region[2]}}
       </view>
     </picker>
-</view>
+</view> -->
 
 
 <view >   
    <view class="reasonTtile"> \n 请假理由</view>
    <view class="errmsg">{{errmsg}}</view>
-   <view class="reasonText"><textarea placeholder="请输入(150字以内)" name="leaveReason" maxlength="150" bindinput="textCount" bindblur="textBlur"></textarea></view>
-   <view class="textCount"><text>/150</text><text style="color:#26d7d8">{{reasonLength}}</text></view>
+   <view class="reasonText"><textarea placeholder="请输入(150字以内)" name="leaveReason" maxlength="150" bindinput="textCount" bindblur="textBlur" style="width: 624rpx; height: 200rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx"></textarea></view>
+   <view class="textCount" style="width: 200rpx; height: 99rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx"><text>/150</text><text style="color: #26d7d8; width: 38rpx; height: 118rpx; display: block; box-sizing: border-box">{{reasonLength}}</text></view>
  </view>
 
 
- <button class="submitBtn" form-type="submit">提交</button>
+ <button class="submitBtn" form-type="submit" style="position: relative; left: 109rpx; top: 90rpx">提交</button>
 </view>
 
-
+</form>
 
 
 

@@ -1,4 +1,4 @@
-// index.js
+// leave.js
 // 获取应用实例
 
 var app = getApp()
@@ -11,11 +11,11 @@ Page({
     nowDate: '',
     leaveDate: '',
     returnDate: '',
-    endDate: '2021-09-01',
+    //endDate: '2021-09-01',
     reasonLength: 0,
     errmsg: "",
-    array: ['病假', '事假', '实习', '休学','留学'],
-    objectArray: [
+    //array: ['病假', '事假', '实习', '休学','留学'],
+    /* objectArray: [
       {
         id: 0,
         name: '病假'
@@ -36,26 +36,26 @@ Page({
       id:4,
       name:'留学'
     }
-    ],
-    returnType:0,
-    region: ['广东省', '广州市', '海珠区'],
-    customItem: '全部'
+    ], */
+    //returnType:0,
+    //region: ['广东省', '广州市', '海珠区'],
+    //customItem: '全部'
   },
-
-    bindRegionChange: function (e) {
+//外出地点
+/*     bindRegionChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       region: e.detail.value
     })
      },
     
-
+//好像没必要了
   bindTypeChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       returnType: e.detail.value
     })
-  },
+  }, */
   // 离开日期变化时返回日期最小为离开日期
   bindLeaveDateChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -82,11 +82,11 @@ Page({
     var len = e.detail.value.length
     if (len == 0) {
       this.setData({
-        errmsg: ""
+        errmsg: "字数为0"
       })
     } else if (len < 10) {
       this.setData({
-        errmsg: ""
+        errmsg: "字数太少了，写多点吧"
       })
     }
   },
@@ -112,8 +112,8 @@ Page({
         mask: true
       })
       var data = {
-        sno: app.globalData.regInfo.sno,
-        leaveClass: e.detail.value.leaveClass,
+        //sno: app.globalData.regInfo.sno,
+        //leaveClass: e.detail.value.leaveClass,
         leaveDate: this.data.leaveDate,
         returnDate: this.data.returnDate,
         leaveReason: e.detail.value.leaveReason,
@@ -167,69 +167,7 @@ Page({
     }
   },
 
-  submit: function (e) {
-    var reasonLen = e.detail.value.leaveReason.length
-    if (reasonLen > 10) {
-      // console.log('form submit 事件',e.detail.value)
-      wx.showLoading({
-        title: '申请提交中...',
-        mask: true
-      })
-      var data = {
-        sno: app.globalData.regInfo.sno,
-        leaveClass: e.detail.value.leaveClass,
-        leaveDate: this.data.leaveDate,
-        returnDate: this.data.returnDate,
-        leaveReason: e.detail.value.leaveReason,
-        subDate: this.data.nowDate
-      }
-      console.log('data = ', data)
-      wx.cloud.callFunction({
-          name: "upleave",
-          data: data
-        })
-        .then(res => {
-          // console.log(res)
-          wx.hideLoading()
-          wx.showToast({
-            title: '提交成功',
-            icon: 'success',
-            duration: 2000,
-            mask: true,
-            success: (res) => {
-              setTimeout(() => {
-                wx.navigateBack({
-                  delta: 1,
-                })
-              }, 2000);
-            }
-          })
-        })
-        .catch(err => {
-          wx.showToast({
-            title: '提交失败',
-            icon: 'none',
-            duration: 2000,
-            mask: true
-          })
-          console.log(err)
-        })
-    } else {
-      if (reasonLen == 0) {
-        this.setData({
-          errmsg: "*啥都不写，感觉辅导员不会批准哦"
-        })
-      } else if (reasonLen < 10) {
-        this.setData({
-          errmsg: "*这么一丢丢，你再多写一点嘛"
-        })
-      } else {
-        this.setData({
-          errmsg: ""
-        })
-      }
-    }
-  },
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
