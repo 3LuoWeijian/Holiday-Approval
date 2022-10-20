@@ -21,6 +21,7 @@
       "disablePlugins": [],
       "outputPath": ""
     },
+<<<<<<< Updated upstream
     "urlCheck": true,
     "lazyloadPlaceholderEnable": false,
     "preloadBackgroundData": false,
@@ -44,4 +45,18 @@
     "tabSize": 2
   },
   "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html"
+=======
+    "condition": {},
+    "editorSetting": {
+        "tabIndent": "insertSpaces",
+        "tabSize": 4
+    },
+    "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+    "libVersion": "2.26.2",
+    "packOptions": {
+        "ignore": [],
+        "include": []
+    },
+    "appid": "wx8521dc4a12b501bc"
+>>>>>>> Stashed changes
 }
