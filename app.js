@@ -1,6 +1,11 @@
 // app.js
 App({
   appData:{
+    name:'null',
+    class:null,
+    sno:'null',
+    academy:null,
+    phone:null,
     userinfo:null,
     people:"student",
     },

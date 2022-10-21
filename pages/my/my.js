@@ -22,8 +22,8 @@ Page({
     wx.getUserProfile({
       desc: '完善用户信息',
       success:res=>{
-        console.log('ok',res.userInfo);
-        let user =res.userInfo
+        console.log('ok',res.userInfo)
+        let user = res.userInfo
         //缓存用户信息到本地
         wx.setStorageSync('user', user)
         this.setData({
@@ -55,6 +55,13 @@ onLoad(){
    */
   onReady() {
 
+  },
+
+  onLoad(){
+    let user=wx.getStorageSync('user')
+    this.setData({
+      userInfo:user,
+    })
   },
 
   /**

@@ -1,4 +1,6 @@
 // pages/check/check.js
+var app=getApp().appData;
+const db = wx.cloud.database();
 Page({
 
   /**
@@ -12,6 +14,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+
+    
+    
 
   },
 

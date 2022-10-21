@@ -1,6 +1,7 @@
 // pages/index/index.js
 var app=getApp().appData;
-const db = wx.cloud.database
+const db = wx.cloud.database();
+var that = this;
 Page({
 
   /**
@@ -17,14 +18,14 @@ Page({
 
   radioChange:function(e){
 	  console.log(e.detail.value)
-	app.people = e.detail.value
+	  app.people = e.detail.value
 
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-	    	  
+    
   },
   usernameInput: function (event) {
     this.setData({
@@ -38,7 +39,52 @@ Page({
   },
   loginbtnInput:function(){
     app.userinfo = { username: this.data.username, password: this.data.password };
-    wx.redirectTo({url:"/pages/main/main"})
+    db.collection('student').where({
+      sno:this.data.username,
+    })
+    .get({
+      success:function(res){
+         console.log(res);
+        app.class = res.data[0].class
+        app.name = res.data[0].name
+        app.sno = res.data[0].sno
+        app.academy = res.data[0].academy
+        app.phone = res.data[0].phone
+      }
+    });
+    wx.getUserProfile({
+        desc: '完善用户信息',
+        success:res=>{
+          console.log('ok',res.userInfo);
+          let user =res.userInfo
+          //缓存用户信息到本地
+          wx.setStorageSync('user', user)
+          app.userInfo = user
+          if(app.people=='student')
+          {
+            wx.redirectTo({
+            url: '/pages/main/main',
+          })
+          }
+        },
+        fail:res=>{
+          console.log('fail',res)
+        }
+      })
+  
+    if(app.people=='student')
+    {
+      wx.reLaunch({
+        url: '../main/main',
+      })
+    }
+    else
+    {
+      wx.switchTab({
+      url: '../check/check',
+    })
+    }
+    
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

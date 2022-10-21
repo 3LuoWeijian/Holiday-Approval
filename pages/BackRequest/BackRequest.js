@@ -1,7 +1,8 @@
 // pages/second-level/BackRequest/BackRequest.js
 var myDate = new Date();
-const db = wx.cloud.database;
-
+const db = wx.cloud.database();
+var that = this;
+const app= getApp().appData;
 Page({
 
   /**
@@ -10,17 +11,27 @@ Page({
   data: {
     date:myDate.toLocaleDateString(),
     name:null,
-    id:null,
+    sno:null,
     class:null,
+    academy:null,
+    phone:null,
   },
 
-  
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-
+  onLoad:function(options) {
+    this.setData({
+      name:app.name,
+      class:app.class,
+      sno:app.sno,      
+      academy:app.academy,
+      phone:app.phone,
+    })
+  
+    
   },
+
   bindDateChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
@@ -39,7 +50,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    
+    
   },
 
   /**

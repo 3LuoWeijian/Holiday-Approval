@@ -2,14 +2,63 @@
 .box1
 {
   width: 100%;
-  height: 330rpx;
-  border-radius: 0rpx 0rpx 32rpx 32rpx;
-  box-shadow: 0 4rpx 3rpx 6rpx #efefef;
-  border: 2rpx solid #efefef;
+  height: 200rpx;
+  background-color:#32CCBC;
+  border-radius: 0 0 32rpx 32rpx;
+}
+
+.root{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.touxiang{
+  position: absolute;
+  left: 50rpx;
+  top: 20rpx;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+.header{
+  height:380rpx;
+}
+.login_btn{
+  position: absolute;
+  top: 100rpx;
+  display: flex;
+  align-items: center;
+  background-color: #efefef; 
+  font-weight: lighter;
+  border-radius: 16rpx;
+}
+.nicheng{
+  position: absolute;
+  left: 250rpx;
+  top: 60rpx;
+  font-size: 50rpx;
+}
+.tuichu
+{
+  position: absolute;
+  left: 450rpx;
+  top: 60rpx;
+  border-radius: 32rpx;
+  font-size: 50rpx;
+  font-weight: lighter;
+  background-color: #efefef;
+}
+.box2
+{
+  position: absolute;
+  top: 190rpx;
+  left: 175rpx;
 }
 
 .box2 button
 {
+  position: relative;
   margin-top: 70rpx;
   border-radius: 32rpx;
   box-shadow:0 2rpx 4rpx 4rpx turquoise;

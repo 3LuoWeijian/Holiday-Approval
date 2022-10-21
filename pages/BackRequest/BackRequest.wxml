@@ -1,10 +1,10 @@
 <text class="title">基本信息\n</text>
   <view class="box1">
     <text>姓名</text><view>{{name}}</view>
-    <text>学号</text><view>{{id}}</view>
+    <text>学号</text><view>{{sno}}</view>
     <text>班级</text><view>{{class}}</view>
-    <text>学院</text><input/>
-    <text>手机号码</text><input/>
+    <text>学院</text><view>{{academy}}</view>
+    <text>手机号码</text><view>{{phone}}</view>
     <text>学生类别</text>
     <view>
       <radio-group class="box2">

@@ -1,6 +1,18 @@
-<block >
-    <image class="box1" src='/image/gzhu.png' mode="widthFix"></image>
+<block>
+  <view class="box1"></view> 
+      <view class="header">
+          <view class="root" wx:if="{{!userInfo}}">
+          <button class="login_btn" size="mini" bindtap="getUserProfile" > 获取头像昵称 </button>
+          </view>
+
+          <view wx:else class="root">
+          <image bindtap="bindViewTap" class="touxiang" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+          <text class="nicheng">{{userInfo.nickName}}</text>
+          <button class="tuichu" size="mini" bindtap="outLogin">退出登录</button>
+          </view>
+      </view> 
 </block>
+
 <view class="box2">
   <button bindtap="Leave">离校申请</button>
   <button bindtap="BackRequest">返校申请</button>

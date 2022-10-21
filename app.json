@@ -18,12 +18,6 @@
 	  "selectedColor": "#99CCCC",
     "list": [
       {
-        "pagePath": "pages/main/main",
-        "text": "首页",
-        "iconPath": "/image/main.png",
-        "selectedIconPath": "/image/main-active.png"
-      },
-      {
         "pagePath": "pages/check/check",
         "text": "审批",
         "iconPath": "/image/check.png",

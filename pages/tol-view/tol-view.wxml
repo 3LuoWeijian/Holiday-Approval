@@ -1,4 +1,15 @@
 <!--pages/tol-view/tol-view.wxml-->
+<progress percent="80" active-mode="forwards" show-info="true" stroke-width="20" active="true">在校人数</progress>
 <button bindtap="info">全校人数</button>
 <button>全校打卡情况</button>
 
+<view class='order_process'>
+      <view class='process_wrap' wx:for="{{processData}}" wx:key="">
+        <view class='process'>
+          <view class='process_line' style="background:{{item.start}}"></view>
+          <image class='process_icon' src="{{item.icon}}"></image>
+          <view class='process_line' style="background:{{item.end}}"></view>
+        </view>
+        <text class='process_name'>{{item.name}}</text>      
+      </view>
+</view>

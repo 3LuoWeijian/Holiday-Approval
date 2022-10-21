@@ -1,19 +1,62 @@
 // pages/main/main.js
+const db = wx.cloud.database();
+var that = this;
+const app= getApp().appData;
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    userInfo:null,
+    isLogin:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
+  onLoad:function(options) {
+    wx.hideHomeButton()
+    let user=wx.getStorageSync('user')
+    console.log('用户',user)
+    this.setData({
+    userInfo:user,
+    })
+    
+    if (wx.getUserProfile) {
+      this.setData({
+        isLogin:true
+      })
+    }
+    this.onLoad(_options)
+  },
+  //授权登录
+  getUserProfile(e){
+    wx.getUserProfile({
+      desc: '完善用户信息',
+      success:res=>{
+        console.log('ok',res.userInfo);
+        let user =res.userInfo
+        //缓存用户信息到本地
+        wx.setStorageSync('user', user)
+        this.setData({
+          userInfo:user,
+        })
+      },
+      fail:res=>{
+        console.log('fail',res)
+      }
+    })
 
   },
+//退出登录
+outLogin(){
+  this.setData({
+    userInfo:'',
+  })
+  wx.setStorageSync('user', null)
+},
   //离校申请
   Leave(){
     wx.navigateTo({
