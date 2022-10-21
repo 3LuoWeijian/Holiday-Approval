@@ -1,79 +1,91 @@
 <!--leave.wxml-->
-<form class="formBox" bindsubmit="submit" >
-<!-- <text class="title">基本信息\n</text>
-<view class="box1">
-  <text>姓名</text><input />
-  <text>学号</text><input />
-  <text>班级</text><input />
-  <text>学院</text><input />
-  <text>手机号码</text><input />
-  <text>学生类别</text>
-  <view>
-    <radio-group class="box2">
-      <radio checked="true">本科生</radio>
-      <radio>研究生</radio>
-    </radio-group>
-  </view>
-  <view><text>校区</text>
-    <radio-group class="box2">
-      <radio checked="true">大学城</radio>
-      <radio>桂花岗</radio>
-      <radio>黄埔</radio>
-    </radio-group>
-  </view>
-</view> -->
+<form class="formBox" bindsubmit="submit">
+  <text class="title">基本信息\n</text>
+  <view class="box1">
+    <text>姓名</text><input />
+    <text>学号</text><input bindinput="bindSnoInput" type="number" />
+    <text>班级</text><input />
+    <text>学院</text><input />
+    <text>手机号码</text><input />
+    <text>学生类别</text>
 
-<text class="title">请假信息\n</text>
-<view class="box1">
-  <!-- <view>
-    <text>请假类别</text>
-    <radio-group class="box2">
-      <radio checked="true">病假</radio>
-      <radio>留学</radio>
-      <radio>休假</radio>
-      <radio>实习</radio>
-      <radio>休学</radio>
-    </radio-group>
-  </view> -->
+    <view>
+      <radio-group class="box2" bindchange="radioStudentClassChange">
+        <label class="radio" wx:for="{{studentClassItems}}">
+          <view>
+            <radio color="" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+          </view>
+        </label>
+      </radio-group>
+    </view>
+    <text>校区</text>
+    <view>
+      <radio-group class="box2" bindchange="radioCampusClassChange">
+        <label class="radio" wx:for="{{campusClassItems}}">
+          <view>
+            <radio color="" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+          </view>
+        </label>
+      </radio-group>
+    </view>
+  </view>
 
-  
-    <view class="box2">离校时间<picker mode="date" value="{{leaveDate}}" start="2022-10-01" end="2030-09-01" bindchange="bindLeaveDateChange">
-        <view >{{leaveDate}}</view>
+  <view class="title">请假信息\n</view>
+  <view class="box1">
+    <view>
+      <view>请假类别</view>
+
+      <radio-group class="box2" bindchange="radioClassChange">
+        <label class="radio" wx:for="{{leaveClassItems}}">
+          <view>
+            <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+          </view>
+        </label>
+      </radio-group>
+
+    </view>
+
+
+    <view class="leaveTime">离校时间<picker mode="date" value="{{leaveDate}}" start="2022-10-01" end="2030-09-01" bindchange="bindLeaveDateChange">
+        <view>{{leaveDate}}</view>
       </picker>
     </view>
 
-  
-  
-    <view class="box2">返校时间<picker mode="date" value="{{returnDate}}" start="{{leaveDate}}" end="2030-09-01" bindchange="bindReturnDateChange">
+    <view class="returnTime ">返校时间<picker mode="date" value="{{returnDate}}" start="{{leaveDate}}" end="2030-09-01" bindchange="bindReturnDateChange">
         <view>{{returnDate}}</view>
       </picker>
     </view>
-  
-
-  
-    <!-- <text>紧急联系人姓名</text><input />
-    <text>紧急联系人电话</text><input /> -->
-  
-
-  <!-- <view ><text>外出地点</text>
-    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
-      <view class="box2" >
-     {{region[0]}}-{{region[1]}}-{{region[2]}}
-      </view>
-    </picker>
-</view> -->
 
 
-<view >   
-   <view class="reasonTtile"> \n 请假理由</view>
-   <view class="errmsg">{{errmsg}}</view>
-   <view class="reasonText"><textarea placeholder="请输入(150字以内)" name="leaveReason" maxlength="150" bindinput="textCount" bindblur="textBlur" style="width: 624rpx; height: 200rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx"></textarea></view>
-   <view class="textCount" style="width: 200rpx; height: 99rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx"><text>/150</text><text style="color: #26d7d8; width: 38rpx; height: 118rpx; display: block; box-sizing: border-box">{{reasonLength}}</text></view>
- </view>
+    <view class="contact">
+      <view>紧急联系人姓名</view><input />
+      <view>紧急联系人电话</view><input />
+    </view>
 
 
- <button class="submitBtn" form-type="submit" style="position: relative; left: 109rpx; top: 90rpx">提交</button>
-</view>
+    <view>外出地点
+      <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+        <view class="box2">
+          {{region[0]}}-{{region[1]}}-{{region[2]}}
+        </view>
+      </picker>
+    </view>
+    <view>
+    <view >上传文件</view>
+    <button bindtap="shangchuan">选择</button>
+    </view>
+
+    <view>
+      <view class="reasonTtile"> \n 请假理由</view>
+      <view class="errmsg">{{errmsg}}</view>
+      <view class="reasonText"><textarea placeholder="请输入(150字以内)" name="leaveReason" maxlength="150" bindinput="textCount" bindblur="textBlur" style="width: 624rpx; height: 200rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx"></textarea></view>
+      <view class="textCount" style="width: 200rpx; height: 99rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx"><text>/150</text><text style="color: #26d7d8; width: 38rpx; height: 118rpx; display: block; box-sizing: border-box">{{reasonLength}}</text></view>
+    </view>
+
+
+    <button class="submitBtn" form-type="submit" style="position: relative; left: 109rpx; top: 90rpx">提交</button>
+  </view>
+
 
 </form>
 

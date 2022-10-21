@@ -8,54 +8,89 @@ Page({
    * 页面的初始数据
    */
   data: {
+    sno:'',
     nowDate: '',
     leaveDate: '',
     returnDate: '',
-    //endDate: '2021-09-01',
+    studentClassItems: [
+      { name: 'benkesheng', value: '本科生', checked: 'true' },
+      { name: 'yanjiusheng', value: '研究生' },
+    ],
+    studentClass:'本科生',
+    campusClassItems:[
+      { name: 'daxuecheng', value: '大学城', checked: 'true' },
+      { name: 'guihuagang', value: '桂花岗' },
+      { name: 'huangpu', value: '黄埔' },
+    ],
+    campusClass:'大学城',
+    region: ['广东省', '广州市', '海珠区'],
+    customItem: '全部',
+    leaveClassItems: [
+      { name: 'shijia', value: '事假', checked: 'true' },
+      { name: 'bingjia', value: '病假' },
+      { name: 'shixi', value: '实习' },
+      { name: 'xiuxue', value: '休学' },
+      { name: 'liuxue', value: '留学' },
+    ],
+    leaveClass:'事假',
+
     reasonLength: 0,
     errmsg: "",
-    //array: ['病假', '事假', '实习', '休学','留学'],
-    /* objectArray: [
-      {
-        id: 0,
-        name: '病假'
-      },
-      {
-        id: 1,
-        name: '事假'
-      },
-      {
-        id: 2,
-        name: '实习'
-      },
-    {
-      id:3,
-      name:'休学'
-    },
-    {
-      id:4,
-      name:'留学'
-    }
-    ], */
-    //returnType:0,
-    //region: ['广东省', '广州市', '海珠区'],
-    //customItem: '全部'
   },
+//学号sno
+
+bindSnoInput: function (e) {
+  this.setData({
+    sno: e.detail.value
+  })
+}, 
+//学生类别
+radioStudentClassChange: function (e) {
+  var str = null;
+  for (var value of this.data.studentClassItems) {
+    if (value.name === e.detail.value) {
+      str = value.value;
+      break;
+    }
+  }
+  this.setData({ studentClass: str});
+},
+
+//校区类别
+radioCampusClassChange: function (e) {
+  var str = null;
+  for (var value of this.data.campusClassItems) {
+    if (value.name === e.detail.value) {
+      str = value.value;
+      break;
+    }
+  }
+  this.setData({ campusClass: str});
+},
+
+
+  //请假类别
+  radioClassChange: function (e) {
+    var str = null;
+    for (var value of this.data.leaveClassItems) {
+      if (value.name === e.detail.value) {
+        str = value.value;
+        break;
+      }
+    }
+    this.setData({ leaveClass: str});
+  },
+
+  
 //外出地点
-/*     bindRegionChange: function (e) {
+     bindRegionChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       region: e.detail.value
     })
      },
     
-//好像没必要了
-  bindTypeChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      returnType: e.detail.value
-    })
-  }, */
+
   // 离开日期变化时返回日期最小为离开日期
   bindLeaveDateChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -90,6 +125,35 @@ Page({
       })
     }
   },
+
+
+  shangchuan: function(e){
+    var that = this;
+    wx.chooseMessageFile({
+      count: 1,
+      type: 'file',
+      success(res) {
+        var filename = res.tempFiles[0].name
+        console.info(filename);
+        that.setData({filename:filename});
+ 
+ 
+        wx.uploadFile({
+          url: 'https://myfirstgatsbysitemaster61932.gatsbyjs.io/',
+          filePath: res.tempFiles[0].path,
+          name: 'uploadFile',
+          success(res) {
+            //json字符串 需用JSON.parse 转
+          }
+        })
+ 
+ 
+ 
+      }
+    });
+
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -113,11 +177,16 @@ Page({
       })
       var data = {
         //sno: app.globalData.regInfo.sno,
-        //leaveClass: e.detail.value.leaveClass,
+        
+        region:this.data.region,
         leaveDate: this.data.leaveDate,
         returnDate: this.data.returnDate,
         leaveReason: e.detail.value.leaveReason,
-        subDate: this.data.nowDate
+        subDate: this.data.nowDate,
+        leaveClass:this.data.leaveClass,
+        studentClass:this.data.studentClass,
+        campusClass:this.data.campusClass,
+        sno:this.data.sno,
       }
       console.log('data = ', data)
       wx.cloud.callFunction({

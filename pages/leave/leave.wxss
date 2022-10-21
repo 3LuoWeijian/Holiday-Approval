@@ -8,212 +8,96 @@ page {
   height: 100%
 }
 
-.topBox {
-  width: 750rpx;
-  height: 100rpx;
-  padding: 0 20rpx;
-  background-color: #ccccff;
+.title {
+  font-size: 60rpx;
+  font-weight: bolder;
+  margin-left: 30rpx;
 }
 
-.topBox image {
-  width: 50rpx;
-  height: 50rpx;
-  float: left;
-  margin-top: 25rpx
+.box1 {
+  margin: 50rpx;
 }
 
-.topBox text {
-  width: 610rpx;
-  text-align: center;
-  line-height: 100rpx;
-  float: left;
+.box1 text {
+  padding: 10rpx;
+  margin-top: 10rpx;
 }
 
-.titleBox {
-  width: 710rpx;
-  height: 200rpx;
-  margin: 20rpx 20rpx 0;
-  background: white;
-  border-radius: 20rpx;
+.box1 input {
+  width: 90%;
+  border-bottom: 3rpx solid #efefef;
+  padding: 10rpx;
+  margin-bottom: 20rpx;
 }
 
-.titleTtile {
-  width: 200rpx;
-  height: 100rpx;
-  font-size: 28rpx;
-  float: left;
-  line-height: 100rpx;
+.box2 {
+  width: 90%;
+  border-bottom: 1rpx solid #efefef;
+  padding-bottom: 20rpx;
+  margin: 20rpx;
 }
 
-.titleText {
-  width: 710rpx;
-  height: 100rpx;
-  line-height: 100rpx;
-  font-size: 24rpx;
-  color: #808080;
-  margin: 0 20rpx;
-  clear: both
+.box2 radio {
+  padding-right: 40rpx;
 }
 
-.leaveClassBox {
-  width: 400rpx;
-  height: 50rpx;
-  margin: 20rpx auto 0;
-}
-
-.leaveClassList {
-  width: 200rpx;
-  height: 50rpx;
-  float: left;
-}
-
-.classRadio {
-  float: left;
-}
-
-.leaveClassList text {
-  height: 100rpx;
-  line-height: 50rpx;
-  float: left;
-  margin-left: 20rpx;
-  font-size: 28rpx
-}
-
-.leaveTimeBox {
-  width: 710rpx;
-  height: 100rpx;
-  margin: 20rpx 20rpx 0;
-  background: white;
-  border-radius: 20rpx;
-}
-
-.signBox {
-  width: 6rpx;
-  height: 30rpx;
-  float: left;
-  background-color: #66ffff;
-  margin: 35rpx 20rpx;
-}
-
-.leaveTtile {
-  width: 200rpx;
-  height: 100rpx;
-  font-size: 28rpx;
-  float: left;
-  line-height: 100rpx;
-}
 
 .leaveTime {
-  height: 100rpx;
-  line-height: 100rpx;
-  float: right;
-  font-size: 24rpx;
-  color: #808080;
-  margin-right: 20rpx;
+  margin-bottom: 10rpx;
+
+  height: 139rpx;
+  display: block;
+  box-sizing: border-box;
+  width: 586rpx;
 }
 
-.returnTimeBox {
-  width: 710rpx;
-  height: 100rpx;
-  margin: 20rpx 20rpx 0;
-  background: white;
-  border-radius: 20rpx;
-}
+.leaveTime view {
+  width: 652rpx;
+  
+  display: block;
+  box-sizing: border-box;
+  margin-top: 10rpx;
 
-.returnTtile {
-  width: 200rpx;
-  height: 100rpx;
-  font-size: 28rpx;
-  float: left;
-  line-height: 100rpx;
+  display: block;
+
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #efefef;
+
+  
+  height: 68rpx;
+  
+  
 }
 
 .returnTime {
-  height: 100rpx;
-  line-height: 100rpx;
-  float: right;
-  font-size: 24rpx;
-  color: #808080;
-  margin-right: 20rpx;
-}
-
-.destinationTimeBox {
-  width: 710rpx;
-  height: 100rpx;
-  margin: 20rpx 20rpx 0;
-  background: white;
-  border-radius: 20rpx;
-}
-
-.destinationTtile {
-  width: 200rpx;
-  height: 100rpx;
-  font-size: 28rpx;
-  float: left;
-  line-height: 100rpx;
-}
-
-.destinationTimeBox input {
-  width: 172rpx;
-  height: 99rpx;
-  display: block;
-  box-sizing: border-box
-}
-
-.contactBox {
-  width: 710rpx;
-  height: 100rpx;
-  margin: 20rpx 20rpx 0;
-  background: white;
-  border-radius: 20rpx;
-}
-
-.contactTtile {
-  width: 200rpx;
-  height: 100rpx;
-  font-size: 28rpx;
-  float: left;
-  line-height: 100rpx;
-}
-
-.contactBox input {
-  width: 397rpx;
-  height: 99rpx;
+  height: 111rpx;
   display: block;
   box-sizing: border-box;
-  font-size: small;
 }
 
-.ErgContactBox {
-  width: 710rpx;
-  height: 100rpx;
-  margin: 20rpx 20rpx 0;
-  background: white;
-  border-radius: 20rpx;
-}
-
-.ErgContactTtile {
-  width: 200rpx;
-  height: 100rpx;
-  font-size: 28rpx;
-  float: left;
-  line-height: 100rpx;
-}
-
-.ErgContactBox input {
-  width: 249rpx;
-  height: 99rpx;
+.returnTime view {
+  width: 610rpx;
+  height: 71rpx;
   display: block;
-  box-sizing: border-box
+  box-sizing: border-box;
+  margin-top: 10rpx;
+
+  display: block;
+  padding-bottom: 30rpx;
+
+  border-bottom: 1rpx solid #efefef;
+
+
 }
 
-.reasonBox {
-  width: 710rpx;
-  height: 400rpx;
-  margin: 20rpx 20rpx 0;
-  background: white;
-  border-radius: 20rpx;
+.contact {
+  margin-top: 30rpx;
 }
+
+
+
+
+
 
 .reasonTtile {
   width: 150rpx;
@@ -272,38 +156,6 @@ page {
   font-size: 28rpx;
 }
 
-.title {
-  font-size: 60rpx;
-  font-weight: bolder;
-  margin-left: 30rpx;
-}
-
-.box1 {
-  margin: 50rpx;
-}
-
-.box1 text {
-  padding: 10rpx;
-  margin-top: 10rpx;
-}
-
-.box1 input {
-  width: 90%;
-  border-bottom: 3rpx solid #efefef;
-  padding: 10rpx;
-  margin-bottom: 20rpx;
-}
-
-.box2 {
-  width: 90%;
-  border-bottom: 1rpx solid #efefef;
-  padding-bottom: 20rpx;
-  margin: 20rpx;
-}
-
-.box2 radio {
-  padding-right: 40rpx;
-}
 
 .button1 {
   width: 80%;
@@ -313,5 +165,10 @@ page {
 }
 
 .leaveReason {
-  width: 652rpx; height: 256rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx
+  width: 652rpx;
+  height: 256rpx;
+  display: block;
+  box-sizing: border-box;
+  left: 0rpx;
+  top: 0rpx
 }

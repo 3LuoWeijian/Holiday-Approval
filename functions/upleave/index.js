@@ -10,13 +10,17 @@ exports.main = async (event, context) => {
   return await db.collection("leave")
     .add({
       data: {
-        //sno: event.sno,
-        //leaveClass: event.leaveClass,
+        
+        leaveClass:event.leaveClass,
+        region: event.region,
         leaveDate: event.leaveDate,
         leaveReason: event.leaveReason,
-        returnDate: event.returnDate,
+        returnDate: event.returnDate,       
+        subDate:event.subDate,
+        studentClass:event.studentClass,
+        campusClass:event.campusClass,
+        sno:event.sno
         //approveState: 0,
-        subDate:event.subDate
       }
     })
 }
