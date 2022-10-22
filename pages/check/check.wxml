@@ -7,17 +7,17 @@
 	</view>
 
 	<view class="box2">
-		<view>
-			<image src="/image/shenpi.png"></image>
-			<text>离校审批</text>
+		<view class="item">
+			<image src="/image/lixiaoshenpi.png"></image>
+			<view>离校审批</view>
 		</view>
-		<view>
-			<image src="/image/shenpi.png"></image>
-			<text>课假审批</text>
+		<view class="item">
+			<image src="/image/kejiashenpi.png"></image>
+			<view>课假审批</view>
 		</view>
-		<view>
-			<image src="/image/shenpi.png"></image>
-			<text>返校审批</text>
+		<view class="item">
+			<image src="/image/fanxiaoshenpi.png"></image>
+			<view>返校审批</view>
 		</view>			
 	</view>
 </view>

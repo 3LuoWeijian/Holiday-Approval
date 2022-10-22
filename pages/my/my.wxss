@@ -43,6 +43,8 @@ page
   left: 250rpx;
   top: 60rpx;
   font-size: 50rpx;
+  font-weight: bolder;
+  color: #fff;
 }
 .tuichu
 {

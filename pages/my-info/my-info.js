@@ -1,11 +1,22 @@
-// pages/tol-view/tol-view.js
+// pages/my-info/my-info.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    name:'无',
+    class:'无',
+    sno:'无',
+    phone:'无',
+    academy:'无'
+  },
+  outLogin(){
+    wx.setStorageSync('user', null)
+    wx.reLaunch({
+      url: '/pages/index/index',
+    })
+
   },
 
   /**
@@ -18,10 +29,9 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {  
+  onReady() {
 
-    
-  },  
+  },
 
   /**
    * 生命周期函数--监听页面显示

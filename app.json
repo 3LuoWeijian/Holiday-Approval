@@ -6,7 +6,8 @@
         "pages/tol-view/tol-view",
         "pages/my/my",
         "pages/BackRequest/BackRequest",
-        "pages/leave/leave"
+        "pages/leave/leave",
+        "pages/my-info/my-info"
     ],
     "window": {
         "backgroundTextStyle": "light",

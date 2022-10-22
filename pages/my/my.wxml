@@ -7,14 +7,13 @@
 
           <view wx:else class="root">
           <image bindtap="bindViewTap" class="touxiang" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-          <text class="nicheng">{{userInfo.nickName}}</text>
-          <button class="tuichu" size="mini" bindtap="outLogin">退出登录</button>
+          <text class="nicheng">欢迎使用！{{userInfo.nickName}}</text>
           </view>
       </view> 
 </block>
 
 <view class="box2">
-	<view class="box3">
+	<view class="box3" bindtap="getmyinfo">
 		<image src="/image/myinfo.png"></image>
 		<text>我的信息</text>
 	</view>

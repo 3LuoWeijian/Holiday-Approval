@@ -1,4 +1,9 @@
 /* pages/main/main.wxss */
+page
+{
+  background-color: #efefef;
+}
+
 .box1
 {
   width: 100%;
@@ -35,32 +40,79 @@
 }
 .nicheng{
   position: absolute;
+  font-weight: bolder;
+  color: #fff;
   left: 250rpx;
   top: 60rpx;
   font-size: 50rpx;
 }
-.tuichu
-{
-  position: absolute;
-  left: 450rpx;
-  top: 60rpx;
-  border-radius: 32rpx;
-  font-size: 50rpx;
-  font-weight: lighter;
-  background-color: #efefef;
-}
-.box2
-{
-  position: absolute;
-  top: 190rpx;
-  left: 175rpx;
+
+.order_process {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 10rpx 10rpx 20rpx 10rpx;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  position: relative; 
+  left: 0rpx;
+  top: -332rpx
 }
 
-.box2 button
+.process_wrap {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+
+.process {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.process_icon {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.process_line {
+  background: #eff3f6;
+  flex: 1;
+  height: 5rpx;
+}
+
+.process_name {
+  font-size: 24rpx;
+}
+
+.box3
 {
-  position: relative;
-  margin-top: 70rpx;
-  border-radius: 32rpx;
-  box-shadow:0 2rpx 4rpx 4rpx turquoise;
-  width: 400rpx;
+   display: flex;
+   padding-top: 20rpx;
+   flex-wrap: wrap;
+   background-color: #fff;
+   position: relative; 
+   left: 0rpx; 
+   top: -300rpx;
+   border-radius: 32rpx;
+}
+
+.item
+{
+  width: 49%;
+  text-align: center;
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+  border-left: 1rpx solid #efefef;
+  border-bottom: 1rpx solid #efefef;
+  padding-bottom: 20rpx;
+  
+
+}
+.item image
+{
+  width: 90rpx;
+  height: 90rpx;
 }

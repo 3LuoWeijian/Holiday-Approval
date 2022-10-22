@@ -1,7 +1,7 @@
 // app.js
 App({
   appData:{
-    name:'null',
+    name:null,
     class:null,
     sno:'null',
     academy:null,

@@ -1,0 +1,25 @@
+<!--pages/my-info/my-info.wxml-->
+<view class="box1">
+  <view class="box2">
+    <text>我的名字</text>
+    <view>{{name}}</view>
+  </view>
+  <view class="box2">
+    <text>我的班级</text>
+    <view>{{class}}</view>
+  </view>
+  <view class="box2">
+    <text>我的学号</text>
+    <view>{{sno}}</view>
+  </view>
+  <view class="box2">
+    <text>我的电话</text>
+    <view>{{phone}}</view>
+  </view>
+  <view class="box2">
+    <text>我的学院</text>
+    <view>{{academy}}</view>
+  </view>
+</view>
+
+<button class="tuichu" size="mini" bindtap="outLogin">退出登录</button>

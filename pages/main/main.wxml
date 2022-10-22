@@ -5,19 +5,40 @@
           <button class="login_btn" size="mini" bindtap="getUserProfile" > 获取头像昵称 </button>
           </view>
 
-          <view wx:else class="root">
+          <view wx:else class="root" bindtap="getmyinfo">
           <image bindtap="bindViewTap" class="touxiang" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-          <text class="nicheng">{{userInfo.nickName}}</text>
-          <button class="tuichu" size="mini" bindtap="outLogin">退出登录</button>
+          <text class="nicheng">欢迎使用！{{userInfo.nickName}}</text>
           </view>
       </view> 
 </block>
 
-<view class="box2">
-  <button bindtap="Leave">离校申请</button>
-  <button bindtap="BackRequest">返校申请</button>
-  <button>课程请假</button>
-  <button>健康打卡</button>
+<view class='order_process'>
+      <view class='process_wrap' wx:for="{{processData}}" wx:key="">
+        <view class='process'>
+          <view class='process_line' style="background:{{item.start}}"></view>
+          <image class='process_icon' src="{{item.icon}}"></image>
+          <view class='process_line' style="background:{{item.end}}"></view>
+        </view>
+        <text class='process_name'>{{item.name}}</text>      
+      </view>
 </view>
 
+<view class="box3">
+  <view class="item" bindtap="Leave">
+    <image src="/image/lixiao.png"></image>
+    <view>离校申请</view>
+  </view>
+  <view class="item" bindtap="BackRequest">
+    <image src="/image/fanxiao.png"></image>
+    <view>返校申请</view>
+  </view>
+  <view class="item">
+    <image src="/image/kecheng.png"></image>
+    <view>课程请假</view>
+  </view>
+  <view class="item">
+    <image src="/image/jiankang.png"></image>
+    <view>健康打卡</view>
+  </view>
+</view>
 

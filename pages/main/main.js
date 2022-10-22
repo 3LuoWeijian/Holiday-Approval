@@ -11,6 +11,68 @@ Page({
   data: {
     userInfo:null,
     isLogin:'',
+    processData: [{
+      name: '申请提交',
+      start: '#fff',
+      end: '#EFF3F6',
+      icon: '/image/daka.png'
+    },
+    {
+      name: '辅导员审批',
+      start: '#EFF3F6',
+      end: '#EFF3F6',
+      icon: '/image/check.png'
+    },
+    {
+      name: '教务处审批',
+      start: '#EFF3F6',
+      end: '#EFF3F6',
+      icon: '/image/daka.png'
+    },
+    {
+      name: '审批结果',
+      start: '#EFF3F6',
+      end: '#EFF3F6',
+      icon: '/image/daka.png'
+    },
+    {
+      name: '取消审批',
+      start: '#EFF3F6',
+      end: '#fff',
+      icon: '/image/daka.png'
+    }],
+  },
+  //进度条的状态
+  setPeocessIcon: function () {
+    var index = 1//记录状态为1的最后的位置
+    var processArr = this.data.processData
+    // console.log("progress", this.data.detailData.progress)
+    for (var i = 0; i < this.data.detailData.progress.length; i++) {
+      var item = this.data.detailData.progress[i]
+      processArr[i].name = item.word
+      if (item.state == 1) {
+        index = i
+        processArr[i].icon = "/image/fankui.png"
+        processArr[i].start = "#45B2FE"
+        processArr[i].end = "#45B2FE"
+      } else {
+        processArr[i].icon = "/image/shenpi.png"
+        processArr[i].start = "#EFF3F6"
+        processArr[i].end = "#EFF3F6"
+      }
+    }
+    processArr[index].icon = "/image/view.png"
+    processArr[index].end = "#EFF3F6"
+    processArr[0].start = "#fff"
+    processArr[this.data.detailData.progress.length - 1].end = "#fff"
+    this.setData({
+      processData: processArr
+    })
+  },
+  getmyinfo:function(){
+    wx.navigateTo({
+      url: '/pages/my-info/my-info',
+    })
   },
 
   /**
@@ -19,6 +81,11 @@ Page({
   onLoad:function(options) {
     wx.hideHomeButton()
     let user=wx.getStorageSync('user')
+    console.log('用户',user)
+    if(app.name!=null)
+    {
+      user.nickName = app.name
+    }
     console.log('用户',user)
     this.setData({
     userInfo:user,
@@ -29,7 +96,6 @@ Page({
         isLogin:true
       })
     }
-    this.onLoad(_options)
   },
   //授权登录
   getUserProfile(e){

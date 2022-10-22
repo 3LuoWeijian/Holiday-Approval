@@ -1,4 +1,7 @@
 // pages/my/my.js
+const db = wx.cloud.database();
+var that = this;
+const app= getApp().appData;
 Page({
 
   /**
@@ -11,6 +14,17 @@ Page({
   },
 
   onLoad(){
+    let user=wx.getStorageSync('user')
+    console.log('用户',user)
+    if(app.name!=null)
+    {
+      user.nickName = app.name
+    }
+    console.log('用户',user)
+    this.setData({
+    userInfo:user,
+    })
+
     if (wx.getUserProfile) {
       this.setData({
         isLogin:true
@@ -36,32 +50,18 @@ Page({
     })
 
   },
-//退出登录
-outLogin(){
-  this.setData({
-    userInfo:'',
-  })
-  wx.setStorageSync('user', null)
-},
+  //跳转到我的信息
+  getmyinfo:function(){
+    wx.navigateTo({
+      url: '/pages/my-info/my-info',
+    })
+  },
 
-onLoad(){
-  let user=wx.getStorageSync('user')
-  this.setData({
-    userInfo:user,
-  })
-},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
 
-  },
-
-  onLoad(){
-    let user=wx.getStorageSync('user')
-    this.setData({
-      userInfo:user,
-    })
   },
 
   /**
