@@ -31,7 +31,7 @@
   </view>
 
   <view class="title">请假信息\n</view>
-  <view class="box1">
+  <view class="box1" style="width: 652rpx; height: 1822rpx; display: block; box-sizing: border-box">
     <view>
       <view>请假类别</view>
 
@@ -70,15 +70,28 @@
         </view>
       </picker>
     </view>
-    <view>
-    <view >上传文件</view>
-    <button bindtap="shangchuan">选择</button>
-    </view>
+
 
     <view>
-      <view class="reasonTtile"> \n 请假理由</view>
+      <view style="width: 622rpx; height: 251rpx; display: block; box-sizing: border-box">
+        <view style="width: 622rpx; height: 167rpx; display: block; box-sizing: border-box">
+          <button class="upDocx" type="primary" bindtap="upImg" style="position: relative; left: -166rpx; top: 94rpx; width: 282rpx; height: 94rpx; display: block; box-sizing: border-box">上传图片</button>
+          <view class="imgyulan" style="width: 282rpx; height: 50rpx; display: block; box-sizing: border-box">图片预览：</view>
+        </view>
+        <image src="{{imgPath}}" class="upImg" style="width: 113rpx; height: 94rpx; display: block; box-sizing: border-box"></image>
+        <button class="upDocx" type="primary" bindtap="upDocx" style="position: relative; left: -64rpx; top: 61rpx; width: 284rpx; height: 94rpx; display: block; box-sizing: border-box">上传word</button>
+
+        <button class="" bindtap="openDocx" style="position: relative; left: 90rpx; top: -33rpx; width: 113rpx; height: 94rpx; display: block; box-sizing: border-box">{{fid2}}</button>
+
+      </view>
+
+    </view>
+
+    <view style="width: 652rpx; height: 418rpx; display: block; box-sizing: border-box">
+      <view class="reasonTtile" style="width: 150rpx; height: 99rpx; display: block; box-sizing: border-box"> \n 请假理由</view>
       <view class="errmsg">{{errmsg}}</view>
-      <view class="reasonText"><textarea placeholder="请输入(150字以内)" name="leaveReason" maxlength="150" bindinput="textCount" bindblur="textBlur" style="width: 624rpx; height: 200rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx"></textarea></view>
+      <view class="reasonText" style="width: 659rpx; height: 218rpx; display: block; box-sizing: border-box"><textarea placeholder="请输入(150字以内)" name="leaveReason" maxlength="150" bindinput="textCount" bindblur="textBlur" style="width: 624rpx; height: 200rpx; display: block; box-sizing: border-box; left: 0rpx; top: 108rpx; position: relative"></textarea></view>
+
       <view class="textCount" style="width: 200rpx; height: 99rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx"><text>/150</text><text style="color: #26d7d8; width: 38rpx; height: 118rpx; display: block; box-sizing: border-box">{{reasonLength}}</text></view>
     </view>
 
@@ -88,6 +101,7 @@
 
 
 </form>
+
 
 
 
