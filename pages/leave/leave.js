@@ -8,65 +8,104 @@ Page({
    * 页面的初始数据
    */
   data: {
-    sno:'',
+    /* imgPath: '',
+    fid1: '', */
+    fid2: '',
+    fdy_check:'',//辅导员审核情况
+    xy_check:'',//学院审核情况
+    sno: '',
     nowDate: '',
     leaveDate: '',
     returnDate: '',
-    studentClassItems: [
-      { name: 'benkesheng', value: '本科生', checked: 'true' },
-      { name: 'yanjiusheng', value: '研究生' },
+    studentClassItems: [{
+        name: 'benkesheng',
+        value: '本科生',
+        checked: 'true'
+      },
+      {
+        name: 'yanjiusheng',
+        value: '研究生'
+      },
     ],
-    studentClass:'本科生',
-    campusClassItems:[
-      { name: 'daxuecheng', value: '大学城', checked: 'true' },
-      { name: 'guihuagang', value: '桂花岗' },
-      { name: 'huangpu', value: '黄埔' },
+    studentClass: '本科生',
+    campusClassItems: [{
+        name: 'daxuecheng',
+        value: '大学城',
+        checked: 'true'
+      },
+      {
+        name: 'guihuagang',
+        value: '桂花岗'
+      },
+      {
+        name: 'huangpu',
+        value: '黄埔'
+      },
     ],
-    campusClass:'大学城',
+    campusClass: '大学城',
     region: ['广东省', '广州市', '海珠区'],
     customItem: '全部',
-    leaveClassItems: [
-      { name: 'shijia', value: '事假', checked: 'true' },
-      { name: 'bingjia', value: '病假' },
-      { name: 'shixi', value: '实习' },
-      { name: 'xiuxue', value: '休学' },
-      { name: 'liuxue', value: '留学' },
+    leaveClassItems: [{
+        name: 'shijia',
+        value: '事假',
+        checked: 'true'
+      },
+      {
+        name: 'bingjia',
+        value: '病假'
+      },
+      {
+        name: 'shixi',
+        value: '实习'
+      },
+      {
+        name: 'xiuxue',
+        value: '休学'
+      },
+      {
+        name: 'liuxue',
+        value: '留学'
+      },
     ],
-    leaveClass:'事假',
+    leaveClass: '事假',
 
     reasonLength: 0,
     errmsg: "",
   },
-//学号sno
+  //学号sno
 
-bindSnoInput: function (e) {
-  this.setData({
-    sno: e.detail.value
-  })
-}, 
-//学生类别
-radioStudentClassChange: function (e) {
-  var str = null;
-  for (var value of this.data.studentClassItems) {
-    if (value.name === e.detail.value) {
-      str = value.value;
-      break;
+  bindSnoInput: function (e) {
+    this.setData({
+      sno: e.detail.value
+    })
+  },
+  //学生类别
+  radioStudentClassChange: function (e) {
+    var str = null;
+    for (var value of this.data.studentClassItems) {
+      if (value.name === e.detail.value) {
+        str = value.value;
+        break;
+      }
     }
-  }
-  this.setData({ studentClass: str});
-},
+    this.setData({
+      studentClass: str
+    });
+  },
 
-//校区类别
-radioCampusClassChange: function (e) {
-  var str = null;
-  for (var value of this.data.campusClassItems) {
-    if (value.name === e.detail.value) {
-      str = value.value;
-      break;
+  //校区类别
+  radioCampusClassChange: function (e) {
+    var str = null;
+    for (var value of this.data.campusClassItems) {
+      if (value.name === e.detail.value) {
+        str = value.value;
+        break;
+      }
     }
-  }
-  this.setData({ campusClass: str});
-},
+    this.setData({
+      campusClass: str
+    });
+  },
 
 
   //请假类别
@@ -78,18 +117,20 @@ radioCampusClassChange: function (e) {
         break;
       }
     }
-    this.setData({ leaveClass: str});
+    this.setData({
+      leaveClass: str
+    });
   },
 
-  
-//外出地点
-     bindRegionChange: function (e) {
+
+  //外出地点
+  bindRegionChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       region: e.detail.value
     })
-     },
-    
+  },
+
 
   // 离开日期变化时返回日期最小为离开日期
   bindLeaveDateChange: function (e) {
@@ -125,35 +166,137 @@ radioCampusClassChange: function (e) {
       })
     }
   },
+  //上传图片
+  /* upImg() {
+    const that = this;
+    wx.chooseMessageFile({
+      count: 1,
+      type: 'image',
+      success(res) {
+        console.log("选择成功")
+        wx.cloud.uploadFile({
+          cloudPath: '123.png',
+          filePath: res.tempFiles[0].path, // 文件路径
 
+          success: res => {
+            
+            console.log("上传成功", res)
 
-  shangchuan: function(e){
+            that.setData({
+              imgPath: res.fileID
+            })
+            console.log(that.data.imgPath)
+          },
+          fail: err => {
+            // handle error
+            console.log("上传失败", res)
+          }
+        })
+      },
+      fail() {
+        console.log("选择失败")
+
+      }
+
+    })
+  },
+ */
+
+  //预览图片
+  /* openImg(){
     var that = this;
+    wx.cloud.downloadFile({
+      fileID: (that.data.fid1),
+      success: res => {
+   
+        console.log(res.tempFilePath)
+        console.log("下载预览成功"),
+          wx.openDocument({
+            filePath: res.tempFilePath,
+            success: () => {
+              console.log("打开成功")
+            },
+            fail: () => {
+              console.log("打开失败1")
+            }
+          })
+      },
+      fail: err => {
+        // handle error
+        console.log("打开失败2", res)
+      }
+    })
+
+  }, */
+
+  //上传word文档
+  upDocx() {
+    const that = this;
     wx.chooseMessageFile({
       count: 1,
       type: 'file',
       success(res) {
-        var filename = res.tempFiles[0].name
-        console.info(filename);
-        that.setData({filename:filename});
- 
- 
-        wx.uploadFile({
-          url: 'https://myfirstgatsbysitemaster61932.gatsbyjs.io/',
-          filePath: res.tempFiles[0].path,
-          name: 'uploadFile',
-          success(res) {
-            //json字符串 需用JSON.parse 转
+        console.log("选择成功")
+        wx.cloud.uploadFile({
+          cloudPath: '123.docx',
+          filePath: res.tempFiles[0].path, // 文件路径
+
+          success: res => {
+            console.log("上传成功", res)
+
+            that.setData({
+              fid2: res.fileID
+            })
+            console.log(that.data.fid2)
+
+
+
+          },
+          fail: err => {
+            // handle error
+            console.log("上传失败", res)
           }
         })
- 
- 
- 
-      }
-    });
+      },
+      fail() {
+        console.log("选择失败")
 
+      }
+
+    })
 
   },
+
+  //预览word文档
+  openDocx() {
+
+    var that = this;
+    wx.cloud.downloadFile({
+      fileID: (that.data.fid2),
+      success: res => {
+
+        console.log(res.tempFilePath)
+        console.log("下载预览成功"),
+          wx.openDocument({
+            filePath: res.tempFilePath,
+            fileType: docx,
+            success: () => {
+              console.log("打开成功")
+            },
+            fail: () => {
+              console.log("打开失败1")
+            }
+          })
+      },
+      fail: err => {
+        // handle error
+        console.log("打开失败2", res)
+      }
+    })
+  },
+
+
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -167,6 +310,8 @@ radioCampusClassChange: function (e) {
     })
     console.log(today)
   },
+
+
   submit: function (e) {
     var reasonLen = e.detail.value.leaveReason.length
     if (reasonLen > 10) {
@@ -177,16 +322,16 @@ radioCampusClassChange: function (e) {
       })
       var data = {
         //sno: app.globalData.regInfo.sno,
-        
-        region:this.data.region,
+
+        region: this.data.region,
         leaveDate: this.data.leaveDate,
         returnDate: this.data.returnDate,
         leaveReason: e.detail.value.leaveReason,
         subDate: this.data.nowDate,
-        leaveClass:this.data.leaveClass,
-        studentClass:this.data.studentClass,
-        campusClass:this.data.campusClass,
-        sno:this.data.sno,
+        leaveClass: this.data.leaveClass,
+        studentClass: this.data.studentClass,
+        campusClass: this.data.campusClass,
+        sno: this.data.sno,
       }
       console.log('data = ', data)
       wx.cloud.callFunction({
@@ -222,11 +367,11 @@ radioCampusClassChange: function (e) {
     } else {
       if (reasonLen == 0) {
         this.setData({
-          errmsg: "*啥都不写，感觉辅导员不会批准哦"
+          errmsg: "*请假理由为空"
         })
       } else if (reasonLen < 10) {
         this.setData({
-          errmsg: "*这么一丢丢，你再多写一点嘛"
+          errmsg: "*字数少于10字，不能提交噢"
         })
       } else {
         this.setData({
@@ -236,7 +381,7 @@ radioCampusClassChange: function (e) {
     }
   },
 
-  
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

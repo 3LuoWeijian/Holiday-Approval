@@ -3,14 +3,14 @@
   "projectname": "-",
   "setting": {
     "compileHotReLoad": true,
-    "urlCheck": true
+    "urlCheck": false
   },
   "condition": {
     "miniprogram": {
       "list": [
         {
           "name": "",
-          "pathName": "pages/main/main",
+          "pathName": "pages/BackRequest/BackRequest",
           "query": "",
           "launchMode": "default",
           "scene": null

@@ -44,7 +44,7 @@ Page({
     })
     .get({
       success:function(res){
-         console.log(res);
+        console.log(res);
         app.class = res.data[0].class
         app.name = res.data[0].name
         app.sno = res.data[0].sno

@@ -6,14 +6,16 @@
         "pages/tol-view/tol-view",
         "pages/my/my",
         "pages/BackRequest/BackRequest",
-        "pages/leave/leave"
+        "pages/leave/leave",
+        "pages/my-info/my-info",
+        "pages/kecheng/kecheng"
     ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
         "navigationBarTitleText": "广州大学",
         "navigationBarTextStyle":"black"
-	},
+    },
     "tabBar": {
 	  "selectedColor": "#99CCCC",
     "list": [

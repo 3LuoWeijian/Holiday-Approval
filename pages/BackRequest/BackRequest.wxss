@@ -33,13 +33,13 @@
 .box2
 {
   width: 90%;
-  padding-bottom: 20rpx;
   margin: 20rpx;
   color: black;
 }
 .box2 radio
 {
   padding-right: 40rpx;
+  padding-top: 20rpx;
 }
 
 .button1
@@ -49,3 +49,70 @@
   background-color:#28C76F ;
   color: white;
 }
+
+.con {
+	margin: 0 20rpx;
+  }
+   
+  .title2 {
+	padding-left: 31rpx;
+	font-size: 28rpx;
+	font-weight: bold;
+	color: #333333;
+  }
+   
+   
+  .img_list {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 24rpx;
+  }
+   
+  .item_img {
+	width: 220rpx;
+	height: 220rpx;
+	margin-right: 23rpx;
+	margin-bottom: 23rpx;
+	position: relative;
+	/* border: 1px solid #ccc; */
+  }
+   
+  .img_item {
+	width: 220rpx;
+	height: 220rpx;
+  }
+   
+  .item_img:nth-child(3n) {
+	margin-right: 0;
+  }
+   
+  .item_img1 {
+	width: 220rpx;
+	height: 220rpx;
+	margin-bottom: 23rpx;
+	border: 1px solid #ccc;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+  }
+   
+  .item_img1 text {
+	font-size: 26rpx;
+	/* font-weight: bold; */
+	color: #999999;
+  }
+   
+  .add_img {
+	width: 60rpx;
+	height: 60rpx;
+	margin-bottom: 30rpx;
+  }
+   
+  .close {
+	width: 30rpx;
+	height: 30rpx;
+	position: absolute;
+	top: -15rpx;
+	right: -15rpx;
+  }
