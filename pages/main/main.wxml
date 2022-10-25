@@ -32,7 +32,7 @@
     <image src="/image/fanxiao.png"></image>
     <view>返校申请</view>
   </view>
-  <view class="item">
+  <view class="item" bindtap="Kecheng">
     <image src="/image/kecheng.png"></image>
     <view>课程请假</view>
   </view>

@@ -7,7 +7,8 @@
         "pages/my/my",
         "pages/BackRequest/BackRequest",
         "pages/leave/leave",
-        "pages/my-info/my-info"
+        "pages/my-info/my-info",
+        "pages/kecheng/kecheng"
     ],
     "window": {
         "backgroundTextStyle": "light",
