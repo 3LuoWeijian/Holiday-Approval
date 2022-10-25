@@ -8,10 +8,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgPath:'',
-    fid1: '',
+    /* imgPath: '',
+    fid1: '', */
     fid2: '',
-    selctedimg: '',
+    fdy_check:'',//辅导员审核情况
+    xy_check:'',//学院审核情况
     sno: '',
     nowDate: '',
     leaveDate: '',
@@ -165,7 +166,7 @@ Page({
       })
     }
   },
-//上传图片
+  //上传图片
   /* upImg() {
     const that = this;
     wx.chooseMessageFile({
@@ -201,32 +202,32 @@ Page({
   },
  */
 
-//预览图片
-/* openImg(){
-  var that = this;
-  wx.cloud.downloadFile({
-    fileID: (that.data.fid1),
-    success: res => {
- 
-      console.log(res.tempFilePath)
-      console.log("下载预览成功"),
-        wx.openDocument({
-          filePath: res.tempFilePath,
-          success: () => {
-            console.log("打开成功")
-          },
-          fail: () => {
-            console.log("打开失败1")
-          }
-        })
-    },
-    fail: err => {
-      // handle error
-      console.log("打开失败2", res)
-    }
-  })
+  //预览图片
+  /* openImg(){
+    var that = this;
+    wx.cloud.downloadFile({
+      fileID: (that.data.fid1),
+      success: res => {
+   
+        console.log(res.tempFilePath)
+        console.log("下载预览成功"),
+          wx.openDocument({
+            filePath: res.tempFilePath,
+            success: () => {
+              console.log("打开成功")
+            },
+            fail: () => {
+              console.log("打开失败1")
+            }
+          })
+      },
+      fail: err => {
+        // handle error
+        console.log("打开失败2", res)
+      }
+    })
 
-}, */
+  }, */
 
   //上传word文档
   upDocx() {
@@ -253,7 +254,7 @@ Page({
           },
           fail: err => {
             // handle error
-            console.log("上传失败", res.tempFiles[0].path)
+            console.log("上传失败", res)
           }
         })
       },
@@ -278,6 +279,7 @@ Page({
         console.log("下载预览成功"),
           wx.openDocument({
             filePath: res.tempFilePath,
+            fileType: docx,
             success: () => {
               console.log("打开成功")
             },
@@ -365,11 +367,11 @@ Page({
     } else {
       if (reasonLen == 0) {
         this.setData({
-          errmsg: "*啥都不写，感觉辅导员不会批准哦"
+          errmsg: "*请假理由为空"
         })
       } else if (reasonLen < 10) {
         this.setData({
-          errmsg: "*这么一丢丢，你再多写一点嘛"
+          errmsg: "*字数少于10字，不能提交噢"
         })
       } else {
         this.setData({

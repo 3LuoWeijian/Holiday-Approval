@@ -1,8 +1,4 @@
-/* pages/leave/leave.wxss */
-page {
-  background-color: #ffffff;
-}
-
+/* pages/kecheng/kecheng.wxss */
 .formBox {
   width: 100%;
   height: 100%
@@ -36,12 +32,9 @@ page {
   padding-bottom: 20rpx;
   margin: 20rpx;
 }
-
 .box2 radio {
   padding-right: 40rpx;
 }
-
-
 .leaveTime {
   margin-bottom: 10rpx;
 
@@ -68,50 +61,6 @@ page {
 
 
 }
-
-.returnTime {
-  height: 111rpx;
-  display: block;
-  box-sizing: border-box;
-}
-
-.returnTime view {
-  width: 610rpx;
-  height: 71rpx;
-  display: block;
-  box-sizing: border-box;
-  margin-top: 10rpx;
-
-  display: block;
-  padding-bottom: 30rpx;
-
-  border-bottom: 1rpx solid #efefef;
-
-
-}
-
-.contact {
-  margin-top: 30rpx;
-}
-
-.upDocx {
-  font-size: xx-small;
-  
-}
-
-.openDocx {
-  font-size: 10%;
-}
-
-.upImg {
-  margin-left: 100rpx;
-  float: right;
-}
-
-.imgyulan {
-  float: right;
-}
-
 .reasonTtile {
   float: left;
   line-height: 100rpx;
@@ -173,21 +122,4 @@ page {
   line-height: 40rpx;
   color: white;
   font-size: 28rpx;
-}
-
-
-.button1 {
-  width: 80%;
-  margin-top: 40rpx;
-  background-color: #28C76F;
-  color: white;
-}
-
-.leaveReason {
-  width: 652rpx;
-  height: 256rpx;
-  display: block;
-  box-sizing: border-box;
-  left: 0rpx;
-  top: 0rpx
 }

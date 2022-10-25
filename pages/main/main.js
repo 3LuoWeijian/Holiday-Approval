@@ -135,7 +135,12 @@ outLogin(){
       url: '/pages/BackRequest/BackRequest',
     })
   },
-
+//课程请假
+Kecheng(){
+  wx.navigateTo({
+    url: '/pages/kecheng/kecheng',
+  })
+},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

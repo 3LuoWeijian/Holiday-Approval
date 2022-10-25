@@ -45,7 +45,7 @@
 
     </view>
 
-
+<!-- 离返校时间 -->
     <view class="leaveTime">离校时间<picker mode="date" value="{{leaveDate}}" start="2022-10-01" end="2030-09-01" bindchange="bindLeaveDateChange">
         <view>{{leaveDate}}</view>
       </picker>
@@ -56,7 +56,7 @@
       </picker>
     </view>
 
-
+<!-- 紧急联系人情况 -->
     <view class="contact">
       <view>紧急联系人姓名</view><input />
       <view>紧急联系人电话</view><input />
