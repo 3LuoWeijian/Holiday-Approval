@@ -1,0 +1,212 @@
+<form class="formBox" bindsubmit="submit">
+  <text class="title">基本信息\n</text>
+<view class="box1">
+  <text>申请时间</text>
+  <view>{{time}}</view>
+  <text>姓名</text><view>{{name}}</view>
+  <text>学号</text><view>{{sno}}</view>
+  <text>班级</text><view>{{class}}</view>
+  <text>性别</text><view>{{academy}}</view>
+  <text>联系电话</text><view>{{phone}}</view>
+  <text>学院</text>
+  <view class='select_box'>
+    <view class='select' catchtap='selectTaps'>
+    <text class='select_text'>{{classDatas[indexs]}}</text>
+    </view>
+      <view class='option_box' style='height:{{shows?(classDatas.length>5?300:classDatas.length*60):0}}rpx;'>
+        <text class='option' style='{{indexs==classDatas.length-1&&"border:0;"}}' wx:for='{{classDatas}}' wx:key='this' data-index='{{index}}' catchtap='optionTaps'>{{item}}</text>
+      </view>
+  </view>
+  <text>辅导员</text>
+  <view style="position:relative;top:0rpx;">
+
+	<view class="inputPlaceholder" wx:if='{{value}}' bindtap="changejiantou">
+		<text style="color:black;">{{value}}</text>
+		<view class="jiantou1" wx:if='{{isjiantou}}'><i class="iconfont icon-jiantou"></i></view>
+		<view class="jiantou1" wx:else='{{isjiantou}}'><i class="iconfont icon-jiantou1"></i></view>
+	</view>
+	<!-- 未选择时的Placeholder展示 -->
+	<view class="inputPlaceholder" wx:else bindtap="changejiantou">
+		<text>请选择辅导员</text>
+		<view class="jiantou1" wx:if='{{isjiantou}}'><i class="iconfont icon-jiantou"></i></view>
+		<view class="jiantou1" wx:else='{{isjiantou}}'><i class="iconfont icon-jiantou1"></i></view>
+	</view>
+	<!-- 下拉展开后的可选择内容 -->
+	<view class="content" wx:if='{{!isjiantou}}'>
+		<view 
+			class="{{item.id==valueid ? 'active':''}}" 
+			wx:for="{{selectcontent}}" wx:key="index" 
+			bindtap="changecontent" 
+			data-datavalue="{{item}}">
+			{{item.name}}
+		</view>
+	</view>
+</view>
+
+  <text>籍贯</text><input/>
+  <text>校内居住地址</text><input value="{{msg}}" bindinput="iptHandler"></input>
+  <text>目前所在地</text><input/>
+  </view>
+ <text class="title">健康检测情况\n</text>
+<view class="box3">
+  <text>当日是否外出</text>
+    <view>
+      <radio-group class="box2"  bindchange="radioOutsideChange">
+      <label class="radio" wx:for="{{OutsideClassItems}}">
+          <view>
+            <radio color="" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+          </view>
+        </label>
+      </radio-group>
+    </view>
+  <text>本人身体状况</text>
+  <view>
+      <radio-group class="box2" bindchange="radioSelfHealthClassChange">
+        <label class="radio" wx:for="{{SelfHealthClassItems}}">
+          <view>
+            <radio color="" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+          </view>
+        </label>
+      </radio-group>
+    </view>
+  <text>最近1次核酸检测结果</text>
+  <view>
+      <radio-group class="box2" bindchange="radioReportClassChange">
+        <label class="radio" wx:for="{{ReportClassItems}}">
+          <view>
+            <radio color="" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+          </view>
+        </label>
+      </radio-group>
+    </view>
+  <text>本人健康情况</text>
+  <view>
+      <radio-group class="box2" bindchange="radioHealthClassChange">
+        <label class="radio" wx:for="{{HealthClassItems}}">
+          <view>
+            <radio color="" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+          </view>
+        </label>
+      </radio-group>
+    </view>
+  <text>家庭成员身体状况</text>
+  <view>
+      <radio-group class="box2" bindchange="radioFamilyClassChange">
+        <label class="radio" wx:for="{{FamilyClassItems}}">
+          <view>
+            <radio color="" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+          </view>
+        </label>
+      </radio-group>
+    </view>
+  <text>家庭成员是否为重点人员</text>
+  <view>
+      <radio-group class="box2" bindchange="radioBoolFamilyClassChange">
+        <label class="radio" wx:for="{{BoolFamilyClassItems}}">
+          <view>
+            <radio color="" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+          </view>
+        </label>
+      </radio-group>
+    </view>
+  <text>14天内所在社区是否有经医疗机构诊断的疑似或确诊病例</text>
+  <view>
+      <radio-group class="box2" bindchange="radioBool1ClassChange">
+        <label class="radio" wx:for="{{Bool1ClassItems}}">
+          <view>
+            <radio color="" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+          </view>
+        </label>
+      </radio-group>
+    </view>
+  <text>是否接触过经医疗机构诊断的疑似或确诊病例</text>
+  <view>
+      <radio-group class="box2" bindchange="radioBool2ClassChange">
+        <label class="radio" wx:for="{{Bool2ClassItems}}">
+          <view>
+            <radio color="" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+          </view>
+        </label>
+      </radio-group>
+    </view>
+  <text>是否接触过半个月内有疫情重点地区旅居史的人员</text>
+  <view>
+      <radio-group class="box2" bindchange="radioBool3ClassChange">
+        <label class="radio" wx:for="{{Bool3ClassItems}}">
+          <view>
+            <radio color="" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+          </view>
+        </label>
+      </radio-group>
+    </view>
+  <text>健康码是否为绿码</text>
+  <view>
+      <radio-group class="box2" bindchange="radioBoolgreenClassChange">
+        <label class="radio" wx:for="{{BoolgreenClassItems}}">
+          <view>
+            <radio color="" value="{{item.name}}" checked="{{item.checked}}">{{item.value}}</radio>
+          </view>
+        </label>
+      </radio-group>
+    </view>
+  <text>半个月内是否到过国内疫情重点地区</text>
+  <view>
+      <radio-group class="box2" bindchange="radioKeyregionClassChange">
+        <label class="radio" wx:for="{{KeyregionItems}}">
+          <view>
+            <radio color="" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+          </view>
+        </label>
+      </radio-group>
+    </view>
+  <text>是否接种新冠疫苗</text>
+  <view>
+      <radio-group class="box2" bindchange="radioVaccineClassChange">
+        <label class="radio" wx:for="{{VaccineItems}}">
+          <view>
+            <radio color="" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+          </view>
+        </label>
+      </radio-group>
+    </view>
+  <text>是否接种新冠疫苗</text>
+  <view>
+      <radio-group class="box2" bindchange="radioVaccinecountsClassChange">
+        <label class="radio" wx:for="{{VaccinecountsItems}}">
+          <view>
+            <radio color="" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+          </view>
+        </label>
+      </radio-group>
+    </view>
+  <text>疫苗提供厂商</text>
+  <view>
+      <radio-group class="box2" bindchange="radioSupplierClassChange">
+        <label class="radio" wx:for="{{SupplierItems}}">
+          <view>
+            <radio color="" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+          </view>
+        </label>
+      </radio-group>
+    </view>
+<view class="section">
+  <text class="section__title">疫苗接种日期</text>
+  <picker mode="date" value="{{date}}" start="2019-01-01" end="2035-01-01" bindchange="bindDateChange">
+    <text class="picker">
+      当前选择: {{date}}
+    </text>
+  </picker>  
+  <button class="submit" form-type="submit">提交</button>
+ </view>
+</view>
+</form>
+
+
+
+
+
+
+
+
+
+

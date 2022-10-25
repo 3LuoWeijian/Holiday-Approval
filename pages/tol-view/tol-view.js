@@ -5,11 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+<<<<<<< Updated upstream
 	show: true, //显示选择图片的按钮
     imgList: [
  
     ],
     maxPhoto: 10, //最大上传10张图片
+=======
+>>>>>>> Stashed changes
     
   },
 
