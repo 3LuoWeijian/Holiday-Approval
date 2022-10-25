@@ -166,7 +166,7 @@ Page({
     }
   },
 //上传图片
-  upImg() {
+  /* upImg() {
     const that = this;
     wx.chooseMessageFile({
       count: 1,
@@ -199,10 +199,10 @@ Page({
 
     })
   },
-
+ */
 
 //预览图片
-openImg(){
+/* openImg(){
   var that = this;
   wx.cloud.downloadFile({
     fileID: (that.data.fid1),
@@ -226,7 +226,7 @@ openImg(){
     }
   })
 
-},
+}, */
 
   //上传word文档
   upDocx() {
