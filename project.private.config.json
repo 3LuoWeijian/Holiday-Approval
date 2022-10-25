@@ -10,7 +10,7 @@
       "list": [
         {
           "name": "",
-          "pathName": "pages/my-info/my-info",
+          "pathName": "pages/BackRequest/BackRequest",
           "query": "",
           "launchMode": "default",
           "scene": null

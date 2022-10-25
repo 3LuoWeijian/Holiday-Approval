@@ -14,7 +14,7 @@
         "navigationBarBackgroundColor": "#fff",
         "navigationBarTitleText": "广州大学",
         "navigationBarTextStyle":"black"
-	},
+    },
     "tabBar": {
 	  "selectedColor": "#99CCCC",
     "list": [
