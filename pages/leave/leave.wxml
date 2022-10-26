@@ -8,7 +8,6 @@
     <text>学院</text><input />
     <text>手机号码</text><input />
     <text>学生类别</text>
-
     <view>
       <radio-group class="box2" bindchange="radioStudentClassChange">
         <label class="radio" wx:for="{{studentClassItems}}">

@@ -3,6 +3,7 @@
 <button bindtap="info">全校人数</button>
 <button>全校打卡情况</button>
 
+<<<<<<< Updated upstream
 <view class="con">
     <text class="title">上传照片</text>
     <view class="img_list">
@@ -19,3 +20,5 @@
     </view>
  
 </view>　
+=======
+>>>>>>> Stashed changes

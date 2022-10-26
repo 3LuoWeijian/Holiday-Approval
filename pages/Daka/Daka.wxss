@@ -1,0 +1,170 @@
+.formBox {
+  width: 100%;
+  height: 100%
+}
+.title {
+  font-size: 60rpx;
+  font-weight: bolder;
+  margin-left: 30rpx;
+}
+.box1{
+  margin: 50rpx;
+}
+
+.box1 text {
+  padding: 10rpx;
+  margin-top: 10rpx;
+}
+
+.box1 input {
+  width: 90%;
+  border-bottom: 3rpx solid #efefef;
+  padding: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.box1 view{
+  width: 90%;
+  border-bottom: 3rpx solid #efefef;
+  padding: 10rpx;
+  margin-bottom: 20rpx;
+  }
+
+.box2 {
+  width: 90%;
+  border-bottom: 1rpx solid #efefef;
+  padding-bottom: 20rpx;
+  margin: 50rpx;
+  justify-content: center;
+  margin-left: 10rpx;
+}
+
+.box2 text {
+  padding: 10rpx;
+  margin-top: 10rpx;
+  
+}
+.box2 radio {
+  padding-right: 40rpx;
+}
+.box3{
+  margin: 50rpx;
+}
+.box3 text {
+  padding: 10rpx;
+  margin-top: 10rpx;
+}
+.box3 view{
+  width: 90%;
+ 
+  padding: 10rpx;
+  margin-bottom: 20rpx;
+  }
+
+.select_box {
+  width: 620rpx;
+  /* margin: 0 auto; */
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: left;
+  position: relative;
+}
+
+.select {
+  box-sizing: border-box;
+  width: 100%;
+  height: 86rpx;
+  /* border: 1px solid #efefef; */
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+}
+
+.select_text {
+  font-size: 28rpx;
+  flex: 1;
+  line-height: 86rpx;
+  height: 86rpx;
+}
+
+.select_img {
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.select_img_rotate {
+  transform: rotate(180deg);
+}
+
+.option_box {
+  position: absolute;
+  top: 86rpx;
+  width: 100%;
+  /* border: 1px solid #efefef; */
+  box-sizing: border-box;
+  height: 0;
+  overflow-y: auto;
+  border-top: 0;
+  background: #fff;
+  transition: height 0.3s;
+  z-index: 100;
+}
+
+.option {
+  display: block;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  border-bottom: 1px solid #efefef;
+  padding: 10rpx;
+  color: rgb(102, 102, 102);
+}
+.submit{
+  width: 710rpx;
+  height: 80rpx;
+  margin: 40rpx auto;
+  background-color: #66ccff;
+  border-radius: 20rpx;
+  line-height: 40rpx;
+  color: white;
+  font-size: 28rpx;
+}
+.jiantou1{
+  box-sizing: border-box;
+  width: 100%;
+  height: 86rpx;
+  /* border: 1px solid #efefef; */
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+}
+.inputPlaceholder
+{
+  font-size: 28rpx;
+  flex: 1;
+  line-height: 86rpx;
+  height: 86rpx;
+  
+}
+.content{
+  font-size: 28rpx;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

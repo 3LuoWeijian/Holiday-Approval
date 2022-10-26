@@ -139,12 +139,22 @@ outLogin(){
       url: '/pages/BackRequest/BackRequest',
     })
   },
+<<<<<<< Updated upstream
 //课程请假
 Kecheng(){
   wx.navigateTo({
     url: '/pages/kecheng/kecheng',
   })
 },
+=======
+  //健康打卡
+  Daka(){
+    wx.navigateTo({
+      url: '/pages/Daka/Daka',
+    })
+  },
+
+>>>>>>> Stashed changes
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -8,7 +8,11 @@
         "pages/BackRequest/BackRequest",
         "pages/leave/leave",
         "pages/my-info/my-info",
+<<<<<<< Updated upstream
         "pages/kecheng/kecheng"
+=======
+        "pages/Daka/Daka"
+>>>>>>> Stashed changes
     ],
     "window": {
         "backgroundTextStyle": "light",
