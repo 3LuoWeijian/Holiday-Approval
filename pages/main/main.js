@@ -106,6 +106,10 @@ Page({
         let user =res.userInfo
         //缓存用户信息到本地
         wx.setStorageSync('user', user)
+        if(app.name!=null)
+        {
+          user.nickName = app.name
+        }
         this.setData({
           userInfo:user,
         })

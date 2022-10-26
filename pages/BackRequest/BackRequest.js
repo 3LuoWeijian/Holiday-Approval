@@ -175,7 +175,7 @@ Page({
       })
     },
 
-  submit:function(e){
+    submit:function(e){
     wx.showLoading({
       title: '申请提交中...',
       mask: true
@@ -194,11 +194,11 @@ Page({
     console.log('data = ', data)
     
     wx.cloud.callFunction({
-        name: "backrequest",
-        data: data
+        name:"backrequest",
+        data: data,
       })
       .then(res => {
-        // console.log(res)
+        console.log(res)
         wx.hideLoading()
         wx.showToast({
           title: '提交成功',

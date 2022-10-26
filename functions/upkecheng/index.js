@@ -10,7 +10,6 @@ exports.main = async (event, context) => {
   return await db.collection("kecheng")
     .add({
       data: {
-        
         absenceDate: event.absenceDate,
         absenceReason: event.absenceReason,
         lessonName:event.lessonName,
