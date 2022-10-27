@@ -1,38 +1,32 @@
-// pages/check/check.js
-var app=getApp().appData;
+// pages/check-leave/check-leave.js
 const db = wx.cloud.database();
+var that = this;
+const app= getApp().appData;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    backlist:[],
 
   },
 
-<<<<<<< HEAD
-
-  leavecheck(){
-    wx.navigateTo({
-      url: '/pages/leavecheck/leavecheck',
-    })
-  },
-=======
-  //返校审批
-  getCheckback(){
-    wx.navigateTo({
-      url: '/pages/check-back/check-back',
-    })
-  },
-
->>>>>>> 253ed595bcc142550c3a94ceb1760847178da1e5
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    db.collection('BackRequest').where({
+      pass_fdy:'false'
+    }).get({
+      success:function(res){
+        console.log(res.data[0])
+        that.backlist = res.data[0]
+        console.log(that.backlist)
 
-    
-    
+      }
+    })
+
 
   },
 

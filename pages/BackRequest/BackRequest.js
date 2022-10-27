@@ -25,6 +25,9 @@ Page({
     show: true, //显示选择图片的按钮
     imgList: [],
     maxPhoto: 10, //最大上传10张图片
+    pass_fdy:'false',
+    pass_jwc:'false',
+    pass_sj:'false',
   },
 
   /**
@@ -181,6 +184,11 @@ Page({
       mask: true
     })
     var data = {
+      name:this.data.name,
+      sno:this.data.sno,
+      class:this.data.class,
+      academy:this.data.academy,
+      phone:this.data.phone,
       region:this.data.region,
       type: this.data.type,
       Date: this.data.Date,
@@ -189,7 +197,9 @@ Page({
       conveyance:this.data.conveyance,
       timeofconveyance:this.data.timeofconveyance,
       inresidence :this.data.inresidence,
-      sno:this.data.sno,
+      pass_fdy:this.data.pass_fdy,
+      pass_jwc:this.data.pass_jwc,
+      pass_sj:this.data.pass_sj,
     }
     console.log('data = ', data)
     
@@ -221,11 +231,9 @@ Page({
           duration: 2000,
           mask: true
         })
-        console.log(err)
+        console.log("失败",err)
       })
   },
-  
-
   
 
   /**

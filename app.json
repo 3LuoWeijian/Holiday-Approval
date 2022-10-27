@@ -9,7 +9,11 @@
         "pages/leave/leave",
         "pages/my-info/my-info",
         "pages/kecheng/kecheng",
+<<<<<<< HEAD
         "pages/leavecheck/leavecheck"
+=======
+        "pages/check-back/check-back"
+>>>>>>> 253ed595bcc142550c3a94ceb1760847178da1e5
     ],
     "window": {
         "backgroundTextStyle": "light",
