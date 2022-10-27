@@ -1,0 +1,15 @@
+<!--pages/leavecheck/leavecheck.wxml-->
+
+<view class="box">
+    <view class="stu-info" style="width: 706rpx; height: 108rpx; display: block; box-sizing: border-box">
+        <view class="banji">计科212</view>
+        <view class="xingming" style="width: 115rpx; height: 43rpx; display: block; box-sizing: border-box">曾家谦</view>
+        <view class="xueyuan" style="width: 373rpx; height: 43rpx; display: block; box-sizing: border-box">计算机科学与网络工程学院</view>
+    </view>
+    <view class="leave-info">
+        <view class="leave-kind" style="width: 352rpx; height: 71rpx; box-sizing: border-box; display: block">事假</view>
+        <view class="leave-date" style="width: 352rpx; height: 71rpx; display: block; box-sizing: border-box">2022-10-25至2022-10-26</view>
+        <view class="leave-reason" style="width: 704rpx; height: 108rpx; display: block; box-sizing: border-box">因身体不舒服，需请假</view>
+    </view>
+    <view class="yes-or-not" style="width: 732rpx; height: 352rpx; display: block; box-sizing: border-box"><button style="position: relative; left: -179rpx; top: 47rpx; width: 195rpx; height: 83rpx; display: block; box-sizing: border-box">驳回</button><button style="position: relative; left: 153rpx; top: -36rpx; width: 195rpx; height: 83rpx; display: block; box-sizing: border-box">通过</button></view>
+</view>

@@ -8,6 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+      stu_name:'',
+      academy:'',
+      phone:'',
     /* imgPath: '',
     fid1: '', */
     fid2: '',
@@ -18,7 +21,7 @@ Page({
     nowDate: '',
     leaveDate: '',
     returnDate: '',
-    studentClassItems: [{
+    studentClassItems: [{//改为stu_class
         name: 'benkesheng',
         value: '本科生',
         checked: 'true'
@@ -43,7 +46,7 @@ Page({
         value: '黄埔'
       },
     ],
-    campusClass: '大学城',
+    campus_class: '大学城',//
     region: ['广东省', '广州市', '海珠区'],
     customItem: '全部',
     leaveClassItems: [{
