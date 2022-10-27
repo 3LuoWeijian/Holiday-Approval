@@ -12,6 +12,7 @@ Page({
     fid1: '', */
     fid2: '',
     fdy_check:'',//辅导员审核情况
+    sj_check:'',
     xy_check:'',//学院审核情况
     sno: '',
     nowDate: '',

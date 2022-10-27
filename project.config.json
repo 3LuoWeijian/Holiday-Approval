@@ -36,7 +36,8 @@
     "disableUseStrict": false,
     "useCompilerPlugins": false,
     "minifyWXML": true,
-    "ignoreUploadUnusedFiles": true
+    "ignoreUploadUnusedFiles": true,
+    "compileHotReLoad": true
   },
   "condition": {},
   "editorSetting": {
