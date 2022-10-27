@@ -10,22 +10,12 @@ Page({
 
   },
 
-<<<<<<< HEAD
 
   leavecheck(){
     wx.navigateTo({
       url: '/pages/leavecheck/leavecheck',
     })
   },
-=======
-  //返校审批
-  getCheckback(){
-    wx.navigateTo({
-      url: '/pages/check-back/check-back',
-    })
-  },
-
->>>>>>> 253ed595bcc142550c3a94ceb1760847178da1e5
   /**
    * 生命周期函数--监听页面加载
    */

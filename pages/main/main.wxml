@@ -36,11 +36,7 @@
     <image src="/image/kecheng.png"></image>
     <view>课程请假</view>
   </view>
-<<<<<<< HEAD
   <view class="item" bindtap="Daka">
-=======
-  <view class="item">
->>>>>>> 253ed595bcc142550c3a94ceb1760847178da1e5
     <image src="/image/jiankang.png"></image>
     <view>健康打卡</view>
   </view>
