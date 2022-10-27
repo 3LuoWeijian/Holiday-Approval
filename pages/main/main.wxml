@@ -32,19 +32,11 @@
     <image src="/image/fanxiao.png"></image>
     <view>返校申请</view>
   </view>
-<<<<<<< Updated upstream
   <view class="item" bindtap="Kecheng">
     <image src="/image/kecheng.png"></image>
     <view>课程请假</view>
   </view>
   <view class="item">
-=======
-  <view class="item">
-    <image src="/image/kecheng.png"></image>
-    <view>课程请假</view>
-  </view>
-  <view class="item" bindtap="Daka">
->>>>>>> Stashed changes
     <image src="/image/jiankang.png"></image>
     <view>健康打卡</view>
   </view>

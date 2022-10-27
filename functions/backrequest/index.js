@@ -19,6 +19,9 @@ exports.main = async (event, context) => {
         timeofconveyance:event.timeofconveyance,
         inresidence :event.inresidence,
         sno:event.sno,
+        pass_fdy:event.pass_fdy,
+        pass_jwc:event.pass_jwc,
+        pass_sj:event.pass_sj,
       }
     })
 
