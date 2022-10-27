@@ -7,7 +7,9 @@ App({
     academy:null,
     phone:null,
     userinfo:null,
+    livingplace:'null',
     people:"student",
+    
     },
     onLaunch: function(){
         if(!wx.cloud){

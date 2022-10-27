@@ -13,12 +13,15 @@ Page({
   
     indexs: 0, //选择的下拉列 表下标,
     date:myDate.toLocaleDateString(),
+    time:null,
     name:null,
     sno:null,
     class:null,
     academy:null,
     phone:null,
+    livingplace:null,
     msg:'广州大学学生公寓',
+    msg1:'广州',
     isjiantou:true,   //箭头切换
     selectcontent:[
       {id:1,name:"肖章益"},
@@ -30,14 +33,17 @@ Page({
       { name: 'fou', value: '否', checked: 'true' },
       { name: 'shi', value: '是' },
     ],
+    OutsideClass:'否',
     SelfHealthClassItems: [
       { name: 'zhengchang', value: '正常', checked: 'true' },
       { name: 'bushi', value: '不适' },
     ],
+    SelfHealthClass:'正常',
     ReportClassItems: [
       { name: 'yinxing', value: '阴性', checked: 'true' },
       { name: 'yangxing', value: '阳性' },
     ],
+    ReportClass:'阴性',
     HealthClassItems: [
       { name: 'zhengchang', value: '正常', checked: 'true' },
       { name: 'geli', value: '隔离' },
@@ -45,6 +51,7 @@ Page({
       { name: 'yisihuoquezhen', value: '疑似/确诊' },
       { name: 'yisizhuanpaichu', value: '疑似转排除' },
     ],  
+    HealthClass:'正常',
     FamilyClassItems: [
       { name: 'zhengchang', value: '正常', checked: 'true' },
       { name: 'geli', value: '隔离' },
@@ -52,39 +59,48 @@ Page({
       { name: 'yisihuoquezhen', value: '疑似/确诊' },
       { name: 'yisizhuanpaichu', value: '疑似转排除' },
     ],
+    FamilyClass:'正常',
     BoolFamilyClassItems: [
       { name: 'fou', value: '否', checked: 'true' },
       { name: 'shi', value: '是' },
     ],
+    BoolFamilyClass:'否',
     Bool1ClassItems: [
       { name: 'fou', value: '否', checked: 'true' },
       { name: 'shi', value: '是' },
     ],
+    Bool1Class:'否',
     Bool2ClassItems: [
       { name: 'fou', value: '否', checked: 'true' },
       { name: 'shi', value: '是' },
     ],
+    Bool2Class:'否',
     Bool3ClassItems: [
       { name: 'fou', value: '否', checked: 'true' },
       { name: 'shi', value: '是' },
     ],
+    Bool3Class:'否',
     BoolgreenClassItems: [
       { name: 'shi', value: '是', checked: 'true' },
       { name: 'fou', value: '否' },
     ],
+    BoolgreenClass:'是',
     KeyregionItems: [
       { name: 'fou', value: '否', checked: 'true' },
       { name: 'shi', value: '是' },
     ],
+    Keyregion:'否',
     VaccineItems: [
       { name: 'shi', value: '是', checked: 'true' },
       { name: 'fou', value: '否' },
     ],
+    Vaccine:'是',
     VaccinecountsItems: [
       { name: 'yizhen', value: '一针'},
       { name: 'liangzhen', value: '两针' },
       { name: 'sanzhen', value: '三针', checked: 'true' },
     ],
+    Vaccinecounts:'三针',
    SupplierItems: [
       { name: 'shengwu', value: '生物'},
       { name: 'kexing', value: '科兴' },
@@ -92,6 +108,7 @@ Page({
       { name: 'kangtai', value: '康泰'},
       { name: 'qita', value: '其他'},
     ],
+    Supplier:'生物',
   },
 
   // 点击下拉显示框
@@ -120,6 +137,12 @@ Page({
     this.setData({
         // 通过e.detail.value 获取文本框最新值
         msg:e.detail.value
+    })
+  },
+  kptHandler(e){
+    this.setData({
+        // 通过e.detail.value 获取文本框最新值
+        msg1:e.detail.value
     })
   },
 
@@ -227,46 +250,46 @@ Page({
 
   radioKeyregionClassChange: function (e) {
     var str = null;
-    for (var value of this.data.KeyregionClassItems) {
+    for (var value of this.data.KeyregionItems) {
       if (value.name === e.detail.value) {
         str = value.value;
         break;
       }
     }
-    this.setData({KeyregionClass: str});
+    this.setData({Keyregion: str});
   },
 
   radioVaccineClassChange: function (e) {
     var str = null;
-    for (var value of this.data.VaccineClassItems) {
+    for (var value of this.data.VaccineItems) {
       if (value.name === e.detail.value) {
         str = value.value;
         break;
       }
     }
-    this.setData({VaccineClass: str});
+    this.setData({Vaccine: str});
   },
 
   radioVaccinecountsClassChange: function (e) {
     var str = null;
-    for (var value of this.data.VaccinecountsClassItems) {
+    for (var value of this.data.VaccinecountsItems) {
       if (value.name === e.detail.value) {
         str = value.value;
         break;
       }
     }
-    this.setData({VaccinecountsClass: str});
+    this.setData({Vaccinecounts: str});
   },
   
    radioSupplierClassChange: function (e) {
     var str = null;
-    for (var value of this.data.SupplierClassItems) {
+    for (var value of this.data.SupplierItems) {
       if (value.name === e.detail.value) {
         str = value.value;
         break;
       }
     }
-    this.setData({SupplierClass: str});
+    this.setData({Supplier: str});
   }, 
 
   onLoad: function (options) {
@@ -276,6 +299,7 @@ Page({
       sno:app.sno,      
       academy:app.academy,
       phone:app.phone,
+      livingplace:app.livingplace,
     })
     // 调用函数时，传入new Date()参数，返回值是日期和时间
     var time = util.formatTime(new Date());
@@ -293,29 +317,31 @@ submit: function (e) {
       })
       var data = {
         //sno: app.globalData.regInfo.sno,
-        
-       
+        msg1:this.data.msg1,
+        livingplace:this.data.livingplace,
+        time: this.data.time,
         name: this.data.name,
         sno: this.data.sno,
         class:this.data.class,
         academy: this.data.academy,
         phone:this.data.phone,
+        value:this.data.value,
         msg:this.data.msg,
         selectcontent:this.data.selectcontent,
-        OutsideClassItems:this.data.OutsideClassItems,
-        SelfHealthClassItems:this.data.SelfHealthClassItems,
-        ReportClassItems:this.data.ReportClassItems,
-        HealthClassItems:this.data.HealthClassItems,
-        FamilyClassItems:this.data.FamilyClassItems,
-        BoolFamilyClassItems:this.data.BoolFamilyClassItems,
-        Bool1ClassItems:this.data.Bool1ClassItems,
-        Bool2ClassItems:this.data.Bool2ClassItems,
-        Bool3ClassItems:this.data. Bool3ClassItems,
-        BoolgreenClassItems:this.data.BoolgreenClassItems,
-        KeyregionItems:this.data.KeyregionItems,
-        VaccineItems:this.data. VaccineItems,
-        VaccinecountsItems:this.data. VaccinecountsItems,
-        SupplierItems:this.data. SupplierItems
+        OutsideClass:this.data.OutsideClass,
+        SelfHealthClass:this.data.SelfHealthClass,
+        ReportClass:this.data.ReportClass,
+        HealthClass:this.data.HealthClass,
+        FamilyClass:this.data.FamilyClass,
+        BoolFamilyClass:this.data.BoolFamilyClass,
+        Bool1Class:this.data.Bool1Class,
+        Bool2Class:this.data.Bool2Class,
+        Bool3Class:this.data. Bool3Class,
+        BoolgreenClass:this.data.BoolgreenClass,
+        Keyregion:this.data.Keyregion,
+        Vaccine:this.data. Vaccine,
+        Vaccinecounts:this.data. Vaccinecounts,
+        Supplier:this.data. Supplier
       }
       console.log('data = ', data)
       wx.cloud.callFunction({

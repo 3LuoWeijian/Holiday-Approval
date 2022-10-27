@@ -51,6 +51,7 @@ Page({
         app.sno = res.data[0].sno
         app.academy = res.data[0].academy
         app.phone = res.data[0].phone
+        app.livingplace = res.data[0].livingplace
       }
     });
     wx.getUserProfile({

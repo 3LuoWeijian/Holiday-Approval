@@ -145,13 +145,20 @@ Kecheng(){
     url: '/pages/kecheng/kecheng',
   })
 },
+<<<<<<< Updated upstream
 
 //健康打卡
+=======
+//打卡
+>>>>>>> Stashed changes
 Daka(){
   wx.navigateTo({
     url: '/pages/Daka/Daka',
   })
+<<<<<<< Updated upstream
   
+=======
+>>>>>>> Stashed changes
 },
   /**
    * 生命周期函数--监听页面初次渲染完成

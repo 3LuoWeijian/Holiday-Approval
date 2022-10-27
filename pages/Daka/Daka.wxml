@@ -6,17 +6,9 @@
   <text>姓名</text><view>{{name}}</view>
   <text>学号</text><view>{{sno}}</view>
   <text>班级</text><view>{{class}}</view>
-  <text>性别</text><view>{{academy}}</view>
+  <text>学院</text><view>{{academy}}</view>
   <text>联系电话</text><view>{{phone}}</view>
-  <text>学院</text>
-  <view class='select_box'>
-    <view class='select' catchtap='selectTaps'>
-    <text class='select_text'>{{classDatas[indexs]}}</text>
-    </view>
-      <view class='option_box' style='height:{{shows?(classDatas.length>5?300:classDatas.length*60):0}}rpx;'>
-        <text class='option' style='{{indexs==classDatas.length-1&&"border:0;"}}' wx:for='{{classDatas}}' wx:key='this' data-index='{{index}}' catchtap='optionTaps'>{{item}}</text>
-      </view>
-  </view>
+  <text>籍贯</text><view>{{livingplace}}</view>
   <text>辅导员</text>
   <view style="position:relative;top:0rpx;">
 
@@ -42,10 +34,8 @@
 		</view>
 	</view>
 </view>
-
-  <text>籍贯</text><input/>
   <text>校内居住地址</text><input value="{{msg}}" bindinput="iptHandler"></input>
-  <text>目前所在地</text><input/>
+  <text>目前所在地</text><input value="{{msg1}}" bindinput="kptHandler"></input>
   </view>
  <text class="title">健康检测情况\n</text>
 <view class="box3">
