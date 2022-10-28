@@ -1,6 +1,11 @@
 /* pages/leavecheck/leavecheck.wxss */
 /* @import'../../templates/checkCard/checkCard.wxss' */
 .box {
+  width: 732rpx;
+  height: 544rpx;
+  display: block;
+  box-sizing: border-box;
+
   margin: 10rpx;
   border: 3rpx;
   border-color: grey;
@@ -9,6 +14,7 @@
 }
 
 .stu-info {
+
   font-size: small;
   padding: 30rpx;
 
@@ -26,22 +32,45 @@
 .xingming {
   padding-left: 8rpx;
   float: left;
+  width: 115rpx;
+  height: 43rpx;
+  display: block;
+  box-sizing: border-box
 }
 
 .xueyuan {
   float: right;
+  width: 373rpx;
+  height: 43rpx;
+  display: block;
+  box-sizing: border-box
+}
 
+.leave-info {
+  width: 732rpx;
+  height: 251rpx;
+  display: block;
+  box-sizing: border-box
 }
 
 .leave-kind {
   float: left;
   padding-left: 30rpx;
+
+  width: 352rpx;
+  height: 71rpx;
+  box-sizing: border-box;
+  display: block
 }
 
 .leave-date {
   padding-top: 10rpx;
   float: right;
   font-size: x-small;
+  width: 352rpx;
+  height: 71rpx;
+  display: block;
+  box-sizing: border-box
 }
 
 .leave-reason {
@@ -49,6 +78,18 @@
   line-height: 42rpx;
   float: left;
   font-size: small;
+  width: 704rpx;
+  height: 160rpx;
+  display: block;
+  box-sizing: border-box
+}
+
+.yes-or-not {
+
+  width: 732rpx;
+  height: 162rpx;
+  display: block;
+  box-sizing: border-box
 }
 
 .yes-or-not button {
@@ -59,6 +100,7 @@
 .not {
   background-color: #DB6160;
   color: #f5f7f5;
+  
 }
 
 .yes {
@@ -69,4 +111,8 @@
 .high-risk {
   font-size: small;
   float: right;
+  width: 296rpx;
+  height: 71rpx;
+  display: block;
+  box-sizing: border-box
 }
