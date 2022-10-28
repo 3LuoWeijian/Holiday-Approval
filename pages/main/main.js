@@ -82,9 +82,9 @@ Page({
     wx.hideHomeButton()
     let user=wx.getStorageSync('user')
     console.log('用户',user)
-    if(app.name!=null)
+    if(app.stu_name!=null)
     {
-      user.nickName = app.name
+      user.nickName = app.stu_name
     }
     console.log('用户',user)
     this.setData({
@@ -106,9 +106,9 @@ Page({
         let user =res.userInfo
         //缓存用户信息到本地
         wx.setStorageSync('user', user)
-        if(app.name!=null)
+        if(app.stu_name!=null)
         {
-          user.nickName = app.name
+          user.nickName = app.stu_name
         }
         this.setData({
           userInfo:user,
@@ -145,20 +145,13 @@ Kecheng(){
     url: '/pages/kecheng/kecheng',
   })
 },
-<<<<<<< Updated upstream
 
 //健康打卡
-=======
-//打卡
->>>>>>> Stashed changes
 Daka(){
   wx.navigateTo({
     url: '/pages/Daka/Daka',
   })
-<<<<<<< Updated upstream
   
-=======
->>>>>>> Stashed changes
 },
   /**
    * 生命周期函数--监听页面初次渲染完成

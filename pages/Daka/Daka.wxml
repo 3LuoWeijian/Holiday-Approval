@@ -2,8 +2,8 @@
   <text class="title">基本信息\n</text>
 <view class="box1">
   <text>申请时间</text>
-  <view>{{time}}</view>
-  <text>姓名</text><view>{{name}}</view>
+  <view>{{subDate}}</view>
+  <text>姓名</text><view>{{stu_name}}</view>
   <text>学号</text><view>{{sno}}</view>
   <text>班级</text><view>{{class}}</view>
   <text>学院</text><view>{{academy}}</view>
@@ -181,9 +181,9 @@
     </view>
 <view class="section">
   <text class="section__title">疫苗接种日期</text>
-  <picker mode="date" value="{{date}}" start="2019-01-01" end="2035-01-01" bindchange="bindDateChange">
+  <picker mode="date" value="{{InoculateDate}}" start="2019-01-01" end="2035-01-01" bindchange="bindDateChange">
     <text class="picker">
-      当前选择: {{date}}
+      当前选择: {{InoculateDate}}
     </text>
   </picker>  
   <button class="submit" form-type="submit">提交</button>

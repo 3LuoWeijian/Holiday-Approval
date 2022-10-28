@@ -12,9 +12,9 @@ Page({
     classDatas: ['计算机学院', '环境科学与工程学院', '网络安全学院','新闻传播学院','音乐舞蹈学院','生命科学学院','教育学院','马克思学院','外国语学院','土木学院'], //下拉列表的数据
   
     indexs: 0, //选择的下拉列 表下标,
-    date:myDate.toLocaleDateString(),
-    time:null,
-    name:null,
+    InoculateDate:myDate.toLocaleDateString(),
+    subDate:null,
+    stu_name:null,
     sno:null,
     class:null,
     academy:null,
@@ -294,7 +294,7 @@ Page({
 
   onLoad: function (options) {
     this.setData({
-      name:app.name,
+      stu_name:app.stu_name,
       class:app.class,
       sno:app.sno,      
       academy:app.academy,
@@ -302,10 +302,10 @@ Page({
       livingplace:app.livingplace,
     })
     // 调用函数时，传入new Date()参数，返回值是日期和时间
-    var time = util.formatTime(new Date());
+    var subDate = util.formatTime(new Date());
     // 再通过setData更改Page()里面的data，动态更新页面的数据
     this.setData({
-      time: time
+      subDate: subDate
     });
   },
  
@@ -318,13 +318,21 @@ submit: function (e) {
       var data = {
         //sno: app.globalData.regInfo.sno,
         msg1:this.data.msg1,
+        //籍贯
         livingplace:this.data.livingplace,
-        time: this.data.time,
-        name: this.data.name,
+        //提交日期
+        subDate: this.data.subDate,
+        //学生姓名
+        stu_name: this.data.stu_name,
+        //学生学号
         sno: this.data.sno,
+        //学生班级
         class:this.data.class,
+        //学生学院
         academy: this.data.academy,
+        //学生电话
         phone:this.data.phone,
+        //辅导员
         value:this.data.value,
         msg:this.data.msg,
         selectcontent:this.data.selectcontent,
@@ -341,7 +349,8 @@ submit: function (e) {
         Keyregion:this.data.Keyregion,
         Vaccine:this.data. Vaccine,
         Vaccinecounts:this.data. Vaccinecounts,
-        Supplier:this.data. Supplier
+        Supplier:this.data. Supplier,
+        InoculateDate:this.date.InoculateDate
       }
       console.log('data = ', data)
       wx.cloud.callFunction({

@@ -11,8 +11,8 @@ exports.main = async (event, context) => {
   return await db.collection("daka")
     .add({
       data: {
-        time:event.time,
-        name:event.name,
+        subDate:event.subDate,
+        stu_name:event.stu_name,
         sno:event.sno,
         class:event.class,
         academy:event.academy,
@@ -35,6 +35,7 @@ exports.main = async (event, context) => {
         Vaccine:event.Vaccine,
         Vaccinecounts:event.Vaccinecounts,
         Supplier:event.Supplier,
+        InoculateDate:event.InoculateDate,
       }
     })
 }

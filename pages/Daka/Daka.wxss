@@ -34,14 +34,14 @@
   width: 90%;
   border-bottom: 1rpx solid #efefef;
   padding-bottom: 20rpx;
-  margin: 50rpx;
+  margin: 20rpx;
   justify-content: center;
   margin-left: 10rpx;
 }
 
 .box2 text {
-  padding: 10rpx;
-  margin-top: 10rpx;
+  padding: 5rpx;
+  margin-top: 5rpx;
   
 }
 .box2 radio {
@@ -51,13 +51,12 @@
   margin: 50rpx;
 }
 .box3 text {
-  padding: 10rpx;
-  margin-top: 10rpx;
+  padding: 5rpx;
+  margin-top: 5rpx;
 }
 .box3 view{
   width: 90%;
- 
-  padding: 10rpx;
+  padding: 5rpx;
   margin-bottom: 20rpx;
   }
 
