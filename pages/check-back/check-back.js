@@ -20,19 +20,12 @@ Page({
       pass_fdy:'false'
     }).get({
       success:function(res){
-<<<<<<< Updated upstream
-        console.log(res)
-        that.backlist = res.data[0]
-        console.log(that.backlist)
-=======
         console.log('=',res.data)
         that.setData({
           backlist:res.data
         },()=>{ })
        console.log('成功',that.data.backlist)
         
->>>>>>> Stashed changes
-
       }
     })
 
