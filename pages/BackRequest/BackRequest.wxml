@@ -1,7 +1,7 @@
 <text class="title">基本信息\n</text>
 
   <view class="box1">
-    <text>姓名</text><view>{{name}}</view>
+    <text>姓名</text><view>{{stu_name}}</view>
     <text>学号</text><view>{{sno}}</view>
     <text>班级</text><view>{{class}}</view>
     <text>学院</text><view>{{academy}}</view>

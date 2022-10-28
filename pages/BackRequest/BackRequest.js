@@ -11,13 +11,13 @@ Page({
   data: {
     date:myDate.toLocaleDateString(),
     Date:myDate.toLocaleDateString(),
-    name:null,
+    stu_name:null,
     sno:null,
     class:null,
     academy:null,
     phone:null,
     region: ['广东省', '广州市', '番禺区'],
-    type:'本科生',
+    stu_type:'本科生',
     campus:'大学城',
     conveyance:'高铁',
     timeofconveyance:null,
@@ -35,7 +35,7 @@ Page({
    */
   onLoad:function(options) {
     this.setData({
-      name:app.name,
+      stu_name:app.name,
       class:app.class,
       sno:app.sno,      
       academy:app.academy,
@@ -47,7 +47,7 @@ Page({
   bindTypechange(e){
     console.log(e.detail)
     this.setData({
-      type:e.detail.value
+      stu_type:e.detail.value
     })
   },
 
@@ -184,13 +184,13 @@ Page({
       mask: true
     })
     var data = {
-      name:this.data.name,
+      stu_name:this.data.stu_name,
       sno:this.data.sno,
       class:this.data.class,
       academy:this.data.academy,
       phone:this.data.phone,
       region:this.data.region,
-      type: this.data.type,
+      stu_type: this.data.stu_type,
       Date: this.data.Date,
       date: this.data.date,
       campus: this.data.campus,

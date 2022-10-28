@@ -1,6 +1,5 @@
 // pages/check-leave/check-leave.js
 const db = wx.cloud.database();
-var that = this;
 const app= getApp().appData;
 Page({
 
@@ -16,13 +15,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    let that = this
     db.collection('BackRequest').where({
       pass_fdy:'false'
     }).get({
       success:function(res){
+<<<<<<< Updated upstream
         console.log(res)
         that.backlist = res.data[0]
         console.log(that.backlist)
+=======
+        console.log('=',res.data)
+        that.setData({
+          backlist:res.data
+        },()=>{ })
+       console.log('成功',that.data.backlist)
+        
+>>>>>>> Stashed changes
 
       }
     })
