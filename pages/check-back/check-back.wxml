@@ -1,32 +1,26 @@
 <!--pages/check-leave/check-leave.wxml-->
-
-<view class="noCheckList" wx:for="{{backList}}">
-  <!-- <view class="userBox">
-    <text class="user">{{item.sno}}{{item.name}}</text>
+<view class="noCheckList" wx:for="{{backlist}}" wx:key="index">
+  <view class="userBox">
+    <text class="user">{{item.class}}  {{item.stu_name}}</text>
     <text class="academy">{{item.academy}}</text>
-  </view> -->
-  <view class="noTitleBox">
-    <!-- <text class="noClass">{{item.leaveClass}}</text> -->
-    <text class="noTime">{{item.Date}} 到 {{item.date}}</text>
   </view>
-  <!-- <view class="noDetailBox">
-    <view class="noDetail">{{item.leaveReason}}</view>
-  </view> -->
-  <!-- <view class="buttonList">
-    <view wx:if="{{item.approveState==0}}">
-      <button class='backBtn' bindtap="backBtn" data-id="{{item._id}}" data-idx="{{index}}"
-        data-sno="{{item.sno}}">驳回</button>
-      <button class='okBtn' bindtap="okBtn" data-id="{{item._id}}" data-idx="{{index}}"
-        data-sno="{{item.sno}}">通过</button>
-    </view>
-    <view wx:if="{{item.approved == 1}}">
+  <view class="noTitleBox">
+	<text class="noClass">{{item.conveyance}}</text>
+    <text class="noTime">出发时间：{{item.Date}}</text>
+  </view>
+  <view class="noDetailBox">
+    <view class="noDetail">目前所在地：{{item.region}}</view>
+  </view>
+  <view class="buttonList">
+	<view>
       <button class='backBtn'>驳回</button>
       <button class='okBtn'>通过</button>
-    </view>
-  </view> -->
+	</view>
+  </view>
 </view>
 
-<!-- <view wx:if="{{leaveList.length>0==0}}" class="emptyBox">
-  <image src="/images/empty.png"></image>
+<view wx:if="{{leaveList.length==0}}" class="emptyBox">
+  <image src="/image/delete.png"></image>
   <text>这里空空如也</text>
-</view> -->
+</view>
+
