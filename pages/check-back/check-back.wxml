@@ -1,22 +1,27 @@
 <!--pages/check-leave/check-leave.wxml-->
-<view class="noCheckList" wx:for="{{backlist}}" wx:key="index">
+<view class="noCheckList" wx:for="{{backlist}}" wx:key="index" wx:for-index="childindex">
   <view class="userBox">
     <text class="user">{{item.class}}  {{item.stu_name}}</text>
     <text class="academy">{{item.academy}}</text>
   </view>
   <view class="noTitleBox">
 	<text class="noClass">{{item.conveyance}}</text>
-    <text class="noTime">出发时间：{{item.Date}}</text>
+    <text class="noTime">出发时间：{{item.setDate}}</text>
   </view>
   <view class="noDetailBox">
     <view class="noDetail">目前所在地：{{item.region}}</view>
   </view>
-  <view class="buttonList">
-	<view>
-      <button class='backBtn'>驳回</button>
-      <button class='okBtn'>通过</button>
-	</view>
+  <view class="box1 clearfix">
+    <view class="item_img"wx:for="{{item.imgList}}" wx:key="index">
+      <image src="{{item}}" class="img_item" mode="aspectFill" data-src="{{item}}" 
+      catchtap="previewImg" data-index="{{childindex}}"></image>  
+    </view>
   </view>
+  <view class="buttonList">
+      <button class='backBtn' bindtap="bindReject">驳回</button>
+      <button class='okBtn' bindtap="bindAgree" data-index="{{childindex}}">通过</button>
+  </view>
+
 </view>
 
 <view wx:if="{{leaveList.length==0}}" class="emptyBox">
