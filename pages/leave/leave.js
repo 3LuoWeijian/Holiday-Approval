@@ -1,27 +1,34 @@
 // leave.js
 // 获取应用实例
 
-var app = getApp()
+const db = wx.cloud.database();
+var that = this;
+const app= getApp().appData;
+
+const FileSystemManager = wx.getFileSystemManager()
+
 var util = require('util.js')
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-      stu_name:'',
-      academy:'',
-      phone:'',
+    stu_name: '',
+    class:'',
+    academy: '',
+    phone: '', 
+    sno: '',//新增
     /* imgPath: '',
     fid1: '', */
     fid2: '',
-    fdy_check:'',//辅导员审核情况
-    sj_check:'',
-    xy_check:'',//学院审核情况
-    sno: '',
+    pass_fdy: '', //辅导员审核情况
+    pass_sj: '',//书记审核情况
+    pass_jwc: '', //教务处审核情况
+    
     nowDate: '',
     leaveDate: '',
     returnDate: '',
-    studentClassItems: [{//改为stu_class
+    studentClassItems: [{ //改为stu_class
         name: 'benkesheng',
         value: '本科生',
         checked: 'true'
@@ -46,7 +53,7 @@ Page({
         value: '黄埔'
       },
     ],
-    campus_class: '大学城',//
+    campusClass: '大学城', //
     region: ['广东省', '广州市', '海珠区'],
     customItem: '全部',
     leaveClassItems: [{
@@ -235,7 +242,7 @@ Page({
 
   //上传word文档
   upDocx() {
-    const that = this;
+    const _that = this;
     wx.chooseMessageFile({
       count: 1,
       type: 'file',
@@ -251,7 +258,7 @@ Page({
             that.setData({
               fid2: res.fileID
             })
-            console.log(that.data.fid2)
+            console.log(_that.data.fid2)
 
 
 
@@ -280,25 +287,36 @@ Page({
       success: res => {
 
         console.log(res.tempFilePath)
-        console.log("下载预览成功"),
-          wx.openDocument({
-            filePath: res.tempFilePath,
-            fileType: docx,
-            success: () => {
-              console.log("打开成功")
-            },
-            fail: () => {
-              console.log("打开失败1")
-            }
-          })
-      },
-      fail: err => {
-        // handle error
-        console.log("打开失败2", res)
-      }
+        console.log("下载预览成功")
+        
+
+            FileSystemManager.open({
+              filePath: res.tempFilePath,
+              flag: 'r',
+              success(res) {
+                console.log(res)
+              }
+
+
+            })
+            
+          }
+            
+        
+      
+      
     })
   },
-
+/* wx.openDocument({
+              filePath: (savedFilePath),
+              fileType:'docx',
+              success: () => {
+                console.log("打开成功")
+              },
+              fail: () => {
+                console.log("打开失败",res)
+              }
+            }) */
 
 
   /**
@@ -310,9 +328,15 @@ Page({
     this.setData({
       nowDate: today,
       leaveDate: today,
-      returnDate: today
+      returnDate: today,
+      stu_name:app.name,
+      class:app.class,
+      sno:app.sno,      
+      academy:app.academy,
+      phone:app.phone,
     })
     console.log(today)
+
   },
 
 

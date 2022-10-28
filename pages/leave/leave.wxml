@@ -2,12 +2,19 @@
 <form class="formBox" bindsubmit="submit">
   <text class="title">基本信息\n</text>
   <view class="box1">
-    <text>姓名</text><input />
-    <text>学号</text><input bindinput="bindSnoInput" type="number" />
-    <text>班级</text><input />
-    <text>学院</text><input />
-    <text>手机号码</text><input />
-    <text>学生类别</text>
+    <view class="box3">
+      <text>姓名</text>
+      <view>{{stu_name}}</view>
+      <text>学号</text>
+      <view>{{sno}}</view>
+      <text>班级</text>
+      <view>{{class}}</view>
+      <text>学院</text>
+      <view>{{academy}}</view>
+      <text>手机号码</text>
+      <view>{{phone}}</view>
+      <text>学生类别</text>
+    </view>
     <view>
       <radio-group class="box2" bindchange="radioStudentClassChange">
         <label class="radio" wx:for="{{studentClassItems}}">
@@ -44,7 +51,7 @@
 
     </view>
 
-<!-- 离返校时间 -->
+    <!-- 离返校时间 -->
     <view class="leaveTime">离校时间<picker mode="date" value="{{leaveDate}}" start="2022-10-01" end="2030-09-01" bindchange="bindLeaveDateChange">
         <view>{{leaveDate}}</view>
       </picker>
@@ -55,7 +62,7 @@
       </picker>
     </view>
 
-<!-- 紧急联系人情况 -->
+    <!-- 紧急联系人情况 -->
     <view class="contact">
       <view>紧急联系人姓名</view><input />
       <view>紧急联系人电话</view><input />
@@ -80,7 +87,7 @@
         <image src="{{imgPath}}" class="upImg" style="width: 113rpx; height: 94rpx; display: block; box-sizing: border-box"></image> -->
         <button class="upDocx" type="primary" bindtap="upDocx" style="position: relative; left: -167rpx; top: 61rpx; width: 284rpx; height: 94rpx; display: block; box-sizing: border-box">上传word</button>
 
-        <button class="" bindtap="openDocx" style="position: relative; left: 141rpx; top: -33rpx; width: 209rpx; height: 94rpx; display: ; box-sizing:">{{fid2}}</button>
+        <button class="" bindtap="openDocx" style="position: relative; left: 141rpx; top: -33rpx; width: 209rpx; height: 94rpx; ">{{fid2}}</button>
 
       </view>
 

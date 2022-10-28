@@ -1,0 +1,19 @@
+<!--pages/leavecheck/leavecheck.wxml-->
+<import src="../../templates/checkCard/checkCard.wxml"></import>
+
+
+
+<view class="box" style="width: 732rpx; height: 544rpx; display: block; box-sizing: border-box">
+    <view class="stu-info" style="width: 706rpx; height: 108rpx; display: block; box-sizing: border-box">
+        <view class="banji">计科212</view>
+        <view class="xingming" style="width: 115rpx; height: 43rpx; display: block; box-sizing: border-box">曾家谦</view>
+        <view class="xueyuan" style="width: 373rpx; height: 43rpx; display: block; box-sizing: border-box">计算机科学与网络工程学院</view>
+    </view>
+    <view class="leave-info" style="width: 732rpx; height: 251rpx; display: block; box-sizing: border-box">
+        <view class="leave-kind" style="width: 352rpx; height: 71rpx; box-sizing: border-box; display: block">事假</view>
+        <view class="leave-date" style="width: 352rpx; height: 71rpx; display: block; box-sizing: border-box">2022-10-25至2022-10-26</view>
+        <view class="high-risk" style="width: 296rpx; height: 71rpx; display: block; box-sizing: border-box">目的地为低风险地区</view>
+        <view class="leave-reason" style="width: 704rpx; height: 160rpx; display: block; box-sizing: border-box">因身体不舒服，需请假,因身体不舒服，需请假,因身体不舒服，需请假,因身体不舒服，需请假,</view>
+    </view>
+    <view class="yes-or-not" style="width: 732rpx; height: 162rpx; display: block; box-sizing: border-box"><button class="not" style="position: relative; left: -172rpx; top: 6rpx; width: 195rpx; height: 83rpx; display: block; box-sizing: border-box">驳回</button><button class="yes" style="position: relative; left: 150rpx; top: -78rpx; width: 195rpx; height: 83rpx; display: block; box-sizing: border-box">通过</button></view>
+</view>

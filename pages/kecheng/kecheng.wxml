@@ -3,11 +3,19 @@
 <form class="formBox" bindsubmit="submit">
   <text class="title">基本信息\n</text>
   <view class="box1">
-    <text>姓名</text><input />
-    <text >学号</text><input bindinput="bindSnoInput" type="number" />
-    <text>班级</text><input />
-    <text>学院</text><input />
-    <text>手机号码</text><input />
+    <view class="box3">
+      <text>姓名</text>
+      <view>{{stu_name}}</view>
+      <text>学号</text>
+      <view>{{sno}}</view>
+      <text>班级</text>
+      <view>{{class}}</view>
+      <text>学院</text>
+      <view>{{academy}}</view>
+      <text>手机号码</text>
+      <view>{{phone}}</view>
+      
+    </view>
     <text>学生类别</text>
     <view>
       <radio-group class="box2" bindchange="radioStudentClassChange">
@@ -32,9 +40,9 @@
 
   <view class="title">请假信息\n</view>
   <view class="box1" style="width: 652rpx; height: 1822rpx; display: block; box-sizing: border-box">
-    <text>课程全称</text><input bindinput="bindLessonNameInput"/>
-    <text>课程节次</text><input bindinput="bindLessonTimeInput"/>
-    <text>任课老师姓名</text><input bindinput="bindTeacherNameInput"/>
+    <text>课程全称</text><input bindinput="bindLessonNameInput" />
+    <text>课程节次</text><input bindinput="bindLessonTimeInput" />
+    <text>任课老师姓名</text><input bindinput="bindTeacherNameInput" />
     <view class="leaveTime">请假日期<picker mode="date" value="{{leaveDate}}" start="2022-10-01" end="2030-09-01" bindchange="bindAbsenceDateChange">
         <view style="width: 603rpx; height: 66rpx; display: block; box-sizing: border-box">{{absenceDate}}</view>
       </picker>

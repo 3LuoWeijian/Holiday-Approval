@@ -20,7 +20,7 @@ Page({
       pass_fdy:'false'
     }).get({
       success:function(res){
-        console.log(res.data[0])
+        console.log(res)
         that.backlist = res.data[0]
         console.log(that.backlist)
 
