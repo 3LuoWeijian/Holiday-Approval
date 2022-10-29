@@ -9,8 +9,8 @@ Page({
    */
   data: {
     shows: false, //控制下拉列表的显示隐藏，false隐藏、true显示
-    classDatas: ['计算机学院', '环境科学与工程学院', '网络安全学院','新闻传播学院','音乐舞蹈学院','生命科学学院','教育学院','马克思学院','外国语学院','土木学院'], //下拉列表的数据
-  
+    classDatas: 
+    ['肖章益','唐思雅','aaa','bbb','ccc'], //下拉列表的数据
     indexs: 0, //选择的下拉列 表下标,
     InoculateDate:myDate.toLocaleDateString(),
     subDate:null,
@@ -19,16 +19,9 @@ Page({
     class:null,
     academy:null,
     phone:null,
-    livingplace:null,
-    msg:'广州大学学生公寓',
-    msg1:'广州',
+    region:'广州大学学生公寓',
+    region1:'广州',
     isjiantou:true,   //箭头切换
-    selectcontent:[
-      {id:1,name:"肖章益"},
-      {id:2,name:"唐思雅"},
-    ],
-    value:undefined,   //选中的值
-    valueid:undefined,  //选中的id
     OutsideClassItems: [
       { name: 'fou', value: '否', checked: 'true' },
       { name: 'shi', value: '是' },
@@ -111,7 +104,25 @@ Page({
     Supplier:'生物',
   },
 
-  // 点击下拉显示框
+  bindDateChange: function(e) {
+    console.log(e.detail.value)
+    this.setData({
+      date: e.detail.value
+    })
+  },
+  iptHandler(e){
+    this.setData({
+        // 通过e.detail.value 获取文本框最新值
+        region:e.detail.value
+    })
+  },
+  kptHandler(e){
+    this.setData({
+        // 通过e.detail.value 获取文本框最新值
+        region1:e.detail.value
+    })
+  },
+   // 点击下拉显示框
   selectTaps() {
     this.setData({
       shows: !this.data.shows,
@@ -127,39 +138,7 @@ Page({
     });
 
   },
-  bindDateChange: function(e) {
-    console.log(e.detail.value)
-    this.setData({
-      date: e.detail.value
-    })
-  },
-  iptHandler(e){
-    this.setData({
-        // 通过e.detail.value 获取文本框最新值
-        msg:e.detail.value
-    })
-  },
-  kptHandler(e){
-    this.setData({
-        // 通过e.detail.value 获取文本框最新值
-        msg1:e.detail.value
-    })
-  },
 
-    // 下拉框收起和下拉
-    changejiantou(){
-      this.setData({
-        isjiantou:!this.data.isjiantou
-      })
-    },
-    // 选择数据后回显
-    changecontent(e){
-      this.setData({
-        value:e.currentTarget.dataset.datavalue.name,
-        valueid:e.currentTarget.dataset.datavalue.id,
-        isjiantou:true
-      })
-    },
 
   radioOutsideClassChange: function (e) {
     var str = null;
@@ -299,7 +278,7 @@ Page({
       sno:app.sno,      
       academy:app.academy,
       phone:app.phone,
-      livingplace:app.livingplace,
+     
     })
     // 调用函数时，传入new Date()参数，返回值是日期和时间
     var subDate = util.formatTime(new Date());
@@ -310,16 +289,12 @@ Page({
   },
  
 submit: function (e) {
-    
       wx.showLoading({
         title: '申请提交中...',
         mask: true
       })
       var data = {
         //sno: app.globalData.regInfo.sno,
-        msg1:this.data.msg1,
-        //籍贯
-        livingplace:this.data.livingplace,
         //提交日期
         subDate: this.data.subDate,
         //学生姓名
@@ -333,24 +308,34 @@ submit: function (e) {
         //学生电话
         phone:this.data.phone,
         //辅导员
-        value:this.data.value,
-        msg:this.data.msg,
+        stu_fdy:this.data.stu_fdy,
+        //校内居住地址
+        region:this.data.region,
+        //目前所在地
+        region1:this.data.region1,
         selectcontent:this.data.selectcontent,
+        //当日是否外出
         OutsideClass:this.data.OutsideClass,
+        //本人身体状况
         SelfHealthClass:this.data.SelfHealthClass,
+        //近一次核酸结果
         ReportClass:this.data.ReportClass,
+        //本人健康情况
         HealthClass:this.data.HealthClass,
+        //
         FamilyClass:this.data.FamilyClass,
+        //
         BoolFamilyClass:this.data.BoolFamilyClass,
+        //
         Bool1Class:this.data.Bool1Class,
         Bool2Class:this.data.Bool2Class,
-        Bool3Class:this.data. Bool3Class,
+        Bool3Class:this.data.Bool3Class,
         BoolgreenClass:this.data.BoolgreenClass,
         Keyregion:this.data.Keyregion,
-        Vaccine:this.data. Vaccine,
-        Vaccinecounts:this.data. Vaccinecounts,
-        Supplier:this.data. Supplier,
-        InoculateDate:this.date.InoculateDate
+        Vaccine:this.data.Vaccine,
+        Vaccinecounts:this.data.Vaccinecounts,
+        Supplier:this.data.Supplier,
+        InoculateDate:this.data.InoculateDate
       }
       console.log('data = ', data)
       wx.cloud.callFunction({

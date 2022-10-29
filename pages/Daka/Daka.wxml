@@ -8,34 +8,20 @@
   <text>班级</text><view>{{class}}</view>
   <text>学院</text><view>{{academy}}</view>
   <text>联系电话</text><view>{{phone}}</view>
-  <text>籍贯</text><view>{{livingplace}}</view>
   <text>辅导员</text>
-  <view style="position:relative;top:0rpx;">
-
-	<view class="inputPlaceholder" wx:if='{{value}}' bindtap="changejiantou">
-		<text style="color:black;">{{value}}</text>
-		<view class="jiantou1" wx:if='{{isjiantou}}'><i class="iconfont icon-jiantou"></i></view>
-		<view class="jiantou1" wx:else='{{isjiantou}}'><i class="iconfont icon-jiantou1"></i></view>
-	</view>
-	<!-- 未选择时的Placeholder展示 -->
-	<view class="inputPlaceholder" wx:else bindtap="changejiantou">
-		<text>请选择辅导员</text>
-		<view class="jiantou1" wx:if='{{isjiantou}}'><i class="iconfont icon-jiantou"></i></view>
-		<view class="jiantou1" wx:else='{{isjiantou}}'><i class="iconfont icon-jiantou1"></i></view>
-	</view>
-	<!-- 下拉展开后的可选择内容 -->
-	<view class="content" wx:if='{{!isjiantou}}'>
-		<view 
-			class="{{item.id==valueid ? 'active':''}}" 
-			wx:for="{{selectcontent}}" wx:key="index" 
-			bindtap="changecontent" 
-			data-datavalue="{{item}}">
-			{{item.name}}
-		</view>
-	</view>
-</view>
-  <text>校内居住地址</text><input value="{{msg}}" bindinput="iptHandler"></input>
-  <text>目前所在地</text><input value="{{msg1}}" bindinput="kptHandler"></input>
+  <!-- 下拉框 -->
+    <view class='select_box'>
+      <view class='select' catchtap='selectTaps'>
+        <text class='select_text'>{{classDatas[indexs]}}</text>
+        <!-- <image class='words_img' src='../../images/sanjiao.png'></image> -->
+        <image class='select_img {{shows&&"select_img_rotate"}}' src='../../images/sanjiao.png'></image>
+      </view>
+      <view class='option_box' style='height:{{shows?(classDatas.length>5?300:classDatas.length*60):0}}rpx;'>
+        <text class='option' style='{{indexs==classDatas.length-1&&"border:0;"}}' wx:for='{{classDatas}}' wx:key='this' data-index='{{index}}' catchtap='optionTaps'>{{item}}</text>
+      </view>
+    </view>
+  <text>校内居住地址</text><input value="{{region}}" bindinput="iptHandler"></input>
+  <text>目前所在地</text><input value="{{region1}}" bindinput="kptHandler"></input>
   </view>
  <text class="title">健康检测情况\n</text>
 <view class="box3">
