@@ -5,7 +5,7 @@
       "list": [
         {
           "name": "",
-          "pathName": "pages/BackRequest/BackRequest",
+          "pathName": "pages/check-leave/check-leave",
           "query": "",
           "launchMode": "default",
           "scene": null
