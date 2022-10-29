@@ -1,7 +1,7 @@
 <text class="title">基本信息\n</text>
 
   <view class="box1">
-    <text>姓名</text><view>{{name}}</view>
+    <text>姓名</text><view>{{stu_name}}</view>
     <text>学号</text><view>{{sno}}</view>
     <text>班级</text><view>{{class}}</view>
     <text>学院</text><view>{{academy}}</view>
@@ -44,15 +44,15 @@
         </picker> 
       </view>
     <text>出发时间</text>
-      <picker mode="date" value="{{Date}}" start="2010-09-01" end="2060-09-01" bindchange="bindDateChange" class="box2">
+      <picker mode="date" value="{{Date}}" start="2010-09-01" end="2060-09-01" bindchange="bindsetDateChange" class="box2">
         <view class="picker">
-          {{Date}}
+          {{setDate}}
         </view>
       </picker>
     <text>预计返校时间</text>
-    <picker mode="date" value="{{date}}" start="2010-09-01" end="2060-09-01" bindchange="bindDateChange" class="box2">
+    <picker mode="date" value="{{date}}" start="2010-09-01" end="2060-09-01" bindchange="bindarriveDateChange" class="box2">
       <view class="picker">
-        {{date}}
+        {{arriveDate}}
       </view>
     </picker>
     <text>是否住校</text>

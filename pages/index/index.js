@@ -26,7 +26,6 @@ Page({
    */
   onLoad(options) {
     app.people = 'student'
-    
   },
   usernameInput: function (event) {
     this.setData({
@@ -51,7 +50,6 @@ Page({
         app.sno = res.data[0].sno
         app.academy = res.data[0].academy
         app.phone = res.data[0].phone
-        app.livingplace = res.data[0].livingplace
       }
     });
     wx.getUserProfile({
@@ -64,9 +62,9 @@ Page({
           app.userInfo = user
           if(app.people=='student')
           {
-            wx.redirectTo({
-            url: '/pages/main/main',
-          })
+            wx.reLaunch({
+              url: '../main/main',
+            })
           }
         },
         fail:res=>{

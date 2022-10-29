@@ -7,7 +7,7 @@
 	</view>
 
 	<view class="box2">
-		<view class="item" bindtap="leavecheck">
+		<view class="item" bindtap="checkleave">
 			<image src="/image/lixiaoshenpi.png"></image>
 			<view>离校审批</view>
 		</view>

@@ -11,9 +11,14 @@ Page({
   },
 
 
-  leavecheck(){
+  checkleave(){
     wx.navigateTo({
-      url: '/pages/leavecheck/leavecheck',
+      url: '/pages/check-leave/check-leave',
+    })
+  },
+  kejiashenpi(){
+    wx.navigateTo({
+      url: '/pages/kejiashenpi/kejiashenpi',
     })
   },
   /**

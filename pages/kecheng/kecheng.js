@@ -1,6 +1,8 @@
 // pages/kecheng/kecheng.js
 
-var app = getApp()
+const db = wx.cloud.database();
+var that = this;
+const app= getApp().appData;
 var util = require('util.js')
 Component({
   /**
@@ -14,6 +16,11 @@ Component({
    * 组件的初始数据
    */
   data: {
+    stu_name: '',
+    class:'',
+    academy: '',
+    phone: '', 
+    sno: '',//新增
     reasonLength:'',
     lessonName: '',
     lessonTime: '',
@@ -21,7 +28,7 @@ Component({
     absenceDate: '',
     reasonLength: 0,
     errmsg: "",
-    sno: '',
+    
     nowDate: '',
     leaveDate: '',
     returnDate: '',
@@ -119,7 +126,17 @@ Component({
       var today = util.formatDay(new Date())
       this.setData({
         nowDate: today,
-        absenceDate: today
+        absenceDate: today,
+        stu_name:app.name,
+        class:app.class,
+        sno:app.sno,      
+        academy:app.academy,
+        phone:app.phone,
+
+
+
+
+
       })
       console.log(today)
     },

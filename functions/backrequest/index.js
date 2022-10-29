@@ -9,19 +9,25 @@ exports.main = async (event, context) => {
 
   return await db.collection("BackRequest")
     .add({
-      data: {    
+      data: {
+        stu_name:event.stu_name,
+        sno:event.sno,
+        class:event.class,
+        academy:event.academy,
+        phone:event.phone,    
         region:event.region,
-        type: event.type,
-        Date: event.Date,
-        date: event.date,
+        stu_type: event.stu_type,
+        setDate: event.setDate,
+        arriveDate: event.arriveDate,
         campus: event.campus,
         conveyance:event.conveyance,
         timeofconveyance:event.timeofconveyance,
         inresidence :event.inresidence,
-        sno:event.sno,
         pass_fdy:event.pass_fdy,
         pass_jwc:event.pass_jwc,
         pass_sj:event.pass_sj,
+        rejected:event.rejected,
+        imgList:event.imgList,
       }
     })
 
