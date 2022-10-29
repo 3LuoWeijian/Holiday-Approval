@@ -21,10 +21,10 @@ Page({
     /* imgPath: '',
     fid1: '', */
     fid2: '',
-    pass_fdy: '', //辅导员审核情况
-    pass_sj: '',//书记审核情况
-    pass_jwc: '', //教务处审核情况
-    
+    pass_fdy: false, //辅导员审核情况
+    pass_sj: false,//书记审核情况
+    pass_jwc: false, //教务处审核情况
+    submitState:false,//提交状态
     nowDate: '',
     leaveDate: '',
     returnDate: '',
@@ -350,7 +350,16 @@ Page({
       })
       var data = {
         //sno: app.globalData.regInfo.sno,
+        stu_name:this.data.stu_name,
+        class:this.data.class,
+        academy:this.data.academy,
+        sno: this.data.sno,
 
+        pass_fdy:this.data.pass_fdy,
+        pass_jwc:this.data.pass_jwc,
+        pass_sj:this.data.pass_sj,
+        submitState:this.data.submitState,
+        
         region: this.data.region,
         leaveDate: this.data.leaveDate,
         returnDate: this.data.returnDate,
@@ -359,7 +368,7 @@ Page({
         leaveClass: this.data.leaveClass,
         studentClass: this.data.studentClass,
         campusClass: this.data.campusClass,
-        sno: this.data.sno,
+      
       }
       console.log('data = ', data)
       wx.cloud.callFunction({
