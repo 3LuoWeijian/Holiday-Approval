@@ -9,8 +9,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    date:myDate.toLocaleDateString(),
-    Date:myDate.toLocaleDateString(),
+    setDate:myDate.toLocaleDateString(),
+    arriveDate:myDate.toLocaleDateString(),
     stu_name:null,
     sno:null,
     class:null,
@@ -28,6 +28,7 @@ Page({
     pass_fdy:'false',
     pass_jwc:'false',
     pass_sj:'false',
+    rejected:0,
   },
 
   /**
@@ -79,11 +80,18 @@ Page({
   },
 
 
-  //修改日期
-  bindDateChange: function(e) {
+  //修改出发日期
+  bindsetDateChange: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      date: e.detail.value
+      setDate: e.detail.value
+    })
+  },
+  //修改到校时间
+  bindarriveDateChange: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      arriveDate: e.detail.value
     })
   },
 
@@ -156,7 +164,9 @@ Page({
      */
     previewImg(e) {
       let currentUrl = e.currentTarget.dataset.src;
+      console.log('wu', e.currentTarget.dataset.src)
       let urls = this.data.imgList
+      console.log(this.data.imgList)
       wx.previewImage({
         current: currentUrl, // 当前显示图片的http链接
         urls: urls // 需要预览的图片http链接列表
@@ -191,8 +201,8 @@ Page({
       phone:this.data.phone,
       region:this.data.region,
       stu_type: this.data.stu_type,
-      Date: this.data.Date,
-      date: this.data.date,
+      setDate: this.data.setDate,
+      arriveDate: this.data.arriveDate,
       campus: this.data.campus,
       conveyance:this.data.conveyance,
       timeofconveyance:this.data.timeofconveyance,
@@ -200,6 +210,8 @@ Page({
       pass_fdy:this.data.pass_fdy,
       pass_jwc:this.data.pass_jwc,
       pass_sj:this.data.pass_sj,
+      rejected:this.data.rejected,
+      imgList: this.data.imgList,
     }
     console.log('data = ', data)
     

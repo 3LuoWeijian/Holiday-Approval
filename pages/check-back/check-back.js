@@ -28,8 +28,46 @@ Page({
         
       }
     })
+  },
 
-
+  //通过
+  bindAgree(e){
+    //获取该条记录下唯一的_id值
+    wx.showLoading({
+      title: '通过中...',
+      mask: true
+    })
+    console.log(this.data.backlist[e.currentTarget.dataset.index]._id)
+    var data = {
+      pass_fdy:"true",
+      index_id:this.data.backlist[e.currentTarget.dataset.index]._id,
+    }
+    console.log(data)
+    wx.cloud.callFunction({
+      name:"check-back",
+      data: data,
+    })
+    .then(res => {
+      console.log(res)
+      wx.hideLoading()
+      wx.showToast({
+        title: '通过成功',
+        icon: 'success',
+        duration: 2000,
+        mask: true,
+      })
+      this.onLoad()
+    })
+    .catch(err => {
+      wx.showToast({
+        title: '通过失败',
+        icon: 'none',
+        duration: 2000,
+        mask: true
+      })
+      console.log("失败",err)
+    })
+    
   },
 
   /**
@@ -38,11 +76,26 @@ Page({
   onReady() {
 
   },
+  /*
+     * 图片预览
+     * @param e
+     */
+    previewImg(e) {
+      let currentUrl = e.currentTarget.dataset.src;
+      console.log('无',e.currentTarget.dataset.src)
+      let urls = this.data.backlist[e.currentTarget.dataset.index].imgList
+      console.log('zg',this.data.backlist[e.currentTarget.dataset.index].imgList)
+      wx.previewImage({
+        current: currentUrl, // 当前显示图片的http链接
+        urls: urls // 需要预览的图片http链接列表
+      })
+    },
 
   /** 
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    
 
   },
 

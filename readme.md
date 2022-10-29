@@ -25,6 +25,8 @@ leaveReason	请假理由
 （2）学生返校申请
 conveyance	交通方式
 timeofconveyance	交通班次
+setDate 出发时间
+arriveDate  到校时间
 imgList      图片证明集
 inresidence	是否住宿，有true，false
 

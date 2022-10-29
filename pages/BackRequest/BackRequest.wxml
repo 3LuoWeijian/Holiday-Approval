@@ -44,15 +44,15 @@
         </picker> 
       </view>
     <text>出发时间</text>
-      <picker mode="date" value="{{Date}}" start="2010-09-01" end="2060-09-01" bindchange="bindDateChange" class="box2">
+      <picker mode="date" value="{{Date}}" start="2010-09-01" end="2060-09-01" bindchange="bindsetDateChange" class="box2">
         <view class="picker">
-          {{Date}}
+          {{setDate}}
         </view>
       </picker>
     <text>预计返校时间</text>
-    <picker mode="date" value="{{date}}" start="2010-09-01" end="2060-09-01" bindchange="bindDateChange" class="box2">
+    <picker mode="date" value="{{date}}" start="2010-09-01" end="2060-09-01" bindchange="bindarriveDateChange" class="box2">
       <view class="picker">
-        {{date}}
+        {{arriveDate}}
       </view>
     </picker>
     <text>是否住校</text>
