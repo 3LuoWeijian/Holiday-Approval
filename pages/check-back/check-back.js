@@ -1,3 +1,5 @@
+
+
 // pages/check-leave/check-leave.js
 const db = wx.cloud.database();
 const app= getApp().appData;
@@ -17,7 +19,8 @@ Page({
   onLoad(options) {
     let that = this
     db.collection('BackRequest').where({
-      pass_fdy:'false'
+	  pass_fdy:'false',
+	  rejectedState:'false'
     }).get({
       success:function(res){
         console.log('=',res.data)
@@ -39,6 +42,7 @@ Page({
     })
     console.log(this.data.backlist[e.currentTarget.dataset.index]._id)
     var data = {
+	  state:'agree',
       pass_fdy:"true",
       index_id:this.data.backlist[e.currentTarget.dataset.index]._id,
     }
@@ -68,6 +72,46 @@ Page({
       console.log("失败",err)
     })
     
+  },
+  //驳回的功能
+  bindReject(e){
+	  //获取该条记录下唯一的_id值
+	  wx.showLoading({
+		title: '驳回中...',
+		mask: true
+	  })
+	  console.log(this.data.backlist[e.currentTarget.dataset.index]._id)
+	  var data = {
+		state:'reject',
+		rejectedState:'true',
+		index_id:this.data.backlist[e.currentTarget.dataset.index]._id,
+	  }
+	  console.log(data)
+	  wx.cloud.callFunction({
+		name:"check-back",
+		data: data,
+	  })
+	  .then(res => {
+		console.log(res)
+		wx.hideLoading()
+		wx.showToast({
+		  title: '驳回成功',
+		  icon: 'success',
+		  duration: 2000,
+		  mask: true,
+		})
+		this.onLoad()
+	  })
+	  .catch(err => {
+		wx.showToast({
+		  title: '驳回失败',
+		  icon: 'none',
+		  duration: 2000,
+		  mask: true
+		})
+		console.log("失败",err)
+	  })
+
   },
 
   /**
