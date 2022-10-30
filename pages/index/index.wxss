@@ -12,7 +12,7 @@
 
 .login-item{
   width: 90%;
-  margin-top: 90rpx;
+  margin-top: 70rpx;
   border-bottom: 1px solid #eee;
   flex-grow:1;
   display: flex;
@@ -22,7 +22,15 @@
 }
 
 .bottom{
-   border-bottom: 0px;
+   border-bottom: 0rpx;
+   margin-top: 30rpx;
+   
+}
+.bottom button
+{
+	background-color: aquamarine;
+	color: #FFF;
+	border-radius: 16rpx;
 }
 
 .login-item-info{
@@ -55,19 +63,39 @@
 
 }
 
-.login-btn:hover{
-  width: 400rpx;
+.bottom button:hover{
+  width: 360rpx;
   color:#efefef;
   border-radius: 32rpx;
 }
 
-.radio1
-{
-	border: 1rpx solid #efefefef;
-	height: 70rpx;
-	border-radius: 32rpx;
+
+.nav{
 	display: flex;
-	flex-direction:row;
-	margin-top: 20rpx;
-}
+	text-align: center;
+	font-size: 32rpx;
+	margin-bottom: 1%;
+	box-shadow:1rpx 2rpx 1rpx 1rpx #efefef;
+	padding-bottom: 30rpx;
+	border-radius: 0 0 32rpx 32rpx;
+  }
+  .left{
+	flex: 1;
+	font-weight: bold;
+  }
+  .right{
+	flex: 1;
+	font-weight: bold;
+  }
+  .select{
+	font-weight: bold;
+	color: aquamarine;
+  }
+  .select text{
+	padding-bottom: 5rpx;
+	border-bottom-left-radius: 10rpx;
+	border-bottom-right-radius: 10rpx;
+	border-bottom: 5rpx solid aquamarine;
+  }
+  
 

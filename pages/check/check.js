@@ -28,9 +28,6 @@ Page({
    */
   onLoad(options) {
 
-    
-    
-
   },
 
   /**

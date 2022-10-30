@@ -28,7 +28,7 @@ Page({
     pass_fdy:'false',
     pass_jwc:'false',
     pass_sj:'false',
-    rejected:0,
+    rejectedState:'false',
   },
 
   /**
@@ -210,8 +210,8 @@ Page({
       pass_fdy:this.data.pass_fdy,
       pass_jwc:this.data.pass_jwc,
       pass_sj:this.data.pass_sj,
-      rejected:this.data.rejected,
-      imgList: this.data.imgList,
+	  imgList: this.data.imgList,
+	  rejectedState:this.data.rejectedState,
     }
     console.log('data = ', data)
     

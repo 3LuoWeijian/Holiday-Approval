@@ -10,17 +10,18 @@ Page({
   data:{
     username:null,
     password:null,
-    item:[
-      {value:"student", name:"我是学生", checked:"true"},
-      {value:"teacher", name:"我是老师"}		
-    ]
+	current:1,
+  },
+  // 登陆注册监听
+  click(e){
+    let index = e.currentTarget.dataset.code;
+    this.setData({
+      current:index
+	})
+	console.log(e.currentTarget.dataset.value)
+	app.people = e.currentTarget.dataset.value
   },
 
-  radioChange:function(e){
-	  console.log(e.detail.value)
-	  app.people = e.detail.value
-
-  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -84,6 +85,7 @@ Page({
       url: '../check/check',
     })
     }
+    wx.vibrateLong();
     
   },
   /**
