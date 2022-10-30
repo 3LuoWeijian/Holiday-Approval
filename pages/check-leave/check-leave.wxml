@@ -15,7 +15,7 @@
     <view class="high-risk">目的地为低风险地区</view>
     <view class="leave-reason">{{item.leaveReason}}</view>
   </view>
-  <view class="yes-or-not"><button  bindtap="rejectBtn" data-index="{{childindex}}" class="not" style="position: relative; left: -172rpx; top: 6rpx; width: 195rpx; height: 83rpx; display: block; box-sizing: border-box">驳回</button> <button bindtap="passBtn" class="yes" style="position: relative; left: 150rpx; top: -78rpx; width: 195rpx; height: 83rpx; display: block; box-sizing: border-box">通过</button></view>
+  <view class="yes-or-not"><button  bindtap="rejectBtn" data-index="{{childindex}}" class="not" style="position: relative; left: -172rpx; top: 6rpx; width: 195rpx; height: 83rpx; display: block; box-sizing: border-box">驳回</button> <button bindtap="passBtn"  data-index="{{childindex}}" class="yes" style="position: relative; left: 150rpx; top: -78rpx; width: 195rpx; height: 83rpx; display: block; box-sizing: border-box">通过</button></view>
 </view>
 
 

@@ -1,7 +1,11 @@
 // pages/leavecheck/leavecheck.js
 
 const db = wx.cloud.database();
+
+
 const app = getApp().appData;
+
+
 Page({
 
   /**
@@ -88,19 +92,54 @@ Page({
     console.log(e)
     //this.callApproveFunc(res.currentTarget.dataset, false)
     console.log(this.data)
-    
-    
+
+
   },
 
-  passBtn(res) {
-    this.callApproveFunc(res.currentTarget.dataset, true)
-    /*  console.log(this.data.leaveList[e.currentTarget.dataset.index]._id) */
-  },
 
+  //通过
+  passBtn(e) {
+    //获取该条记录下唯一的_id值
+    wx.showLoading({
+      title: '通过中...',
+      mask: true
+    })
+    console.log(this.data.leaveList[e.currentTarget.dataset.index]._id)
+    var data = {
+      pass_fdy: "true",
+      index_id: this.data.leaveList[e.currentTarget.dataset.index]._id,
+    }
+    console.log(data)
+    wx.cloud.callFunction({
+        name: "approveLeave",
+        data: data,
+      })
+      .then(res => {
+        console.log(res)
+        wx.hideLoading()
+        wx.showToast({
+          title: '通过成功',
+          icon: 'success',
+          duration: 2000,
+          mask: true,
+        })
+        this.onLoad()
+      })
+      .catch(err => {
+        wx.showToast({
+          title: '通过失败',
+          icon: 'none',
+          duration: 2000,
+          mask: true
+        })
+        console.log("失败", err)
+      })
+
+  },
   onLoad(options) {
     let that = this
     db.collection('leave').where({
-      campusClass: '大学城',
+      pass_fdy: false,
     }).get({
       success: function (res) {
         console.log('=', res)
