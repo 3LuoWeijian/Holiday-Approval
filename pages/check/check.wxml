@@ -5,7 +5,7 @@
 		<view>学生人数情况</view>
 		<view>健康打卡情况</view>
 	</view>
-
+ 
 	<view class="box2">
 		<view class="item" bindtap="checkleave">
 			<image src="/image/lixiaoshenpi.png"></image>

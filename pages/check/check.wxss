@@ -3,6 +3,7 @@ page
 {
 	background-color: #efefefef;
 }
+
 .background1
 {
 	height: 100rpx;

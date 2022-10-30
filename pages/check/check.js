@@ -1,7 +1,21 @@
 // pages/check/check.js
+
+
 var app=getApp().appData;
 const db = wx.cloud.database();
 Page({
+  onShareAppMessage: function (res) {
+    return {
+      title: 'ECharts 可以在微信小程序中使用啦！',
+      path: '/pages/index/index',
+      success: function () { },
+      fail: function () { }
+    }
+  },
+
+
+
+
 
   /**
    * 页面的初始数据
