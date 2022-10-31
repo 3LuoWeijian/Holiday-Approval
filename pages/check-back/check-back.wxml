@@ -18,7 +18,7 @@
     </view>
   </view>
   <view class="buttonList">
-      <button class='backBtn' bindtap="bindReject">驳回</button>
+      <button class='backBtn' bindtap="bindReject" data-index="{{childindex}}">驳回</button>
       <button class='okBtn' bindtap="bindAgree" data-index="{{childindex}}">通过</button>
   </view>
 

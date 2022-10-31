@@ -40,9 +40,6 @@ Page({
    */
   onLoad(options) {
 
-    
-    
-
   },
 
   /**
