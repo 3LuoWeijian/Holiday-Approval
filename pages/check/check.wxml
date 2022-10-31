@@ -2,7 +2,7 @@
 
 <view class="background2">
 	<view class="box1">
-		<view>学生人数情况</view>
+		<view> <echarts></echarts> </view>
 		<view>健康打卡情况</view>
 	</view>
  

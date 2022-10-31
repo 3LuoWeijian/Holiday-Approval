@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/echarts/echarts",
     "pages/index/index",
     "pages/main/main",
     "pages/check/check",
@@ -12,6 +13,9 @@
     "pages/leavecheck/leavecheck",
     "pages/Daka/Daka",
     "pages/kejiashenpi/kejiashenpi"
+
+ 
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
