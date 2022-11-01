@@ -90,7 +90,11 @@ page {
 
 
 }
-
+.upSuccess{
+  float: right;
+  color: #ff8566;
+  position: absolute;
+}
 .contact {
   margin-top: 30rpx;
 }

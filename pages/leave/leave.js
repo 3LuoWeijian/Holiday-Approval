@@ -30,6 +30,8 @@ Page({
     leaveDate: '',
     returnDate: '',
 
+    upSuccess:'',
+
     contactName:'',//紧急联系人姓名
     contactPhone:'',//紧急联系人电话
     
@@ -276,10 +278,11 @@ Page({
           success: res => {
             console.log("上传成功", res)
 
-            that.setData({
-              fid2: res.fileID
+            _that.setData({
+              fid2: res.fileID,
+              upSuccess:'上传成功√'
             })
-            console.log(_that.data.fid2)
+            console.log('打印')
 
 
 
@@ -287,6 +290,10 @@ Page({
           fail: err => {
             // handle error
             console.log("上传失败", res)
+            _that.setData({
+              
+              upSuccess:'上传失败'
+            })
           }
         })
       },

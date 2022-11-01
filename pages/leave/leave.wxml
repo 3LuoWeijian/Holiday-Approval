@@ -78,20 +78,16 @@
     </view>
 
 
-    <view>
-      <view style="width: 622rpx; height: 197rpx; display: block; box-sizing: border-box">
-        <!-- <view style="width: 622rpx; height: 167rpx; display: block; box-sizing: border-box">
-          <button class="upDocx" type="primary" bindtap="upImg" style="position: relative; left: -166rpx; top: 94rpx; width: 282rpx; height: 94rpx; display: block; box-sizing: border-box">上传图片</button>
-          <view class="imgyulan" style="width: 282rpx; height: 50rpx; display: block; box-sizing: border-box">图片预览：</view>
-        </view>
-        <image src="{{imgPath}}" class="upImg" style="width: 113rpx; height: 94rpx; display: block; box-sizing: border-box"></image> -->
-        <button class="upDocx" type="primary" bindtap="upDocx" style="position: relative; left: -167rpx; top: 61rpx; width: 284rpx; height: 94rpx; display: block; box-sizing: border-box">上传word</button>
-
-        <button class="" bindtap="openDocx" style="position: relative; left: 141rpx; top: -33rpx; width: 209rpx; height: 94rpx; ">{{fid2}}</button>
+    
+      <view style="width: 652rpx; height: 233rpx; display: block; box-sizing: border-box">
+        <view style="width: 638rpx; height: 94rpx; display: block; box-sizing: border-box">请假附件 (上传单文档）</view>
+        <button class="upDocx" type="primary" bindtap="upDocx" style="position: relative; left: -177rpx; top: 0rpx; width: 284rpx; height: 94rpx; display: block; box-sizing: border-box">上传word</button>
+        <text class="upSuccess" style="width: 225rpx; height: 66rpx; display: block; box-sizing: border-box; position: absolute; left: 399rpx; top: 2610rpx">{{upSuccess}}</text>
+        
 
       </view>
 
-    </view>
+    
 
     <view style="width: 652rpx; height: 400rpx; display: block; box-sizing: border-box">
       <view class="reasonTtile" style="width: 172rpx; height: 99rpx; display: block; box-sizing: border-box"> \n 请假理由</view>
