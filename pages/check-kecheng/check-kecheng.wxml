@@ -1,0 +1,30 @@
+<!--pages/check-kecheng/check-kecheng.wxml-->
+
+<view wx:for="{{kechengList}}" wx:key="index" wx:for-index="childindex" class="box" style="width: 725rpx; height: 615rpx; display: block; box-sizing: border-box">
+  <view class="stu-info" style="width: 699rpx; height: 108rpx; display: block; box-sizing: border-box">
+    <view class="banji">{{item.class}}</view>
+    <view class="stu-name">{{item.stu_name}}</view>
+    <view class="xueyuan" style="width: 387rpx; height: 61rpx; display: block; box-sizing: border-box">{{item.academy}}</view>
+  </view>
+
+  <view class="kecheng-info">
+    <view class="fst-line" style="width: 750rpx; height: 71rpx; display: block; box-sizing: border-box">
+      <view class="kecheng-name" style="width: 415rpx; height: 106rpx; display: block; box-sizing: border-box">课程名称:{{item.lessonName}}</view>
+      <view class="kecheng-jieci" style="width: 329rpx; height: 106rpx; display: block; box-sizing: border-box">节次:{{item.lessonTime}}</view>
+    </view>
+
+    <view class="sec-line" style="width: 750rpx; height: 129rpx; display: block; box-sizing: border-box">
+      <view class="tch-name" style="width: 415rpx; height: 108rpx; display: block; box-sizing: border-box">老师姓名:{{item.teacherName}}</view>
+      <view class="kecheng-date" style="width: 336rpx; height: 108rpx; display: block; box-sizing: border-box">日期:{{item.absenceDate}}</view>
+    </view>
+
+    <view class="reason" style="width: 699rpx; height: 165rpx; display: block; box-sizing: border-box">请假理由:{{item.absenceReason}}</view>
+  </view>
+
+  <view class="approve" style="width: 750rpx; height: 108rpx; display: block; box-sizing: border-box">
+    <button class="reject" data-index="{{childindex}}" bindtap="rejectBtn" style="width: 211rpx; height: 75rpx; display: block; box-sizing: border-box; left: -150rpx; top: 40rpx; position: relative">驳回</button>
+    <button class="pass" data-index="{{childindex}}" bindtap="passBtn" style="width: 211rpx; height: 75rpx; display: block; box-sizing: border-box; left: 179rpx; top: -33rpx; position: relative">通过</button>
+  </view>
+
+
+</view>

@@ -9,6 +9,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/check-kecheng/check-kecheng",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

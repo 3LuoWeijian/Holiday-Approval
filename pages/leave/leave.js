@@ -24,10 +24,15 @@ Page({
     pass_fdy: false, //辅导员审核情况
     pass_sj: false,//书记审核情况
     pass_jwc: false, //教务处审核情况
-    submitState:false,//提交状态
-    nowDate: '',
+    submitState:false,//提交状态，暂时未用到
+    rejectedState:false,//0表示未审核，1表示驳回
+    nowDate: '',//今天日期
     leaveDate: '',
     returnDate: '',
+
+    contactName:'',//紧急联系人姓名
+    contactPhone:'',//紧急联系人电话
+    
     studentClassItems: [{ //改为stu_class
         name: 'benkesheng',
         value: '本科生',
@@ -157,9 +162,25 @@ Page({
       returnDate: e.detail.value
     })
   },
+
+
+
+  //紧急联系人姓名
+  bindContactNameInput: function (e) {
+    this.setData({
+      contactName: e.detail.value
+    })
+  },
+//紧急联系人电话
+  bindContactPhoneInput: function (e) {
+    this.setData({
+      contactPhone: e.detail.value
+    })
+  },
+  
   textCount: function (e) {
     var len = e.detail.value.length
-    if (len <= 150) {
+    if (len <= 50) {
       this.setData({
         reasonLength: len,
       })
@@ -359,10 +380,14 @@ Page({
         pass_jwc:this.data.pass_jwc,
         pass_sj:this.data.pass_sj,
         submitState:this.data.submitState,
+        rejectedState:this.data.rejectedState,
         
         region: this.data.region,
         leaveDate: this.data.leaveDate,
         returnDate: this.data.returnDate,
+        contactName:this.data.contactName,
+        contactPhone:this.data.contactPhone,
+
         leaveReason: e.detail.value.leaveReason,
         subDate: this.data.nowDate,
         leaveClass: this.data.leaveClass,

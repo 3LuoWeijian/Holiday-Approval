@@ -12,10 +12,10 @@
     "pages/kecheng/kecheng",
     "pages/leavecheck/leavecheck",
     "pages/Daka/Daka",
-    "pages/kejiashenpi/kejiashenpi"
-
- 
+    "pages/check-leave/check-leave",
     
+    "pages/check-back/check-back",
+    "pages/check-kecheng/check-kecheng"
   ],
   "window": {
     "backgroundTextStyle": "light",

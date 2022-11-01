@@ -1,0 +1,67 @@
+/* pages/check-kecheng/check-kecheng.wxss */
+.box {
+  
+  margin: 14rpx;
+  border: 3rpx;
+  border-color: grey;
+  background-color: #ebf3e9;
+  border-radius: 32rpx 32rpx 32rpx 32rpx;
+}
+
+.stu-info{
+  font-size: small;
+  padding: 30rpx;
+
+  margin: 10rpx;
+  border-bottom: 2rpx solid #E1DDDB;
+}
+.banji{
+  float: left;
+  padding: 10rpx;
+}
+
+.stu-name{
+  float: left;
+  padding: 10rpx 10rpx 10rpx 10rpx;
+}
+
+.xueyuan{
+  padding: 10rpx;
+font-size: small;
+float: right;
+}
+
+.kecheng-info{
+  padding: 0 15rpx;
+  
+}
+.kecheng-name{
+float: left;
+
+}
+
+.kecheng-jieci{
+float: right;
+
+}
+
+.tch-name{
+  float: left;
+}
+.kecheng-date{
+  float: right;
+}
+.reason{
+  border-bottom: 2rpx solid #E1DDDB;
+  
+}
+.reject{
+  background-color: #DB6160;
+  color: #f5f7f5;
+  font-size: small;
+}
+.pass{
+  background-color: #50AA50;
+  color: #f5f7f5;
+  font-size: small;
+}

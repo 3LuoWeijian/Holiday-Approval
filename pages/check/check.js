@@ -24,13 +24,22 @@ Page({
 
   },
 
-
+//离校审批
   checkleave(){
     wx.navigateTo({
       url: '/pages/check-leave/check-leave',
     })
   },
-  kejiashenpi(){
+  
+
+  //课程请假审批
+  checkKeCheng(){
+    wx.navigateTo({
+      url: '/pages/check-kecheng/check-kecheng',
+    })
+  },
+  //返校审批
+  getCheckback(){
     wx.navigateTo({
       url: '/pages/kejiashenpi/kejiashenpi',
     })

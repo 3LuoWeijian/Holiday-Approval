@@ -11,7 +11,7 @@
 			<image src="/image/lixiaoshenpi.png"></image>
 			<view>离校审批</view>
 		</view>
-		<view class="item" bindtap="kejiashenpi">
+		<view class="item" bindtap="checkKeCheng" >
 			<image src="/image/kejiashenpi.png"></image>
 			<view>课假审批</view>
 		</view>

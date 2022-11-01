@@ -17,82 +17,43 @@ Page({
 
   },
 
-
-  bindReject(e) {
+  rejectBtn(e) {
     //获取该条记录下唯一的_id值
-    console.log(this.data.backlist[e.currentTarget.dataset.index]._id)
-    db.collection('BackRequest').where({
-      id: this.data.backlist[e.currentTarget.dataset.index]._id
-    }).update({
-      // data 传入需要局部更新的数据
-      data: {
-        pass_fdy: 'true'
-      },
-      fail: function (res) {
-        console.log(res)
-      }
-    })
-
-  },
-
-
-  callApproveFunc(leave, approveState) {
-    console.log('leave = ', leave, approveState)
     wx.showLoading({
-      title: '审批提交中',
+      title: '驳回中...',
       mask: true
     })
+    console.log(this.data.leaveList[e.currentTarget.dataset.index]._id)
+    var data = {
+      state: "reject",
+      rejectedState: true,
+      index_id: this.data.leaveList[e.currentTarget.dataset.index]._id,
+    }
+    console.log(data)
     wx.cloud.callFunction({
-        name: 'approveLeave',
-        data: {
-          //tno: app.globalData.regInfo.tno,
-          //leaveId: leave.id,
-          pass_fdy: approveState
-        }
+        name: "approveLeave",
+        data: data,
       })
       .then(res => {
-        wx.hideLoading({
-          success: (res) => {
-            wx.showToast({
-              title: '完成审批',
-              icon: 'success',
-              duration: 500
-            })
-          },
+        console.log(res)
+        wx.hideLoading()
+        wx.showToast({
+          title: '驳回成功',
+          icon: 'success',
+          duration: 2000,
+          mask: true,
         })
-        console.log('完成审批')
-        //更新一下前端界面的上的请假单表
-        /* let newList = this.data.leaveList
-        newList[leave.idx].approveState = approveState
-        newList[leave.idx].approved = 1
-        this.setData({
-          leaveList: newList
-        })
-        this.data.skip -= 1
-        this.callUpMsg(leave.sno,
-          'leave',
-          leave.id,
-          new Date()) */
+        this.onLoad()
       })
       .catch(err => {
-        console.error(err)
-        wx.hideLoading({
-          success: (res) => {
-            wx.showToast({
-              title: '审批提交失败，请稍候重试',
-              icon: 'none',
-              duration: 1500,
-              mask: true
-            })
-          },
+        wx.showToast({
+          title: '驳回失败',
+          icon: 'none',
+          duration: 2000,
+          mask: true
         })
+        console.log("失败", err)
       })
-  },
-  rejectBtn(e) {
-    console.log(e)
-    //this.callApproveFunc(res.currentTarget.dataset, false)
-    console.log(this.data)
-
 
   },
 
@@ -106,7 +67,8 @@ Page({
     })
     console.log(this.data.leaveList[e.currentTarget.dataset.index]._id)
     var data = {
-      pass_fdy: "true",
+      state:"agree",
+      pass_fdy: true,
       index_id: this.data.leaveList[e.currentTarget.dataset.index]._id,
     }
     console.log(data)
@@ -140,6 +102,7 @@ Page({
     let that = this
     db.collection('leave').where({
       pass_fdy: false,
+      rejectedState:false,
     }).get({
       success: function (res) {
         console.log('=', res)
