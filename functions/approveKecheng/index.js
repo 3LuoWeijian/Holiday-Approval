@@ -16,7 +16,7 @@ exports.main = async (event, context) => {
     }
   }) */
   if (event.state == 'agree') {
-    return await db.collection('leave').doc(event.index_id)
+    return await db.collection('kecheng').doc(event.index_id)
       .update({
         data: {
           pass_fdy: event.pass_fdy
@@ -24,7 +24,7 @@ exports.main = async (event, context) => {
       })
   }
   if (event.state == 'reject') {
-    return await db.collection('leave').doc(event.index_id)
+    return await db.collection('kecheng').doc(event.index_id)
       .update({
         data: {
           rejectedState: event.rejectedState
@@ -32,9 +32,3 @@ exports.main = async (event, context) => {
       })
   }
 }
-
-
-
-
-
-

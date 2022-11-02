@@ -11,6 +11,7 @@
   border-color: grey;
   background-color: #ebf3e9;
   border-radius: 32rpx 32rpx 32rpx 32rpx;
+  
 }
 
 .stu-info {
@@ -50,7 +51,8 @@
   width: 732rpx;
   height: 251rpx;
   display: block;
-  box-sizing: border-box
+  box-sizing: border-box;
+  
 }
 
 .leave-kind {
@@ -81,7 +83,9 @@
   width: 704rpx;
   height: 160rpx;
   display: block;
-  box-sizing: border-box
+  box-sizing: border-box;
+  margin-left: 10rpx;
+  border-bottom: 2rpx solid #E1DDDB;
 }
 
 .yes-or-not {

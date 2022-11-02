@@ -3,19 +3,19 @@
 
 
 
-<view class="box" wx:for="{{leaveList}}" wx:key="index" wx:for-index="childindex">
+<view class="box" wx:for="{{leaveList}}" wx:key="index" wx:for-index="childindex" style="width: 732rpx; height: 533rpx; display: block; box-sizing: border-box">
   <view class="stu-info" style="width: 706rpx; height: 108rpx; display: block; box-sizing: border-box">
     <view class="banji">{{item.class}}</view>
     <view class="xingming">{{item.stu_name}}</view>
     <view class="xueyuan">{{item.academy}}</view>
   </view>
-  <view class="leave-info">
+  <view class="leave-info" style="width: 732rpx; height: 265rpx; display: block; box-sizing: border-box">
     <view class="leave-kind">{{item.leaveClass}}</view>
     <view class="leave-date">{{item.leaveDate}}至{{item.returnDate}}</view>
-    <view class="high-risk">目的地为低风险地区</view>
-    <view class="leave-reason">{{item.leaveReason}}</view>
+    <view class="high-risk"><!-- 目的地为低风险地区 --></view>
+    <view class="leave-reason" style="width: 708rpx; height: 129rpx; display: block; box-sizing: border-box">{{item.leaveReason}}</view>
   </view>
-  <view class="yes-or-not"><button  bindtap="rejectBtn" data-index="{{childindex}}" class="not" style="position: relative; left: -172rpx; top: 6rpx; width: 195rpx; height: 83rpx; display: block; box-sizing: border-box">驳回</button> <button bindtap="passBtn" class="yes" style="position: relative; left: 150rpx; top: -78rpx; width: 195rpx; height: 83rpx; display: block; box-sizing: border-box">通过</button></view>
+  <view class="yes-or-not" style="width: 732rpx; height: 106rpx; display: block; box-sizing: border-box"><button  bindtap="rejectBtn" data-index="{{childindex}}" class="not" style="position: relative; left: -183rpx; top: 45rpx; width: 195rpx; height: 83rpx; display: block; box-sizing: border-box">驳回</button> <button bindtap="passBtn"  data-index="{{childindex}}" class="yes" style="position: relative; left: 160rpx; top: -38rpx; width: 195rpx; height: 83rpx; display: block; box-sizing: border-box">通过</button></view>
 </view>
 
 

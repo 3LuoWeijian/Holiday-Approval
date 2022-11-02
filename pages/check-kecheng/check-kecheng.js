@@ -1,37 +1,30 @@
-// pages/leavecheck/leavecheck.js
-
+// pages/check-kecheng/check-kecheng.js
 const db = wx.cloud.database();
 
-
 const app = getApp().appData;
-
-
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    leaveList: [],
-
-
+    kechengList: [],
   },
-
   rejectBtn(e) {
     //获取该条记录下唯一的_id值
     wx.showLoading({
       title: '驳回中...',
       mask: true
     })
-    console.log(this.data.leaveList[e.currentTarget.dataset.index]._id)
+    console.log(this.data.kechengList[e.currentTarget.dataset.index]._id)
     var data = {
       state: "reject",
       rejectedState: true,
-      index_id: this.data.leaveList[e.currentTarget.dataset.index]._id,
+      index_id: this.data.kechengList[e.currentTarget.dataset.index]._id,
     }
     console.log(data)
     wx.cloud.callFunction({
-        name: "approveLeave",
+        name: "approveKecheng",
         data: data,
       })
       .then(res => {
@@ -65,15 +58,15 @@ Page({
       title: '通过中...',
       mask: true
     })
-    console.log(this.data.leaveList[e.currentTarget.dataset.index]._id)
+    console.log(this.data.kechengList[e.currentTarget.dataset.index]._id)
     var data = {
       state:"agree",
       pass_fdy: true,
-      index_id: this.data.leaveList[e.currentTarget.dataset.index]._id,
+      index_id: this.data.kechengList[e.currentTarget.dataset.index]._id,
     }
     console.log(data)
     wx.cloud.callFunction({
-        name: "approveLeave",
+        name: "approveKecheng",
         data: data,
       })
       .then(res => {
@@ -98,25 +91,27 @@ Page({
       })
 
   },
+  /**
+   * 生命周期函数--监听页面加载
+   */
   onLoad(options) {
     let that = this
-    db.collection('leave').where({
+    db.collection('kecheng').where({
       pass_fdy: false,
       rejectedState:false,
     }).get({
       success: function (res) {
         console.log('=', res)
         that.setData({
-          leaveList: res.data
+          kechengList: res.data
         }, () => {})
-        console.log('成功', that.data.leaveList)
+        console.log('成功', that.data)
 
       }
     })
 
 
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

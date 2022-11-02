@@ -1,21 +1,5 @@
-// pages/check/check.js
-
-
-var app=getApp().appData;
-const db = wx.cloud.database();
+// pages/chart11/chart11.js
 Page({
-  onShareAppMessage: function (res) {
-    return {
-      title: 'ECharts 可以在微信小程序中使用啦！',
-      path: '/pages/index/index',
-      success: function () { },
-      fail: function () { }
-    }
-  },
-
-
-
-
 
   /**
    * 页面的初始数据
@@ -24,26 +8,6 @@ Page({
 
   },
 
-//离校审批
-  checkleave(){
-    wx.navigateTo({
-      url: '/pages/check-leave/check-leave',
-    })
-  },
-  
-
-  //课程请假审批
-  checkKeCheng(){
-    wx.navigateTo({
-      url: '/pages/check-kecheng/check-kecheng',
-    })
-  },
-  //返校审批
-  getCheckback(){
-    wx.navigateTo({
-      url: '/pages/kejiashenpi/kejiashenpi',
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */

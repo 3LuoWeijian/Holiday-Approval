@@ -90,11 +90,18 @@ page {
 
 
 }
-
+.upSuccess{
+  float: right;
+  color: #ff8566;
+  position: absolute;
+}
 .contact {
   margin-top: 30rpx;
 }
-
+.contact input{
+  border-bottom: 1rpx solid #efefef;
+  margin: 10rpx 0;
+}
 .upDocx {
   font-size: xx-small;
   
@@ -146,7 +153,7 @@ page {
 .reasonText textarea {
   width: 670rpx;
   line-height: 50rpx;
-  font-size: 24rpx;
+  font-size: 30rpx;
   color: #808080;
   height: 200rpx;
   top: -100rpx

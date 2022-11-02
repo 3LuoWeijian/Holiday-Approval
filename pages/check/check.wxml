@@ -2,16 +2,16 @@
 
 <view class="background2">
 	<view class="box1">
-		<view>学生人数情况</view>
+		<view> <echarts></echarts> </view>
 		<view>健康打卡情况</view>
 	</view>
-
+ 
 	<view class="box2">
 		<view class="item" bindtap="checkleave">
 			<image src="/image/lixiaoshenpi.png"></image>
 			<view>离校审批</view>
 		</view>
-		<view class="item">
+		<view class="item" bindtap="checkKeCheng" >
 			<image src="/image/kejiashenpi.png"></image>
 			<view>课假审批</view>
 		</view>

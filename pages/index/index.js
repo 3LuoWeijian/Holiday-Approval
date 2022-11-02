@@ -47,7 +47,7 @@ Page({
       success:function(res){
         console.log(res);
         app.class = res.data[0].class
-        app.name = res.data[0].stu_name
+        app.stu_name = res.data[0].stu_name
         app.sno = res.data[0].sno
         app.academy = res.data[0].academy
         app.phone = res.data[0].phone

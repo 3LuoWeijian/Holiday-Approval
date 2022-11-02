@@ -1,0 +1,3 @@
+<text>{{count}}/482</text>
+<button bindtap="leaveSubone">-1</button>
+<button bindtap="gochart">go</button>

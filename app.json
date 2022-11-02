@@ -1,26 +1,30 @@
 {
-    "pages": [
-        "pages/index/index",
-        "pages/main/main",
-        "pages/check/check",
-        "pages/tol-view/tol-view",
-        "pages/my/my",
-        "pages/BackRequest/BackRequest",
-        "pages/leave/leave",
-        "pages/my-info/my-info",
-        "pages/kecheng/kecheng",
-        "pages/check-leave/check-leave",
-        "pages/Daka/Daka",
-        "pages/check-back/check-back"
-    ],
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "广州大学",
-        "navigationBarTextStyle":"black"
-    },
-    "tabBar": {
-	  "selectedColor": "#99CCCC",
+  "pages": [
+    "pages/echarts/echarts",
+    "pages/index/index",
+    "pages/main/main",
+    "pages/check/check",
+    "pages/tol-view/tol-view",
+    "pages/my/my",
+    "pages/BackRequest/BackRequest",
+    "pages/leave/leave",
+    "pages/my-info/my-info",
+    "pages/kecheng/kecheng",
+    "pages/leavecheck/leavecheck",
+    "pages/Daka/Daka",
+    "pages/check-leave/check-leave",
+    
+    "pages/check-back/check-back",
+    "pages/check-kecheng/check-kecheng"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "广州大学",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#99CCCC",
     "list": [
       {
         "pagePath": "pages/check/check",
@@ -41,7 +45,7 @@
         "selectedIconPath": "/image/my-active.png"
       }
     ]
-    },
-    "style": "v2",
-    "sitemapLocation": "sitemap.json"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
 }

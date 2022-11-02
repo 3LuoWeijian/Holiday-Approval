@@ -84,9 +84,9 @@ Page({
     wx.hideHomeButton()
     let user=wx.getStorageSync('user')
     console.log('用户',user)
-    if(app.name!=null)
+    if(app.stu_name!=null)
     {
-      user.nickName = app.name
+      user.nickName = app.stu_name
     }
     console.log('用户',user)
     this.setData({
@@ -108,9 +108,9 @@ Page({
         let user =res.userInfo
         //缓存用户信息到本地
         wx.setStorageSync('user', user)
-        if(app.name!=null)
+        if(app.stu_name!=null)
         {
-          user.nickName = app.name
+          user.nickName = app.stu_name
         }
         this.setData({
           userInfo:user,

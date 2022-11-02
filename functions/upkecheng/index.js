@@ -10,6 +10,9 @@ exports.main = async (event, context) => {
   return await db.collection("kecheng")
     .add({
       data: {
+        stu_name:event.stu_name,
+        class:event.class,
+        academy: event.academy,
         absenceDate: event.absenceDate,
         absenceReason: event.absenceReason,
         lessonName:event.lessonName,
@@ -18,7 +21,9 @@ exports.main = async (event, context) => {
         subDate:event.subDate,
         studentClass:event.studentClass,
         campusClass:event.campusClass,
-        sno:event.sno
+        sno:event.sno,
+        pass_fdy:event.pass_fdy,
+        rejectedState:event.rejectedState
         //approveState: 0,
       }
     })

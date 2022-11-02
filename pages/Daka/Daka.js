@@ -9,35 +9,34 @@ Page({
    */
   data: {
     shows: false, //控制下拉列表的显示隐藏，false隐藏、true显示
-    classDatas: ['计算机学院', '环境科学与工程学院', '网络安全学院','新闻传播学院','音乐舞蹈学院','生命科学学院','教育学院','马克思学院','外国语学院','土木学院'], //下拉列表的数据
-  
+    classDatas: 
+    ['肖章益','唐思雅','aaa','bbb','ccc'], //下拉列表的数据
     indexs: 0, //选择的下拉列 表下标,
-    date:myDate.toLocaleDateString(),
-    name:null,
+    InoculateDate:myDate.toLocaleDateString(),
+    subDate:null,
+    stu_name:null,
     sno:null,
     class:null,
     academy:null,
     phone:null,
-    msg:'广州大学学生公寓',
+    region:'广州大学学生公寓',
+    region1:'广州',
     isjiantou:true,   //箭头切换
-    selectcontent:[
-      {id:1,name:"肖章益"},
-      {id:2,name:"唐思雅"},
-    ],
-    value:undefined,   //选中的值
-    valueid:undefined,  //选中的id
     OutsideClassItems: [
       { name: 'fou', value: '否', checked: 'true' },
       { name: 'shi', value: '是' },
     ],
+    OutsideClass:'否',
     SelfHealthClassItems: [
       { name: 'zhengchang', value: '正常', checked: 'true' },
       { name: 'bushi', value: '不适' },
     ],
+    SelfHealthClass:'正常',
     ReportClassItems: [
       { name: 'yinxing', value: '阴性', checked: 'true' },
       { name: 'yangxing', value: '阳性' },
     ],
+    ReportClass:'阴性',
     HealthClassItems: [
       { name: 'zhengchang', value: '正常', checked: 'true' },
       { name: 'geli', value: '隔离' },
@@ -45,6 +44,7 @@ Page({
       { name: 'yisihuoquezhen', value: '疑似/确诊' },
       { name: 'yisizhuanpaichu', value: '疑似转排除' },
     ],  
+    HealthClass:'正常',
     FamilyClassItems: [
       { name: 'zhengchang', value: '正常', checked: 'true' },
       { name: 'geli', value: '隔离' },
@@ -52,39 +52,48 @@ Page({
       { name: 'yisihuoquezhen', value: '疑似/确诊' },
       { name: 'yisizhuanpaichu', value: '疑似转排除' },
     ],
+    FamilyClass:'正常',
     BoolFamilyClassItems: [
       { name: 'fou', value: '否', checked: 'true' },
       { name: 'shi', value: '是' },
     ],
+    BoolFamilyClass:'否',
     Bool1ClassItems: [
       { name: 'fou', value: '否', checked: 'true' },
       { name: 'shi', value: '是' },
     ],
+    Bool1Class:'否',
     Bool2ClassItems: [
       { name: 'fou', value: '否', checked: 'true' },
       { name: 'shi', value: '是' },
     ],
+    Bool2Class:'否',
     Bool3ClassItems: [
       { name: 'fou', value: '否', checked: 'true' },
       { name: 'shi', value: '是' },
     ],
+    Bool3Class:'否',
     BoolgreenClassItems: [
       { name: 'shi', value: '是', checked: 'true' },
       { name: 'fou', value: '否' },
     ],
+    BoolgreenClass:'是',
     KeyregionItems: [
       { name: 'fou', value: '否', checked: 'true' },
       { name: 'shi', value: '是' },
     ],
+    Keyregion:'否',
     VaccineItems: [
       { name: 'shi', value: '是', checked: 'true' },
       { name: 'fou', value: '否' },
     ],
+    Vaccine:'是',
     VaccinecountsItems: [
       { name: 'yizhen', value: '一针'},
       { name: 'liangzhen', value: '两针' },
       { name: 'sanzhen', value: '三针', checked: 'true' },
     ],
+    Vaccinecounts:'三针',
    SupplierItems: [
       { name: 'shengwu', value: '生物'},
       { name: 'kexing', value: '科兴' },
@@ -92,9 +101,28 @@ Page({
       { name: 'kangtai', value: '康泰'},
       { name: 'qita', value: '其他'},
     ],
+    Supplier:'生物',
   },
 
-  // 点击下拉显示框
+  bindDateChange: function(e) {
+    console.log(e.detail.value)
+    this.setData({
+      date: e.detail.value
+    })
+  },
+  iptHandler(e){
+    this.setData({
+        // 通过e.detail.value 获取文本框最新值
+        region:e.detail.value
+    })
+  },
+  kptHandler(e){
+    this.setData({
+        // 通过e.detail.value 获取文本框最新值
+        region1:e.detail.value
+    })
+  },
+   // 点击下拉显示框
   selectTaps() {
     this.setData({
       shows: !this.data.shows,
@@ -110,33 +138,7 @@ Page({
     });
 
   },
-  bindDateChange: function(e) {
-    console.log(e.detail.value)
-    this.setData({
-      date: e.detail.value
-    })
-  },
-  iptHandler(e){
-    this.setData({
-        // 通过e.detail.value 获取文本框最新值
-        msg:e.detail.value
-    })
-  },
 
-    // 下拉框收起和下拉
-    changejiantou(){
-      this.setData({
-        isjiantou:!this.data.isjiantou
-      })
-    },
-    // 选择数据后回显
-    changecontent(e){
-      this.setData({
-        value:e.currentTarget.dataset.datavalue.name,
-        valueid:e.currentTarget.dataset.datavalue.id,
-        isjiantou:true
-      })
-    },
 
   radioOutsideClassChange: function (e) {
     var str = null;
@@ -227,95 +229,113 @@ Page({
 
   radioKeyregionClassChange: function (e) {
     var str = null;
-    for (var value of this.data.KeyregionClassItems) {
+    for (var value of this.data.KeyregionItems) {
       if (value.name === e.detail.value) {
         str = value.value;
         break;
       }
     }
-    this.setData({KeyregionClass: str});
+    this.setData({Keyregion: str});
   },
 
   radioVaccineClassChange: function (e) {
     var str = null;
-    for (var value of this.data.VaccineClassItems) {
+    for (var value of this.data.VaccineItems) {
       if (value.name === e.detail.value) {
         str = value.value;
         break;
       }
     }
-    this.setData({VaccineClass: str});
+    this.setData({Vaccine: str});
   },
 
   radioVaccinecountsClassChange: function (e) {
     var str = null;
-    for (var value of this.data.VaccinecountsClassItems) {
+    for (var value of this.data.VaccinecountsItems) {
       if (value.name === e.detail.value) {
         str = value.value;
         break;
       }
     }
-    this.setData({VaccinecountsClass: str});
+    this.setData({Vaccinecounts: str});
   },
   
    radioSupplierClassChange: function (e) {
     var str = null;
-    for (var value of this.data.SupplierClassItems) {
+    for (var value of this.data.SupplierItems) {
       if (value.name === e.detail.value) {
         str = value.value;
         break;
       }
     }
-    this.setData({SupplierClass: str});
+    this.setData({Supplier: str});
   }, 
 
   onLoad: function (options) {
     this.setData({
-      name:app.name,
+      stu_name:app.stu_name,
       class:app.class,
       sno:app.sno,      
       academy:app.academy,
       phone:app.phone,
+     
     })
     // 调用函数时，传入new Date()参数，返回值是日期和时间
-    var time = util.formatTime(new Date());
+    var subDate = util.formatTime(new Date());
     // 再通过setData更改Page()里面的data，动态更新页面的数据
     this.setData({
-      time: time
+      subDate: subDate
     });
   },
  
 submit: function (e) {
-    
       wx.showLoading({
         title: '申请提交中...',
         mask: true
       })
       var data = {
         //sno: app.globalData.regInfo.sno,
-        
-       
-        name: this.data.name,
+        //提交日期
+        subDate: this.data.subDate,
+        //学生姓名
+        stu_name: this.data.stu_name,
+        //学生学号
         sno: this.data.sno,
+        //学生班级
         class:this.data.class,
+        //学生学院
         academy: this.data.academy,
+        //学生电话
         phone:this.data.phone,
-        msg:this.data.msg,
+        //辅导员
+        stu_fdy:this.data.stu_fdy,
+        //校内居住地址
+        region:this.data.region,
+        //目前所在地
+        region1:this.data.region1,
         selectcontent:this.data.selectcontent,
-        OutsideClassItems:this.data.OutsideClassItems,
-        SelfHealthClassItems:this.data.SelfHealthClassItems,
-        ReportClassItems:this.data.ReportClassItems,
-        HealthClassItems:this.data.HealthClassItems,
-        FamilyClassItems:this.data.FamilyClassItems,
-        BoolFamilyClassItems:this.data.BoolFamilyClassItems,
-        Bool1ClassItems:this.data.Bool1ClassItems,
-        Bool2ClassItems:this.data.Bool2ClassItems,
-        Bool3ClassItems:this.data. Bool3ClassItems,
-        BoolgreenClassItems:this.data.BoolgreenClassItems,
-        KeyregionItems:this.data.KeyregionItems,
-        VaccineItems:this.data. VaccineItems,
-        VaccinecountsItems:this.data. VaccinecountsItems,
-        SupplierItems:this.data. SupplierItems
+        //当日是否外出
+        OutsideClass:this.data.OutsideClass,
+        //本人身体状况
+        SelfHealthClass:this.data.SelfHealthClass,
+        //近一次核酸结果
+        ReportClass:this.data.ReportClass,
+        //本人健康情况
+        HealthClass:this.data.HealthClass,
+        //
+        FamilyClass:this.data.FamilyClass,
+        //
+        BoolFamilyClass:this.data.BoolFamilyClass,
+        //
+        Bool1Class:this.data.Bool1Class,
+        Bool2Class:this.data.Bool2Class,
+        Bool3Class:this.data.Bool3Class,
+        BoolgreenClass:this.data.BoolgreenClass,
+        Keyregion:this.data.Keyregion,
+        Vaccine:this.data.Vaccine,
+        Vaccinecounts:this.data.Vaccinecounts,
+        Supplier:this.data.Supplier,
+        InoculateDate:this.data.InoculateDate
       }
       console.log('data = ', data)
       wx.cloud.callFunction({

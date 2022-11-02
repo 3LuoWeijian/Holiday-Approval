@@ -34,14 +34,14 @@
   width: 90%;
   border-bottom: 1rpx solid #efefef;
   padding-bottom: 20rpx;
-  margin: 50rpx;
+  margin: 20rpx;
   justify-content: center;
   margin-left: 10rpx;
 }
 
 .box2 text {
-  padding: 10rpx;
-  margin-top: 10rpx;
+  padding: 5rpx;
+  margin-top: 5rpx;
   
 }
 .box2 radio {
@@ -51,17 +51,35 @@
   margin: 50rpx;
 }
 .box3 text {
-  padding: 10rpx;
-  margin-top: 10rpx;
+  padding: 5rpx;
+  margin-top: 5rpx;
 }
 .box3 view{
   width: 90%;
- 
-  padding: 10rpx;
+  padding: 5rpx;
   margin-bottom: 20rpx;
   }
-
+.submit{
+  width: 710rpx;
+  height: 80rpx;
+  margin: 40rpx auto;
+  background-color: #66ccff;
+  border-radius: 20rpx;
+  line-height: 40rpx;
+  color: white;
+  font-size: 28rpx;
+}
+.fenlei{
+  margin: 50rpx;
+ 
+}
+.fenlei text{
+  padding: 10rpx;
+  margin-top: 10rpx;
+}
+/* 下拉框 */
 .select_box {
+
   width: 620rpx;
   /* margin: 0 auto; */
   height: 90rpx;
@@ -84,6 +102,7 @@
 .select_text {
   font-size: 28rpx;
   flex: 1;
+  color: rgb(102, 102, 102);
   line-height: 86rpx;
   height: 86rpx;
 }
@@ -120,39 +139,6 @@
   border-bottom: 1px solid #efefef;
   padding: 10rpx;
   color: rgb(102, 102, 102);
-}
-.submit{
-  width: 710rpx;
-  height: 80rpx;
-  margin: 40rpx auto;
-  background-color: #66ccff;
-  border-radius: 20rpx;
-  line-height: 40rpx;
-  color: white;
-  font-size: 28rpx;
-}
-.jiantou1{
-  box-sizing: border-box;
-  width: 100%;
-  height: 86rpx;
-  /* border: 1px solid #efefef; */
-  border-radius: 8rpx;
-  display: flex;
-  align-items: center;
-  padding: 0 20rpx;
-}
-.inputPlaceholder
-{
-  font-size: 28rpx;
-  flex: 1;
-  line-height: 86rpx;
-  height: 86rpx;
-  
-}
-.content{
-  font-size: 28rpx;
-  overflow-x: hidden;
-  overflow-y: scroll;
 }
 
 
