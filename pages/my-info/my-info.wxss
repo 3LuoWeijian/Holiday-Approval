@@ -1,41 +1,35 @@
 /* pages/my-info/my-info.wxss */
 .box1
 {
-  width: 100%;
-  display: block;
-
+	width: 100%;
 }
 .box2
 {
-  width: 100%;
-  height: 100rpx;
-  background-color: #efefef;
-  border-right: 2rpx solid #fff ;
-  margin-top: 30rpx;
-  border-radius: 32rpx;
+	 padding: 65rpx;
+	 line-height: 10rpx;
+	 flex-direction: row;
+	 border-bottom:1prx #efefef;
+	 border-radius: 32rpx;
+	 box-shadow: 3rpx 2rpx 3rpx 5rpx #efefef;
 }
 .box2 text
 {
-  border-right: 5rpx solid #fff;
+  font-weight: bolder;
+  float: left;
   padding-right: 30rpx;
-  padding-left: 40rpx;
-  padding-top: 90rpx;
-  font-size: 50rpx;
-  text-align: left;
+  border-right:8rpx solid lightblue;
 }
 
 .box2 view
 {
-  text-align: right;
-  padding-right: 90rpx;
-  padding-bottom: 50rpx;
+  float: left;
+  padding-left: 30rpx;
 }
 
 .tuichu
 {
-  border-radius: 32rpx;
-  font-size: 50rpx;
-  font-weight: lighter;
-  background-color: #efefef;
+  position: absolute;
+  margin-top: 50rpx;
+  margin-left: 40%;
 }
 

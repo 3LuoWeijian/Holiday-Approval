@@ -11,9 +11,9 @@
           </view>
       </view> 
 </block>
-
+<view>近期申请进度</view>
 <view class='order_process'>
-      <view class='process_wrap' wx:for="{{processData}}" wx:key="">
+      <view class='process_wrap' wx:for="{{processData}}" wx:key="index">
         <view class='process'>
           <view class='process_line' style="background:{{item.start}}"></view>
           <image class='process_icon' src="{{item.icon}}"></image>

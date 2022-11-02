@@ -24,6 +24,7 @@ Page({
     inresidence :true,
     show: true, //显示选择图片的按钮
     imgList: [],
+    newImgList:[],
     maxPhoto: 10, //最大上传10张图片
     pass_fdy:'false',
     pass_jwc:'false',
@@ -96,12 +97,12 @@ Page({
   },
 
   //改变返校地点
-  bindRegionChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      region: e.detail.value
-    })
-     },
+    bindRegionChange: function (e) {
+      console.log('picker发送选择改变，携带值为', e.detail.value)
+      this.setData({
+        region: e.detail.value
+      })
+      },
   
      chooseImg(e) {
       if (this.NextTap) {
@@ -129,7 +130,7 @@ Page({
      * @param {*} type
      */
     chooseWxImage: function (type) {
-      let {  imgList, maxPhoto } = this.data
+      let { imgList, maxPhoto } = this.data
       if (imgList.length > 10) {
         wx.showToast({
           title: '最多上传10张',
@@ -137,11 +138,12 @@ Page({
           duration: 2000
         })
         return
-      }
+      } 
+      var that = this
       wx.chooseImage({
-   
+       
         count: maxPhoto - imgList.length, // 最多可以选择多少张图片
-        sizeType: ['original', 'compressed'], //所选的图片的尺寸
+        sizeType: ['compressed'], //所选的图片的尺寸
         sourceType: [type], //图片来源
         success: (res) => {
           console.log(res)
@@ -151,9 +153,24 @@ Page({
           tempFilePaths.forEach(item => {
             imgList.push(item)
           })
-          this.setData({
-            imgList: imgList,
-            show: imgList.length >= 10 ? false : true
+          //上传到云存储
+          var newImgList = []
+          for(var i = 0;i<tempFilePaths.length;i++)
+          {
+            wx.cloud.uploadFile({
+              cloudPath:'stuPhoto/'+ this.data.academy +'/'+this.data.sno + new Date().getTime()+Math.floor(Math.random()*1000)+'.jpg',
+              filePath:tempFilePaths[i],
+              success:res=>{
+                console.log('上传成功',res.fileID)
+                newImgList.push(res.fileID)
+              }
+            })
+          }
+          console.log('云存储序列',newImgList)
+          that.setData({
+            newImgList:newImgList,
+            imgList:imgList,
+            show:imgList.length >= 10 ? false : true
           })
         }
       })
@@ -163,10 +180,10 @@ Page({
      * @param e
      */
     previewImg(e) {
+      console.log(e)
       let currentUrl = e.currentTarget.dataset.src;
       console.log('wu', e.currentTarget.dataset.src)
       let urls = this.data.imgList
-      console.log(this.data.imgList)
       wx.previewImage({
         current: currentUrl, // 当前显示图片的http链接
         urls: urls // 需要预览的图片http链接列表
@@ -179,72 +196,95 @@ Page({
     deleteUpload(e) {
       console.log(e)
       let {index} = e.currentTarget.dataset;
-    
+      let {newImgList} = this.data;
       let {imgList} = this.data;
       imgList.splice(index, 1)
+      newImgList.splice(index,1)
       this.setData({
         imgList: imgList,
+        newImgList:newImgList,
         show: imgList.length >= 10 ? false : true
       })
     },
 
-    submit:function(e){
-    wx.showLoading({
-      title: '申请提交中...',
-      mask: true
-    })
-    var data = {
-      stu_name:this.data.stu_name,
-      sno:this.data.sno,
-      class:this.data.class,
-      academy:this.data.academy,
-      phone:this.data.phone,
-      region:this.data.region,
-      stu_type: this.data.stu_type,
-      setDate: this.data.setDate,
-      arriveDate: this.data.arriveDate,
-      campus: this.data.campus,
-      conveyance:this.data.conveyance,
-      timeofconveyance:this.data.timeofconveyance,
-      inresidence :this.data.inresidence,
-      pass_fdy:this.data.pass_fdy,
-      pass_jwc:this.data.pass_jwc,
-      pass_sj:this.data.pass_sj,
-	  imgList: this.data.imgList,
-	  rejectedState:this.data.rejectedState,
+    submit:function(e){  
+    if(this.data.imgList.length == 0)
+    {
+      wx.showToast({
+        title: '请上传照片证明',
+        mask: true,    
+        duration: 500,
+      })
     }
-    console.log('data = ', data)
-    
-    wx.cloud.callFunction({
-        name:"backrequest",
-        data: data,
+    else{
+    if(this.data.imgList.length == this.data.newImgList.length){
+        wx.showLoading({
+        title: '申请提交中...',
+        mask: true,
       })
-      .then(res => {
-        console.log(res)
-        wx.hideLoading()
-        wx.showToast({
-          title: '提交成功',
-          icon: 'success',
-          duration: 2000,
-          mask: true,
-          success: (res) => {
-            setTimeout(() => {
-              wx.navigateBack({
-                delta: 1,
-              })
-            }, 2000);
-          }
+      var data = {
+        stu_name:this.data.stu_name,
+        sno:this.data.sno,
+        class:this.data.class,
+        academy:this.data.academy,
+        phone:this.data.phone,
+        region:this.data.region,
+        stu_type: this.data.stu_type,
+        setDate: this.data.setDate,
+        arriveDate: this.data.arriveDate,
+        campus: this.data.campus,
+        conveyance:this.data.conveyance,
+        timeofconveyance:this.data.timeofconveyance,
+        inresidence :this.data.inresidence,
+        pass_fdy:this.data.pass_fdy,
+        pass_jwc:this.data.pass_jwc,
+        pass_sj:this.data.pass_sj,
+        newImgList: this.data.newImgList,
+        rejectedState:this.data.rejectedState,
+      }
+      console.log('data = ', data)
+      
+      wx.cloud.callFunction({
+          name:"backrequest",
+          data: data,
         })
-      })
-      .catch(err => {
-        wx.showToast({
-          title: '提交失败',
-          icon: 'none',
-          duration: 2000,
-          mask: true
+        .then(res => {
+          console.log(res)
+          wx.hideLoading()
+          wx.showToast({
+            title: '提交成功',
+            icon: 'success',
+            duration: 2000,
+            mask: true,
+            success: (res) => {
+              setTimeout(() => {
+                wx.navigateBack({
+                  delta: 1,
+                })
+              }, 2000);
+            }
+          })
         })
-        console.log("失败",err)
+        .catch(err => {
+          wx.showToast({
+            title: '提交失败',
+            icon: 'none',
+            duration: 2000,
+            mask: true
+          })
+          console.log("失败",err)
+        })
+        wx.vibrateShort()
+    }
+    else{
+      wx.showToast({
+        title: '请稍等...',
+        icon:'loading',
+        duration:1000,
+        mask: true
       })
+    }
+  }
   },
   
 

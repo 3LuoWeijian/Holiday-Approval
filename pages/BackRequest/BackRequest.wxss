@@ -48,6 +48,8 @@
   margin-top: 40rpx;
   background-color:#28C76F ;
   color: white;
+  margin-bottom: 100rpx;
+
 }
 
 .con {

@@ -22,12 +22,12 @@ exports.main = async (event, context) => {
         campus: event.campus,
         conveyance:event.conveyance,
         timeofconveyance:event.timeofconveyance,
-        inresidence :event.inresidence,
+        inresidence:event.inresidence,
         pass_fdy:event.pass_fdy,
         pass_jwc:event.pass_jwc,
         pass_sj:event.pass_sj,
         rejectedState:event.rejectedState,
-        imgList:event.imgList,
+        newImgList:event.newImgList,
       }
     })
 

@@ -127,8 +127,8 @@ Page({
     previewImg(e) {
       let currentUrl = e.currentTarget.dataset.src;
       console.log('无',e.currentTarget.dataset.src)
-      let urls = this.data.backlist[e.currentTarget.dataset.index].imgList
-      console.log('zg',this.data.backlist[e.currentTarget.dataset.index].imgList)
+      let urls = this.data.backlist[e.currentTarget.dataset.index].newImgList
+      console.log('zg',this.data.backlist[e.currentTarget.dataset.index].newImgList)
       wx.previewImage({
         current: currentUrl, // 当前显示图片的http链接
         urls: urls // 需要预览的图片http链接列表

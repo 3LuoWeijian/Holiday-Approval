@@ -1,4 +1,5 @@
 // pages/my-info/my-info.js
+const app= getApp().appData;
 Page({
 
   /**
@@ -23,6 +24,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+	  this.setData({
+		  name:app.name,
+		  class:app.class,
+		  sno:app.sno,
+		  phone:app.phone,
+		  academy:app.academy
+	  })
 
   },
 
