@@ -1,4 +1,13 @@
 import * as echarts from '../../ec-canvas/echarts' // 这个是自己实际的目录
+const db=wx.cloud.database()
+db.collection('leave').where({
+pass_fdy:false
+}).get({
+success:console.log,
+fail:console.error
+})
+
+var chart = null
 function initChart(canvas, width, height, dpr) { // 这部分是固定的不需要 是通用的
   const chart = echarts.init(canvas, null, {
     width: width,
