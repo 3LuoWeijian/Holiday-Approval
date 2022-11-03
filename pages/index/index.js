@@ -42,51 +42,63 @@ Page({
     app.userinfo = { username: this.data.username, password: this.data.password };
     db.collection('student').where({
       sno:this.data.username,
+      passWord:this.data.password,
     })
     .get({
-      success:function(res){
-        console.log(res);
-        app.class = res.data[0].class
-        app.stu_name = res.data[0].stu_name
-        app.sno = res.data[0].sno
-        app.academy = res.data[0].academy
-        app.phone = res.data[0].phone
-      }
-    });
-    wx.getUserProfile({
-        desc: '完善用户信息',
-        success:res=>{
-          console.log('ok',res.userInfo);
-          let user =res.userInfo
-          //缓存用户信息到本地
-          wx.setStorageSync('user', user)
-          app.userInfo = user
-          if(app.people=='student')
+        success:function(res){
+        console.log('成功',res);
+          if(res.data.length==1)
           {
-            wx.reLaunch({
-              url: '../main/main',
+            app.class = res.data[0].class
+          app.stu_name = res.data[0].stu_name
+          app.sno = res.data[0].sno
+          app.academy = res.data[0].academy
+          app.phone = res.data[0].phone
+
+          wx.getUserProfile({
+            desc: '完善用户信息',
+            success:res=>{
+            console.log('ok',res.userInfo);
+            let user =res.userInfo
+              //缓存用户信息到本地
+              wx.setStorageSync('user', user)
+              app.userInfo = user
+              if(app.people=='student')
+              {
+               wx.reLaunch({
+                url: '../main/main',
+                 })
+              }
+              },
+            fail:res=>{
+              console.log('fail',res)
+              }
             })
-          }
-        },
-        fail:res=>{
-          console.log('fail',res)
-        }
-      })
-  
-    if(app.people=='student')
-    {
-      wx.reLaunch({
-        url: '../main/main',
-      })
-    }
-    else
-    {
-      wx.switchTab({
-      url: '../check/check',
+            
+              if(app.people=='student')
+              {
+                wx.reLaunch({
+                  url: '../main/main',
+                })
+              }
+              else
+              {
+                wx.switchTab({
+                url: '../check/check',
+              })
+              }
+              wx.vibrateLong();
+            }
+            else
+            {
+              wx.showToast({
+                title: '账号或密码错误！',
+              })
+            }
+          
+              
+            },
     })
-    }
-    wx.vibrateLong();
-    
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

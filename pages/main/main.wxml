@@ -3,13 +3,13 @@
       <view class="header">
           <view class="root" wx:if="{{!userInfo}}">
           <button class="login_btn" size="mini" bindtap="getUserProfile" > 获取头像昵称 </button>
-          </view>
+          </view> 
 
           <view wx:else class="root" bindtap="getmyinfo">
           <image bindtap="bindViewTap" class="touxiang" src="{{userInfo.avatarUrl}}" mode="cover"></image>
           <text class="nicheng">欢迎使用！{{userInfo.nickName}}</text>
           </view>
-      </view> 
+      </view>
 </block>
 <view>近期申请进度</view>
 <view class='order_process'>

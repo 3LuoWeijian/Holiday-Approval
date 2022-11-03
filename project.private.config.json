@@ -23,6 +23,20 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/echarts/echarts",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/tol-view/tol-view",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

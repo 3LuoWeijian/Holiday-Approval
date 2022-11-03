@@ -3,7 +3,8 @@ App({
   appData:{
     stu_name:null,
     class:null,
-    sno:'null',
+    sno:null,
+    passWord:null,
     academy:null,
     phone:null,
     userinfo:null,
