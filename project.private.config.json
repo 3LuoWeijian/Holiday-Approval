@@ -26,7 +26,18 @@
         },
         {
           "name": "",
+<<<<<<< HEAD
           "pathName": "pages/leave/leave",
+=======
+          "pathName": "pages/echarts/echarts",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/tol-view/tol-view",
+>>>>>>> 9182f19962d055d8e2d04503ed24433c6beddcdb
           "query": "",
           "launchMode": "default",
           "scene": null

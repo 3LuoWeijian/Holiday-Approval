@@ -9,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo:null,
+    userInfo:app.userInfo,
     isLogin:'',
     processData: [{
       name: '申请提交',
