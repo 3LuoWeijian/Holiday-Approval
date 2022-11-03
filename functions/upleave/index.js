@@ -30,9 +30,11 @@ exports.main = async (event, context) => {
         contactName:event.contactName,
         contactPhone:event.contactPhone,
         subDate: event.subDate,
-        studentClass: event.studentClass,
+        stu_type: event.stu_type,
         campusClass: event.campusClass,
-        
+        newImgList:event.newImgList,
+        riskRegion:event.riskRegion,
+        fdy_name:event.fdy_name,
         //approveState: 0,
       }
     })

@@ -13,7 +13,7 @@ Page({
    */
   data: {
     leaveList: [],
-
+    tch_type: '',
 
   },
 
@@ -67,7 +67,7 @@ Page({
     })
     console.log(this.data.leaveList[e.currentTarget.dataset.index]._id)
     var data = {
-      state:"agree",
+      state: "agree",
       pass_fdy: true,
       index_id: this.data.leaveList[e.currentTarget.dataset.index]._id,
     }
@@ -102,7 +102,7 @@ Page({
     let that = this
     db.collection('leave').where({
       pass_fdy: false,
-      rejectedState:false,
+      rejectedState: false,
     }).get({
       success: function (res) {
         console.log('=', res)
@@ -113,7 +113,18 @@ Page({
 
       }
     })
+    db.collection('teacher').where({
+      tch_type: 'jwc',
+    }).get({
+      success: function (res) {
+        console.log('=', res)
+        that.setData({
+          tch_type: res.data.tch_type
+        }, () => {})
+        console.log('成功', this.data.tch_type)
 
+      }
+    })
 
   },
 

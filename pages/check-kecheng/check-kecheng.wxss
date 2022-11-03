@@ -1,67 +1,127 @@
 /* pages/check-kecheng/check-kecheng.wxss */
+page {
+  background-color: #f8f3f3;
+}
+
 .box {
-  
+
   margin: 14rpx;
   border: 3rpx;
   border-color: grey;
-  background-color: #ebf3e9;
+  background-color: white;
   border-radius: 32rpx 32rpx 32rpx 32rpx;
+  font-size: small;
 }
 
-.stu-info{
+.stu-info {
   font-size: small;
   padding: 30rpx;
-
   margin: 10rpx;
   border-bottom: 2rpx solid #E1DDDB;
+  margin-left: 30rpx;
+  margin-right: 20rpx;
+  width: 680rpx;
+  height: 108rpx;
+  display: block;
+  box-sizing: border-box
 }
-.banji{
+
+.banji {
   float: left;
   padding: 10rpx;
 }
 
-.stu-name{
+.stu-name {
   float: left;
   padding: 10rpx 10rpx 10rpx 10rpx;
 }
 
-.xueyuan{
+.xueyuan {
   padding: 10rpx;
-font-size: small;
-float: right;
-}
-
-.kecheng-info{
-  padding: 0 15rpx;
-  
-}
-.kecheng-name{
-float: left;
-
-}
-
-.kecheng-jieci{
-float: right;
-
-}
-
-.tch-name{
-  float: left;
-}
-.kecheng-date{
+  font-size: small;
   float: right;
+  width: 329rpx;
+  height: 61rpx;
+  display: block;
+  box-sizing: border-box
 }
-.reason{
+
+.fst-line {
+  width: 750rpx;
+  height: 71rpx;
+  display: block;
+  box-sizing: border-box
+}
+
+.kecheng-info {
+  padding: 0 30rpx;
+
+}
+
+.kecheng-name {
+  float: left;
+  width: 406rpx;
+  height: 106rpx;
+  display: block;
+  box-sizing: border-box
+}
+
+.kecheng-jieci {
+  float: right;
+  width: 329rpx;
+  height: 106rpx;
+  display: block;
+  box-sizing: border-box
+}
+
+.sec-line {
+  width: 750rpx;
+  height: 129rpx;
+  display: block;
+  box-sizing: border-box
+}
+
+.tch-name {
+  float: left;
+  width: 415rpx;
+  height: 108rpx;
+  display: block;
+  box-sizing: border-box
+}
+
+.kecheng-date {
+  float: right;
+  width: 331rpx;
+  height: 108rpx;
+  display: block;
+  box-sizing: border-box
+}
+
+.reason {
   border-bottom: 2rpx solid #E1DDDB;
-  
+  width: 680rpx;
+  height: 165rpx;
+  display: block;
+  box-sizing: border-box
 }
-.reject{
+
+.reject {
   background-color: #DB6160;
   color: #f5f7f5;
   font-size: small;
+
 }
-.pass{
+
+.approve {
+  width: 750rpx;
+  height: 108rpx;
+  display: block;
+  box-sizing: border-box
+}
+
+.pass {
   background-color: #50AA50;
   color: #f5f7f5;
   font-size: small;
+
 }

@@ -41,7 +41,7 @@ Page({
   //返校审批
   getCheckback(){
     wx.navigateTo({
-      url: '/pages/kejiashenpi/kejiashenpi',
+      url: '/pages/check-back/check-back',
     })
   },
   /**

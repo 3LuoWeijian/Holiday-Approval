@@ -15,7 +15,7 @@
 			<image src="/image/kejiashenpi.png"></image>
 			<view>课假审批</view>
 		</view>
-		<view class="item">
+		<view class="item" >
 			<image src="/image/fanxiaoshenpi.png" bindtap="getCheckback"></image>
 			<view>返校审批</view>
 		</view>			

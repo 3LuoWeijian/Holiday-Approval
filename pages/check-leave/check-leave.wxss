@@ -1,27 +1,34 @@
 /* pages/leavecheck/leavecheck.wxss */
 /* @import'../../templates/checkCard/checkCard.wxss' */
+page {
+  background-color: #f8f3f3;
+}
+
 .box {
-  width: 732rpx;
-  height: 544rpx;
+  
+
   display: block;
   box-sizing: border-box;
 
   margin: 10rpx;
   border: 3rpx;
   border-color: grey;
-  background-color: #ebf3e9;
+  background-color: #ffffff;
   border-radius: 32rpx 32rpx 32rpx 32rpx;
-  
+
+
 }
 
 .stu-info {
 
   font-size: small;
   padding: 30rpx;
-
   margin: 10rpx;
   border-bottom: 2rpx solid #E1DDDB;
-
+  width: 706rpx;
+  height: 108rpx;
+  display: block;
+  box-sizing: border-box
 }
 
 .banji {
@@ -41,25 +48,28 @@
 
 .xueyuan {
   float: right;
-  width: 373rpx;
+  
   height: 43rpx;
   display: block;
   box-sizing: border-box
 }
 
 .leave-info {
-  width: 732rpx;
+  
   height: 251rpx;
   display: block;
   box-sizing: border-box;
-  
+  width: 732rpx;
+  height: 265rpx;
+  display: block;
+  box-sizing: border-box
 }
 
 .leave-kind {
   float: left;
   padding-left: 30rpx;
 
-  width: 352rpx;
+  width: 200rpx;
   height: 71rpx;
   box-sizing: border-box;
   display: block
@@ -68,24 +78,57 @@
 .leave-date {
   padding-top: 10rpx;
   float: right;
-  font-size: x-small;
-  width: 352rpx;
+  font-size: small;
+  padding-right: 20rpx;
   height: 71rpx;
   display: block;
   box-sizing: border-box
 }
+.high-risk {
+  font-size: small;
+  float: right;
+  padding-right: 20rpx;
+  height: 71rpx;
+  display: block;
+  box-sizing: border-box
+}
+
 
 .leave-reason {
   padding: 0 50rpx;
   line-height: 42rpx;
   float: left;
   font-size: small;
-  width: 704rpx;
-  height: 160rpx;
-  display: block;
-  box-sizing: border-box;
   margin-left: 10rpx;
   border-bottom: 2rpx solid #E1DDDB;
+  width: 708rpx;
+  height: 129rpx;
+  display: block;
+  box-sizing: border-box
+}
+.box1 {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 24rpx;
+margin-left: 30rpx;
+}
+
+.item_img {
+  width: 220rpx;
+  margin-right: 2rpx;
+  margin-bottom: 23rpx;
+  padding-left: 15rpx;
+
+  /* border: 1px solid #ccc; */
+}
+
+.img_item {
+  width: 203rpx;
+  height: 203rpx;
+}
+
+.item_img:nth-child(3n) {
+  margin-right: 0;
 }
 
 .yes-or-not {
@@ -104,7 +147,7 @@
 .not {
   background-color: #DB6160;
   color: #f5f7f5;
-  
+
 }
 
 .yes {
@@ -112,11 +155,4 @@
   color: #f5f7f5;
 }
 
-.high-risk {
-  font-size: small;
-  float: right;
-  width: 296rpx;
-  height: 71rpx;
-  display: block;
-  box-sizing: border-box
-}
+

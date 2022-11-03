@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/echarts/echarts",
     "pages/index/index",
+    "pages/echarts/echarts",
     "pages/main/main",
     "pages/check/check",
     "pages/tol-view/tol-view",
@@ -13,7 +13,6 @@
     "pages/leavecheck/leavecheck",
     "pages/Daka/Daka",
     "pages/check-leave/check-leave",
-    
     "pages/check-back/check-back",
     "pages/check-kecheng/check-kecheng"
   ],
