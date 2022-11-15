@@ -121,7 +121,6 @@ page {
   box-sizing: border-box
 }
 .reasonBox{
-  
 
 }
 .reasonText {

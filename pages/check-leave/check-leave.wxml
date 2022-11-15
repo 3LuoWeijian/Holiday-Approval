@@ -1,31 +1,54 @@
 <!--pages/leavecheck/leavecheck.wxml-->
 <import src="../../templates/checkCard/checkCard.wxml"></import>
 
-
-
+<view>
+  <text>离校类别</text>
+  <radio-group class="box2" bindchange="bindDestinationTypechange">
+  
+    <radio checked="true" value="离校不离穗">离校不离穗</radio>
+    <radio value="离穗">离穗</radio>
+    <radio value="出省">出省</radio>
+    <radio value="休学">休学</radio>
+    <radio value="留学">留学</radio>
+  </radio-group>
+  <text>审核情况（还没做完）</text>
+  <radio-group class="box2" bindchange="bindAgreeTypechange">
+    <radio checked="true" value="true">已审核</radio>
+    <radio value="" >未审核</radio><!-- value为空是为了string转Boolean后为false -->
+  </radio-group>
+</view>
 <view class="box" wx:for="{{leaveList}}" wx:key="index" wx:for-index="childindex">
-  <!-- <block wx:if="{{!item.pass_jwc&&(item.pass_fdy)}}"> -->
-    <view class="stu-info">
-      <view class="banji">{{item.class}}</view>
-      <view class="xingming">{{item.stu_name}}</view>
-      <view class="xueyuan">{{item.academy}}</view>
+  <view class="stu-info">
+    <view class="banji">{{item.class}}</view>
+    <view class="xingming">{{item.stu_name}}</view>
+    <view class="xueyuan">{{item.academy}}</view>
+  </view>
+  <view class="leave-info">
+    <view class="leave-kind">{{item.leaveClass}}</view>
+    <text class="leave-date">{{item.leaveDate}} 至 {{item.returnDate}}</text>
+    <text class="region">{{item.region}}</text>
+    <view class="high-risk" wx:if="{{item.riskRegion}}"> 目的地为中高风险地区 </view>
+    <view class="low-risk" wx:else> 目的地为低风险地区 </view>
+    <view class="leave-reason">{{item.leaveReason}}</view>
+
+  </view>
+  <view class="box1 ">
+    <view class="item_img" wx:for="{{item.newImgList}}" wx:key="index">
+      <image src="{{item}}" class="img_item" mode="aspectFill" data-src="{{item}}" catchtap="previewImg" data-index="{{childindex}}"></image>
     </view>
-    <view class="leave-info">
-      <view class="leave-kind">{{item.leaveClass}}</view>
-      <text class="leave-date">{{item.leaveDate}} 至 {{item.returnDate}}</text>
-      <view class="high-risk" wx:if="{{item.riskRegion}}"> 目的地为中高风险地区 </view>
-      <view class="high-risk" wx:else> 目的地为低风险地区 </view>
-      <view class="leave-reason">{{item.leaveReason}}</view>
-    </view>
-    <view class="box1 ">
-      <view class="item_img" wx:for="{{item.newImgList}}" wx:key="index">
-        <image src="{{item}}" class="img_item" mode="aspectFill" data-src="{{item}}" catchtap="previewImg" data-index="{{childindex}}"></image>
+    <form class="form" bindsubmit="bindFormSubmit">
+
+      <textarea class="advice" auto-focus auto-height bindinput="set" bindblur="reset" placeholder="请输入审批意见" name="advice" />
+
+      <view class="yes-or-not">
+        <button bindtap="rejectBtn" data-index="{{childindex}}" class="not">驳回</button>
+        <button bindtap="passBtn" data-index="{{childindex}}" class="yes">通过</button>
       </view>
-      <view class="yes-or-not" style="width: 732rpx; height: 106rpx; display: block; box-sizing: border-box"><button bindtap="rejectBtn" data-index="{{childindex}}" class="not" style="position: relative; left: -162rpx; top: 5rpx; width: 195rpx; height: 83rpx; display: block; box-sizing: border-box">驳回</button> <button bindtap="passBtn" data-index="{{childindex}}" class="yes" style="position: relative; left: 155rpx; top: -78rpx; width: 195rpx; height: 83rpx; display: block; box-sizing: border-box">通过</button></view>
-    </view>
-  <!-- </block> -->
+    </form>
+
+
+  </view>
+
 
 
 </view>
-
-

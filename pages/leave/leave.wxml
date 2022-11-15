@@ -71,9 +71,9 @@
 
 
     <view>外出地点
-      <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+      <picker level="sub-district" mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" >
         <view class="box2">
-          {{region[0]}}-{{region[1]}}-{{region[2]}}
+          {{region[0]}}-{{region[1]}}-{{region[2]}}-{{region[3]}}
         </view>
       </picker>
     </view>
@@ -103,7 +103,7 @@
     <view class="reasonBox" style="width: 652rpx; height: 400rpx; display: block; box-sizing: border-box">
       <view class="reasonTtile" style="width: 172rpx; height: 99rpx; display: block; box-sizing: border-box"> \n 请假理由</view>
       <view class="errmsg" style="width: 383rpx; height: 99rpx; display: block; box-sizing: border-box">{{errmsg}}</view>
-      <view class="reasonText" style="width: 659rpx; height: 218rpx; display: block; box-sizing: border-box"><textarea placeholder="请输入(50字以内)" name="leaveReason" maxlength="50" bindinput="textCount" bindblur="textBlur" style="width: 636rpx; height: 324rpx; display: ; box-sizing: ; left: 0rpx; top: 3rpx; position: relative"></textarea></view>
+      <view class="reasonText" style="width: 659rpx; height: 218rpx; display: block; box-sizing: border-box"><textarea placeholder="请输入(50字以内)" name="leaveReason" maxlength="50" bindinput="textCount" bindblur="textBlur" style="width: 636rpx; height: 324rpx;   left: 0rpx; top: 3rpx; position: relative"></textarea></view>
 
       <view class="textCount" style=" width: 200rpx; height: 99rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx"><text>/ 50</text><text style="color: #26d7d8; width: 38rpx; height: 118rpx; display: block; box-sizing: border-box">{{reasonLength}}</text></view>
       

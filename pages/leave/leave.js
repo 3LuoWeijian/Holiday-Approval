@@ -22,14 +22,15 @@ Page({
     fid1: '', */
     fid2: '',
     pass_fdy: false, //辅导员审核情况
-    pass_sj: false, //书记审核情况
-    pass_jwc: false, //教务处审核情况
+    pass_xy: false, //学院审核情况
+    pass_xsc: false, //教务处审核情况
     submitState: false, //提交状态，暂时未用到
     rejectedState: false, //0表示未审核，1表示驳回
+    checkState:false,
     nowDate: '', //今天日期
     leaveDate: '',
     returnDate: '',
-    fdy_name: '',
+    fdy_name: '肖章益',
     array: ['肖章益', '中国', '巴西', '日本'],
     objectArray: [
       {
@@ -77,20 +78,20 @@ Page({
       },
     ],
     campusClass: '大学城', //
-    region: ['广东省', '广州市', '海珠区'],
+    region: ['广东省', '广州市', '海珠区','赤岗街道'],
     customItem: '全部',
     leaveClassItems: [{
-        name: 'shijia',
-        value: '事假',
+        name: 'lixiao',
+        value: '离校不离穗',
         checked: 'true'
       },
       {
-        name: 'bingjia',
-        value: '病假'
+        name: 'lisui',
+        value: '离穗'
       },
       {
-        name: 'shixi',
-        value: '实习'
+        name: 'chusheng',
+        value: '出省'
       },
       {
         name: 'xiuxue',
@@ -101,10 +102,11 @@ Page({
         value: '留学'
       },
     ],
-    leaveClass: '事假',
+    leaveClass: '离校不离穗',
     reasonLength: 0,
     riskRegion: false,
     errmsg: "",
+    advice:'',//审核意见
   },
 //辅导员名字
   bindPickerChange: function(e) {
@@ -114,7 +116,7 @@ Page({
       
     })
     this.setData({
-      fdy_name:this.data.objectArray[this.data.index]
+      fdy_name:this.data.objectArray[this.data.index].name
     })
     console.log(this.data.fdy_name)
   },
@@ -361,12 +363,13 @@ Page({
         class: this.data.class,
         academy: this.data.academy,
         sno: this.data.sno,
-
+        
         pass_fdy: this.data.pass_fdy,
-        pass_jwc: this.data.pass_jwc,
-        pass_sj: this.data.pass_sj,
+        pass_xsc: this.data.pass_xsc,
+        pass_xy: this.data.pass_xy,
         submitState: this.data.submitState,
         rejectedState: this.data.rejectedState,
+        checkState:this.data.checkState,
 
         region: this.data.region,
         leaveDate: this.data.leaveDate,

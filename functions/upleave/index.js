@@ -17,11 +17,12 @@ exports.main = async (event, context) => {
         academy: event.academy,
         
         pass_fdy: event.pass_fdy,
-        pass_jwc: event.pass_jwc,
-        pass_sj: event.pass_sj,
+        pass_xsc: event.pass_xsc,
+        pass_xy: event.pass_xy,
         submitState: event.submitState,
         rejectedState: event.rejectedState,
-        
+        checkState:event.checkState,
+
         leaveClass: event.leaveClass,
         region: event.region,
         leaveDate: event.leaveDate,

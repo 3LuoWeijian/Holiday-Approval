@@ -9,7 +9,8 @@ App({
     phone:null,
     userinfo:null,
     people:"student",
-    
+    tch_type:null,
+    tch_name:null,
     },
     onLaunch: function(){
         if(!wx.cloud){

@@ -42,6 +42,12 @@ absenceReason	缺课理由
 无
 
 ---
+（5）离校审批
+advice 审批意见
+destination 离校类别
+checkState 审批情况
+
+
 
 主要的(老师信息)
 tch_name	老师名字
