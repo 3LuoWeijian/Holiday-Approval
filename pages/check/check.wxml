@@ -2,8 +2,9 @@
 
 <view class="background2">
 	<view class="box1">
-		<view> <echarts></echarts> </view>
-		<view>健康打卡情况</view>
+    
+		<view bindtap="echarts1">在校人数{{482-leavepeople}}/482</view>
+		<view bindtap="echarts2">健康打卡情况</view>
 	</view>
  
 	<view class="box2">

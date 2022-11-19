@@ -1,6 +1,8 @@
 {
+  "usingComponents": {
+    "ec-canvas": "/ec-canvas/ec-canvas"
+  },
   "pages": [
-    "pages/echarts/echarts",
     "pages/index/index",
     "pages/main/main",
     "pages/check/check",
@@ -12,10 +14,9 @@
     "pages/kecheng/kecheng",
     "pages/leavecheck/leavecheck",
     "pages/Daka/Daka",
-    "pages/kejiashenpi/kejiashenpi"
-
- 
-    
+    "pages/kejiashenpi/kejiashenpi",
+    "pages/L-echarts/L-echarts",
+    "pages/D-echarts/D-echarts"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -2,6 +2,8 @@
 var app=getApp().appData;
 const db = wx.cloud.database();
 var that = this;
+
+
 Page({
 
   /**
@@ -41,6 +43,19 @@ Page({
   loginbtnInput:function(){
     app.userinfo = { username: this.data.username, password: this.data.password };
     db.collection('student').where({
+      sno:this.data.username,
+    })
+    .get({
+      success:function(res){
+        console.log(res);
+        app.class = res.data[0].class
+        app.stu_name = res.data[0].stu_name
+        app.sno = res.data[0].sno
+        app.academy = res.data[0].academy
+        app.phone = res.data[0].phone
+      }
+    });
+        db.collection('student').where({
       sno:this.data.username,
     })
     .get({

@@ -34,11 +34,11 @@ page
 	text-align: center;
 	color: #fff;
 	line-height: 300rpx;
-
 	border-radius: 32rpx;
 	margin-top: 30rpx;
 	margin-left: 20rpx;
-	background-color: aquamarine;
+  background-color: aquamarine;
+  display: inline;
 }
 
 .box2
@@ -66,4 +66,5 @@ page
 	width: 90rpx;
   height: 90rpx;
 }
+
 
