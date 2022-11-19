@@ -3,14 +3,14 @@ App({
   appData:{
     stu_name:null,
     class:null,
-    sno:null,
-    passWord:null,
+    sno:'null',
     academy:null,
     phone:null,
     userinfo:null,
     people:"student",
-    tch_type:null,
-    tch_name:null,
+    leavepeople:null,
+    dakapeople:null
+    
     },
     onLaunch: function(){
         if(!wx.cloud){

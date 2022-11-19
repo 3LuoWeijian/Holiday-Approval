@@ -107,7 +107,7 @@ Page({
   bindDateChange: function(e) {
     console.log(e.detail.value)
     this.setData({
-      date: e.detail.value
+      InoculateDate: e.detail.value
     })
   },
   iptHandler(e){

@@ -46,7 +46,8 @@ Component({
   },
 
   data: {
-    isUseNewCanvas: false
+    isUseNewCanvas: false,
+    
   },
 
   ready: function () {
@@ -77,6 +78,7 @@ Component({
   },
 
   methods: {
+    
     init: function (callback) {
       const version = wx.getSystemInfoSync().SDKVersion
 
