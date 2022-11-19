@@ -1,25 +1,38 @@
 <view class="background1"></view>
 
 <view class="background2">
-	<view class="box1">
-		<view bindtap="echarts1">在校人数{{482-leavepeople}}/482</view>
-		<view bindtap="echarts2">健康打卡{{dakapeople}}/482</view>
-	</view>
- 
-	<view class="box2">
-		<view class="item" bindtap="checkleave">
-			<image src="/image/lixiaoshenpi.png"></image>
-			<view>离校审批</view>
-		</view>
-		<view class="item" bindtap="kejiashenpi">
-			<image src="/image/kejiashenpi.png"></image>
-			<view>课假审批</view>
-		</view>
-		<view class="item">
-			<image src="/image/fanxiaoshenpi.png" bindtap="getCheckback"></image>
-			<view>返校审批</view>
-		</view>			
-	</view>
+  <view class="box1">
+    <view bindtap="echarts1">在校人数{{482-leavepeople}}/482</view>
+    <view bindtap="echarts2">健康打卡{{dakapeople}}/482</view>
+  </view>
+
+  <view class="box2" wx:if="{{type=='fdy'}}">
+    <view class="item" bindtap="checkleavefdy">
+      <image src="/image/lixiaoshenpi.png"></image>
+      <view>离校审批</view>
+    </view>
+    <view class="item" bindtap="checkKeCheng">
+      <image src="/image/kejiashenpi.png"></image>
+      <view>课假审批</view>
+    </view>
+    <view class="item">
+      <image src="/image/fanxiaoshenpi.png" bindtap="getCheckback"></image>
+      <view>返校审批</view>
+    </view>
+  </view>
+
+  <view class="box2" wx:if="{{type=='xy'}}">
+    <view class="item" bindtap="checkleavexy">
+      <image src="/image/lixiaoshenpi.png"></image>
+      <view>离校审批</view>
+    </view>
+  </view>
+
+  <view class="box2" wx:if="{{type=='xsc'}}">
+    <view class="item" bindtap="checkleavexsc">
+      <image src="/image/lixiaoshenpi.png"></image>
+      <view>离校审批</view>
+    </view>
+  </view>
+  
 </view>
-
-

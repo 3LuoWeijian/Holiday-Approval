@@ -1,82 +1,94 @@
 // pages/check/check.js
 
-var app=getApp().appData;
+var app = getApp().appData;
 const db = wx.cloud.database()
-var util = require('util.js')
+var util = require('util.js')
 Page({
   onShareAppMessage: function (res) {
     return {
       title: 'ECharts 可以在微信小程序中使用啦！',
       path: '/pages/index/index',
-      success: function () { },
-      fail: function () { },
-      leavepeople:'',
-      dakapeople:''
+      success: function () {},
+      fail: function () {},
+      leavepeople: '',
+      dakapeople: ''
     }
-    
+
   },
 
   /**
    * 页面的初始数据
    */
   data: {
-leavepeople:'null',
-dakapeople:'null'
+    leavepeople: 'null',
+    dakapeople: 'null',
+    type:null,
   },
 
-  echarts1(){
+  echarts1() {
     app.leavepeople = this.data.leavepeople
     wx.navigateTo({
       url: '/pages/L-echarts/L-echarts',
     })
   },
-  echarts2(){
+  echarts2() {
     app.dakapeople = this.data.dakapeople
     wx.navigateTo({
       url: '/pages/D-echarts/D-echarts',
     })
   },
-  checkleave(){
+  checkleavefdy() {
     wx.navigateTo({
-      url: '/pages/check-leave/check-leave',
+      url: '/pages/check-leave-fdy/check-leave-fdy',
     })
   },
-  kejiashenpi(){
+  checkleavexy() {
     wx.navigateTo({
-      url: '/pages/kejiashenpi/kejiashenpi',
+      url: '/pages/check-leave-xy/check-leave-xy',
+    })
+  },
+  checkleavexsc() {
+    wx.navigateTo({
+      url: '/pages/check-leave-xsc/check-leave-xsc',
+    })
+  },
+  checkKeCheng() {
+    wx.navigateTo({
+      url: '/pages/check-kecheng/check-kecheng',
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-     var today = util.formatDay(new Date())
+    this.setData({
+
+      type:app.tch_type,
+
+    })
+    var today = util.formatDay(new Date())
     db.collection('leave').where({
-      pass_xsc:true
-      }).get(
-        {
-          success:res=>{
-            console.log('数据',res)
-            this.setData({
-            leavepeople:res.data.length
-            })
-            
-          }
+        pass_xsc: true
+      }).get({
+        success: res => {
+          console.log('数据', res)
+          this.setData({
+            leavepeople: res.data.length
+          })
+
         }
-      ),
-      
+      }),
+
       db.collection('daka').where({
-       subDate:today
-        }).get(
-          {
-            success:res=>{
-              console.log('数据2',res)
-              this.setData({
-              dakapeople:res.data.length
-              })
-            }
-          }
-        )
+        subDate: today
+      }).get({
+        success: res => {
+          console.log('数据2', res)
+          this.setData({
+            dakapeople: res.data.length
+          })
+        }
+      })
   },
 
   /**

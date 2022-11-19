@@ -17,7 +17,11 @@
     "pages/L-echarts/L-echarts",
     "pages/D-echarts/D-echarts",
     "pages/advice/advice",
-    "pages/progress/progress"
+    "pages/progress/progress",
+    "pages/check-leave-fdy/check-leave-fdy",
+    "pages/check-leave-xy/check-leave-xy",
+    "pages/check-leave-xsc/check-leave-xsc",
+    "pages/check-kecheng/check-kecheng"
   ],
   "window": {
     "backgroundTextStyle": "light",
