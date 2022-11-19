@@ -15,10 +15,10 @@
     "pages/kecheng/kecheng",
     "pages/leavecheck/leavecheck",
     "pages/Daka/Daka",
-    "pages/kejiashenpi/kejiashenpi",
     "pages/L-echarts/L-echarts",
-    "pages/D-echarts/D-echarts"
-    
+    "pages/D-echarts/D-echarts",
+    "pages/advice/advice",
+    "pages/progress/progress"
   ],
   "window": {
     "backgroundTextStyle": "light",
