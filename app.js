@@ -8,6 +8,8 @@ App({
     phone:null,
     userinfo:null,
     people:"student",
+    leavepeople:null,
+    dakapeople:null
     
     },
     onLaunch: function(){

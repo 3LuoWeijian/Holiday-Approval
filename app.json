@@ -3,6 +3,7 @@
     "ec-canvas": "/ec-canvas/ec-canvas"
   },
   "pages": [
+    
     "pages/index/index",
     "pages/main/main",
     "pages/check/check",
@@ -17,6 +18,7 @@
     "pages/kejiashenpi/kejiashenpi",
     "pages/L-echarts/L-echarts",
     "pages/D-echarts/D-echarts"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

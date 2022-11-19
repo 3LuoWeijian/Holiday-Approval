@@ -1,7 +1,8 @@
 // pages/check/check.js
 
 var app=getApp().appData;
-
+const db = wx.cloud.database()
+var util = require('util.js')
 Page({
   onShareAppMessage: function (res) {
     return {
@@ -9,28 +10,28 @@ Page({
       path: '/pages/index/index',
       success: function () { },
       fail: function () { },
-      leavepeople:''
+      leavepeople:'',
+      dakapeople:''
     }
     
   },
-
-
-
-
 
   /**
    * 页面的初始数据
    */
   data: {
-leavepeople:'null'
+leavepeople:'null',
+dakapeople:'null'
   },
 
   echarts1(){
+    app.leavepeople = this.data.leavepeople
     wx.navigateTo({
       url: '/pages/L-echarts/L-echarts',
     })
   },
   echarts2(){
+    app.dakapeople = this.data.dakapeople
     wx.navigateTo({
       url: '/pages/D-echarts/D-echarts',
     })
@@ -49,9 +50,9 @@ leavepeople:'null'
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    const db = wx.cloud.database()
+     var today = util.formatDay(new Date())
     db.collection('leave').where({
-      pass_fdy:true
+      pass_xsc:true
       }).get(
         {
           success:res=>{
@@ -59,9 +60,23 @@ leavepeople:'null'
             this.setData({
             leavepeople:res.data.length
             })
+            
           }
         }
-      )
+      ),
+      
+      db.collection('daka').where({
+       subDate:today
+        }).get(
+          {
+            success:res=>{
+              console.log('数据2',res)
+              this.setData({
+              dakapeople:res.data.length
+              })
+            }
+          }
+        )
   },
 
   /**

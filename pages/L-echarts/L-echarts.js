@@ -1,5 +1,6 @@
 import * as echarts from '../../ec-canvas/echarts' // 这个是自己实际的目录
 
+var app=getApp().appData;
 
 function initChart(canvas, width, height, dpr) { // 这部分是固定的不需要 是通用的
   var pageArr = getCurrentPages()
@@ -56,26 +57,31 @@ function initChart(canvas, width, height, dpr) { // 这部分是固定的不需�
 Page({
   data: {
     ec: {
-      onInit: initChart,
+      onInit: initChart, 
     },
-    leavepeople: '',
+    leavepeople: ''
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let that = this
-    const db = wx.cloud.database()
-    db.collection('leave').where({
-      pass_fdy: true
-    }).get({
-      success: res => {
-        console.log('数据', res)
-        that.setData({
-          leavepeople: res.data.length
-        })
-      }
+    // let that = this
+    // const db = wx.cloud.database()
+    // db.collection('leave').where({
+    //   pass_fdy: true
+    // }).get({ 
+    //   success: res => {
+    //     console.log('数据', res)
+    //     that.setData({
+    //       leavepeople: res.data.length
+    //     });
+      
+    //   } 
+    // })
+    this.setData({
+      leavepeople:app.leavepeople   
     })
+    console.log(this.data.leavepeople,'lp')
   },
 
   /**
@@ -89,7 +95,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**

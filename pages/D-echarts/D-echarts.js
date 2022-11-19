@@ -1,6 +1,6 @@
 import * as echarts from '../../ec-canvas/echarts' // 这个是自己实际的目录
-
-
+var util = require('util.js')
+var app=getApp().appData;
 function initChart(canvas, width, height, dpr) { // 这部分是固定的不需要 是通用的
   var pageArr = getCurrentPages()
   console.log("当前页面", pageArr[pageArr.length - 1].data)
@@ -33,7 +33,7 @@ function initChart(canvas, width, height, dpr) { // 这部分是固定的不需�
         emphasis: {
           label: {
             show: true,
-            fontSize: '20',
+            fontSize: '15',
             fontWeight: 'bold'
           }
         },
@@ -41,8 +41,8 @@ function initChart(canvas, width, height, dpr) { // 这部分是固定的不需�
           show: false
         },
         data: [
-          { value: 1048, name: '已打卡人数' },
-          { value: 735, name: '未打卡人数' }
+          { value: pageArr[pageArr.length - 1].data.dakapeople, name: '已打卡人数' },
+          { value:482-pageArr[pageArr.length - 1].data.dakapeople,  name: '未打卡人数' }
         
         ]
       }
@@ -58,24 +58,29 @@ Page({
     ec: {
       onInit: initChart,
     },
-    leavepeople: '',
+    dakapeople: ''
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    let that = this
-    const db = wx.cloud.database()
-    db.collection('leave').where({
-      pass_fdy: true
-    }).get({
-      success: res => {
-        console.log('数据', res)
-        that.setData({
-          leavepeople: res.data.length
-        })
-      }
+  onLoad(options) {
+    // var today = util.formatDay(new Date())
+    // let that = this
+    // const db = wx.cloud.database()
+    // db.collection('daka').where({
+    //   subDate:today
+    // }).get({
+    //   success: res => {
+    //     console.log('数据2', res)
+    //     that.setData({
+    //       dakapeople: res.data.length
+    //     })
+    //   }
+    // })
+    this.setData({
+      dakapeople:app.dakapeople   
     })
+    console.log(this.data.dakapeople,'gg') 
   },
 
   /**
