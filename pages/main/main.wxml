@@ -32,13 +32,21 @@
     <image src="/image/fanxiao.png"></image>
     <view>返校申请</view>
   </view>
-  <view class="item" bindtap="Kecheng">
+  <view class="item" bindtap="Kecheng" >
     <image src="/image/kecheng.png"></image>
     <view>课程请假</view>
   </view>
-  <view class="item" bindtap="Daka">
+  <view class="item" bindtap="Daka" >
     <image src="/image/jiankang.png"></image>
     <view>健康打卡</view>
+  </view>
+  <view class="item" bindtap="progress" style="border-bottom: #fff;">
+    <image src="/image/jindu.png"></image>
+    <view>进度查询</view>
+  </view>
+  <view class="item" bindtap="advice" style="border-bottom: #fff;">
+    <image src="/image/fankui.png"></image>
+    <view>意见反馈</view>
   </view>
 </view>
 

@@ -1,43 +1,16 @@
 {
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
   "condition": {
     "miniprogram": {
       "list": [
         {
           "name": "",
-          "pathName": "pages/echarts/echarts",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/check-leave/check-leave",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/leave/leave",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/BackRequest/BackRequest",
+          "pathName": "pages/advice/advice",
           "query": "",
           "launchMode": "default",
           "scene": null
         }
       ]
     }
-  },
-<<<<<<< Updated upstream
-  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html"
-=======
-  "setting": {
-    "urlCheck": false
   }
->>>>>>> Stashed changes
 }

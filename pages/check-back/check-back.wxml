@@ -11,6 +11,10 @@
   <view class="noDetailBox">
     <view class="noDetail">目前所在地：{{item.region}}</view>
   </view>
+  <view class="noDetailBox">
+    <text class="high-risk" wx:if="{{item.riskRegion=='true'}}"> 所在地为中高风险地区 </text>
+    <text class="low-risk" wx:else> 所在地为低风险地区 </text>
+  </view>
   <view class="box1 ">
     <view class="item_img"wx:for="{{item.newImgList}}" wx:key="index">
       <image src="{{item}}" class="img_item" mode="aspectFill" data-src="{{item}}" 

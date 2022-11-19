@@ -1,0 +1,9 @@
+<!--pages/main-secondlevel/tousu/tousu.wxml-->
+<block class="box1">
+  <textarea class="input1" placeholder="如果小程序出现异常，请及时反馈..." maxlenghth="1000" name="内容" placeholder-style="color:grey" ></textarea>
+  <radio-group class="choose">
+    <radio value="private" class="fb_tousu" checked="True">投诉</radio>
+    <radio value="public" class="fb_biaoyang">表扬</radio>
+  </radio-group>
+</block>
+<button class="button1" bindtap="bindsumit">提交</button>

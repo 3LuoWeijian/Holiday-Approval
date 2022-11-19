@@ -11,12 +11,34 @@ Page({
   data: {
     setDate: myDate.toLocaleDateString(),
     arriveDate: myDate.toLocaleDateString(),
+    fdy_name: '肖章益',
+    array: ['肖章益', '中国', '巴西', '日本'],
+    objectArray: [
+      {
+        id: 0,
+        name: '肖章益'
+      },
+      {
+        id: 1,
+        name: '中国'
+      },
+      {
+        id: 2,
+        name: '巴西'
+      },
+      {
+        id: 3,
+        name: '日本'
+      }
+    ],
+    index:0,
     stu_name: null,
     sno: null,
     class: null,
     academy: null,
     phone: null,
-    region: ['广东省', '广州市', '番禺区'],
+    region: null,
+    customItem: '全部',
     stu_type: '本科生',
     campus: '大学城',
     conveyance: '高铁',
@@ -26,10 +48,11 @@ Page({
     imgList: [],
     newImgList: [],
     maxPhoto: 10, //最大上传10张图片
-    pass_fdy: 'false',
-    pass_jwc: 'false',
-    pass_sj: 'false',
-    rejectedState: 'false',
+    pass_fdy: false,
+    pass_jwc: false,
+    pass_sj: false,
+    rejectedState: false, //是否被驳回
+    riskRegion: "false", //是否为中高风险地区
   },
 
   /**
@@ -37,12 +60,24 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      stu_name: app.name,
+      stu_name: app.stu_name,
       class: app.class,
       sno: app.sno,
       academy: app.academy,
       phone: app.phone,
     })
+  },
+  //辅导员名字
+  bindPickerChange: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value,
+      
+    })
+    this.setData({
+      fdy_name:this.data.objectArray[this.data.index].name
+    })
+    console.log(this.data.fdy_name)
   },
 
   //改变学生类型
@@ -102,6 +137,14 @@ Page({
     this.setData({
       region: e.detail.value
     })
+  },
+
+  //是否为中高风险地区
+  bindRiskRegionchange(e) {
+    this.setData({
+      riskRegion: e.detail.value
+    })
+    console.log(this.data.riskRegion)
   },
 
   chooseImg(e) {
@@ -235,6 +278,7 @@ Page({
           academy: this.data.academy,
           phone: this.data.phone,
           region: this.data.region,
+          riskRegion:this.data.riskRegion,
           stu_type: this.data.stu_type,
           setDate: this.data.setDate,
           arriveDate: this.data.arriveDate,
@@ -245,6 +289,7 @@ Page({
           pass_fdy: this.data.pass_fdy,
           pass_jwc: this.data.pass_jwc,
           pass_sj: this.data.pass_sj,
+          fdy_name:this.data.fdy_name,
           newImgList: this.data.newImgList,
           rejectedState: this.data.rejectedState,
         }
@@ -267,7 +312,7 @@ Page({
                   wx.navigateBack({
                     delta: 1,
                   })
-                }, 2000);
+                }, 500);
               }
             })
           })

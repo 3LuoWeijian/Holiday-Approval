@@ -24,19 +24,19 @@ Page({
       icon: '/image/shenpi.png'
     },
     {
+      name: '学院审批',
+      start: '#EFF3F6',
+      end: '#EFF3F6',
+      icon: '/image/check.png'
+    },
+    {
+      name: '学生处审批',
+      start: '#EFF3F6',
+      end: '#EFF3F6',
+      icon: '/image/check.png'
+    },
+    {
       name: '教务处审批',
-      start: '#EFF3F6',
-      end: '#EFF3F6',
-      icon: '/image/check.png'
-    },
-    {
-      name: '书记审批',
-      start: '#EFF3F6',
-      end: '#EFF3F6',
-      icon: '/image/check.png'
-    },
-    {
-      name: '完成审批',
       start: '#EFF3F6',
       end: '#fff',
       icon: '/image/check.png'
@@ -154,6 +154,18 @@ Daka(){
     url: '/pages/Daka/Daka',
   })
   
+},
+//意见反馈
+advice(){
+  wx.navigateTo({
+    url: '/pages/advice/advice',
+  })
+},
+//进度查询
+progress(){
+  wx.navigateTo({
+    url: '/pages/progress/progress',
+  })
 },
   /**
    * 生命周期函数--监听页面初次渲染完成

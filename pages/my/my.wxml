@@ -25,7 +25,7 @@
 		<image src="/image/daka.png"></image>
 		<text>打卡记录</text>
 	</view>
-	<view class="box3" style="margin-top: 90rpx;">
+	<view class="box3" style="margin-top: 90rpx;" bindtap="bindAdvice">
 		<image src="/image/fankui.png"></image>
 		<text>意见反馈</text>
 	</view>

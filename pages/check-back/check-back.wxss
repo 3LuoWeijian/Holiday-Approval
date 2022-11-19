@@ -64,6 +64,20 @@ page {
   font-size: 28rpx;
   text-indent: 2em;
 }
+.high-risk{
+  line-height: 50rpx;
+  font-size: 28rpx;
+  text-indent: 2em;
+  padding-left: 190rpx;
+  color: red;
+}
+.low-risk{
+  line-height: 50rpx;
+  padding-left: 200rpx;
+  font-size: 28rpx;
+  text-indent: 2em;
+  color: green;
+}
 
 .box1 {
   display: flex;

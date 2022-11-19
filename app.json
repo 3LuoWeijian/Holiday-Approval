@@ -14,7 +14,9 @@
     "pages/Daka/Daka",
     "pages/check-leave/check-leave",
     "pages/check-back/check-back",
-    "pages/check-kecheng/check-kecheng"
+    "pages/check-kecheng/check-kecheng",
+    "pages/advice/advice",
+    "pages/progress/progress"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -16,6 +16,7 @@ exports.main = async (event, context) => {
         academy:event.academy,
         phone:event.phone,    
         region:event.region,
+        riskRegion:event.riskRegion,
         stu_type: event.stu_type,
         setDate: event.setDate,
         arriveDate: event.arriveDate,
@@ -26,6 +27,7 @@ exports.main = async (event, context) => {
         pass_fdy:event.pass_fdy,
         pass_jwc:event.pass_jwc,
         pass_sj:event.pass_sj,
+        fdy_name:event.fdy_name,
         rejectedState:event.rejectedState,
         newImgList:event.newImgList,
       }
