@@ -80,8 +80,8 @@
     
     <view>目的地是否为中高风险地区
       <radio-group class="box2" bindchange="bindRiskRegionchange">
-        <radio checked="true" value="false">否</radio>
-        <radio value="true">是</radio>
+        <radio checked="true" value="低风险">否</radio>
+        <radio value="中高风险">是</radio>
       </radio-group>
     </view>
     <view>上传图片</view>

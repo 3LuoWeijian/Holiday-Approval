@@ -21,19 +21,23 @@ Page({
     /* imgPath: '',
     fid1: '', */
     fid2: '',
-    pass_fdy: false, //辅导员审核情况
-    pass_xy: false, //学院审核情况
-    pass_xsc: false, //教务处审核情况
+    pass_fdy: false, //辅导员通过情况
+    pass_xy: false, //学院通过情况
+    pass_xsc: false, //教务处通过情况
+
+    check_fdy: false, //辅导员审核情况
+    check_xy: false, //学院审核情况
+    check_xsc: false, //教务处审核情况
+
     submitState: false, //提交状态，暂时未用到
     rejectedState: false, //0表示未审核，1表示驳回
-    checkState:false,
+    checkState: false,
     nowDate: '', //今天日期
     leaveDate: '',
     returnDate: '',
     fdy_name: '肖章益',
     array: ['肖章益', '中国', '巴西', '日本'],
-    objectArray: [
-      {
+    objectArray: [{
         id: 0,
         name: '肖章益'
       },
@@ -50,8 +54,8 @@ Page({
         name: '日本'
       }
     ],
-    index:0,
-    
+    index: 0,
+
 
     show: true, //显示选择图片的按钮
     imgList: [],
@@ -78,7 +82,7 @@ Page({
       },
     ],
     campusClass: '大学城', //
-    region: ['广东省', '广州市', '海珠区','赤岗街道'],
+    region: null,
     customItem: '全部',
     leaveClassItems: [{
         name: 'lixiao',
@@ -104,23 +108,23 @@ Page({
     ],
     leaveClass: '离校不离穗',
     reasonLength: 0,
-    riskRegion: false,
+    riskRegion: "低风险",
     errmsg: "",
-    advice:'',//审核意见
+    advice: '', //审核意见
   },
-//辅导员名字
-  bindPickerChange: function(e) {
+  //辅导员名字
+  bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       index: e.detail.value,
-      
+
     })
     this.setData({
-      fdy_name:this.data.objectArray[this.data.index].name
+      fdy_name: this.data.objectArray[this.data.index].name
     })
     console.log(this.data.fdy_name)
   },
- 
+
   //学生类别
   bindTypechange(e) {
     console.log(e.detail)
@@ -171,7 +175,7 @@ Page({
   bindRegionChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      region: e.detail.value
+      region: 'e.detail.value'
     })
   },
 
@@ -220,7 +224,7 @@ Page({
       this.setData({
         errmsg: "字数为0"
       })
-    } else if (len < 10) {
+    } else if (len <= 10) {
       this.setData({
         errmsg: "字数太少了，写多点吧"
       })
@@ -363,13 +367,18 @@ Page({
         class: this.data.class,
         academy: this.data.academy,
         sno: this.data.sno,
-        
+
         pass_fdy: this.data.pass_fdy,
         pass_xsc: this.data.pass_xsc,
         pass_xy: this.data.pass_xy,
+
+        check_fdy: this.data.check_fdy,
+        check_xy: this.data.check_xy,
+        check_xsc: this.data.check_xsc,
+
         submitState: this.data.submitState,
         rejectedState: this.data.rejectedState,
-        checkState:this.data.checkState,
+        checkState: this.data.checkState,
 
         region: this.data.region,
         leaveDate: this.data.leaveDate,
@@ -385,7 +394,7 @@ Page({
 
         newImgList: this.data.newImgList,
         riskRegion: this.data.riskRegion,
-        fdy_name:this.data.fdy_name,
+        fdy_name: this.data.fdy_name,
       }
       console.log('data = ', data)
       wx.cloud.callFunction({
