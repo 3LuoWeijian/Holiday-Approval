@@ -57,6 +57,11 @@ Page({
       url: '/pages/check-kecheng/check-kecheng',
     })
   },
+  getCheckback() {
+    wx.navigateTo({
+      url: '/pages/check-back/check-back',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
