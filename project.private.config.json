@@ -11,7 +11,7 @@
         },
         {
           "name": "",
-          "pathName": "pages/check-leave/check-leave",
+          "pathName": "pages/check-leave-fdy/check-leave-fdy",
           "query": "",
           "launchMode": "default",
           "scene": null
@@ -19,6 +19,13 @@
         {
           "name": "",
           "pathName": "pages/leave/leave",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/check/check",
           "query": "",
           "launchMode": "default",
           "scene": null

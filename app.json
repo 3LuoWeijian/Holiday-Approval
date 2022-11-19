@@ -12,7 +12,9 @@
     "pages/kecheng/kecheng",
     "pages/leavecheck/leavecheck",
     "pages/Daka/Daka",
-    "pages/check-leave/check-leave",
+    "pages/check-leave-fdy/check-leave-fdy",
+    "pages/check-leave-xy/check-leave-xy",
+    "pages/check-leave-xsc/check-leave-xsc",
     "pages/check-back/check-back",
     "pages/check-kecheng/check-kecheng"
   ],

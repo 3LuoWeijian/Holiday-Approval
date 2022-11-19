@@ -13,21 +13,29 @@ Page({
     }
   },
 
-
-
-
-
   /**
    * 页面的初始数据
    */
   data: {
-
+    type:app.tch_type,
   },
 
 //离校审批
-  checkleave(){
+  checkleavefdy(){
     wx.navigateTo({
-      url: '/pages/check-leave/check-leave',
+      url: '/pages/check-leave-fdy/check-leave-fdy',
+    })
+  },
+  //离校审批
+  checkleavexy(){
+    wx.navigateTo({
+      url: '/pages/check-leave-xy/check-leave-xy',
+    })
+  },
+
+  checkleavexsc(){
+    wx.navigateTo({
+      url: '/pages/check-leave-xsc/check-leave-xsc',
     })
   },
   
@@ -48,7 +56,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.setData({
+      type:app.tch_type,
+    })
+    console.log(this.data.type)
   },
 
   /**

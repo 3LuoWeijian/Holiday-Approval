@@ -4,8 +4,72 @@ page {
   background-color: #f8f3f3;
 }
 
-.box {
 
+ 
+.list-msg {
+ 
+  padding: 0 20rpx;
+  /* background-color: #fff; */
+  position: relative;
+  margin-bottom: 7rpx;
+}
+
+
+
+.list-msg .list-msg1 {
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  padding: 0 10rpx;
+}
+
+.select_box {
+  background-color: #eee;
+  padding: 0 10rpx;
+  width: 92%;
+  position: absolute;
+  top: 67rpx;
+  z-index: 1;
+  overflow: hidden;
+  /* animation: myfirst 0.2s; */
+}
+
+@keyframes myfirst {
+  from {
+      height: 0rpx;
+  }
+
+  to {
+      height: 210rpx;
+  }
+}
+
+.select_one {
+  height: 60rpx;
+  line-height: 60rpx;
+  border-bottom: 1px solid #ccc;
+}
+
+
+.destination{
+  width: 50%;
+  float: left;
+}
+.destination radio{
+width: 100%;
+
+}
+
+.check{
+  float: right;
+}
+.check radio{
+  width: 100%;
+}
+.box {
+float: left;
 
   display: block;
   box-sizing: border-box;

@@ -115,7 +115,7 @@ Page({
               app.sno = res.data[0].sno
               app.academy = res.data[0].academy
               app.phone = res.data[0].phone
-
+              console.log(app.tch_type)
               wx.getUserProfile({
                 desc: '完善用户信息',
                 success: res => {
