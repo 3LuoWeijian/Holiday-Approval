@@ -19,8 +19,8 @@ Page({
   onLoad(options) {
     let that = this
     db.collection('BackRequest').where({
-	  pass_fdy:'false',
-	  rejectedState:'false'
+	  pass_fdy:false,
+	  rejectedState:false
     }).get({
       success:function(res){
         console.log('=',res.data)
@@ -42,8 +42,8 @@ Page({
     })
     console.log(this.data.backlist[e.currentTarget.dataset.index]._id)
     var data = {
-	  state:'agree',
-      pass_fdy:"true",
+	    state:'agree',
+      pass_fdy:true,
       index_id:this.data.backlist[e.currentTarget.dataset.index]._id,
     }
     console.log(data)
@@ -127,8 +127,8 @@ Page({
     previewImg(e) {
       let currentUrl = e.currentTarget.dataset.src;
       console.log('无',e.currentTarget.dataset.src)
-      let urls = this.data.backlist[e.currentTarget.dataset.index].imgList
-      console.log('zg',this.data.backlist[e.currentTarget.dataset.index].imgList)
+      let urls = this.data.backlist[e.currentTarget.dataset.index].newImgList
+      console.log('zg',this.data.backlist[e.currentTarget.dataset.index].newImgList)
       wx.previewImage({
         current: currentUrl, // 当前显示图片的http链接
         urls: urls // 需要预览的图片http链接列表

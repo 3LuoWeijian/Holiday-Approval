@@ -9,16 +9,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo:null,
+    userInfo:app.userInfo,
     isLogin:'',
     processData: [{
       name: '申请提交',
       start: '#fff',
       end: '#EFF3F6',
-      icon: '/image/daka.png'
+      icon: '/image/check.png'
     },
     {
       name: '辅导员审批',
+      start: 'lightblue',
+      end: 'lightblue',
+      icon: '/image/shenpi.png'
+    },
+    {
+      name: '学院审批',
+      start: '#EFF3F6',
+      end: '#EFF3F6',
+      icon: '/image/check.png'
+    },
+    {
+      name: '学生处审批',
       start: '#EFF3F6',
       end: '#EFF3F6',
       icon: '/image/check.png'
@@ -26,20 +38,8 @@ Page({
     {
       name: '教务处审批',
       start: '#EFF3F6',
-      end: '#EFF3F6',
-      icon: '/image/daka.png'
-    },
-    {
-      name: '审批结果',
-      start: '#EFF3F6',
-      end: '#EFF3F6',
-      icon: '/image/daka.png'
-    },
-    {
-      name: '取消审批',
-      start: '#EFF3F6',
       end: '#fff',
-      icon: '/image/daka.png'
+      icon: '/image/check.png'
     }],
   },
   //进度条的状态
@@ -53,10 +53,10 @@ Page({
       if (item.state == 1) {
         index = i
         processArr[i].icon = "/image/fankui.png"
-        processArr[i].start = "#45B2FE"
-        processArr[i].end = "#45B2FE"
+        processArr[i].start = "green"
+        processArr[i].end = "green"
       } else {
-        processArr[i].icon = "/image/shenpi.png"
+        processArr[i].icon = "/image/delete.png"
         processArr[i].start = "#EFF3F6"
         processArr[i].end = "#EFF3F6"
       }
@@ -69,6 +69,8 @@ Page({
       processData: processArr
     })
   },
+
+
   getmyinfo:function(){
     wx.navigateTo({
       url: '/pages/my-info/my-info',
@@ -152,6 +154,18 @@ Daka(){
     url: '/pages/Daka/Daka',
   })
   
+},
+//意见反馈
+advice(){
+  wx.navigateTo({
+    url: '/pages/advice/advice',
+  })
+},
+//进度查询
+progress(){
+  wx.navigateTo({
+    url: '/pages/progress/progress',
+  })
 },
   /**
    * 生命周期函数--监听页面初次渲染完成

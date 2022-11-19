@@ -1,0 +1,30 @@
+<!--pages/check-kecheng/check-kecheng.wxml-->
+
+<view wx:for="{{kechengList}}" wx:key="index" wx:for-index="childindex" class="box" style="width: 725rpx; height: 615rpx; display: block; box-sizing: border-box">
+  <view class="stu-info" >
+    <view class="banji">{{item.class}}</view>
+    <view class="stu-name">{{item.stu_name}}</view>
+    <view class="xueyuan" >{{item.academy}}</view>
+  </view>
+
+  <view class="kecheng-info">
+    <view class="fst-line" >
+      <view class="kecheng-name" >课程名称:{{item.lessonName}}</view>
+      <view class="kecheng-jieci" >节次:{{item.lessonTime}}</view>
+    </view>
+
+    <view class="sec-line" >
+      <view class="tch-name" >老师姓名:{{item.teacherName}}</view>
+      <view class="kecheng-date" >日期:{{item.absenceDate}}</view>
+    </view>
+
+    <view class="reason" >请假理由:{{item.absenceReason}}</view>
+  </view>
+
+  <view class="approve" style="width: 750rpx; height: 108rpx; display: block; box-sizing: border-box">
+    <button class="reject" data-index="{{childindex}}" bindtap="rejectBtn" style="width: 211rpx; height: 75rpx; display: block; box-sizing: border-box; left: -160rpx; top: 40rpx; position: relative">驳回</button>
+    <button class="pass" data-index="{{childindex}}" bindtap="passBtn" style="width: 211rpx; height: 75rpx; display: block; box-sizing: border-box; left: 139rpx; top: -36rpx; position: relative">通过</button>
+  </view>
+
+
+</view>

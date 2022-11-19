@@ -3,7 +3,7 @@
 
 const db = wx.cloud.database();
 var that = this;
-const app= getApp().appData;
+const app = getApp().appData;
 
 const FileSystemManager = wx.getFileSystemManager()
 
@@ -14,31 +14,59 @@ Page({
    */
   data: {
     stu_name: '',
-    class:'',
+    class: '',
     academy: '',
-    phone: '', 
-    sno: '',//新增
+    phone: '',
+    sno: '', //新增
     /* imgPath: '',
     fid1: '', */
     fid2: '',
-    pass_fdy: false, //辅导员审核情况
-    pass_sj: false,//书记审核情况
-    pass_jwc: false, //教务处审核情况
-    submitState:false,//提交状态
-    nowDate: '',
+    pass_fdy: false, //辅导员通过情况
+    pass_xy: false, //学院通过情况
+    pass_xsc: false, //教务处通过情况
+
+    check_fdy: false, //辅导员审核情况
+    check_xy: false, //学院审核情况
+    check_xsc: false, //教务处审核情况
+
+    submitState: false, //提交状态，暂时未用到
+    rejectedState: false, //0表示未审核，1表示驳回
+    checkState: false,
+    nowDate: '', //今天日期
     leaveDate: '',
     returnDate: '',
-    studentClassItems: [{ //改为stu_class
-        name: 'benkesheng',
-        value: '本科生',
-        checked: 'true'
+    fdy_name: '肖章益',
+    array: ['肖章益', '中国', '巴西', '日本'],
+    objectArray: [{
+        id: 0,
+        name: '肖章益'
       },
       {
-        name: 'yanjiusheng',
-        value: '研究生'
+        id: 1,
+        name: '中国'
       },
+      {
+        id: 2,
+        name: '巴西'
+      },
+      {
+        id: 3,
+        name: '日本'
+      }
     ],
-    studentClass: '本科生',
+    index: 0,
+
+
+    show: true, //显示选择图片的按钮
+    imgList: [],
+    newImgList: [],
+    maxPhoto: 10, //最大上传10张图片
+
+    contactName: '', //紧急联系人姓名
+    contactPhone: '', //紧急联系人电话
+
+
+    stu_type: '本科生',
     campusClassItems: [{
         name: 'daxuecheng',
         value: '大学城',
@@ -54,20 +82,20 @@ Page({
       },
     ],
     campusClass: '大学城', //
-    region: ['广东省', '广州市', '海珠区'],
+    region: null,
     customItem: '全部',
     leaveClassItems: [{
-        name: 'shijia',
-        value: '事假',
+        name: 'lixiao',
+        value: '离校不离穗',
         checked: 'true'
       },
       {
-        name: 'bingjia',
-        value: '病假'
+        name: 'lisui',
+        value: '离穗'
       },
       {
-        name: 'shixi',
-        value: '实习'
+        name: 'chusheng',
+        value: '出省'
       },
       {
         name: 'xiuxue',
@@ -78,32 +106,41 @@ Page({
         value: '留学'
       },
     ],
-    leaveClass: '事假',
-
+    leaveClass: '离校不离穗',
     reasonLength: 0,
+    riskRegion: "低风险",
     errmsg: "",
+    advice: '', //审核意见
   },
-  //学号sno
-
-  bindSnoInput: function (e) {
+  //辅导员名字
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      sno: e.detail.value
+      index: e.detail.value,
+
+    })
+    this.setData({
+      fdy_name: this.data.objectArray[this.data.index].name
+    })
+    console.log(this.data.fdy_name)
+  },
+
+  //学生类别
+  bindTypechange(e) {
+    console.log(e.detail)
+    this.setData({
+      stu_type: e.detail.value
     })
   },
-  //学生类别
-  radioStudentClassChange: function (e) {
-    var str = null;
-    for (var value of this.data.studentClassItems) {
-      if (value.name === e.detail.value) {
-        str = value.value;
-        break;
-      }
-    }
-    this.setData({
-      studentClass: str
-    });
-  },
 
+  //是否住校
+  bindRiskRegionchange(e) {
+    console.log(e.detail.value)
+    this.setData({
+      riskRegion: e.detail.value
+    })
+    console.log(this.data.riskRegion)
+  },
   //校区类别
   radioCampusClassChange: function (e) {
     var str = null;
@@ -138,7 +175,7 @@ Page({
   bindRegionChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      region: e.detail.value
+      region: 'e.detail.value'
     })
   },
 
@@ -157,9 +194,25 @@ Page({
       returnDate: e.detail.value
     })
   },
+
+
+
+  //紧急联系人姓名
+  bindContactNameInput: function (e) {
+    this.setData({
+      contactName: e.detail.value
+    })
+  },
+  //紧急联系人电话
+  bindContactPhoneInput: function (e) {
+    this.setData({
+      contactPhone: e.detail.value
+    })
+  },
+
   textCount: function (e) {
     var len = e.detail.value.length
-    if (len <= 150) {
+    if (len <= 50) {
       this.setData({
         reasonLength: len,
       })
@@ -171,178 +224,138 @@ Page({
       this.setData({
         errmsg: "字数为0"
       })
-    } else if (len < 10) {
+    } else if (len <= 10) {
       this.setData({
         errmsg: "字数太少了，写多点吧"
       })
     }
   },
-  //上传图片
-  /* upImg() {
-    const that = this;
-    wx.chooseMessageFile({
-      count: 1,
-      type: 'image',
-      success(res) {
-        console.log("选择成功")
-        wx.cloud.uploadFile({
-          cloudPath: '123.png',
-          filePath: res.tempFiles[0].path, // 文件路径
 
-          success: res => {
-            
-            console.log("上传成功", res)
 
-            that.setData({
-              imgPath: res.fileID
-            })
-            console.log(that.data.imgPath)
-          },
-          fail: err => {
-            // handle error
-            console.log("上传失败", res)
+  //是否住校
+  bindRiskRegionchange(e) {
+    console.log(e.detail.value)
+    this.setData({
+      riskRegion: e.detail.value
+    })
+    console.log(this.data.riskRegion)
+  },
+  chooseImg(e) {
+    if (this.NextTap) {
+      return;
+    }
+    this.NextTap = true;
+    setTimeout(() => {
+      this.NextTap = false;
+    }, 1500) //1.5秒之后可以再次点击，防止用户重复点击
+    wx.showActionSheet({
+      itemList: ['从相册中选择', '拍照'],
+      success: (res) => {
+        if (!res.cancel) {
+          if (res.tapIndex == 0) {
+            this.chooseWxImage('album') //相册
+          } else if (res.tapIndex == 1) {
+            this.chooseWxImage('camera') //拍照
           }
-        })
-      },
-      fail() {
-        console.log("选择失败")
-
+        }
       }
-
     })
   },
- */
+  /**
+   * 上传照片
+   * @param {*} type
+   */
+  chooseWxImage: function (type) {
+    let {
+      imgList,
+      maxPhoto
+    } = this.data
+    if (imgList.length > 10) {
+      wx.showToast({
+        title: '最多上传10张',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+    var that = this
+    wx.chooseImage({
 
-  //预览图片
-  /* openImg(){
-    var that = this;
-    wx.cloud.downloadFile({
-      fileID: (that.data.fid1),
-      success: res => {
-   
-        console.log(res.tempFilePath)
-        console.log("下载预览成功"),
-          wx.openDocument({
-            filePath: res.tempFilePath,
-            success: () => {
-              console.log("打开成功")
-            },
-            fail: () => {
-              console.log("打开失败1")
+      count: maxPhoto - imgList.length, // 最多可以选择多少张图片
+      sizeType: ['compressed'], //所选的图片的尺寸
+      sourceType: [type], //图片来源
+      success: (res) => {
+        console.log(res)
+        let tempFilePaths = res.tempFilePaths //成功后返回的的路径
+        console.log(tempFilePaths)
+        //把图片对应的路径都追加到数组中
+        tempFilePaths.forEach(item => {
+          imgList.push(item)
+        })
+        //上传到云存储
+        var newImgList = []
+        for (var i = 0; i < tempFilePaths.length; i++) {
+          wx.cloud.uploadFile({
+            cloudPath: 'stuPhoto/' + this.data.academy + '/' + this.data.sno + new Date().getTime() + Math.floor(Math.random() * 1000) + '.jpg',
+            filePath: tempFilePaths[i],
+            success: res => {
+              console.log('上传成功', res.fileID)
+              newImgList.push(res.fileID)
             }
           })
-      },
-      fail: err => {
-        // handle error
-        console.log("打开失败2", res)
-      }
-    })
-
-  }, */
-
-  //上传word文档
-  upDocx() {
-    const _that = this;
-    wx.chooseMessageFile({
-      count: 1,
-      type: 'file',
-      success(res) {
-        console.log("选择成功")
-        wx.cloud.uploadFile({
-          cloudPath: '123.docx',
-          filePath: res.tempFiles[0].path, // 文件路径
-
-          success: res => {
-            console.log("上传成功", res)
-
-            that.setData({
-              fid2: res.fileID
-            })
-            console.log(_that.data.fid2)
-
-
-
-          },
-          fail: err => {
-            // handle error
-            console.log("上传失败", res)
-          }
+        }
+        console.log('云存储序列', newImgList)
+        that.setData({
+          newImgList: newImgList,
+          imgList: imgList,
+          show: imgList.length >= 10 ? false : true
         })
-      },
-      fail() {
-        console.log("选择失败")
-
       }
-
-    })
-
-  },
-
-  //预览word文档
-  openDocx() {
-
-    var that = this;
-    wx.cloud.downloadFile({
-      fileID: (that.data.fid2),
-      success: res => {
-
-        console.log(res.tempFilePath)
-        console.log("下载预览成功")
-        
-
-            FileSystemManager.open({
-              filePath: res.tempFilePath,
-              flag: 'r',
-              success(res) {
-                console.log(res)
-              }
-
-
-            })
-            
-          }
-            
-        
-      
-      
     })
   },
-/* wx.openDocument({
-              filePath: (savedFilePath),
-              fileType:'docx',
-              success: () => {
-                console.log("打开成功")
-              },
-              fail: () => {
-                console.log("打开失败",res)
-              }
-            }) */
-
-
-  /**
-   * 生命周期函数--监听页面加载
+  /*
+   * 图片预览
+   * @param e
    */
-  onLoad: function (options) {
-    // leaveDate和returnDate的初始化
-    var today = util.formatDay(new Date())
-    this.setData({
-      nowDate: today,
-      leaveDate: today,
-      returnDate: today,
-      stu_name:app.name,
-      class:app.class,
-      sno:app.sno,      
-      academy:app.academy,
-      phone:app.phone,
+  previewImg(e) {
+    console.log(e)
+    let currentUrl = e.currentTarget.dataset.src;
+    console.log('wu', e.currentTarget.dataset.src)
+    let urls = this.data.imgList
+    wx.previewImage({
+      current: currentUrl, // 当前显示图片的http链接
+      urls: urls // 需要预览的图片http链接列表
     })
-    console.log(today)
-
   },
+  /**
+   * 删除上传的图片
+   * @param e
+   */
+  deleteUpload(e) {
+    console.log(e)
+    let {
+      index
+    } = e.currentTarget.dataset;
+    let {
+      newImgList
+    } = this.data;
+    let {
+      imgList
+    } = this.data;
+    imgList.splice(index, 1)
+    newImgList.splice(index, 1)
+    this.setData({
+      imgList: imgList,
+      newImgList: newImgList,
+      show: imgList.length >= 10 ? false : true
+    })
+  },
+
 
 
   submit: function (e) {
     var reasonLen = e.detail.value.leaveReason.length
-    if (reasonLen > 10) {
+    if (reasonLen > 10 && (this.data.imgList.length == this.data.newImgList.length)) {
       // console.log('form submit 事件',e.detail.value)
       wx.showLoading({
         title: '申请提交中...',
@@ -350,25 +363,38 @@ Page({
       })
       var data = {
         //sno: app.globalData.regInfo.sno,
-        stu_name:this.data.stu_name,
-        class:this.data.class,
-        academy:this.data.academy,
+        stu_name: this.data.stu_name,
+        class: this.data.class,
+        academy: this.data.academy,
         sno: this.data.sno,
 
-        pass_fdy:this.data.pass_fdy,
-        pass_jwc:this.data.pass_jwc,
-        pass_sj:this.data.pass_sj,
-        submitState:this.data.submitState,
-        
+        pass_fdy: this.data.pass_fdy,
+        pass_xsc: this.data.pass_xsc,
+        pass_xy: this.data.pass_xy,
+
+        check_fdy: this.data.check_fdy,
+        check_xy: this.data.check_xy,
+        check_xsc: this.data.check_xsc,
+
+        submitState: this.data.submitState,
+        rejectedState: this.data.rejectedState,
+        checkState: this.data.checkState,
+
         region: this.data.region,
         leaveDate: this.data.leaveDate,
         returnDate: this.data.returnDate,
+        contactName: this.data.contactName,
+        contactPhone: this.data.contactPhone,
+
         leaveReason: e.detail.value.leaveReason,
         subDate: this.data.nowDate,
         leaveClass: this.data.leaveClass,
-        studentClass: this.data.studentClass,
+        stu_type: this.data.stu_type,
         campusClass: this.data.campusClass,
-      
+
+        newImgList: this.data.newImgList,
+        riskRegion: this.data.riskRegion,
+        fdy_name: this.data.fdy_name,
       }
       console.log('data = ', data)
       wx.cloud.callFunction({
@@ -426,6 +452,25 @@ Page({
 
   },
 
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    // leaveDate和returnDate的初始化
+    var today = util.formatDay(new Date())
+    this.setData({
+      nowDate: today,
+      leaveDate: today,
+      returnDate: today,
+      stu_name: app.name,
+      class: app.class,
+      sno: app.sno,
+      academy: app.academy,
+      phone: app.phone,
+    })
+    console.log(today)
+
+  },
   /**
    * 生命周期函数--监听页面显示
    */

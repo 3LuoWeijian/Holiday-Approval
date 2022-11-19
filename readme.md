@@ -7,7 +7,7 @@ class	班级
 academy	学院
 phone	手机号
 stu_type	学生类别
-stu_fdy	辅导员名字
+fdy_name	辅导员名字
 campus	校区
 subDate	提交日期
 pass_fdy	辅导员是否审批
@@ -42,6 +42,12 @@ absenceReason	缺课理由
 无
 
 ---
+（5）离校审批
+advice 审批意见
+destination 离校类别
+checkState 审批情况
+
+
 
 主要的(老师信息)
 tch_name	老师名字

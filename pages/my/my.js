@@ -56,6 +56,11 @@ Page({
       url: '/pages/my-info/my-info',
     })
   },
+  bindAdvice:function(){
+    wx.navigateTo({
+      url: '/pages/advice/advice',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

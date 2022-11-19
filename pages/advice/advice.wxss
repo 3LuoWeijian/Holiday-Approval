@@ -1,0 +1,69 @@
+/* pages/advice/advice.wxss */
+page
+{
+  color: #efefefef;
+}
+
+.input1
+{
+  display: flex;
+  position:relative;
+  left: 55rpx;
+  width: 600rpx;
+  height: 500rpx;
+  box-shadow: 0rpx 0rpx 15rpx aquamarine;
+  padding: 20rpx;
+  margin-top: 20rpx;
+  border-radius: 32rpx;
+  color: #000;
+} 
+
+.choose
+{
+  display: flex;
+  position:absolute;
+  width: 500rpx;
+  height: 90rpx;
+  top: 570rpx;
+  left: 97rpx;
+  box-shadow: 0rpx 0rpx 5rpx aquamarine;
+  margin: 30rpx;
+  border-radius: 16rpx;
+  color: #000;
+}
+  
+.fb_tousu
+{
+  display: flex;
+  position:relative;
+  left: 75rpx;
+  font-weight: bold;
+}
+  
+.fb_biaoyang
+{
+  display: flex;
+  position:relative;
+  left:175rpx;
+  font-weight: bold;
+}
+
+  
+.img1
+{
+  position: relative;
+  width: 150rpx;
+  height: 150rpx;
+  margin-top: 150rpx;
+  margin-bottom: 20rpx;
+  left: 300rpx;
+  border-radius: 50%;
+  box-shadow: 3rpx 1rpx 5rpx 2rpx aquamarine;
+}
+.button1
+{
+  background-color: aquamarine;
+  color: #ffffff;
+  border-radius: 16rpx;
+  margin-top: 150rpx;
+}

@@ -10,26 +10,35 @@ exports.main = async (event, context) => {
   return await db.collection("leave")
     .add({
       data: {
+
         stu_name: event.stu_name,
         sno: event.sno,
         class: event.class,
         academy: event.academy,
 
         pass_fdy: event.pass_fdy,
-        pass_jwc: event.pass_jwc,
-        pass_sj: event.pass_sj,
+        pass_xsc: event.pass_xsc,
+        pass_xy: event.pass_xy,
         submitState: event.submitState,
-
+        rejectedState: event.rejectedState,
+        
+        check_fdy: event.check_fdy,
+        check_xy: event.check_xy,
+        check_xsc: event.check_xsc,
 
         leaveClass: event.leaveClass,
         region: event.region,
         leaveDate: event.leaveDate,
         leaveReason: event.leaveReason,
         returnDate: event.returnDate,
+        contactName: event.contactName,
+        contactPhone: event.contactPhone,
         subDate: event.subDate,
-        studentClass: event.studentClass,
+        stu_type: event.stu_type,
         campusClass: event.campusClass,
-
+        newImgList: event.newImgList,
+        riskRegion: event.riskRegion,
+        fdy_name: event.fdy_name,
         //approveState: 0,
       }
     })

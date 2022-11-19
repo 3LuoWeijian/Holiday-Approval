@@ -3,17 +3,17 @@
       <view class="header">
           <view class="root" wx:if="{{!userInfo}}">
           <button class="login_btn" size="mini" bindtap="getUserProfile" > 获取头像昵称 </button>
-          </view>
+          </view> 
 
           <view wx:else class="root" bindtap="getmyinfo">
           <image bindtap="bindViewTap" class="touxiang" src="{{userInfo.avatarUrl}}" mode="cover"></image>
           <text class="nicheng">欢迎使用！{{userInfo.nickName}}</text>
           </view>
-      </view> 
+      </view>
 </block>
-
+<view>近期申请进度</view>
 <view class='order_process'>
-      <view class='process_wrap' wx:for="{{processData}}" wx:key="">
+      <view class='process_wrap' wx:for="{{processData}}" wx:key="index">
         <view class='process'>
           <view class='process_line' style="background:{{item.start}}"></view>
           <image class='process_icon' src="{{item.icon}}"></image>
@@ -32,13 +32,21 @@
     <image src="/image/fanxiao.png"></image>
     <view>返校申请</view>
   </view>
-  <view class="item" bindtap="Kecheng">
+  <view class="item" bindtap="Kecheng" >
     <image src="/image/kecheng.png"></image>
     <view>课程请假</view>
   </view>
-  <view class="item" bindtap="Daka">
+  <view class="item" bindtap="Daka" >
     <image src="/image/jiankang.png"></image>
     <view>健康打卡</view>
+  </view>
+  <view class="item" bindtap="progress" style="border-bottom: #fff;">
+    <image src="/image/jindu.png"></image>
+    <view>进度查询</view>
+  </view>
+  <view class="item" bindtap="advice" style="border-bottom: #fff;">
+    <image src="/image/fankui.png"></image>
+    <view>意见反馈</view>
   </view>
 </view>
 

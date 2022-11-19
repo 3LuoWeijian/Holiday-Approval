@@ -16,18 +16,20 @@ exports.main = async (event, context) => {
         academy:event.academy,
         phone:event.phone,    
         region:event.region,
+        riskRegion:event.riskRegion,
         stu_type: event.stu_type,
         setDate: event.setDate,
         arriveDate: event.arriveDate,
         campus: event.campus,
         conveyance:event.conveyance,
         timeofconveyance:event.timeofconveyance,
-        inresidence :event.inresidence,
+        inresidence:event.inresidence,
         pass_fdy:event.pass_fdy,
         pass_jwc:event.pass_jwc,
         pass_sj:event.pass_sj,
+        fdy_name:event.fdy_name,
         rejectedState:event.rejectedState,
-        imgList:event.imgList,
+        newImgList:event.newImgList,
       }
     })
 

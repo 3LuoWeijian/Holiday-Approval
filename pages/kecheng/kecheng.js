@@ -2,7 +2,7 @@
 
 const db = wx.cloud.database();
 var that = this;
-const app= getApp().appData;
+const app = getApp().appData;
 var util = require('util.js')
 Component({
   /**
@@ -17,18 +17,20 @@ Component({
    */
   data: {
     stu_name: '',
-    class:'',
+    class: '',
     academy: '',
-    phone: '', 
-    sno: '',//新增
-    reasonLength:'',
+    phone: '',
+    sno: '', //新增
+    pass_fdy: false,
+    rejectedState: false,
+    reasonLength: '',
     lessonName: '',
     lessonTime: '',
     teacherName: '',
     absenceDate: '',
     reasonLength: 0,
     errmsg: "",
-    
+    absenceReason: '',
     nowDate: '',
     leaveDate: '',
     returnDate: '',
@@ -58,7 +60,7 @@ Component({
       },
     ],
     campusClass: '大学城',
-    absenceReason: ''
+
 
   },
 
@@ -127,11 +129,11 @@ Component({
       this.setData({
         nowDate: today,
         absenceDate: today,
-        stu_name:app.name,
-        class:app.class,
-        sno:app.sno,      
-        academy:app.academy,
-        phone:app.phone,
+        stu_name: app.name,
+        class: app.class,
+        sno: app.sno,
+        academy: app.academy,
+        phone: app.phone,
 
 
 
@@ -151,7 +153,7 @@ Component({
     },
     textCount: function (e) {
       var len = e.detail.value.length
-      if (len <= 150) {
+      if (len <= 50) {
         this.setData({
           reasonLength: len,
         })
@@ -179,6 +181,9 @@ Component({
         })
         var data = {
           sno: this.data.sno,
+          stu_name:this.data.stu_name,
+          class:this.data.class,
+          academy:this.data.academy,
           absenceDate: this.data.absenceDate,
           lessonName: this.data.lessonName,
           lessonTime: this.data.lessonTime,
@@ -186,7 +191,9 @@ Component({
           subDate: this.data.nowDate,
           studentClass: this.data.studentClass,
           campusClass: this.data.campusClass,
-          absenceReason:e.detail.value.absenceReason
+          absenceReason: e.detail.value.absenceReason,
+          pass_fdy: this.data.pass_fdy,
+          rejectedState: this.data.rejectedState,
         }
         console.log('data = ', data)
         wx.cloud.callFunction({

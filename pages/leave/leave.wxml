@@ -4,7 +4,7 @@
   <view class="box1">
     <view class="box3">
       <text>姓名</text>
-      <view>{{stu_name}}</view>
+      <view>{{stu_name}}曾家谦</view>
       <text>学号</text>
       <view>{{sno}}</view>
       <text>班级</text>
@@ -13,17 +13,17 @@
       <view>{{academy}}</view>
       <text>手机号码</text>
       <view>{{phone}}</view>
-      <text>学生类别</text>
+
     </view>
-    <view>
-      <radio-group class="box2" bindchange="radioStudentClassChange">
-        <label class="radio" wx:for="{{studentClassItems}}">
-          <view>
-            <radio color="" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
-          </view>
-        </label>
+
+
+    <view>学生类别
+      <radio-group class="box2" bindchange="bindTypechange">
+        <radio checked="true" value="本科生">本科生</radio>
+        <radio value="研究生">研究生</radio>
       </radio-group>
     </view>
+
     <text>校区</text>
     <view>
       <radio-group class="box2" bindchange="radioCampusClassChange">
@@ -51,123 +51,77 @@
 
     </view>
 
+
     <!-- 离返校时间 -->
     <view class="leaveTime">离校时间<picker mode="date" value="{{leaveDate}}" start="2022-10-01" end="2030-09-01" bindchange="bindLeaveDateChange">
-        <view>{{leaveDate}}</view>
+        <view style="width: 600rpx; height: 66rpx; display: block; box-sizing: border-box">{{leaveDate}}</view>
       </picker>
     </view>
 
     <view class="returnTime ">返校时间<picker mode="date" value="{{returnDate}}" start="{{leaveDate}}" end="2030-09-01" bindchange="bindReturnDateChange">
-        <view>{{returnDate}}</view>
+        <view style="width: 605rpx; height: 68rpx; display: block; box-sizing: border-box">{{returnDate}}</view>
       </picker>
     </view>
 
     <!-- 紧急联系人情况 -->
     <view class="contact">
-      <view>紧急联系人姓名</view><input />
-      <view>紧急联系人电话</view><input />
+      <view>紧急联系人姓名</view><input bindinput="bindContactNameInput" style="width: 603rpx; height: 50rpx; display: block; box-sizing: border-box" />
+      <view>紧急联系人电话</view><input bindinput="bindContactPhoneInput" style="width: 603rpx; height: 52rpx; display: block; box-sizing: border-box" />
     </view>
 
 
     <view>外出地点
-      <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+      <picker level="sub-district" mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}" >
         <view class="box2">
-          {{region[0]}}-{{region[1]}}-{{region[2]}}
+          {{region[0]}}-{{region[1]}}-{{region[2]}}-{{region[3]}}
         </view>
       </picker>
     </view>
+    
+    <view>目的地是否为中高风险地区
+      <radio-group class="box2" bindchange="bindRiskRegionchange">
+        <radio checked="true" value="低风险">否</radio>
+        <radio value="中高风险">是</radio>
+      </radio-group>
+    </view>
+    <view>上传图片</view>
+    <view class="img_list">
 
-
-    <view>
-      <view style="width: 622rpx; height: 197rpx; display: block; box-sizing: border-box">
-        <!-- <view style="width: 622rpx; height: 167rpx; display: block; box-sizing: border-box">
-          <button class="upDocx" type="primary" bindtap="upImg" style="position: relative; left: -166rpx; top: 94rpx; width: 282rpx; height: 94rpx; display: block; box-sizing: border-box">上传图片</button>
-          <view class="imgyulan" style="width: 282rpx; height: 50rpx; display: block; box-sizing: border-box">图片预览：</view>
+      <block wx:for="{{imgList}}" wx:key="index">
+        <view class="item_img">
+          <image src="{{item}}" class="img_item" mode="aspectFill" catchtap="previewImg" data-src="{{item}}"></image>
+          <image src="/image/delete.png" class="close" catchtap="deleteUpload" data-index="{{index}} "></image>
         </view>
-        <image src="{{imgPath}}" class="upImg" style="width: 113rpx; height: 94rpx; display: block; box-sizing: border-box"></image> -->
-        <button class="upDocx" type="primary" bindtap="upDocx" style="position: relative; left: -167rpx; top: 61rpx; width: 284rpx; height: 94rpx; display: block; box-sizing: border-box">上传word</button>
-
-        <button class="" bindtap="openDocx" style="position: relative; left: 141rpx; top: -33rpx; width: 209rpx; height: 94rpx; ">{{fid2}}</button>
-
+      </block>
+      <view class="item_img1 flex-column" catchtap="chooseImg" wx:if="{{show}}">
+        <image src="/image/jia.png" class="add_img" mode="aspectFill"></image>
+        <text>{{imgList.length}}/{{maxPhoto}}</text>
       </view>
-
     </view>
 
-    <view style="width: 652rpx; height: 400rpx; display: block; box-sizing: border-box">
+
+
+    <view class="reasonBox" style="width: 652rpx; height: 400rpx; display: block; box-sizing: border-box">
       <view class="reasonTtile" style="width: 172rpx; height: 99rpx; display: block; box-sizing: border-box"> \n 请假理由</view>
       <view class="errmsg" style="width: 383rpx; height: 99rpx; display: block; box-sizing: border-box">{{errmsg}}</view>
-      <view class="reasonText" style="width: 659rpx; height: 218rpx; display: block; box-sizing: border-box"><textarea placeholder="请输入(150字以内)" name="leaveReason" maxlength="150" bindinput="textCount" bindblur="textBlur" style="width: 636rpx; height: 317rpx; display: block; box-sizing: border-box; left: -12rpx; top: 3rpx; position: relative"></textarea></view>
+      <view class="reasonText" style="width: 659rpx; height: 218rpx; display: block; box-sizing: border-box"><textarea placeholder="请输入(50字以内)" name="leaveReason" maxlength="50" bindinput="textCount" bindblur="textBlur" style="width: 636rpx; height: 324rpx;   left: 0rpx; top: 3rpx; position: relative"></textarea></view>
 
-      <view class="textCount" style="width: 200rpx; height: 99rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx"><text>/150</text><text style="color: #26d7d8; width: 38rpx; height: 118rpx; display: block; box-sizing: border-box">{{reasonLength}}</text></view>
-    </view>
+      <view class="textCount" style=" width: 200rpx; height: 99rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx"><text>/ 50</text><text style="color: #26d7d8; width: 38rpx; height: 118rpx; display: block; box-sizing: border-box">{{reasonLength}}</text></view>
+      
+      </view>
 
-
+    
+      <view class="fdy-list">
+        <view class="section__title">所属辅导员名字</view>
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <view class="picker">
+            点击选择：{{array[index]}}
+          </view>
+        </picker>
+      </view>
+    
     <button class="submitBtn" form-type="submit" style="position: relative; left: 0rpx; top: 22rpx">提交</button>
   </view>
 
 
 </form>
-
-
-
-
-<!-- <form class="formBox" bindsubmit="submit" style="width: 586rpx; height: 99rpx; display: inline; box-sizing: content-box">
-
-  <view class="contactBox">
-    <view class="signBox"></view>
-    <picker class="contactTtile" bindchange="bindTypeChange" value="{{returnType}}" range="{{array}}">
-      <view class="picker" style="width: 643rpx; height: 99rpx; display: block; box-sizing: border-box">
-        请假类别：{{array[returnType]}}
-      </view>
-    </picker>
-  </view>
-
-  <view class="leaveTimeBox">
-    <view class="signBox"></view>
-    <view class="leaveTtile">离校时间</view>
-    <picker mode="date" value="{{leaveDate}}" start="2022-10-01" end="2030-09-01" bindchange="bindLeaveDateChange">
-      <view class="leaveTime">{{leaveDate}}</view>
-    </picker>
-  </view>
-
-  <view class="returnTimeBox">
-    <view class="signBox"></view>
-    <view class="returnTtile">返校时间</view>
-    <picker mode="date" value="{{returnDate}}" start="{{leaveDate}}" end="2030-09-01" bindchange="bindReturnDateChange">
-      <view class="leaveTime">{{returnDate}}</view>
-    </picker>
-  </view>
-  <view class="destinationTimeBox">
-    <view class="signBox"></view>
-    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
-      <view class="contactTtile" style="width: 612rpx; height: 99rpx; display: block; box-sizing: border-box">
-        外出地点：{{region[0]}}-{{region[1]}}-{{region[2]}}
-      </view>
-    </picker>
-  </view>
-
-  <view class="contactBox">
-    <view class="signBox"></view>
-    <view class="contactTtile">紧急联系人姓名</view>
-    <input type="digit" />
-
-  </view>
-
-  <view class="ErgContactBox">
-    <view class="signBox"></view>
-    <view class="ErgContactTtile" style="width: 279rpx; height: 99rpx; display: block; box-sizing: border-box">紧急联系人联络方式</view>
-    <input style="width: 324rpx; height: 99rpx; display: block; box-sizing: border-box" type="digit" />
-
-  </view>
-
-
-  <view class="reasonBox">
-    <view class="signBox"></view>
-    <view class="reasonTtile">请假理由</view>
-    <view class="errmsg">{{errmsg}}</view>
-    <view class="reasonText"><textarea placeholder="请输入(150字以内)" name="leaveReason" maxlength="150" bindinput="textCount" bindblur="textBlur"></textarea></view>
-    <view class="textCount"><text>/150</text><text style="color:#26d7d8">{{reasonLength}}</text></view>
-  </view>
-
-  <button class="submitBtn" form-type="submit">提交</button>
-</form> -->

@@ -1,0 +1,257 @@
+/* pages/leavecheck/leavecheck.wxss */
+/* @import'../../templates/checkCard/checkCard.wxss' */
+page {
+  background-color: #f8f3f3;
+}
+
+
+ 
+.list-msg {
+ 
+  padding: 0 20rpx;
+  /* background-color: #fff; */
+  position: relative;
+  margin-bottom: 7rpx;
+}
+
+
+
+.list-msg .list-msg1 {
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  padding: 0 10rpx;
+}
+
+.select_box {
+  background-color: #eee;
+  padding: 0 10rpx;
+  width: 92%;
+  position: absolute;
+  top: 67rpx;
+  z-index: 1;
+  overflow: hidden;
+  /* animation: myfirst 0.2s; */
+}
+
+@keyframes myfirst {
+  from {
+      height: 0rpx;
+  }
+
+  to {
+      height: 210rpx;
+  }
+}
+
+.select_one {
+  height: 60rpx;
+  line-height: 60rpx;
+  border-bottom: 1px solid #ccc;
+}
+
+
+.destination{
+  width: 50%;
+  float: left;
+}
+.destination radio{
+width: 100%;
+
+}
+
+.check{
+  float: right;
+}
+.check radio{
+  width: 100%;
+}
+.box {
+float: left;
+
+  display: block;
+  box-sizing: border-box;
+
+  margin: 10rpx;
+  border: 3rpx;
+  border-color: grey;
+  background-color: #ffffff;
+  border-radius: 32rpx 32rpx 32rpx 32rpx;
+
+
+}
+
+.stu-info {
+
+  font-size: small;
+  padding: 30rpx;
+  margin: 10rpx;
+  border-bottom: 2rpx solid #E1DDDB;
+  width: 706rpx;
+  height: 108rpx;
+  display: block;
+  box-sizing: border-box
+}
+
+.banji {
+  float: left;
+
+
+}
+
+.xingming {
+  padding-left: 8rpx;
+  float: left;
+  width: 115rpx;
+  height: 43rpx;
+  display: block;
+  box-sizing: border-box
+}
+
+.xueyuan {
+  float: right;
+
+  height: 43rpx;
+  display: block;
+  box-sizing: border-box
+}
+
+.leave-info {
+
+  height: 251rpx;
+  display: block;
+  box-sizing: border-box;
+  width: 732rpx;
+  height: 265rpx;
+  display: block;
+  box-sizing: border-box
+}
+
+.leave-kind {
+  float: left;
+  padding-left: 30rpx;
+
+  width: 230rpx;
+  height: 71rpx;
+  box-sizing: border-box;
+  display: block
+}
+
+.region {
+  float: left;
+  padding-left: 60rpx;
+  font-size: small;
+  padding-bottom: 10rpx;
+}
+
+.leave-date {
+  padding-top: 10rpx;
+  float: right;
+  font-size: small;
+  padding-right: 20rpx;
+  height: 71rpx;
+  display: block;
+  box-sizing: border-box
+}
+
+.high-risk {
+  font-size: small;
+  float: right;
+  padding-right: 20rpx;
+  height: 71rpx;
+  display: block;
+  box-sizing: border-box;
+  color: rgb(219, 54, 54);
+}
+
+.low-risk {
+  font-size: small;
+  float: right;
+  padding-right: 20rpx;
+  height: 71rpx;
+  display: block;
+  box-sizing: border-box;
+  color: #4cb310fa;
+}
+
+.leave-reason {
+  padding: 0 50rpx;
+  line-height: 42rpx;
+  float: left;
+  font-size: small;
+  margin-left: 10rpx;
+  border-bottom: 2rpx solid #E1DDDB;
+  width: 708rpx;
+  height: 129rpx;
+  display: block;
+  box-sizing: border-box
+}
+
+.box1 {
+  width: 706rpx;
+  
+  
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 24rpx;
+  margin-left: 30rpx;
+}
+
+.item_img {
+  width: 220rpx;
+  margin-right: 2rpx;
+  margin-bottom: 23rpx;
+  padding-left: 15rpx;
+
+  /* border: 1px solid #ccc; */
+}
+
+.img_item {
+  width: 203rpx;
+  height: 203rpx;
+}
+
+.item_img:nth-child(3n) {
+  margin-right: 0;
+}
+
+.yes-or-not {
+  margin-top: 10rpx;
+  margin-right: 40rpx;
+  margin-left: 40rpx;
+  margin-bottom: 10rpx;
+  display: block;
+  box-sizing: border-box
+}
+
+.yes-or-not button {
+
+  width: 200rpx;
+  height: 60rpx;
+  color: white;
+  line-height: 30rpx;
+  float: left;
+  font-size: 28rpx;
+  margin: 0 50rpx;
+  text-align: center;
+}
+
+.not {
+  background-color: #DB6160;
+  color: #f5f7f5;
+
+}
+
+.yes {
+  background-color: #50AA50;
+  color: #f5f7f5;
+}
+.form{
+  margin-bottom: 20rpx;
+}
+.advice{
+  margin: 30rpx;
+}

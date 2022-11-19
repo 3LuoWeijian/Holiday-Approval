@@ -1,28 +1,12 @@
-// pages/kejiashenpi/kejiashenpi.js
+// pages/progress/progress.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  count:482,
 
   },
-leaveSubone(options)
-{
-  this.setData(
-    {
-      count:this.data.count-1
-    }
-  )
-},
-  //离校申请
-  gochart(){
-    wx.navigateTo({
-      url: '/pages/chart11/chart11',
-    })
-  },
-
 
   /**
    * 生命周期函数--监听页面加载

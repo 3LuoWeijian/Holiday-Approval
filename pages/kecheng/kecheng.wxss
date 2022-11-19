@@ -96,7 +96,7 @@
 .reasonText textarea {
   width: 670rpx;
   line-height: 50rpx;
-  font-size: 24rpx;
+  font-size: 30rpx;
   color: #808080;
   height: 200rpx;
   top: -100rpx
@@ -124,4 +124,12 @@
   line-height: 40rpx;
   color: white;
   font-size: 28rpx;
+}
+.box1 input{
+  border-bottom: 1rpx solid #efefef;
+  margin: 15rpx 0;
+}
+.geshi{
+
+  font-size: small;
 }

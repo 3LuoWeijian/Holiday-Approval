@@ -1,17 +1,18 @@
 // pages/my-info/my-info.js
+const app = getApp().appData;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    name:'无',
-    class:'无',
-    sno:'无',
-    phone:'无',
-    academy:'无'
+    name: '无',
+    class: '无',
+    sno: '无',
+    phone: '无',
+    academy: '无'
   },
-  outLogin(){
+  outLogin() {
     wx.setStorageSync('user', null)
     wx.reLaunch({
       url: '/pages/index/index',
@@ -23,6 +24,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    if (app.people == 'student') {
+      this.setData({
+        name: app.stu_name,
+        class: app.class,
+        sno: app.sno,
+        phone: app.phone,
+        academy: app.academy
+      })
+    }
+    if (app.people == 'teacher') {
+      this.setData({
+        name: app.tch_name,
+        
+        sno: app.sno,
+        phone: app.phone,
+        academy: app.academy
+      })
+    }
 
   },
 

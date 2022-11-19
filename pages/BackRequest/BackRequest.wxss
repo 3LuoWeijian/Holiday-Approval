@@ -33,13 +33,14 @@
 .box2
 {
   width: 90%;
-  margin: 20rpx;
+  margin-bottom: 40rpx;
   color: black;
+  padding-top: 20rpx;
 }
 .box2 radio
 {
   padding-right: 40rpx;
-  padding-top: 20rpx;
+
 }
 
 .button1
@@ -48,6 +49,8 @@
   margin-top: 40rpx;
   background-color:#28C76F ;
   color: white;
+  margin-bottom: 100rpx;
+
 }
 
 .con {
@@ -115,4 +118,8 @@
 	position: absolute;
 	top: -15rpx;
 	right: -15rpx;
+  }
+
+  .picker{
+    padding-top: 20rpx;
   }

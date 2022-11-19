@@ -28,7 +28,7 @@
     </view>
     <text>校区</text>
     <view>
-      <radio-group class="box2" bindchange="radioCampusClassChange">
+      <radio-group class="box2" bindchange="radioCampusClassChange" style="width: 586rpx; height: 193rpx; display: block; box-sizing: border-box">
         <label class="radio" wx:for="{{campusClassItems}}">
           <view>
             <radio color="" value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
@@ -40,10 +40,10 @@
 
   <view class="title">请假信息\n</view>
   <view class="box1" style="width: 652rpx; height: 1822rpx; display: block; box-sizing: border-box">
-    <text>课程全称</text><input bindinput="bindLessonNameInput" />
-    <text>课程节次</text><input bindinput="bindLessonTimeInput" />
-    <text>任课老师姓名</text><input bindinput="bindTeacherNameInput" />
-    <view class="leaveTime">请假日期<picker mode="date" value="{{leaveDate}}" start="2022-10-01" end="2030-09-01" bindchange="bindAbsenceDateChange">
+    <text>课程全称</text><input style="width: 605rpx; height: 52rpx; display: block; box-sizing: border-box"  bindinput="bindLessonNameInput" />
+    <text>课程节次</text><text class="geshi">（格式：第5-6小节）</text><input style="width: 605rpx; height: 52rpx; display: block; box-sizing: border-box"  bindinput="bindLessonTimeInput" />
+    <text>任课老师姓名</text><input style="width: 605rpx; height: 54rpx; display: block; box-sizing: border-box"  bindinput="bindTeacherNameInput" />
+    <view class="leaveTime" style="width: 577rpx; height: 139rpx; display: block; box-sizing: border-box">请假日期<picker mode="date" value="{{leaveDate}}" start="2022-10-01" end="2030-09-01" bindchange="bindAbsenceDateChange">
         <view style="width: 603rpx; height: 66rpx; display: block; box-sizing: border-box">{{absenceDate}}</view>
       </picker>
     </view>
@@ -51,9 +51,9 @@
     <view style="width: 652rpx; height: 400rpx; display: block; box-sizing: border-box">
       <view class="reasonTtile" style="width: 172rpx; height: 99rpx; display: block; box-sizing: border-box"> \n 请假理由</view>
       <view class="errmsg" style="width: 383rpx; height: 99rpx; display: block; box-sizing: border-box">{{errmsg}}</view>
-      <view class="reasonText" style="width: 659rpx; height: 218rpx; display: block; box-sizing: border-box"><textarea placeholder="请输入(150字以内)" name="absenceReason" maxlength="150" bindinput="textCount" bindblur="textBlur" style="width: 636rpx; height: 317rpx; display: block; box-sizing: border-box; left: -12rpx; top: 3rpx; position: relative"></textarea></view>
+      <view class="reasonText" style="width: 659rpx; height: 218rpx; display: block; box-sizing: border-box"><textarea placeholder="请输入(50字以内)" name="absenceReason" maxlength="50" bindinput="textCount" bindblur="textBlur" style="width: 636rpx; height: 317rpx; display: block; box-sizing: border-box; left: -12rpx; top: 3rpx; position: relative"></textarea></view>
 
-      <view class="textCount" style="width: 200rpx; height: 99rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx"><text>/150</text><text style="color: #26d7d8; width: 38rpx; height: 118rpx; display: block; box-sizing: border-box">{{reasonLength}}</text></view>
+      <view class="textCount" style="width: 200rpx; height: 99rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx"><text>/ 50</text><text style="color: #26d7d8; width: 38rpx; height: 118rpx; display: block; box-sizing: border-box">{{reasonLength}}</text></view>
     </view>
     <button class="submitBtn" form-type="submit" style="position: relative; left: 0rpx; top: 22rpx">提交</button>
   </view>

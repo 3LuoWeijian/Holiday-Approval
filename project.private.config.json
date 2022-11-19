@@ -5,15 +5,12 @@
       "list": [
         {
           "name": "",
-          "pathName": "pages/check-leave/check-leave",
+          "pathName": "pages/advice/advice",
           "query": "",
           "launchMode": "default",
           "scene": null
         }
       ]
     }
-  },
-  "setting": {
-    "urlCheck": true
   }
 }
