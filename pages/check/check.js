@@ -1,65 +1,82 @@
 // pages/check/check.js
 
-
 var app=getApp().appData;
-const db = wx.cloud.database();
+const db = wx.cloud.database()
+var util = require('util.js')
 Page({
   onShareAppMessage: function (res) {
     return {
       title: 'ECharts 可以在微信小程序中使用啦！',
       path: '/pages/index/index',
       success: function () { },
-      fail: function () { }
+      fail: function () { },
+      leavepeople:'',
+      dakapeople:''
     }
+    
   },
 
   /**
    * 页面的初始数据
    */
   data: {
-    type:app.tch_type,
+leavepeople:'null',
+dakapeople:'null'
   },
 
-//离校审批
-  checkleavefdy(){
+  echarts1(){
+    app.leavepeople = this.data.leavepeople
     wx.navigateTo({
-      url: '/pages/check-leave-fdy/check-leave-fdy',
+      url: '/pages/L-echarts/L-echarts',
     })
   },
-  //离校审批
-  checkleavexy(){
+  echarts2(){
+    app.dakapeople = this.data.dakapeople
     wx.navigateTo({
-      url: '/pages/check-leave-xy/check-leave-xy',
+      url: '/pages/D-echarts/D-echarts',
     })
   },
-
-  checkleavexsc(){
+  checkleave(){
     wx.navigateTo({
-      url: '/pages/check-leave-xsc/check-leave-xsc',
+      url: '/pages/check-leave/check-leave',
     })
   },
-  
-
-  //课程请假审批
-  checkKeCheng(){
+  kejiashenpi(){
     wx.navigateTo({
-      url: '/pages/check-kecheng/check-kecheng',
-    })
-  },
-  //返校审批
-  getCheckback(){
-    wx.navigateTo({
-      url: '/pages/check-back/check-back',
+      url: '/pages/kejiashenpi/kejiashenpi',
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.setData({
-      type:app.tch_type,
-    })
-    console.log(this.data.type)
+     var today = util.formatDay(new Date())
+    db.collection('leave').where({
+      pass_xsc:true
+      }).get(
+        {
+          success:res=>{
+            console.log('数据',res)
+            this.setData({
+            leavepeople:res.data.length
+            })
+            
+          }
+        }
+      ),
+      
+      db.collection('daka').where({
+       subDate:today
+        }).get(
+          {
+            success:res=>{
+              console.log('数据2',res)
+              this.setData({
+              dakapeople:res.data.length
+              })
+            }
+          }
+        )
   },
 
   /**
