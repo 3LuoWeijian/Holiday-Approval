@@ -11,6 +11,7 @@ Page({
   data: {
     setDate: myDate.toLocaleDateString(),
     arriveDate: myDate.toLocaleDateString(),
+    subDate:myDate.toLocaleDateString(),
     fdy_name: '肖章益',
     array: ['肖章益', '中国', '巴西', '日本'],
     objectArray: [
@@ -292,6 +293,7 @@ Page({
           fdy_name:this.data.fdy_name,
           newImgList: this.data.newImgList,
           rejectedState: this.data.rejectedState,
+          subDate:this.data.subDate,
         }
         console.log('data = ', data)
 
