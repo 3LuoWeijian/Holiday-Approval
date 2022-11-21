@@ -11,7 +11,7 @@
           </view>
       </view>
 </block>
-<view>近期申请进度</view>
+<!-- <view>近期申请进度</view>
 <view class='order_process'>
       <view class='process_wrap' wx:for="{{processData}}" wx:key="index">
         <view class='process'>
@@ -21,7 +21,7 @@
         </view>
         <text class='process_name'>{{item.name}}</text>      
       </view>
-</view>
+</view> -->
 
 <view class="box3">
   <view class="item" bindtap="Leave">

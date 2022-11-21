@@ -20,6 +20,7 @@ exports.main = async (event, context) => {
         stu_type: event.stu_type,
         setDate: event.setDate,
         arriveDate: event.arriveDate,
+        subDate:event.subDate,
         campus: event.campus,
         conveyance:event.conveyance,
         timeofconveyance:event.timeofconveyance,
