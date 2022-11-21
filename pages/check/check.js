@@ -20,8 +20,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    leavepeople: 'null',
-    dakapeople: 'null',
+    leavepeople: null,
+    dakapeople: null,
     type:null,
   },
 
@@ -29,12 +29,14 @@ Page({
     app.leavepeople = this.data.leavepeople
     wx.navigateTo({
       url: '/pages/L-echarts/L-echarts',
+      
     })
   },
   echarts2() {
     app.dakapeople = this.data.dakapeople
     wx.navigateTo({
       url: '/pages/D-echarts/D-echarts',
+      
     })
   },
   checkleavefdy() {
@@ -80,6 +82,7 @@ Page({
           this.setData({
             leavepeople: res.data.length
           })
+          app.leavepeople = this.data.leavepeople
 
         }
       }),
@@ -92,8 +95,12 @@ Page({
           this.setData({
             dakapeople: res.data.length
           })
+          app.dakapeople = this.data.dakapeople
+          console.log('打卡人数',app.dakapeople)
         }
       })
+
+      
   },
 
   /**

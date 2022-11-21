@@ -61,6 +61,11 @@ Page({
       url: '/pages/advice/advice',
     })
   },
+  Changepassword:function(){
+    wx.navigateTo({
+      url: '/pages/Changepassword/Changepassword',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
