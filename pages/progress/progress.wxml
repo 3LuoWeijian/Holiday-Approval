@@ -23,7 +23,7 @@
   <view class="userBox" style="height: 170rpx;" wx:else>
     <view class="user {{item.pass_fdy?'accept':'reject'}}">辅导员：{{item.pass_fdy?'已通过':'未审批'}}</view>
     <view class="academy {{item.pass_xy?'accept':'reject'}}">学院：{{item.pass_xy?'已通过':'未审批'}}</view>
-    <view class="user {{item.pass_xsc?'accept':'reject'}}">学生处：{{item.pass_xsc?'已通过':'未审批'}}</view>
+    <view class="academy {{item.pass_xsc?'accept':'reject'}}">学生处：{{item.pass_xsc?'已通过':'未审批'}}</view>
   </view>
 
 </view>

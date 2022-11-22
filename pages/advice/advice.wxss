@@ -11,7 +11,7 @@ page
   left: 55rpx;
   width: 600rpx;
   height: 500rpx;
-  box-shadow: 0rpx 0rpx 15rpx aquamarine;
+  box-shadow: 0rpx 0rpx 15rpx rgb(48, 223, 62);
   padding: 20rpx;
   margin-top: 20rpx;
   border-radius: 32rpx;
@@ -26,7 +26,7 @@ page
   height: 90rpx;
   top: 570rpx;
   left: 97rpx;
-  box-shadow: 0rpx 0rpx 5rpx aquamarine;
+  box-shadow: 2rpx 3rpx 2rpx rgb(102, 226, 185);
   margin: 30rpx;
   border-radius: 16rpx;
   color: #000;

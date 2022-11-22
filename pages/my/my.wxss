@@ -42,7 +42,7 @@ page
   position: absolute;
   left: 250rpx;
   top: 60rpx;
-  font-size: 50rpx;
+  font-size: 45rpx;
   font-weight: bolder;
   color: #fff;
 }

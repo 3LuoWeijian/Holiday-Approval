@@ -22,4 +22,6 @@
   </view>
 </view>
 
+<button bindtap="changePassWord" style="margin-top: 40rpx; color: cadetblue;">修改密码</button>
+
 <button class="tuichu" size="mini" bindtap="outLogin">退出登录</button>

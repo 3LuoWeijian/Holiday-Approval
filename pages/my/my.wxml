@@ -18,10 +18,6 @@
 		<text>我的信息</text>
 	</view>
 	<view class="box3">
-		<image src="/image/shenpi.png"></image>
-		<text>审批进度</text>
-	</view>
-	<view class="box3">
 		<image src="/image/daka.png"></image>
 		<text>打卡记录</text>
 	</view>

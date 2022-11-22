@@ -51,6 +51,12 @@ Page({
   onReady() {
 
   },
+  changePassWord(){
+    wx.navigateTo({
+      url: '/pages/Changepassword/Changepassword',
+    })
+
+  },
 
   /**
    * 生命周期函数--监听页面显示
