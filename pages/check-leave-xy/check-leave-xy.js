@@ -193,7 +193,7 @@ Page({
     let that = this
     
       db.collection('leave')
-        .orderBy('subDate', 'desc')
+        .orderBy('submitTime', 'desc')
         .where({
           pass_fdy: true,   
           //fdy_name: app.tch_name, //学生对应辅导员的功能，为了测试暂时注释掉

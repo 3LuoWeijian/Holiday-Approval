@@ -9,6 +9,20 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/leave/leave",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/BackRequest/BackRequest",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

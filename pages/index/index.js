@@ -55,12 +55,14 @@ Page({
           success: function (res) {
             console.log('成功', res);
             if (res.data.length == 1) {
+              app._id=res.data[0]._id
               app.class = res.data[0].class
               app.stu_name = res.data[0].stu_name
               app.sno = res.data[0].sno
               app.academy = res.data[0].academy
               app.phone = res.data[0].phone
-
+              app.leaveSubmitState=res.data[0].leaveSubmitState
+              app.backSubmitState=res.data[0].backSubmitState
               wx.getUserProfile({
                 desc: '完善用户信息',
                 success: res => {

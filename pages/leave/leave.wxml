@@ -4,7 +4,7 @@
   <view class="box1">
     <view class="box3">
       <text>姓名</text>
-      <view>{{stu_name}}曾家谦</view>
+      <view>{{stu_name}}</view>
       <text>学号</text>
       <view>{{sno}}</view>
       <text>班级</text>

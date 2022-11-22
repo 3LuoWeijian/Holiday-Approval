@@ -109,6 +109,7 @@ Page({
 
     console.log(data)
 
+    
     wx.cloud.callFunction({
         name: "approveLeave",
         data: data,
@@ -158,6 +159,7 @@ Page({
       index_id: this.data.leaveList[e.currentTarget.dataset.index]._id,
     }
 
+    
 
 
 
@@ -193,7 +195,7 @@ Page({
     let that = this
     
       db.collection('leave')
-        .orderBy('subDate', 'desc')
+        .orderBy('submitTime', 'desc')
         .where({
           pass_xy: true,   
           

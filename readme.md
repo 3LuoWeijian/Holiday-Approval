@@ -14,6 +14,10 @@ pass_fdy	辅导员是否审批
 pass_jwc	教务处是否审批
 pass_sj	书记是否审批
 region	地点
+leaveSubmitState 离校提交情况 类型是number 0为未提交 1为已提交
+backSubmitState 返校提交情况 类型是number 0为未提交 1为已提交
+stu_id 用于保存学生卡片的_id
+dakaSubmitState 打卡提交
 ---
 
 （1）学生离校请假

@@ -1,15 +1,13 @@
-
-
 // pages/check-leave/check-leave.js
 const db = wx.cloud.database();
-const app= getApp().appData;
+const app = getApp().appData;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    backlist:[],
+    backlist: [],
 
   },
 
@@ -19,99 +17,107 @@ Page({
   onLoad(options) {
     let that = this
     db.collection('BackRequest').where({
-	  pass_fdy:false,
-	  rejectedState:false
+      pass_fdy: false,
+      rejectedState: false
     }).get({
-      success:function(res){
-        console.log('=',res.data)
+      success: function (res) {
+        console.log('=', res.data)
         that.setData({
-          backlist:res.data
-        },()=>{ })
-       console.log('成功',that.data.backlist)
-        
+          backlist: res.data
+        }, () => {})
+        console.log('成功', that.data.backlist)
+
       }
     })
   },
 
   //通过
-  bindAgree(e){
+  bindAgree(e) {
     //获取该条记录下唯一的_id值
     wx.showLoading({
       title: '通过中...',
       mask: true
     })
     console.log(this.data.backlist[e.currentTarget.dataset.index]._id)
+    
     var data = {
-	    state:'agree',
-      pass_fdy:true,
-      index_id:this.data.backlist[e.currentTarget.dataset.index]._id,
+      state: 'agree',
+      pass_fdy: true,
+      submitState:0,//使学生的提交状态恢复为0
+      index_id: this.data.backlist[e.currentTarget.dataset.index]._id,
     }
     console.log(data)
     wx.cloud.callFunction({
-      name:"check-back",
-      data: data,
-    })
-    .then(res => {
-      console.log(res)
-      wx.hideLoading()
-      wx.showToast({
-        title: '通过成功',
-        icon: 'success',
-        duration: 2000,
-        mask: true,
+        name: "check-back",
+        data: data,
       })
-      this.onLoad()
-    })
-    .catch(err => {
-      wx.showToast({
-        title: '通过失败',
-        icon: 'none',
-        duration: 2000,
-        mask: true
+      .then(res => {
+        console.log(res)
+        wx.hideLoading()
+        wx.showToast({
+          title: '通过成功',
+          icon: 'success',
+          duration: 2000,
+          mask: true,
+        })
+       
+        this.onLoad()
       })
-      console.log("失败",err)
-    })
-    
+      .catch(err => {
+        wx.showToast({
+          title: '通过失败',
+          icon: 'none',
+          duration: 2000,
+          mask: true
+        })
+        console.log("失败", err)
+      })
+
   },
   //驳回的功能
-  bindReject(e){
-	  //获取该条记录下唯一的_id值
-	  wx.showLoading({
-		title: '驳回中...',
-		mask: true
-	  })
-	  console.log(this.data.backlist[e.currentTarget.dataset.index]._id)
-	  var data = {
-		state:'reject',
-		rejectedState:'true',
-		index_id:this.data.backlist[e.currentTarget.dataset.index]._id,
-	  }
-	  console.log(data)
-	  wx.cloud.callFunction({
-		name:"check-back",
-		data: data,
-	  })
-	  .then(res => {
-		console.log(res)
-		wx.hideLoading()
-		wx.showToast({
-		  title: '驳回成功',
-		  icon: 'success',
-		  duration: 2000,
-		  mask: true,
-		})
-		this.onLoad()
-	  })
-	  .catch(err => {
-		wx.showToast({
-		  title: '驳回失败',
-		  icon: 'none',
-		  duration: 2000,
-		  mask: true
-		})
-		console.log("失败",err)
-	  })
+  bindReject(e) {
+    //获取该条记录下唯一的_id值
+    wx.showLoading({
+      title: '驳回中...',
+      mask: true
+    })
+    console.log(this.data.backlist[e.currentTarget.dataset.index]._id)
+    
+    var data = {
+      state: 'reject',
+      submitState:0,//使学生的提交状态恢复为0
+      rejectedState: true,
+      index_id: this.data.backlist[e.currentTarget.dataset.index]._id,
+    }
+    console.log(data)
+    wx.cloud.callFunction({
+        name: "check-back",
+        data: data,
+      })
+      .then(res => {
 
+        console.log(res)
+        wx.hideLoading()
+        wx.showToast({
+          title: '驳回成功',
+          icon: 'success',
+          duration: 2000,
+          mask: true,
+        })
+        
+    
+        this.onLoad()
+      })
+      .catch(err => {
+        wx.showToast({
+          title: '驳回失败',
+          icon: 'none',
+          duration: 2000,
+          mask: true
+        })
+        console.log("失败", err)
+      })
+    
   },
 
   /**
@@ -121,25 +127,25 @@ Page({
 
   },
   /*
-     * 图片预览
-     * @param e
-     */
-    previewImg(e) {
-      let currentUrl = e.currentTarget.dataset.src;
-      console.log('无',e.currentTarget.dataset.src)
-      let urls = this.data.backlist[e.currentTarget.dataset.index].newImgList
-      console.log('zg',this.data.backlist[e.currentTarget.dataset.index].newImgList)
-      wx.previewImage({
-        current: currentUrl, // 当前显示图片的http链接
-        urls: urls // 需要预览的图片http链接列表
-      })
-    },
+   * 图片预览
+   * @param e
+   */
+  previewImg(e) {
+    let currentUrl = e.currentTarget.dataset.src;
+    console.log('无', e.currentTarget.dataset.src)
+    let urls = this.data.backlist[e.currentTarget.dataset.index].newImgList
+    console.log('zg', this.data.backlist[e.currentTarget.dataset.index].newImgList)
+    wx.previewImage({
+      current: currentUrl, // 当前显示图片的http链接
+      urls: urls // 需要预览的图片http链接列表
+    })
+  },
 
   /** 
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    
+
 
   },
 
