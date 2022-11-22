@@ -18,6 +18,7 @@
     "pages/D-echarts/D-echarts",
     "pages/advice/advice",
     "pages/progress/progress",
+    "pages/check-back/check-back",
     "pages/check-leave-fdy/check-leave-fdy",
     "pages/check-leave-xy/check-leave-xy",
     "pages/check-leave-xsc/check-leave-xsc",

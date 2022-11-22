@@ -29,8 +29,7 @@ Page({
           that.setData({
             leavelist:res.data
           },()=>{ })
-        console.log('成功0',that.data.leavelist)
-          
+        console.log('成功0',that.data.leavelist)       
         }
       })
     }
