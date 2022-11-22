@@ -269,7 +269,6 @@ Page({
   },
 
   submit: function (e) {
-<<<<<<< HEAD
     var that = this
     //提交成功的情况
     db.collection('BackRequest')
@@ -324,61 +323,6 @@ Page({
                 wx.cloud.callFunction({
                     name: "backrequest",
                     data: data,
-=======
-    if (this.data.imgList.length == 0) {
-      wx.showToast({
-        title: '请上传照片证明',
-        mask: true,
-        duration: 500,
-      })
-    } else {
-      if (this.data.imgList.length == this.data.newImgList.length) {
-        wx.showLoading({
-          title: '申请提交中...',
-          mask: true,
-        })
-        var data = {
-          stu_name: this.data.stu_name,
-          sno: this.data.sno,
-          class: this.data.class,
-          academy: this.data.academy,
-          phone: this.data.phone,
-          region: this.data.region,
-          riskRegion:this.data.riskRegion,
-          stu_type: this.data.stu_type,
-          setDate: this.data.setDate,
-          arriveDate: this.data.arriveDate,
-          campus: this.data.campus,
-          conveyance: this.data.conveyance,
-          timeofconveyance: this.data.timeofconveyance,
-          inresidence: this.data.inresidence,
-          pass_fdy: this.data.pass_fdy,
-          pass_jwc: this.data.pass_jwc,
-          pass_sj: this.data.pass_sj,
-          fdy_name:this.data.fdy_name,
-          newImgList: this.data.newImgList,
-          rejectedState: this.data.rejectedState,
-          subDate:this.data.subDate,
-        }
-        console.log('data = ', data)
-
-        wx.cloud.callFunction({
-            name: "backrequest",
-            data: data,
-          })
-          .then(res => {
-            console.log(res)
-            wx.hideLoading()
-            wx.showToast({
-              title: '提交成功',
-              icon: 'success',
-              duration: 2000,
-              mask: true,
-              success: (res) => {
-                setTimeout(() => {
-                  wx.navigateBack({
-                    delta: 1,
->>>>>>> e63fe423121269ee5fcc58397f8129b4391284dd
                   })
                   .then(res => {
                     console.log(res)

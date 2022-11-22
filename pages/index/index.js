@@ -58,13 +58,8 @@ Page({
               app.sno = res.data[0].sno
               app.academy = res.data[0].academy
               app.phone = res.data[0].phone
-<<<<<<< HEAD
-              app.leaveSubmitState=res.data[0].leaveSubmitState
-              app.backSubmitState=res.data[0].backSubmitState
-=======
               app.passWord = res.data[0].passWord
 
->>>>>>> e63fe423121269ee5fcc58397f8129b4391284dd
               wx.getUserProfile({
                 desc: '完善用户信息',
                 success: res => {
