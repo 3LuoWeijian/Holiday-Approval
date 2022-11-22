@@ -3,7 +3,6 @@
     "ec-canvas": "/ec-canvas/ec-canvas"
   },
   "pages": [
-    
     "pages/index/index",
     "pages/main/main",
     "pages/check/check",
@@ -22,7 +21,13 @@
     "pages/check-leave-xy/check-leave-xy",
     "pages/check-leave-xsc/check-leave-xsc",
     "pages/check-kecheng/check-kecheng",
+<<<<<<< HEAD
     "pages/check-back/check-back"
+=======
+    "pages/check-back/check-back",
+    "pages/Changepassword/Changepassword"
+    
+>>>>>>> e63fe423121269ee5fcc58397f8129b4391284dd
   ],
   "window": {
     "backgroundTextStyle": "light",
