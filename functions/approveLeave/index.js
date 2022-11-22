@@ -26,7 +26,7 @@ exports.main = async (event, context) => {
           check_fdy:event.check_fdy,
           check_xy:event.check_xy,
           check_xsc:event.check_xsc,
-          createTime:db.serverDate,
+          createTime:db.serverDate(),
         }
       })
       
@@ -40,10 +40,24 @@ exports.main = async (event, context) => {
           check_fdy:event.check_fdy,
           check_xy:event.check_xy,
           check_xsc:event.check_xsc,
-          createTime:db.serverDate,
+          
+          createTime:db.serverDate(),
         }
       })
       
+  }
+  if(event.state == 'withdraw'){
+    return await db.collection('leave').doc(event.index_id)
+      .update({
+        data: {
+          
+          check_fdy:event.check_fdy,
+          pass_fdy:event.pass_fdy,
+          createTime:db.serverDate(),
+
+        }
+      })
+
   }
 }
 

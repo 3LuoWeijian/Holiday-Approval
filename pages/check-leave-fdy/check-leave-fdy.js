@@ -14,7 +14,7 @@ Page({
   data: {
     leaveList: [],
     tch_type: '',
-    advice: '',
+    advice: '疫情期间，出行需遵守防疫规则',
     destination: '全部',
     checkState: false,
     select: false,
@@ -157,10 +157,6 @@ Page({
       check_fdy: true,
       index_id: this.data.leaveList[e.currentTarget.dataset.index]._id,
     }
-
-
-
-
     console.log(data)
     wx.cloud.callFunction({
         name: "approveLeave",
@@ -188,6 +184,50 @@ Page({
       })
 
   },
+  
+
+  //撤回
+  withdraw(e){
+    wx.showLoading({
+      title: '撤回中...',
+      mask: true
+    })
+    //console.log(this.data.leaveList[e.currentTarget.dataset.index]._id)
+
+    var data = {
+      state: "withdraw", 
+      pass_fdy: false,
+      check_fdy: false,
+      index_id: this.data.leaveList[e.currentTarget.dataset.index]._id,
+    }
+    console.log(data)
+    wx.cloud.callFunction({
+        name: "approveLeave",
+        data: data,
+      })
+      .then(res => {
+        console.log(res)
+        wx.hideLoading()
+        wx.showToast({
+          title: '撤回成功',
+          icon: 'success',
+          duration: 2000,
+          mask: true,
+        })
+        this.onLoad()
+      })
+      .catch(err => {
+        wx.showToast({
+          title: '撤回失败',
+          icon: 'none',
+          duration: 2000,
+          mask: true
+        })
+        console.log("失败", err)
+      })
+
+  },
+
   onLoad(options) {
 
     let that = this
