@@ -8,8 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    username: null,
-    password: null,
+    userName: null,
+    passWord: null,
     current: 1,
   },
   // 登陆注册监听
@@ -31,25 +31,22 @@ Page({
   usernameInput: function (event) {
     console.log(event.detail.value)
     this.setData({
-      username: event.detail.value
+      userName: event.detail.value
     })
   },
   passwordInput: function (event) {
     console.log(event.detail.value)
     this.setData({
-      password: event.detail.value
+      passWord: event.detail.value
     })
   },
   loginbtnInput: function () {
-    app.userinfo = {
-      username: this.data.username,
-      password: this.data.password
-    };
+
     if (app.people == 'student') {
-      
+
       db.collection('student').where({
-          sno: this.data.username,
-          passWord: this.data.password,
+          sno: this.data.userName,
+          passWord: this.data.passWord,
         })
         .get({
           success: function (res) {
@@ -60,6 +57,7 @@ Page({
               app.sno = res.data[0].sno
               app.academy = res.data[0].academy
               app.phone = res.data[0].phone
+              app.passWord = res.data[0].passWord
 
               wx.getUserProfile({
                 desc: '完善用户信息',
@@ -93,6 +91,7 @@ Page({
             } else {
               wx.showToast({
                 title: '账号或密码错误！',
+                icon:'none'
               })
             }
 
@@ -103,8 +102,8 @@ Page({
     if (app.people == 'teacher') {
     
       db.collection('teacher').where({
-          sno: this.data.username,
-          passWord: this.data.password,
+          sno: this.data.userName,
+          passWord: this.data.passWord,
         })
         .get({
           success: function (res) {
@@ -115,6 +114,7 @@ Page({
               app.sno = res.data[0].sno
               app.academy = res.data[0].academy
               app.phone = res.data[0].phone
+              app.passWord = res.data[0].passWord
               console.log(app.tch_type)
               wx.getUserProfile({
                 desc: '完善用户信息',
@@ -144,6 +144,7 @@ Page({
             } else {
               wx.showToast({
                 title: '账号或密码错误！',
+                icon:'none'
               })
             }
 
