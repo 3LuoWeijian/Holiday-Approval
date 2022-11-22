@@ -14,7 +14,8 @@ exports.main = async (event, context) => {
     return await db.collection('BackRequest').doc(event.index_id)
       .update({
         data: {
-          pass_fdy: event.pass_fdy
+          pass_fdy: event.pass_fdy,
+          submitState:event.submitState
         }
       })
   }
@@ -22,7 +23,8 @@ exports.main = async (event, context) => {
     return await db.collection('BackRequest').doc(event.index_id)
       .update({
         data: {
-          rejectedState: event.rejectedState
+          rejectedState: event.rejectedState,
+          submitState:event.submitState
         }
       })
   }

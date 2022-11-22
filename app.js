@@ -1,17 +1,23 @@
 // app.js
 App({
   appData: {
+    _id:null,
     stu_name: null,
     class: null,
     sno: 'null',
     academy: null,
     phone: null,
-    userinfo: null,
+    userName:null,
+    passWord:null,
+    userInfo: null,
     people: "student",
     leavepeople: null,
     dakapeople: null,
     tch_name: null,
     tch_type: null,
+    leaveSubmitState:null,
+    
+    backSubmitState:null,
   },
   onLaunch: function () {
     if (!wx.cloud) {

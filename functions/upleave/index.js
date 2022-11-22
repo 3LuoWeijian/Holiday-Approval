@@ -19,7 +19,7 @@ exports.main = async (event, context) => {
         pass_fdy: event.pass_fdy,
         pass_xsc: event.pass_xsc,
         pass_xy: event.pass_xy,
-        submitState: event.submitState,
+        
         rejectedState: event.rejectedState,
         
         check_fdy: event.check_fdy,
@@ -33,13 +33,14 @@ exports.main = async (event, context) => {
         returnDate: event.returnDate,
         contactName: event.contactName,
         contactPhone: event.contactPhone,
-        subDate: event.subDate,
+        submitTime: event.submitTime,
         stu_type: event.stu_type,
         campusClass: event.campusClass,
         newImgList: event.newImgList,
         riskRegion: event.riskRegion,
         fdy_name: event.fdy_name,
-        //approveState: 0,
+      
+        
       }
     })
 }

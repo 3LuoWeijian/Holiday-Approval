@@ -1,5 +1,4 @@
-<!--pages/tol-view/tol-view.wxml-->
-<progress percent="80" active-mode="forwards" show-info="true" stroke-width="20" active="true">在校人数</progress>
-<button bindtap="info">全校人数</button>
-<button>全校打卡情况</button>
+<view class="kkk">
+  <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+</view>
 

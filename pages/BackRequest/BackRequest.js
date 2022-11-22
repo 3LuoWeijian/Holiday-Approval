@@ -3,6 +3,7 @@ var myDate = new Date();
 const db = wx.cloud.database();
 var that = this;
 const app = getApp().appData;
+var util = require('util.js')
 Page({
 
   /**
@@ -14,8 +15,7 @@ Page({
     subDate:myDate.toLocaleDateString(),
     fdy_name: '肖章益',
     array: ['肖章益', '中国', '巴西', '日本'],
-    objectArray: [
-      {
+    objectArray: [{
         id: 0,
         name: '肖章益'
       },
@@ -32,8 +32,9 @@ Page({
         name: '日本'
       }
     ],
-    index:0,
+    index: 0,
     stu_name: null,
+    stu_id: null,
     sno: null,
     class: null,
     academy: null,
@@ -50,33 +51,41 @@ Page({
     newImgList: [],
     maxPhoto: 10, //最大上传10张图片
     pass_fdy: false,
-    pass_jwc: false,
-    pass_sj: false,
+    pass_xsc: false,
+    pass_xy: false,
     rejectedState: false, //是否被驳回
     riskRegion: "false", //是否为中高风险地区
+    submitTime: null,
+    submitState: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var time = util.formatTime(new Date())
     this.setData({
+      submitTime: time,
       stu_name: app.stu_name,
       class: app.class,
       sno: app.sno,
       academy: app.academy,
       phone: app.phone,
+      //stu_id:_id,
     })
+
+
+
   },
   //辅导员名字
-  bindPickerChange: function(e) {
+  bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       index: e.detail.value,
-      
+
     })
     this.setData({
-      fdy_name:this.data.objectArray[this.data.index].name
+      fdy_name: this.data.objectArray[this.data.index].name
     })
     console.log(this.data.fdy_name)
   },
@@ -260,6 +269,62 @@ Page({
   },
 
   submit: function (e) {
+<<<<<<< HEAD
+    var that = this
+    //提交成功的情况
+    db.collection('BackRequest')
+      .orderBy('submitTime', 'desc')
+      .where({
+        sno: app.sno
+      }).get({
+        success: function (res) {
+          console.log('进来了')
+          if (res.data.length == 0) {
+            console.log('在这里')
+            if (that.data.imgList.length == 0) {
+              console.log(that.data.imgList.length)
+              wx.showToast({
+                title: '请上传照片证明',
+                mask: true,
+                duration: 500,
+              })
+            } else {
+              if (that.data.imgList.length == that.data.newImgList.length) {
+                wx.showLoading({
+                  title: '申请提交中...',
+                  mask: true,
+                })
+                var data = {
+                  stu_name: that.data.stu_name,
+                  sno: that.data.sno,
+                  class: that.data.class,
+                  academy: that.data.academy,
+                  phone: that.data.phone,
+                  region: that.data.region,
+                  riskRegion: that.data.riskRegion,
+                  stu_type: that.data.stu_type,
+                  setDate: that.data.setDate,
+                  arriveDate: that.data.arriveDate,
+                  campus: that.data.campus,
+                  conveyance: that.data.conveyance,
+                  timeofconveyance: that.data.timeofconveyance,
+                  inresidence: that.data.inresidence,
+                  pass_fdy: that.data.pass_fdy,
+                  pass_xy: that.data.pass_xy,
+                  pass_xsc: that.data.pass_xsc,
+                  fdy_name: that.data.fdy_name,
+                  newImgList: that.data.newImgList,
+                  rejectedState: that.data.rejectedState,
+                  stu_id: that.data.stu_id,
+                  submitTime: that.data.submitTime,
+                  submitState: 1
+                }
+                console.log('data = ', data)
+  
+                wx.cloud.callFunction({
+                    name: "backrequest",
+                    data: data,
+=======
     if (this.data.imgList.length == 0) {
       wx.showToast({
         title: '请上传照片证明',
@@ -313,32 +378,152 @@ Page({
                 setTimeout(() => {
                   wx.navigateBack({
                     delta: 1,
+>>>>>>> e63fe423121269ee5fcc58397f8129b4391284dd
                   })
-                }, 500);
+                  .then(res => {
+                    console.log(res)
+                    wx.hideLoading()
+                    wx.showToast({
+                      title: '提交成功',
+                      icon: 'success',
+                      duration: 2000,
+                      mask: true,
+  
+                      success: (res) => {
+  
+                        setTimeout(() => {
+                          wx.navigateBack({
+                            delta: 1,
+                          })
+                        }, 500);
+  
+  
+  
+                      }
+                    })
+                  })
+                  .catch(err => {
+                    wx.showToast({
+                      title: '提交失败',
+                      icon: 'none',
+                      duration: 2000,
+                      mask: true
+                    })
+                    console.log("失败", err)
+                  })
+                wx.vibrateShort()
+              } else {
+                wx.showToast({
+                  title: '请稍等...',
+                  icon: 'loading',
+                  duration: 1000,
+                  mask: true
+                })
               }
-            })
-          })
-          .catch(err => {
+  
+            }
+          }
+          if (res.data[0].pass_fdy == false && res.data[0].rejectedState == false) {
+            console.log(that.data.imgList.length)
             wx.showToast({
-              title: '提交失败',
-              icon: 'none',
-              duration: 2000,
-              mask: true
+              title: '请勿重复提交',
+              icon:'none',
             })
-            console.log("失败", err)
-          })
-        wx.vibrateShort()
-      } else {
-        wx.showToast({
-          title: '请稍等...',
-          icon: 'loading',
-          duration: 1000,
-          mask: true
-        })
-      }
-    }
-  },
+            console.log('123')
+            return
+          }
 
+          if (that.data.imgList.length == 0) {
+            console.log(that.data.imgList.length)
+            wx.showToast({
+              title: '请上传照片证明',
+              mask: true,
+              duration: 500,
+            })
+          } else {
+            if (that.data.imgList.length == that.data.newImgList.length) {
+              wx.showLoading({
+                title: '申请提交中...',
+                mask: true,
+              })
+              var data = {
+                stu_name: that.data.stu_name,
+                sno: that.data.sno,
+                class: that.data.class,
+                academy: that.data.academy,
+                phone: that.data.phone,
+                region: that.data.region,
+                riskRegion: that.data.riskRegion,
+                stu_type: that.data.stu_type,
+                setDate: that.data.setDate,
+                arriveDate: that.data.arriveDate,
+                campus: that.data.campus,
+                conveyance: that.data.conveyance,
+                timeofconveyance: that.data.timeofconveyance,
+                inresidence: that.data.inresidence,
+                pass_fdy: that.data.pass_fdy,
+                pass_xy: that.data.pass_xy,
+                pass_xsc: that.data.pass_xsc,
+                fdy_name: that.data.fdy_name,
+                newImgList: that.data.newImgList,
+                rejectedState: that.data.rejectedState,
+                stu_id: that.data.stu_id,
+                submitTime: that.data.submitTime,
+                submitState: 1
+              }
+              console.log('data = ', data)
+
+              wx.cloud.callFunction({
+                  name: "backrequest",
+                  data: data,
+                })
+                .then(res => {
+                  console.log(res)
+                  wx.hideLoading()
+                  wx.showToast({
+                    title: '提交成功',
+                    icon: 'success',
+                    duration: 2000,
+                    mask: true,
+
+                    success: (res) => {
+
+                      setTimeout(() => {
+                        wx.navigateBack({
+                          delta: 1,
+                        })
+                      }, 500);
+
+
+
+                    }
+                  })
+                })
+                .catch(err => {
+                  wx.showToast({
+                    title: '提交失败',
+                    icon: 'none',
+                    duration: 2000,
+                    mask: true
+                  })
+                  console.log("失败", err)
+                })
+              wx.vibrateShort()
+            } else {
+              wx.showToast({
+                title: '请稍等...',
+                icon: 'loading',
+                duration: 1000,
+                mask: true
+              })
+            }
+
+          }
+
+        },
+
+      })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -8,7 +8,7 @@ const app = getApp().appData;
 const FileSystemManager = wx.getFileSystemManager()
 
 var util = require('util.js')
-Page({
+Page({  
   /**
    * 页面的初始数据
    */
@@ -29,7 +29,7 @@ Page({
     check_xy: false, //学院审核情况
     check_xsc: false, //教务处审核情况
 
-    submitState: false, //提交状态，暂时未用到
+
     rejectedState: false, //0表示未审核，1表示驳回
     checkState: false,
     nowDate: '', //今天日期
@@ -111,6 +111,8 @@ Page({
     riskRegion: "低风险",
     errmsg: "",
     advice: '', //审核意见
+    submitTime: '', //提交时间
+    stu_id: '', //用于存储该卡片的学生的_id
   },
   //辅导员名字
   bindPickerChange: function (e) {
@@ -354,94 +356,221 @@ Page({
 
 
   submit: function (e) {
+    var that = this
     var reasonLen = e.detail.value.leaveReason.length
-    if (reasonLen > 10 && (this.data.imgList.length == this.data.newImgList.length)) {
-      // console.log('form submit 事件',e.detail.value)
-      wx.showLoading({
-        title: '申请提交中...',
-        mask: true
-      })
-      var data = {
-        //sno: app.globalData.regInfo.sno,
-        stu_name: this.data.stu_name,
-        class: this.data.class,
-        academy: this.data.academy,
-        sno: this.data.sno,
+    
+    //提交成功的情况
+    var leaveReason = e.detail.value.leaveReason
+  
+    db.collection('leave')
+      .orderBy('submitTime', 'desc')
+      .where({
+        sno: app.sno
+      }).get({
+        success: function (res) {
+          console.log('集合长度',res.data.length)
+          if(res.data.length==0){ if (reasonLen > 10 && (that.data.imgList.length == that.data.newImgList.length)) {
+            // console.log('form submit 事件',e.detail.value)
+            wx.showLoading({
+              title: '申请提交中...',
+              mask: true
+            })
+            var data = {
+              //sno: app.globalData.regInfo.sno,
+              stu_name: that.data.stu_name,
+              class: that.data.class,
+              academy: that.data.academy,
+              sno: that.data.sno,
+              stu_id: that.data.stu_id, //存储该卡片学生的_id
 
-        pass_fdy: this.data.pass_fdy,
-        pass_xsc: this.data.pass_xsc,
-        pass_xy: this.data.pass_xy,
+              pass_fdy: that.data.pass_fdy,
+              pass_xsc: that.data.pass_xsc,
+              pass_xy: that.data.pass_xy,
 
-        check_fdy: this.data.check_fdy,
-        check_xy: this.data.check_xy,
-        check_xsc: this.data.check_xsc,
+              check_fdy: that.data.check_fdy,
+              check_xy: that.data.check_xy,
+              check_xsc: that.data.check_xsc,
 
-        submitState: this.data.submitState,
-        rejectedState: this.data.rejectedState,
-        checkState: this.data.checkState,
 
-        region: this.data.region,
-        leaveDate: this.data.leaveDate,
-        returnDate: this.data.returnDate,
-        contactName: this.data.contactName,
-        contactPhone: this.data.contactPhone,
+              rejectedState: that.data.rejectedState,
+              checkState: that.data.checkState,
 
-        leaveReason: e.detail.value.leaveReason,
-        subDate: this.data.nowDate,
-        leaveClass: this.data.leaveClass,
-        stu_type: this.data.stu_type,
-        campusClass: this.data.campusClass,
+              region: that.data.region,
+              leaveDate: that.data.leaveDate,
+              returnDate: that.data.returnDate,
+              contactName: that.data.contactName,
+              contactPhone: that.data.contactPhone,
 
-        newImgList: this.data.newImgList,
-        riskRegion: this.data.riskRegion,
-        fdy_name: this.data.fdy_name,
-      }
-      console.log('data = ', data)
-      wx.cloud.callFunction({
-          name: "upleave",
-          data: data
-        })
-        .then(res => {
-          // console.log(res)
-          wx.hideLoading()
-          wx.showToast({
-            title: '提交成功',
-            icon: 'success',
-            duration: 2000,
-            mask: true,
-            success: (res) => {
-              setTimeout(() => {
-                wx.navigateBack({
-                  delta: 1,
-                })
-              }, 2000);
+              leaveReason: leaveReason,
+              submitTime: that.data.submitTime,
+              leaveClass: that.data.leaveClass,
+              stu_type: that.data.stu_type,
+              campusClass: that.data.campusClass,
+
+              newImgList: that.data.newImgList,
+              riskRegion: that.data.riskRegion,
+              fdy_name: that.data.fdy_name,
+
+
             }
-          })
-        })
-        .catch(err => {
-          wx.showToast({
-            title: '提交失败',
-            icon: 'none',
-            duration: 2000,
-            mask: true
-          })
-          console.log(err)
-        })
-    } else {
-      if (reasonLen == 0) {
-        this.setData({
-          errmsg: "*请假理由为空"
-        })
-      } else if (reasonLen < 10) {
-        this.setData({
-          errmsg: "*字数少于10字，不能提交噢"
-        })
-      } else {
-        this.setData({
-          errmsg: ""
-        })
-      }
-    }
+            console.log('data = ', data)
+
+            wx.cloud.callFunction({
+                name: "upleave",
+                data: data
+              })
+              .then(res => {
+                // console.log(res)
+                wx.hideLoading()
+                wx.showToast({
+                  title: '提交成功',
+                  icon: 'success',
+                  duration: 2000,
+                  mask: true,
+                  success: (res) => {
+                    console.log('upleave调用成功')
+                    setTimeout(() => {
+                      wx.navigateBack({
+                        delta: 1,
+                      })
+                    }, 2000);
+                  }
+                })
+              })
+              .catch(err => {
+                wx.showToast({
+                  title: '提交失败',
+                  icon: 'none',
+                  duration: 2000,
+                  mask: true
+                })
+                console.log(err)
+              })
+          } else {
+            if (reasonLen == 0) {
+              this.setData({
+                errmsg: "*请假理由为空"
+              })
+            } else if (reasonLen < 10) {
+              this.setData({
+                errmsg: "*字数少于10字，不能提交噢"
+              })
+            } else {
+              this.setData({
+                errmsg: ""
+              })
+            }
+          }}
+          if (res.data[0].pass_xsc == false && res.data[0].rejectedState == false) {
+            wx.showToast({
+              title: '请勿重复提交',
+              icon:'none',
+            })
+            return
+          }
+          
+
+          if (reasonLen > 10 && (that.data.imgList.length == that.data.newImgList.length)) {
+            // console.log('form submit 事件',e.detail.value)
+            wx.showLoading({
+              title: '申请提交中...',
+              mask: true
+            })
+            var data = {
+              //sno: app.globalData.regInfo.sno,
+              stu_name: that.data.stu_name,
+              class: that.data.class,
+              academy: that.data.academy,
+              sno: that.data.sno,
+              stu_id: that.data.stu_id, //存储该卡片学生的_id
+
+              pass_fdy: that.data.pass_fdy,
+              pass_xsc: that.data.pass_xsc,
+              pass_xy: that.data.pass_xy,
+
+              check_fdy: that.data.check_fdy,
+              check_xy: that.data.check_xy,
+              check_xsc: that.data.check_xsc,
+
+
+              rejectedState: that.data.rejectedState,
+              checkState: that.data.checkState,
+
+              region: that.data.region,
+              leaveDate: that.data.leaveDate,
+              returnDate: that.data.returnDate,
+              contactName: that.data.contactName,
+              contactPhone: that.data.contactPhone,
+
+              leaveReason: leaveReason,
+              submitTime: that.data.submitTime,
+              leaveClass: that.data.leaveClass,
+              stu_type: that.data.stu_type,
+              campusClass: that.data.campusClass,
+
+              newImgList: that.data.newImgList,
+              riskRegion: that.data.riskRegion,
+              fdy_name: that.data.fdy_name,
+
+
+            }
+            console.log('data = ', data)
+
+            wx.cloud.callFunction({
+                name: "upleave",
+                data: data
+              })
+              .then(res => {
+                // console.log(res)
+                wx.hideLoading()
+                wx.showToast({
+                  title: '提交成功',
+                  icon: 'success',
+                  duration: 2000,
+                  mask: true,
+                  success: (res) => {
+                    console.log('upleave调用成功')
+                    setTimeout(() => {
+                      wx.navigateBack({
+                        delta: 1,
+                      })
+                    }, 2000);
+                  }
+                })
+              })
+              .catch(err => {
+                wx.showToast({
+                  title: '提交失败',
+                  icon: 'none',
+                  duration: 2000,
+                  mask: true
+                })
+                console.log(err)
+              })
+          } else {
+            if (reasonLen == 0) {
+              this.setData({
+                errmsg: "*请假理由为空"
+              })
+            } else if (reasonLen < 10) {
+              this.setData({
+                errmsg: "*字数少于10字，不能提交噢"
+              })
+            } else {
+              this.setData({
+                errmsg: ""
+              })
+            }
+          }
+
+
+
+        }
+      })
+
+
+
+
   },
 
 
@@ -458,15 +587,18 @@ Page({
   onLoad: function (options) {
     // leaveDate和returnDate的初始化
     var today = util.formatDay(new Date())
+    var time = util.formatTime(new Date())
     this.setData({
+      submitTime: time,
       nowDate: today,
       leaveDate: today,
       returnDate: today,
-      stu_name: app.name,
+      stu_name: app.stu_name,
       class: app.class,
       sno: app.sno,
       academy: app.academy,
       phone: app.phone,
+      stu_id: app._id,
     })
     console.log(today)
 
