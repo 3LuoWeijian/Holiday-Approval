@@ -63,10 +63,10 @@
   </view>
 </view>
 
-
+<!-- 请假类别：指定 风险地区：指定 -->
 <view class="box" wx:for="{{leaveList}}" wx:key="index" wx:for-index="childindex">
   <block wx:if="{{(destination==item.leaveClass)&&checkState==item.check_fdy&&(riskState==item.riskRegion)}}">
-    
+
     <view class="stu-info">
       <view class="banji">{{item.class}}</view>
       <view class="xingming">{{item.stu_name}}</view>
@@ -87,7 +87,7 @@
       </view>
 
       <form wx:if="{{!checkState}}" class="form" bindsubmit="bindFormSubmit">
-        <textarea class="advice" auto-focus="{{false}}" auto-height="true" bindinput="set" placeholder="请输入审批意见" name="advice" />
+        <input class="advice" bindinput="set" value="{{advice}}" type="text" auto-height="true" />
 
         <view class="yes-or-not">
           <button bindtap="rejectBtn" data-index="{{childindex}}" class="not">驳回</button>
@@ -105,9 +105,10 @@
   </block>
 </view>
 
+<!-- 请假类别：全部 风险地区：指定 -->
 <view class="box" wx:for="{{leaveList}}" wx:key="index" wx:for-index="childindex">
   <block wx:if="{{(destination=='全部')&&checkState==item.check_fdy&&(riskState==item.riskRegion)}}">
-    
+
     <view class="stu-info">
       <view class="banji">{{item.class}}</view>
       <view class="xingming">{{item.stu_name}}</view>
@@ -128,7 +129,7 @@
       </view>
 
       <form wx:if="{{!checkState}}" class="form" bindsubmit="bindFormSubmit">
-        <textarea class="advice" auto-focus="{{false}}" auto-height="true" bindinput="set" placeholder="请输入审批意见" name="advice" />
+        <input class="advice" bindinput="set" value="{{advice}}" type="text" auto-height="true" />
 
         <view class="yes-or-not">
           <button bindtap="rejectBtn" data-index="{{childindex}}" class="not">驳回</button>
@@ -146,9 +147,10 @@
   </block>
 </view>
 
+<!-- 请假类别：指定 风险地区：全部 -->
 <view class="box" wx:for="{{leaveList}}" wx:key="index" wx:for-index="childindex">
   <block wx:if="{{(destination==item.leaveClass)&&checkState==item.check_fdy&&(riskState=='全部')}}">
-    
+
     <view class="stu-info">
       <view class="banji">{{item.class}}</view>
       <view class="xingming">{{item.stu_name}}</view>
@@ -169,7 +171,7 @@
       </view>
 
       <form wx:if="{{!checkState}}" class="form" bindsubmit="bindFormSubmit">
-        <textarea class="advice" auto-focus="{{false}}" auto-height="true" bindinput="set" placeholder="请输入审批意见" name="advice" />
+        <input class="advice" bindinput="set" value="{{advice}}" type="text" auto-height="true" />
 
         <view class="yes-or-not">
           <button bindtap="rejectBtn" data-index="{{childindex}}" class="not">驳回</button>
@@ -187,9 +189,10 @@
   </block>
 </view>
 
+<!-- 请假类别：全部 风险地区：全部 -->
 <view class="box" wx:for="{{leaveList}}" wx:key="index" wx:for-index="childindex">
   <block wx:if="{{(destination=='全部')&&checkState==item.check_fdy&&(riskState=='全部')}}">
-    
+
     <view class="stu-info">
       <view class="banji">{{item.class}}</view>
       <view class="xingming">{{item.stu_name}}</view>
@@ -210,8 +213,8 @@
       </view>
 
       <form wx:if="{{!checkState}}" class="form" bindsubmit="bindFormSubmit">
-        <textarea class="advice" auto-focus="{{false}}" auto-height="true" bindinput="set" placeholder="请输入审批意见" name="advice" />
 
+        <input class="advice" bindinput="set" value="{{advice}}" type="text" auto-height="true" />
         <view class="yes-or-not">
           <button bindtap="rejectBtn" data-index="{{childindex}}" class="not">驳回</button>
           <button bindtap="passBtn" data-index="{{childindex}}" class="yes">通过</button>
@@ -222,7 +225,9 @@
         <view>审批意见：{{item.advice}}</view>
         <view wx:if="{{!item.rejectedState}}">通过</view>
         <view wx:else>驳回</view>
+        <button bindtap="withdraw" data-index="{{childindex}}" size="mini" >撤回</button>
       </form>
+   
     </view>
 
   </block>

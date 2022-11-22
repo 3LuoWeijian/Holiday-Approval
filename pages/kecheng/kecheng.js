@@ -129,7 +129,7 @@ Component({
       this.setData({
         nowDate: today,
         absenceDate: today,
-        stu_name: app.name,
+        stu_name: app.stu_name,
         class: app.class,
         sno: app.sno,
         academy: app.academy,

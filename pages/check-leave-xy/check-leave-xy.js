@@ -14,7 +14,7 @@ Page({
   data: {
     leaveList: [],
     tch_type: '',
-    advice: '',
+    advice: '疫情期间，出行需遵守防疫规则',
     destination: '全部',
     checkState: false,
     select: false,

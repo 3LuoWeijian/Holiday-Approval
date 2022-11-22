@@ -87,7 +87,7 @@
       </view>
 
       <form wx:if="{{!checkState}}" class="form" bindsubmit="bindFormSubmit">
-        <textarea class="advice" auto-focus="{{false}}" auto-height="true" bindinput="set" placeholder="请输入审批意见" name="advice" />
+        <input class="advice" bindinput="set" value="{{advice}}" type="text" auto-height="true"/>
 
         <view class="yes-or-not">
           <button bindtap="rejectBtn" data-index="{{childindex}}" class="not">驳回</button>
@@ -128,7 +128,7 @@
       </view>
 
       <form wx:if="{{!checkState}}" class="form" bindsubmit="bindFormSubmit">
-        <textarea class="advice" auto-focus="{{false}}" auto-height="true" bindinput="set" placeholder="请输入审批意见" name="advice" />
+        <input class="advice" bindinput="set" value="{{advice}}" type="text" auto-height="true"/>
 
         <view class="yes-or-not">
           <button bindtap="rejectBtn" data-index="{{childindex}}" class="not">驳回</button>
@@ -169,7 +169,7 @@
       </view>
 
       <form wx:if="{{!checkState}}" class="form" bindsubmit="bindFormSubmit">
-        <textarea class="advice" auto-focus="{{false}}" auto-height="true" bindinput="set" placeholder="请输入审批意见" name="advice" />
+        <input class="advice" bindinput="set" value="{{advice}}" type="text" auto-height="true"/>
 
         <view class="yes-or-not">
           <button bindtap="rejectBtn" data-index="{{childindex}}" class="not">驳回</button>
@@ -210,7 +210,7 @@
       </view>
 
       <form wx:if="{{!checkState}}" class="form" bindsubmit="bindFormSubmit">
-        <textarea class="advice" auto-focus="{{false}}" auto-height="true" bindinput="set" placeholder="请输入审批意见" name="advice" />
+        <input class="advice" bindinput="set" value="{{advice}}" type="text" auto-height="true"/>
 
         <view class="yes-or-not">
           <button bindtap="rejectBtn" data-index="{{childindex}}" class="not">驳回</button>
