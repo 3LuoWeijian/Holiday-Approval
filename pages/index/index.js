@@ -34,24 +34,23 @@ Page({
       userName: event.detail.value
     })
   },
-  passwordInput: function (event) {
-    console.log(event.detail.value)
+  passwordInput: function (e) {
+    console.log(e.detail.value)
     this.setData({
-      passWord: event.detail.value
+      passWord: e.detail.value
     })
   },
+
   loginbtnInput: function () {
-
     if (app.people == 'student') {
-
+      var passWord = this.data.passWord
       db.collection('student').where({
           sno: this.data.userName,
-          passWord: this.data.passWord,
         })
         .get({
           success: function (res) {
-            console.log('成功', res);
-            if (res.data.length == 1) {
+            console.log('成功进入', passWord);
+            if (res.data.length == 1 && passWord ==res.data[0].passWord) {
               app._id=res.data[0]._id
               app.class = res.data[0].class
               app.stu_name = res.data[0].stu_name
@@ -101,15 +100,14 @@ Page({
         })
     }
     if (app.people == 'teacher') {
-    
+      var passWord = this.data.passWord
       db.collection('teacher').where({
           sno: this.data.userName,
-          passWord: this.data.passWord,
         })
         .get({
           success: function (res) {
-            console.log('成功', res);
-            if (res.data.length == 1) {
+            console.log('成功进入', res);
+            if (res.data.length == 1 && passWord==res.data[0].passWord) {
               app.tch_type = res.data[0].tch_type
               app.tch_name = res.data[0].tch_name
               app.sno = res.data[0].sno

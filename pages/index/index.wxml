@@ -16,8 +16,7 @@
       <view class="login-item">
            <view class="login-item-info">密码</view>
            <view class="login-pwd">
-
-           <input style="flex-grow:1" password="true" bindtap="passwordInput"/> 
+           <input style="flex-grow:1" bindinput="passwordInput" password="true"/> 
            <text> 忘记密码 </text>
 
            </view>
@@ -33,7 +32,7 @@
            <view class="login-item-info">密码</view>
            <view class="login-pwd">
 
-           <input  style="flex-grow:1" password="true"  bindtap="passwordInput" /> 
+           <input  style="flex-grow:1" bindinput="passwordInput" password="true"/> 
            <text> 忘记密码 </text>
 
            </view>

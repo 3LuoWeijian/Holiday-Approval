@@ -36,7 +36,6 @@ Page({
     if (app.people == 'teacher') {
       this.setData({
         name: app.tch_name,
-        
         sno: app.sno,
         phone: app.phone,
         academy: app.academy

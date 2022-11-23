@@ -16,7 +16,6 @@ App({
     tch_name: null,
     tch_type: null,
     leaveSubmitState:null,
-    
     backSubmitState:null,
   },
   onLaunch: function () {
