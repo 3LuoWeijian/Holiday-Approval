@@ -50,8 +50,8 @@ Page({
         .get({
           success: function (res) {
             console.log('成功进入', passWord);
-            if (res.data.length == 1 && passWord ==res.data[0].passWord) {
-              app._id=res.data[0]._id
+            if (res.data.length == 1 && passWord == res.data[0].passWord) {
+              app._id = res.data[0]._id
               app.class = res.data[0].class
               app.stu_name = res.data[0].stu_name
               app.sno = res.data[0].sno
@@ -59,40 +59,17 @@ Page({
               app.phone = res.data[0].phone
               app.passWord = res.data[0].passWord
 
-              wx.getUserProfile({
-                desc: '完善用户信息',
-                success: res => {
-                  console.log('ok', res.userInfo);
-                  let user = res.userInfo
-                  //缓存用户信息到本地
-                  wx.setStorageSync('user', user)
-                  app.userInfo = user
-                  if (app.people == 'student') {
-                    wx.reLaunch({
-                      url: '../main/main',
-                    })
-                  }
-                },
-                fail: res => {
-                  console.log('fail', res)
-                }
-              })
+              wx.setStorageSync('userInfo', app)
 
-              if (app.people == 'student') {
-                wx.reLaunch({
-                  url: '../main/main',
-                })
-              } else {
-                wx.switchTab({
-                  url: '../check/check',
-                })
-              }
-              wx.vibrateLong();
-            } else {
-              wx.showToast({
-                title: '账号或密码错误！',
-                icon:'none'
+              wx.reLaunch({
+                url: '../main/main',
               })
+              wx.vibrateLong();
+              } else {
+                wx.showToast({
+                  title: '账号或密码错误！',
+                  icon: 'none'
+                })
             }
 
 
@@ -107,43 +84,26 @@ Page({
         .get({
           success: function (res) {
             console.log('成功进入', res);
-            if (res.data.length == 1 && passWord==res.data[0].passWord) {
+            if (res.data.length == 1 && passWord == res.data[0].passWord) {
               app.tch_type = res.data[0].tch_type
               app.tch_name = res.data[0].tch_name
               app.sno = res.data[0].sno
               app.academy = res.data[0].academy
               app.phone = res.data[0].phone
               app.passWord = res.data[0].passWord
+
+              wx.setStorageSync('userInfo', app)
               console.log(app.tch_type)
-              wx.getUserProfile({
-                desc: '完善用户信息',
-                success: res => {
-                  console.log('ok', res.userInfo);
-                  let user = res.userInfo
-                  //缓存用户信息到本地
-                  wx.setStorageSync('user', user)
-                  app.userInfo = user
-                  if (app.people == 'student') {
-                    wx.reLaunch({
-                      url: '../main/main',
-                    })
-                  }
-                },
-                fail: res => {
-                  console.log('fail', res)
-                }
+              
+              wx.switchTab({
+                url: '../check/check',
               })
 
-             
-                wx.switchTab({
-                  url: '../check/check',
-                })
-              
               wx.vibrateLong();
             } else {
               wx.showToast({
                 title: '账号或密码错误！',
-                icon:'none'
+                icon: 'none'
               })
             }
 

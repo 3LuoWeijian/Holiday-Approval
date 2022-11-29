@@ -26,7 +26,6 @@ Page({
           backlist: res.data
         }, () => {})
         console.log('成功', that.data.backlist)
-
       }
     })
   },

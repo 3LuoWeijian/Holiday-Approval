@@ -88,7 +88,16 @@ Page({
     console.log(this.data.advice)
   },
 
-
+  previewImg(e) {//预览图片
+    let currentUrl = e.currentTarget.dataset.src;
+    
+    let urls = this.data.leaveList[e.currentTarget.dataset.index].newImgList
+    console.log('zg', this.data.leaveList[e.currentTarget.dataset.index].newImgList)
+    wx.previewImage({
+      current: currentUrl, // 当前显示图片的http链接
+      urls: urls // 需要预览的图片http链接列表
+    })
+  },
   rejectBtn(e) {
 
     //获取该条记录下唯一的_id值

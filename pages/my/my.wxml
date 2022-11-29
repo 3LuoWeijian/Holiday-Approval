@@ -1,13 +1,9 @@
 <block>
   <view class="box1"></view> 
       <view class="header">
-          <view class="root" wx:if="{{!userInfo}}">
-          <button class="login_btn" size="mini" bindtap="getUserProfile" > 获取头像昵称 </button>
-          </view>
-
-          <view wx:else class="root">
-          <image bindtap="bindViewTap" class="touxiang" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-          <text class="nicheng">欢迎使用！{{userInfo.nickName}}</text>
+          <view class="root" bindtap="bindViewTap">
+          <image class="touxiang" src="{{avatarUrl}}" mode="cover"></image>
+          <text class="nicheng">欢迎使用！{{name}}</text>
           </view>
       </view> 
 </block>

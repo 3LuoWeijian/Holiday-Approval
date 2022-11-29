@@ -1,10 +1,32 @@
 <!--pages/my-info/my-info.wxml-->
-<view class="box1">
+<button bind:chooseavatar="onChooseAvatar" open-type="chooseAvatar" class="anniu" > 
+  <image class="touxiang" src="{{avatarUrl}}" mode="aspectFill"></image>
+</button>
+
+<view class="box1" wx:if="{{people=='teacher'}}">
   <view class="box2">
     <text>我的名字</text>
     <view>{{name}}</view>
   </view>
   <view class="box2">
+    <text>我的工号</text>
+    <view>{{sno}}</view>
+  </view>
+  <view class="box2">
+    <text>我的电话</text>
+    <view>{{phone}}</view>
+  </view>
+  <view class="box2">
+    <text>我的学院</text>
+    <view>{{academy}}</view>
+  </view>
+</view>
+<view class="box1" wx:if="{{people=='student'}}">
+  <view class="box2">
+    <text>我的名字</text>
+    <view>{{name}}</view>
+  </view>
+  <view class="box2" >
     <text>我的班级</text>
     <view>{{class}}</view>
   </view>

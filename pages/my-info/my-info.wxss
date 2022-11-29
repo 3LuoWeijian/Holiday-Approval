@@ -1,7 +1,21 @@
 /* pages/my-info/my-info.wxss */
+
+.anniu
+{
+  border-radius: 32rpx;
+  background-color: #fff;
+}
+.touxiang
+{
+ width: 210rpx;
+ height: 210rpx;
+ border-radius: 50%;
+ box-shadow: 2rpx 3rpx 4rpx 5rpx #efefef;
+}
 .box1
 {
-	width: 100%;
+  width: 100%;
+  margin-top: 10rpx;
 }
 .box2
 {
@@ -30,6 +44,7 @@
 {
   position: absolute;
   margin-top: 50rpx;
-  margin-left: 40%;
+  margin-left: 38%;
 }
+
 

@@ -2,6 +2,7 @@
 const db = wx.cloud.database();
 var that = this;
 const app= getApp().appData;
+const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 
 Page({
 
@@ -9,7 +10,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo:app.userInfo,
+    avatarUrl: defaultAvatarUrl,
+    name:app.stu_name,
     isLogin:'',
     processData: [{
       name: '申请提交',
@@ -42,6 +44,7 @@ Page({
       icon: '/image/check.png'
     }],
   },
+
   //进度条的状态
   setPeocessIcon: function () {
     var index = 1//记录状态为1的最后的位置
@@ -82,53 +85,23 @@ Page({
    */
   onLoad:function(options) {
     wx.hideHomeButton()
-    let user=wx.getStorageSync('user')
-    console.log('用户',user)
-    if(app.stu_name!=null)
+    var avatarUrl = wx.getStorageSync('avatarUrl')
+    if(avatarUrl!=null)
     {
-      user.nickName = app.stu_name
-    }
-    console.log('用户',user)
-    this.setData({
-    userInfo:user,
-    })
-    
-    if (wx.getUserProfile) {
       this.setData({
-        isLogin:true
+        name:app.stu_name,
+        avatarUrl:avatarUrl.avatarUrl
       })
     }
+    else{
+      this.setData({
+        name:app.stu_name,
+      })
+    }
+    
   },
-  //授权登录
-  getUserProfile(e){
-    wx.getUserProfile({
-      desc: '完善用户信息',
-      success:res=>{
-        console.log('ok',res.userInfo);
-        let user =res.userInfo
-        //缓存用户信息到本地
-        wx.setStorageSync('user', user)
-        if(app.stu_name!=null)
-        {
-          user.nickName = app.stu_name
-        }
-        this.setData({
-          userInfo:user,
-        })
-      },
-      fail:res=>{
-        console.log('fail',res)
-      }
-    })
+  
 
-  },
-//退出登录
-outLogin(){
-  this.setData({
-    userInfo:'',
-  })
-  wx.setStorageSync('user', null)
-},
   //离校申请
   Leave(){
     wx.navigateTo({
@@ -178,6 +151,7 @@ progress(){
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    this.onLoad()
 
   },
 

@@ -1,68 +1,49 @@
 // pages/my/my.js
 const db = wx.cloud.database();
 var that = this;
-const app= getApp().appData;
+const app = getApp().appData;
+const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userInfo:'',
-    isLogin:'',
-
+    avatarUrl: defaultAvatarUrl,
+    name: null,
   },
 
-  onLoad(){
-    let user=wx.getStorageSync('user')
-    console.log('用户',user)
-    if(app.tch_name!=null)
-    {
-      user.nickName = app.tch_name
-    }
-    console.log('用户',user)
-    this.setData({
-    userInfo:user,
-    })
+  onLoad() {
+    var a = wx.getStorageSync('avatarUrl')
 
-    if (wx.getUserProfile) {
+    if (a != null) {
+      console.log('here')
       this.setData({
-        isLogin:true
+        name: app.tch_name,
+        avatarUrl: a.avatarUrl
+      })
+    } else {
+      this.setData({
+        name: app.tch_name
       })
     }
-  },
-  //授权登录
-   getUserProfile(e){
-    wx.getUserProfile({
-      desc: '完善用户信息',
-      success:res=>{
-        console.log('ok',res.userInfo)
-        let user = res.userInfo
-        //缓存用户信息到本地
-        wx.setStorageSync('user', user)
-        user.nickName = app.tch_name
-        this.setData({
-          userInfo:user,
-        })
-      },
-      fail:res=>{
-        console.log('fail',res)
-      }
-    })
+
 
   },
+
   //跳转到我的信息
-  getmyinfo:function(){
+  getmyinfo: function () {
     wx.navigateTo({
       url: '/pages/my-info/my-info',
     })
   },
-  bindAdvice:function(){
+  bindAdvice: function () {
     wx.navigateTo({
       url: '/pages/advice/advice',
     })
   },
-  Changepassword:function(){
+  Changepassword: function () {
     wx.navigateTo({
       url: '/pages/Changepassword/Changepassword',
     })
@@ -79,7 +60,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+  this.onLoad()
   },
 
   /**

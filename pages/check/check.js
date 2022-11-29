@@ -73,7 +73,8 @@ Page({
     })
     var today = util.formatDay(new Date())
     db.collection('leave').where({
-        pass_xsc: true
+        pass_xsc: true,
+        fdy_name:app.tch_name
       }).get({
         success: res => {
           console.log('数据', res)
@@ -85,7 +86,8 @@ Page({
       }),
 
       db.collection('daka').where({
-        subDate: today
+        subDate: today,
+        fdy_name:app.tch_name
       }).get({
         success: res => {
           console.log('数据2', res)

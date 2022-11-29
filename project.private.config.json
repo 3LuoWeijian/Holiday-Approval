@@ -19,12 +19,13 @@
         },
         {
           "name": "",
-          "pathName": "pages/BackRequest/BackRequest",
+          "pathName": "pages/my-info/my-info",
           "query": "",
           "launchMode": "default",
           "scene": null
         }
       ]
     }
-  }
+  },
+  "libVersion": "2.27.3"
 }

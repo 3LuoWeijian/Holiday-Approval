@@ -1,19 +1,34 @@
 // pages/my-info/my-info.js
 const app = getApp().appData;
+const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    avatarUrl: defaultAvatarUrl,
     name: '无',
     class: '无',
     sno: '无',
     phone: '无',
-    academy: '无'
+    academy: '无',
+    people:app.people
   },
+
+  //选择头像
+  onChooseAvatar(e) {
+    const { avatarUrl } = e.detail 
+    this.setData({
+      avatarUrl,
+    })
+    console.log(e)
+    wx.setStorageSync('avatarUrl', e.detail)
+  },
+
   outLogin() {
-    wx.setStorageSync('user', null)
+    wx.setStorageSync('userInfo', null)
+    wx.setStorageSync('avatarUrl', null)
     wx.reLaunch({
       url: '/pages/index/index',
     })
@@ -24,23 +39,50 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    if (app.people == 'student') {
-      this.setData({
-        name: app.stu_name,
-        class: app.class,
-        sno: app.sno,
-        phone: app.phone,
-        academy: app.academy
-      })
+    var a = wx.getStorageSync('avatarUrl')
+    console.log('打印',a)
+    if(a!=null)
+    {
+      if (app.people == 'student') {
+        this.setData({
+          name: app.stu_name,
+          class: app.class,
+          sno: app.sno,
+          phone: app.phone,
+          academy: app.academy,
+          avatarUrl:a.avatarUrl
+        })
+      }
+      if (app.people == 'teacher') {
+        this.setData({
+          name: app.tch_name,
+          sno: app.sno,
+          phone: app.phone,
+          academy: app.academy,
+          avatarUrl:a.avatarUrl
+        })
+      }
     }
-    if (app.people == 'teacher') {
-      this.setData({
-        name: app.tch_name,
-        sno: app.sno,
-        phone: app.phone,
-        academy: app.academy
-      })
+    else{
+      if (app.people == 'student') {
+        this.setData({
+          name: app.stu_name,
+          class: app.class,
+          sno: app.sno,
+          phone: app.phone,
+          academy: app.academy,
+        })
+      }
+      if (app.people == 'teacher') {
+        this.setData({
+          name: app.tch_name,
+          sno: app.sno,
+          phone: app.phone,
+          academy: app.academy,
+        })
+      }
     }
+    
 
   },
 
