@@ -212,6 +212,20 @@ Page({
     })
   },
 
+  lookRiskRegion(){
+    wx.navigateToMiniProgram({
+      appId: 'wxbebb3cdd9b331046',
+      path: 'page/index/index',
+      extraData: {
+        foo: 'bar'
+      },
+      envVersion: 'develop',
+      success(res) {
+        // 打开成功
+      }
+    })
+  },
+
   textCount: function (e) {
     var len = e.detail.value.length
     if (len <= 50) {

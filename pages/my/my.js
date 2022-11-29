@@ -28,7 +28,30 @@ Page({
         name: app.tch_name
       })
     }
+<<<<<<< HEAD
 
+=======
+  },
+  //授权登录
+   getUserProfile(e){
+    wx.getUserProfile({
+      desc: '完善用户信息',
+      success:res=>{
+        console.log('ok',res.userInfo)
+        let user = res.userInfo
+        //缓存用户信息到本地
+        wx.setStorageSync('user', user)
+        user.nickName = app.tch_name
+        this.setData({
+          userInfo:user,
+        })
+      },
+      fail:res=>{
+        console.log('fail',res)
+      }
+      
+    })
+>>>>>>> 18f71a72837f7eced68e10696c7dd1583246b481
 
   },
 

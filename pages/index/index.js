@@ -58,11 +58,29 @@ Page({
               app.academy = res.data[0].academy
               app.phone = res.data[0].phone
               app.passWord = res.data[0].passWord
+<<<<<<< HEAD
 
               wx.setStorageSync('userInfo', app)
 
               wx.reLaunch({
                 url: '../main/main',
+=======
+              wx.setStorageSync('token', 1)
+              
+              let user=wx.getStorageSync('user')
+              console.log('用户123',user)
+
+              if (app.people == 'student') {
+                wx.reLaunch({
+                  url: '../main/main',
+                })
+              } 
+              wx.vibrateLong();
+            } else {
+              wx.showToast({
+                title: '账号或密码错误！',
+                icon:'none'
+>>>>>>> 18f71a72837f7eced68e10696c7dd1583246b481
               })
               wx.vibrateLong();
               } else {
@@ -94,9 +112,30 @@ Page({
 
               wx.setStorageSync('userInfo', app)
               console.log(app.tch_type)
+<<<<<<< HEAD
               
               wx.switchTab({
                 url: '../check/check',
+=======
+              wx.getUserProfile({
+                desc: '完善用户信息',
+                success: res => {
+                  console.log('ok', res.userInfo);
+                  let user = res.userInfo
+                  //缓存用户信息到本地
+                  wx.setStorageSync('user', user)
+                  console.log('用户123=',wx.getStorageSync('user'))
+                  app.userInfo = user
+                  if (app.people == 'student') {
+                    wx.reLaunch({
+                      url: '../main/main',
+                    })
+                  }
+                },
+                fail: res => {
+                  console.log('fail', res)
+                }
+>>>>>>> 18f71a72837f7eced68e10696c7dd1583246b481
               })
 
               wx.vibrateLong();

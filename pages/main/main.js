@@ -85,8 +85,14 @@ Page({
    */
   onLoad:function(options) {
     wx.hideHomeButton()
+<<<<<<< HEAD
     var avatarUrl = wx.getStorageSync('avatarUrl')
     if(avatarUrl!=null)
+=======
+    let user=wx.getStorageSync('user')
+    console.log('用户123',wx.getStorageSync('user'))
+    if(app.stu_name!=null)
+>>>>>>> 18f71a72837f7eced68e10696c7dd1583246b481
     {
       this.setData({
         name:app.stu_name,

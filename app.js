@@ -20,6 +20,10 @@ App({
     tch_type: null,
     leaveSubmitState: null,
     backSubmitState: null,
+<<<<<<< HEAD
+=======
+
+>>>>>>> 18f71a72837f7eced68e10696c7dd1583246b481
   },
   onLaunch: function () {
     if (!wx.cloud) {
@@ -30,6 +34,27 @@ App({
         traceUser: true,
       })
     }
+    let token = wx.getStorageSync('token')
+    console.log(token.sno)
+    db.collection('student').where({
+        sno: token.sno
+      })
+      .get({
+        success: function (res) {
+          app._id = res.data[0]._id
+          app.class = res.data[0].class
+          app.stu_name = res.data[0].stu_name
+          app.sno = res.data[0].sno
+          app.academy = res.data[0].academy
+          app.phone = res.data[0].phone
+          app.passWord = res.data[0].passWord
+          wx.reLaunch({
+            url: '../main/main',
+          })
+          console.log('here')
+        }
+      })
+      
     this.globalData = {}
 
 

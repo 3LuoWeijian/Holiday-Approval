@@ -77,7 +77,7 @@
         </view>
       </picker>
     </view>
-    
+    <view bindtap="lookRiskRegion"><text>查看高风险地区</text></view>
     <view>目的地是否为中高风险地区
       <radio-group class="box2" bindchange="bindRiskRegionchange">
         <radio checked="true" value="低风险">否</radio>
