@@ -75,10 +75,10 @@
     <view class="leave-info">
       <view class="leave-kind">{{item.leaveClass}}</view>
       <text class="leave-date">{{item.leaveDate}} 至 {{item.returnDate}}</text>
-      <text class="region">{{item.region}}</text>
+      <text class="region">前往 {{item.region}}</text>
       <view class="high-risk" wx:if="{{item.riskRegion=='中高风险'}}"> 目的地为中高风险地区 </view>
       <view class="low-risk" wx:else> 目的地为低风险地区 </view>
-      <view class="leave-reason">{{item.leaveReason}}</view>
+      <view class="leave-reason">请假理由：{{item.leaveReason}}</view>
 
     </view>
     <view class="box1 ">
@@ -97,8 +97,9 @@
       <form wx:if="{{checkState}}" class="form" bindsubmit="bindFormSubmit">
 
         <view>审批意见：{{item.advice}}</view>
-        <view wx:if="{{!item.rejectedState}}">通过</view>
-        <view wx:else>驳回</view>
+        <view wx:if="{{!item.rejectedState}}">审核情况：通过</view>
+        <view wx:else>审核情况：驳回</view>
+        <button bindtap="withdraw" data-index="{{childindex}}" size="mini" >撤回</button>
       </form>
     </view>
 
@@ -117,10 +118,10 @@
     <view class="leave-info">
       <view class="leave-kind">{{item.leaveClass}}</view>
       <text class="leave-date">{{item.leaveDate}} 至 {{item.returnDate}}</text>
-      <text class="region">{{item.region}}</text>
+      <text class="region">前往 {{item.region}}</text>
       <view class="high-risk" wx:if="{{item.riskRegion=='中高风险'}}"> 目的地为中高风险地区 </view>
       <view class="low-risk" wx:else> 目的地为低风险地区 </view>
-      <view class="leave-reason">{{item.leaveReason}}</view>
+      <view class="leave-reason">请假理由：{{item.leaveReason}}</view>
 
     </view>
     <view class="box1 ">
@@ -139,8 +140,9 @@
       <form wx:if="{{checkState}}" class="form" bindsubmit="bindFormSubmit">
 
         <view>审批意见：{{item.advice}}</view>
-        <view wx:if="{{!item.rejectedState}}">通过</view>
-        <view wx:else>驳回</view>
+        <view wx:if="{{!item.rejectedState}}">审核情况：通过</view>
+        <view wx:else>审核情况：驳回</view>
+        <button bindtap="withdraw" data-index="{{childindex}}" size="mini" >撤回</button>
       </form>
     </view>
 
@@ -159,10 +161,10 @@
     <view class="leave-info">
       <view class="leave-kind">{{item.leaveClass}}</view>
       <text class="leave-date">{{item.leaveDate}} 至 {{item.returnDate}}</text>
-      <text class="region">{{item.region}}</text>
+      <text class="region">前往 {{item.region}}</text>
       <view class="high-risk" wx:if="{{item.riskRegion=='中高风险'}}"> 目的地为中高风险地区 </view>
       <view class="low-risk" wx:else> 目的地为低风险地区 </view>
-      <view class="leave-reason">{{item.leaveReason}}</view>
+      <view class="leave-reason">请假理由：{{item.leaveReason}}</view>
 
     </view>
     <view class="box1 ">
@@ -181,8 +183,9 @@
       <form wx:if="{{checkState}}" class="form" bindsubmit="bindFormSubmit">
 
         <view>审批意见：{{item.advice}}</view>
-        <view wx:if="{{!item.rejectedState}}">通过</view>
-        <view wx:else>驳回</view>
+        <view wx:if="{{!item.rejectedState}}">审核情况：通过</view>
+        <view wx:else>审核情况：驳回</view>
+        <button bindtap="withdraw" data-index="{{childindex}}" size="mini" >撤回</button>
       </form>
     </view>
 
@@ -201,10 +204,10 @@
     <view class="leave-info">
       <view class="leave-kind">{{item.leaveClass}}</view>
       <text class="leave-date">{{item.leaveDate}} 至 {{item.returnDate}}</text>
-      <text class="region">{{item.region}}</text>
+      <text class="region">前往 {{item.region}}</text>
       <view class="high-risk" wx:if="{{item.riskRegion=='中高风险'}}"> 目的地为中高风险地区 </view>
       <view class="low-risk" wx:else> 目的地为低风险地区 </view>
-      <view class="leave-reason">{{item.leaveReason}}</view>
+      <view class="leave-reason">请假理由：{{item.leaveReason}}</view>
 
     </view>
     <view class="box1 ">
@@ -223,8 +226,8 @@
       <form wx:if="{{checkState}}" class="form" bindsubmit="bindFormSubmit">
 
         <view>审批意见：{{item.advice}}</view>
-        <view wx:if="{{!item.rejectedState}}">通过</view>
-        <view wx:else>驳回</view>
+        <view wx:if="{{!item.rejectedState}}">审核情况：通过</view>
+        <view wx:else>审核情况：驳回</view>
         <button bindtap="withdraw" data-index="{{childindex}}" size="mini" >撤回</button>
       </form>
    

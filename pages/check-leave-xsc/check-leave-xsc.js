@@ -190,6 +190,48 @@ Page({
       })
 
   },
+  //撤回
+  withdraw(e){
+    wx.showLoading({
+      title: '撤回中...',
+      mask: true
+    })
+    //console.log(this.data.leaveList[e.currentTarget.dataset.index]._id)
+
+    var data = {
+      state: "withdraw", 
+      pass_xsc: false,
+      check_xsc: false,
+      rejectedState:false,
+      index_id: this.data.leaveList[e.currentTarget.dataset.index]._id,
+    }
+    console.log(data)
+    wx.cloud.callFunction({
+        name: "approveLeave",
+        data: data,
+      })
+      .then(res => {
+        console.log(res)
+        wx.hideLoading()
+        wx.showToast({
+          title: '撤回成功',
+          icon: 'success',
+          duration: 2000,
+          mask: true,
+        })
+        this.onLoad()
+      })
+      .catch(err => {
+        wx.showToast({
+          title: '撤回失败',
+          icon: 'none',
+          duration: 2000,
+          mask: true
+        })
+        console.log("失败", err)
+      })
+
+  },
   onLoad(options) {
 
     let that = this
@@ -197,6 +239,7 @@ Page({
       db.collection('leave')
         .orderBy('submitTime', 'desc')
         .where({
+          pass_fdy:true,
           pass_xy: true,   
           
           //fdy_name: app.tch_name, //学生对应辅导员的功能，为了测试暂时注释掉

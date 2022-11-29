@@ -26,7 +26,7 @@ exports.main = async (event, context) => {
           check_fdy:event.check_fdy,
           check_xy:event.check_xy,
           check_xsc:event.check_xsc,
-          createTime:db.serverDate(),
+          
         }
       })
       
@@ -41,7 +41,7 @@ exports.main = async (event, context) => {
           check_xy:event.check_xy,
           check_xsc:event.check_xsc,
           
-          createTime:db.serverDate(),
+          
         }
       })
       
@@ -52,8 +52,13 @@ exports.main = async (event, context) => {
         data: {
           
           check_fdy:event.check_fdy,
+          check_xy:event.check_xy,
+          check_xsc:event.check_xsc,
+          rejectedState:event.rejectedState,
           pass_fdy:event.pass_fdy,
-          createTime:db.serverDate(),
+          pass_xy:event.pass_xy,
+          pass_xsc:event.pass_xsc,
+          
 
         }
       })

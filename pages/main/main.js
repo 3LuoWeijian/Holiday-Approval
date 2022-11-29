@@ -83,7 +83,7 @@ Page({
   onLoad:function(options) {
     wx.hideHomeButton()
     let user=wx.getStorageSync('user')
-    console.log('用户',user)
+    console.log('用户123',wx.getStorageSync('user'))
     if(app.stu_name!=null)
     {
       user.nickName = app.stu_name

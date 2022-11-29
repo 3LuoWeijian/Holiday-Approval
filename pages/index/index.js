@@ -58,35 +58,16 @@ Page({
               app.academy = res.data[0].academy
               app.phone = res.data[0].phone
               app.passWord = res.data[0].passWord
-
-              wx.getUserProfile({
-                desc: '完善用户信息',
-                success: res => {
-                  console.log('ok', res.userInfo);
-                  let user = res.userInfo
-                  //缓存用户信息到本地
-                  wx.setStorageSync('user', user)
-                  app.userInfo = user
-                  if (app.people == 'student') {
-                    wx.reLaunch({
-                      url: '../main/main',
-                    })
-                  }
-                },
-                fail: res => {
-                  console.log('fail', res)
-                }
-              })
+              wx.setStorageSync('token', 1)
+              
+              let user=wx.getStorageSync('user')
+              console.log('用户123',user)
 
               if (app.people == 'student') {
                 wx.reLaunch({
                   url: '../main/main',
                 })
-              } else {
-                wx.switchTab({
-                  url: '../check/check',
-                })
-              }
+              } 
               wx.vibrateLong();
             } else {
               wx.showToast({
@@ -122,6 +103,7 @@ Page({
                   let user = res.userInfo
                   //缓存用户信息到本地
                   wx.setStorageSync('user', user)
+                  console.log('用户123=',wx.getStorageSync('user'))
                   app.userInfo = user
                   if (app.people == 'student') {
                     wx.reLaunch({

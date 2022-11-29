@@ -104,7 +104,7 @@ float: left;
 .xingming {
   padding-left: 8rpx;
   float: left;
-  width: 115rpx;
+  width: 130rpx;
   height: 43rpx;
   display: block;
   box-sizing: border-box
@@ -202,8 +202,9 @@ float: left;
 
 .item_img {
   width: 220rpx;
+  margin-top: 10rpx;
   margin-right: 2rpx;
-  margin-bottom: 23rpx;
+  margin-bottom: 0rpx;
   padding-left: 15rpx;
 
   /* border: 1px solid #ccc; */

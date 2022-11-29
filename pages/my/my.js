@@ -48,6 +48,7 @@ Page({
       fail:res=>{
         console.log('fail',res)
       }
+      
     })
 
   },

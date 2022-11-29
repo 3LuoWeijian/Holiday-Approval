@@ -198,6 +198,7 @@ Page({
       state: "withdraw", 
       pass_fdy: false,
       check_fdy: false,
+      rejectedState:false,
       index_id: this.data.leaveList[e.currentTarget.dataset.index]._id,
     }
     console.log(data)
@@ -235,7 +236,7 @@ Page({
       db.collection('leave')
         .orderBy('submitTime', 'desc')
         .where({
-          //pass_fdy: false,   
+             
           fdy_name: app.tch_name, //学生对应辅导员的功能，为了测试暂时注释掉
         }).get({
           success: function (res) {
