@@ -22,7 +22,7 @@
 ## 设计思路
 
 > 项目总体分为学生端和教师端，学生端主要用于离校申请与健康打卡；教师端再细分为三种角色：辅导员、学院、学生处，通过权限设计对三种角色赋予不同的功能
-<div align="left"><img src="res/img/student1.png" width="250" height = "" alt="图片名称" align=center /></div>
+<div align="left"><img src="res/img/student1.png" width="270" height = "" alt="图片名称" align=center /></div>
 
 <div align="left"><img src="res/img/teacher1.png" alt="图片名称" align=center /></div>
 
